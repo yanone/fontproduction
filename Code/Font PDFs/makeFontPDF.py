@@ -11,6 +11,7 @@ from ynglib.fonts import OpenTypeFont
 from ynlib.strings import FormattedDate
 from ynlib.maths import Interpolate
 from ynlib.codepages import codepages
+from ynlib.fonts.opentypenames import *
 
 
 #####################################################################################################################################
@@ -19,6 +20,7 @@ black = Color(CMYK=[0, 0, 0, 100])
 white = Color(CMYK=[0, 0, 0, 0])
 rose = Color(RGB=[255, 105, 125])
 grayBackground = Color(CMYK=[0, 0, 0, 10])
+green = Color(hex='97BF0D')
 
 regularPath = '/Users/yanone/Schriften/Font Produktion/Fonts/NonameSans-Regular.otf'
 regular = OpenTypeFont(regularPath)
@@ -26,6 +28,13 @@ regular = OpenTypeFont(regularPath)
 PAGEMARGIN = 20
 TEXTTOP = 60
 TEXTSIZE = 10
+
+SPECIMENTEXT1 = u'''“¡ÆABCDEFGHIJKLMNOØŒPÞQRSẞTUVWXYZ!”
+»¿æabcdefghijklmnoøœpþqrsßtuvwxyz?«
+(0123)[456]{789} $€₺₹£¥ @&¶%§℮№'''
+SPECIMENTEXT2 = u'''Four furious friends fought for the phone. Auf des Fleischhauers Schild war der Abstand zwischen „Käse“ und „und“ und „und“ und „Wurst“ zu klein geraten. Tři sta třicet tři stříbrných křepelek přeletělo přes tři sta třicet tři stříbrných střech. Keksijä keksi keksin, keksin keksittyään keksijä keksi keksin keksityksi keksinnöksi.'''
+
+pageTitles = []
 
 #####################################################################################################################################
 
@@ -55,16 +64,20 @@ def makePDF(fontPath, pdfPath):
 
 	languagesPage(canvas, languageSupport)
 
+	featuresPage(canvas, ftFont, pdfFont)
+
 	codepagesPage(canvas, ftFont)
 
-	trackingPage(canvas, ftFont, pdfFont, languageSupport)
+	leadingPage(canvas, ftFont, pdfFont, languageSupport)
 
+	specimenPage(canvas, ftFont, pdfFont)
 
-
+	contactPage(canvas, ftFont, pdfFont)
 
 	canvas.Generate(DrawbotPDF(pdfPath))
 
-	Execute('gs -o "%s" -sDEVICE=pdfwrite -c "[ /PageMode /UseThumbs /View [/Fit] /PageLayout /SinglePage /DOCVIEW pdfmark"  -f "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), pdfPath))
+	call = 'gs -o "%s" -sDEVICE=pdfwrite -c "%s [ /PageMode /UseOutlines /View [/Fit] /PageLayout /SinglePage /DOCVIEW pdfmark"  -f "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), (' '.join(["[ /Title (%s) /Page %s /OUT pdfmark" % (x[1], x[0]) for x in pageTitles])), pdfPath)
+	Execute(call)
 	Execute('rm "%s"' % (pdfPath))
 	Execute('mv "%s" "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), pdfPath))
 
@@ -79,6 +92,7 @@ def titlePage(canvas, ftFont, pdfFont):
 	canvas.Rect(-2, -2, 214, 297+4, fillcolor = Color(CMYK=[0, 0, 0, 85]))
 
 	pageTitle(canvas, black, black, rose)
+	pageTitles.append([canvas.PageNumber(), 'Title page'])
 
 
 
@@ -88,18 +102,33 @@ def titlePage(canvas, ftFont, pdfFont):
 
 	centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 186, 210 - 40, 'hag', verticalCenter = 'middle')
 
-	if ftFont.fontfilepath.endswith('.otf'):
-		text = u'For the OpenType/CFF font:\n%s' % os.path.basename(ftFont.fontfilepath)
+	if ftFont.path.endswith('.otf'):
+		text = u'For the OpenType/CFF font:\n%s' % os.path.basename(ftFont.path)
 	else:
-		text = u'For the TrueType font\n%s' % os.path.basename(ftFont.fontfilepath)
+		text = u'For the TrueType font\n%s' % os.path.basename(ftFont.path)
 
 	canvas.TextArea(regular, text = text, fontsize = 16, lineheight = 19.2, x = 20, y = 261, width = 210, height = 50, fillcolor = white)
+
+
+def contactPage(canvas, ftFont, pdfFont):
+	canvas.NewPage()
+
+	pageTitles.append([canvas.PageNumber(), 'Contact'])
+
+	canvas.Rect(-2, -2, 214, 297+4, fillcolor = Color(CMYK=[0, 0, 0, 85]))
+
+	logo(canvas, rose, x = 99, y = 123)
+
+	canvas.TextArea(regular, text = 'post@yanone.de\nhttps://yanone.de\nTwitter: @yanone', fontsize = 20, lineheight = 26, x = 0, y = 133, width = 210, height = 100, align = 'center', fillcolor = white)
+	canvas.TextArea(regular, text = 'If you’ve designed something\nawesome with my fonts,\ndrop me a note!', fontsize = 10, lineheight = 13, x = 0, y = 215, width = 210, height = 100, align = 'center', fillcolor = white)
 
 
 def languagesPage(canvas, languageSupport):
 	canvas.NewPage()
 
+
 	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Language support')
+	pageTitles.append([canvas.PageNumber(), 'Language support'])
 
 	canvas.TextArea(regular, text = 'This font supports the below listed languages.\nIf your desired language is missing from the list, get in touch and we’ll see what we can do.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 2*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
 
@@ -115,6 +144,7 @@ def codepagesPage(canvas, ftFont):
 	canvas.NewPage()
 
 	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Codepage support')
+	pageTitles.append([canvas.PageNumber(), 'Codepage support'])
 
 	canvas.TextArea(regular, text = 'This font supports the below listed codepages.\nIf your desired codepage is missing from the list, get in touch and we’ll see what we can do.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 2*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
 
@@ -143,41 +173,291 @@ def codepagesPage(canvas, ftFont):
 
 
 
+def featuresPage(canvas, ftFont, pdfFont):
 
-def trackingPage(canvas, ftFont, pdfFont, languageSupport):
 	canvas.NewPage()
 
-	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Minimum tracking (line height)')
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'OpenType layout features')
+	pageTitles.append([canvas.PageNumber(), 'OpenType layout features'])
 
-	canvas.TextArea(regular, text = 'As a typesetter you’re responsible for setting not just the font size, but also the tracking (line height) of a text. When the tracking is too tight, letters of adjacent lines might collide. You can prevent this by setting the tracking to a certain percentage of the font size as a minimum.\nHowever, since different languages contain letters with different sizes, this minimum setting is not identical across languages or font designs. Below you’ll find an accurately calculated list of languages and the respective minimum tracking for each language for this particular font.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 1.7*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
+	coreTextSupportedFeatures = ['c2pc', 'c2sc', 'calt', 'case', 'cpsp', 'cswh', 'dlig', 'frac', 'liga', 'lnum', 'onum', 'ordn', 'pnum', 'rlig', 'sinf', 'smcp', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10', 'ss11', 'ss12', 'ss13', 'ss14', 'ss15', 'ss16', 'ss17', 'ss18', 'ss19', 'ss20', 'subs', 'sups', 'swsh', 'titl', 'tnum']
+	overwriteCoreTextSupportedFeatures = ['locl', 'zero', 'hist']
+	excludeFeatures = ['']
+	handledFeatures = []
 
 
-	highest, lowest, lineGap, textSize = centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 104, 210 - 4*PAGEMARGIN, u'Ärger mitten', mode = 'tracking', verticalCenter = 'top', lineColor = grayBackground)
-	highest, lowest, lineGap, textSize = centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 104 + lowest - highest, 210 - 4*PAGEMARGIN, u'in Österreich', mode = 'tracking', verticalCenter = 'top', lineColor = grayBackground, highest = highest, lowest = lowest, lineGap = lineGap, textSize = textSize)
+	y = TEXTTOP
+	maxCount = 6
+	height = 20
 
-	trackingPerLanguage = trackingPerLanguages(ftFont, languageSupport)
+	fontFeatures = ftFont.features()
+	for feature in fontFeatures:
+		if (feature in coreTextSupportedFeatures or feature in overwriteCoreTextSupportedFeatures) and not feature in excludeFeatures and not feature in handledFeatures:
+
+			# See if this feature is a duplicate of another feature
+			duplicate = None
+			featureCompareString = ftFont.featureComparisonString(feature)
+			for cf in fontFeatures:
+				if cf != feature and ftFont.featureComparisonString(cf) == featureCompareString:
+					duplicate = cf
+					break
+
+			# Name
+			featureName = OTfeatures[feature]
+			if duplicate:
+				featureName += '\n' + '(also available as ' + OTfeatures[duplicate] + ')'
+			canvas.TextArea(regular, text = featureName, fontsize = 12, x = PAGEMARGIN, y = y + 2, width = 210 - 2*PAGEMARGIN, height = 30, align = 'left', fillcolor = black)
+
+			if feature in OTfeaturesOnByDefault:
+				canvas.TextArea(regular, text = u'✓', fontsize = 16, x = PAGEMARGIN - 8, y = y+2, width = 210 - 2*PAGEMARGIN, height = 30, align = 'left', fillcolor = green)
+
+			
+			# Description
+			description = []
+			if OTfeatureDescriptions.has_key(feature):
+				description.append(OTfeatureDescriptions[feature])
+			if feature in OTfeaturesOnByDefault:
+				description.append('Normally this feature should be active by default.')
+
+			if description:
+				canvas.TextArea(regular, text = '\n'.join(description), fontsize = 8, x = PAGEMARGIN, y = y + 8 + (5.5 if duplicate else 0), width = 75, height = 20, align = 'left', fillcolor = black.lighten(.5))
+
+			sourceText = ''
+			targetText = ''
+			language = None
+
+			sourceFeaturesOff = []
+			sourceFeaturesOn = []
+			targetFeaturesOff = []
+			targetFeaturesOn = [feature]
+
+
+			if feature == 'locl':
+				if 'ROM' in ftFont.languages():
+					language = 'ro'
+					lookups = ftFont.lookupsPerFeatureScriptAndLanguage('locl', 'latn', 'ROM')
+					for lookup in lookups:
+						if lookup.Format == 1:
+							for i, key in enumerate(lookup.mapping.keys()):
+								if i <= maxCount and ftFont.glyph(key).unicode and ftFont.glyph(lookup.mapping[key]).unicode:
+									sourceText += unichr(ftFont.glyph(key).unicode)
+									targetText += unichr(ftFont.glyph(key).unicode)
+
+			if feature == 'hist':
+				lookups = ftFont.lookupsPerFeatureScriptAndLanguage('hist')
+				for lookup in lookups:
+					if lookup.Format == 1:
+						for i, key in enumerate(lookup.mapping.keys()):
+							if i <= maxCount and ftFont.glyph(key).unicode and ftFont.glyph(lookup.mapping[key]).unicode:
+								sourceText += unichr(ftFont.glyph(key).unicode)
+								targetText += unichr(ftFont.glyph(key).unicode)
+
+			if feature == 'case':
+				sourceText = u'–(A:B)'
+				targetText = u'–(A:B)'
+
+			if feature == 'frac':
+				sourceText = '3 99/166'
+				targetText = '3 99/166'
+
+			if feature == 'sinf':
+				sourceText = 'C20H25N3O'
+				targetText = 'C20H25N3O'
+
+			if feature == 'subs':
+				sourceText = 'C20H25N3O'
+				targetText = 'C20H25N3O'
+
+			if feature == 'sinf':
+				sourceText = 'C20H25N3O'
+				targetText = 'C20H25N3O'
+
+			if feature == 'sups':
+				sourceText = '120m2'
+				targetText = '120m2'
+
+			if feature == 'ordn':
+				sourceText = '1a 2o'
+				targetText = '1a 2o'
+
+			if feature == 'smcp':
+				sourceText = 'abcdef'
+				targetText = 'abcdef'
+
+			if feature == 'c2sc':
+				sourceText = 'ABCDEF'
+				targetText = 'ABCDEF'
+
+			if feature == 'lnum':
+				sourceText = '0123456789'
+				targetText = ''
+
+			if feature == 'pnum':
+				sourceText = '0123456789'
+				targetText = ''
+
+			if feature == 'onum':
+				sourceText = '0123456789'
+				targetText = ''
+
+			if feature == 'tnum':
+				sourceText = '0123456789'
+				targetText = ''
+
+			if feature == 'liga':
+				sourceText = 'fi fl'
+				targetText = 'fi fl'
+				sourceFeaturesOff = ['liga']
+
+			if feature == 'dlig':
+				sourceText = 'ff tt'
+				targetText = 'ff tt'
+
+			if feature == 'zero':
+				sourceText = '10'
+				targetText = '10'
+
+			canvas.TextArea(pdfFont, text = sourceText, fontsize = 24, x = 90, y = y, width = 50, height = 20, align = 'center', fillcolor = black, features = sourceFeaturesOn, featuresOff = sourceFeaturesOff)
+			canvas.TextArea(regular, text = u'→',       fontsize = 20, x = 140, y = y + .8, width = 10, height = 10, align = 'center', fillcolor = rose)
+			canvas.TextArea(pdfFont, text = targetText, fontsize = 24, x = 150, y = y, width = 50, height = 20, align = 'center', fillcolor = black, language = language, features = targetFeaturesOn, featuresOff = targetFeaturesOff)
+
+
+
+			y += height
+			handledFeatures.append(feature)
+			if duplicate:
+				handledFeatures.append(duplicate)
+
+		if y > 297 - 25 - height:
+
+			continueOnNextPage(canvas)
+			canvas.NewPage()
+			pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'OpenType layout features (continued)')
+			pageTitles.append([canvas.PageNumber(), '...continued'])
+			y = TEXTTOP
+
+
+#	print ftFont.defaultNumerals()
+#	print ftFont.glyphClasses()
+
+
+def continueOnNextPage(canvas):
+	canvas.TextArea(regular, text = u'continued on next page\n↓', fontsize = 14, x = 0, y = 274, width = 210, height = 20, align = 'center', fillcolor = rose)
+
+
+def specimenPage(canvas, ftFont, pdfFont):
+	canvas.NewPage()
+
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Type specimen')
+	pageTitles.append([canvas.PageNumber(), 'Type specimen'])
+
+
+
+	centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 79, 210 - 40, 'Hamburgefontsiv', verticalCenter = 'middle', lineColor = rose.lighten(.75), textColor = black, strokeWidth = 1.0)
+
+	unicodes = ftFont.unicodes()
+
+	for top, height, fontsize, lineheight in (
+		(110.5, 40, 20, 24),
+		(162.5, 32, 16, 19.2),
+		(206, 20, 12, 14.4),
+		(237, 16, 10, 12),
+		(265, 11, 8, 9.6),
+		):
+		canvas.TextArea(pdfFont, text = SPECIMENTEXT2, fontsize = fontsize, lineheight = lineheight, x = PAGEMARGIN, y = top, width = 155, height = height + 5, align = 'left', fillcolor = black)
+		canvas.TextArea(regular, text = '%s/%s pt' % (fontsize, lineheight), fontsize = 10, x = 180, y = top + 2 - top / 110.0, width = 20, height = 10, align = 'left', fillcolor = rose)
+
+
+	canvas.NewPage()
+
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'All encoded glyphs')
+	pageTitles.append([canvas.PageNumber(), 'All encoded glyphs'])
+
+
+	text = u''
+	t = []
+
+#	for u in sorted(unicodes):
+#		text += unichr(u)
+#
+#
+#		if not unicodedata.category(unichr(u)) in t:
+#			t.append(unicodedata.category(unichr(u)))
+#
+#	print t
+
+	sorted_t = ['Lu', 'Ll', 'Nd', 'No', ['Sc', 'Cn'], 'P', 'Sm', ['Sk', 'Lm'], ['So', 'Co']]
+	exclude_t = ['Cf', 'Zs', 'Mn']
+
+	unicodesPrinted = []
+	for cat in sorted_t:
+
+#		text += str(cat) + ':\n'
+		for u in sorted(unicodes):
+
+			if type(cat) == str:
+				if unicodedata.category(unichr(u)).startswith(cat):
+					text += unichr(u)
+					unicodesPrinted.append(u)
+
+			elif type(cat) == list or type(cat) == tuple:
+				if unicodedata.category(unichr(u)) in cat:
+					text += unichr(u)
+					unicodesPrinted.append(u)
+
+		text += '\n'
+
+	for u in sorted(unicodes):
+		if not u in unicodesPrinted and not unicodedata.category(unichr(u)) in exclude_t:
+			text += unichr(u)
+
+
+	canvas.TextArea(regular, text = 'This page contains all glyphs of the font that have an assigned Unicode. There are more glyphs in the font that will only show as the result of applied OpenType layout features, such as Small Capitals, different numeral sets etc.\nPlease refer the »OpenType features« page for further information.', fontsize = 10, lineheight = 12, x = PAGEMARGIN, y = TEXTTOP, width = 170, height = 50, align = 'left', fillcolor = black)
+
+	canvas.TextArea(pdfFont, text = text, fontsize = 18, lineheight = 23, x = PAGEMARGIN, y = TEXTTOP + 22, width = 170, height = 215 - 22, align = 'left', fillcolor = black)
+
+
+
+
+
+
+
+
+def leadingPage(canvas, ftFont, pdfFont, languageSupport):
+	canvas.NewPage()
+
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Minimum leading (line height)')
+	pageTitles.append([canvas.PageNumber(), 'Minimum leading'])
+
+	canvas.TextArea(regular, text = 'As a typesetter you’re responsible for setting not just the font size, but also the leading (line height) of a text. When the leading is too tight, letters of adjacent lines might collide. You can prevent this by setting the leading to a certain percentage of the font size as a minimum.\nHowever, since different languages contain letters with different sizes, this minimum setting is not identical across languages or font designs. Below you’ll find an accurately calculated list of languages and the respective minimum leading for each language for this particular font.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 1.7*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
+
+
+	highest, lowest, lineGap, textSize = centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 104, 210 - 4*PAGEMARGIN, u'Ärger mitten', mode = 'leading', verticalCenter = 'top', lineColor = grayBackground)
+	highest, lowest, lineGap, textSize = centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 104 + lowest - highest, 210 - 4*PAGEMARGIN, u'in Österreich', mode = 'leading', verticalCenter = 'top', lineColor = grayBackground, highest = highest, lowest = lowest, lineGap = lineGap, textSize = textSize)
+
+	leadingPerLanguage = leadingPerLanguages(ftFont, languageSupport)
 
 	germanTracking = 0
-	for languageName, tracking in trackingPerLanguage['Latin']:
+	for languageName, leading in leadingPerLanguage['Latin']:
 		if languageName == 'German':
-			germanTracking = tracking
+			germanTracking = leading
 			break
 
 
-	text = u'''The minimum tracking is calculated by the ratio of the highest/lowest points for each language (b for bounding box) with the fonts’ standard line height of 1000 upm units (em).
-In the above example for the German language, the ratio is b/em = %s%%. That’s the minimum tracking for lines to not collide for sure. So set your tracking to at least %s%% of the font size. For 20pt font size that’s %spt tracking.
-Please bear in mind that these are technical specifications for minium tracking and in no way represent aesthetically pleasing values. You’re the typesetter after all.
+	text = u'''The minimum leading is calculated by the ratio of the highest/lowest points for each language (b for bounding box) with the fonts’ standard line height of 1000 upm units (em).
+In the above example for the German language, the ratio is b/em = %s%%. That’s the minimum leading for lines to not collide for sure. So set your leading to at least %s%% of the font size. For 20pt font size that’s %spt leading.
+Please bear in mind that these are technical specifications for minium leading and in no way represent aesthetically pleasing values. You’re the typesetter after all.
 
-These are the minumum tracking values per language:
+These are the minimum leading values per language:
 
 ''' % (germanTracking, germanTracking, 20*germanTracking/100.0)
 
-#	text += unicode(trackingPerLanguages(ftFont, languageSupport))
+#	text += unicode(leadingPerLanguages(ftFont, languageSupport))
 
 
-	for script in trackingPerLanguage.keys():
+	for script in leadingPerLanguage.keys():
 		text += script + ' Script:\n'
-		text += ', '.join(['%s (%s%%)' % (x[0], x[1]) for x in trackingPerLanguage[script]]) + '\n\n'
+		text += ', '.join(['%s (%s%%)' % (x[0], x[1]) for x in leadingPerLanguage[script]]) + '\n\n'
 
 	canvas.TextArea(regular, text = text, fontsize = TEXTSIZE, x = PAGEMARGIN, y = lowest + 15, width = 210 - 1.7*PAGEMARGIN, height = 297 - 23 - lowest + 15, align = 'left', fillcolor = black)
 	
@@ -199,7 +479,7 @@ These are the minumum tracking values per language:
 
 
 
-def trackingPerLanguages(ftFont, supports):
+def leadingPerLanguages(ftFont, supports):
 
 	hi = 0
 	hil = None
@@ -230,12 +510,12 @@ def logotype(canvas, textcolor, logocolor):
 	canvas.Text(regular, text = 'Yanone Type', fontsize = 20, x = 36.157, y = 25.33, align = 'left', fillcolor = textcolor)
 	logo(canvas, logocolor)
 
-def logo(canvas, logocolor, position = 20):
-	canvas.Ellipse(position + .452, 17.172, 12.1, 12.1, fillcolor = white)
-	canvas.Text(regular, text = u'', fontsize = 52, x = position, y = 29.5, align = 'left', fillcolor = logocolor)
+def logo(canvas, logocolor, x = 20, y = 29.5):
+	canvas.Ellipse(x + .452, y - 12.1, 12.1, 12.1, fillcolor = white)
+	canvas.Text(regular, text = u'', fontsize = 52, x = x, y = y, align = 'left', fillcolor = logocolor)
 
 
-def centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, y, areaWidth, text, maxHeight = None, mode = 'title', verticalCenter = 'top', lineColor = None, highest = None, lowest = None, lineGap = 0, textSize = None):
+def centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, y, areaWidth, text, maxHeight = None, mode = 'title', verticalCenter = 'top', lineColor = None, highest = None, lowest = None, lineGap = 0, textSize = None, textColor = None, strokeWidth = None):
 
 	returnValue = None
 
@@ -290,9 +570,13 @@ def centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, y, areaWidth, te
 	if mode == 'title':
 		strokewidth = 5
 		fillcolor = white
-	elif mode == 'tracking':
+	elif mode == 'leading':
 		strokewidth = 5
 		fillcolor = black
+	if textColor:
+		fillcolor = textColor
+	if strokeWidth:
+		strokewidth = strokeWidth
 
 
 	if mode == 'title':
@@ -304,7 +588,7 @@ def centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, y, areaWidth, te
 
 		returnValue = [ascender, descender]
 
-	elif mode == 'tracking':
+	elif mode == 'leading':
 
 		canvas.Line(-2, baseline, 214, baseline, strokecolor = lineColor or randomColor(), strokewidth = strokewidth)
 #		canvas.Line(-2, xHeight, 214, xHeight, strokecolor = lineColor or randomColor(), strokewidth = strokewidth)
@@ -332,17 +616,17 @@ def centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, y, areaWidth, te
 		beschriftungsAbstand = (2, 1)
 
 		canvas.Arrow(PAGEMARGIN, lo - abstand, PAGEMARGIN, hi + abstand, strokecolor = rose, strokewidth = 1, beginning = True, end = True)
-		canvas.Text(regular, text = 'b', fontsize = TEXTSIZE, x = PAGEMARGIN + beschriftungsAbstand[0], y = Interpolate(hi, lo, .5) + beschriftungsAbstand[1], align = 'left', fillcolor = rose.darken(.2))
+		canvas.Text(regular, text = 'b', fontsize = TEXTSIZE, x = PAGEMARGIN + beschriftungsAbstand[0], y = Interpolate(hi, lo, .5) + beschriftungsAbstand[1], align = 'left', fillcolor = rose)
 
 		canvas.Arrow(PAGEMARGIN*1.5, lo - abstand, PAGEMARGIN*1.5, capHeight + abstand, strokecolor = rose, strokewidth = 1, beginning = True, end = True)
-		canvas.Text(regular, text = 'em', fontsize = TEXTSIZE, x = PAGEMARGIN*1.5 + beschriftungsAbstand[0], y = Interpolate(capHeight, lo, .5) + beschriftungsAbstand[1], align = 'left', fillcolor = rose.darken(.2))
+		canvas.Text(regular, text = 'em', fontsize = TEXTSIZE, x = PAGEMARGIN*1.5 + beschriftungsAbstand[0], y = Interpolate(capHeight, lo, .5) + beschriftungsAbstand[1], align = 'left', fillcolor = rose)
 
 
 		returnValue = [hi, lo, (lo - descender), textSize]
 
 	if mode == 'title':
 		y = top
-	elif mode == 'tracking':
+	elif mode == 'leading':
 		if highest and lowest:
 			y = top + lineGap
 		else:
