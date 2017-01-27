@@ -60,6 +60,7 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 	
 	# Feature Duplication
 	duplicateFeatures = [
+		['subs', 'sinf'],
 		['hist', 'ss18'],
 		['zero', 'ss19'],
 		['salt', 'ss20'],
@@ -101,11 +102,8 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		('salt', '.salt'),
 		('sups', '.sups'),
 		('subs', '.subs'),
-		('sinf', '.subs'),
 		('swsh', '.swash'),
 		('zero', '.zero'),
-
-
 		)
 	for feature, ending in directsubstitutions:
 		shoes.AddSimpleSubstitutionFeature(feature, ending)
@@ -122,6 +120,14 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		for feature, source, target, script, language, lookup, lookupflag, comment in SubstitutionsFromCSV(csvfile):
 			shoes.AddSubstitution(feature, source, target, script, language, lookupflag, comment, lookup)
 
+
+
+	#SUBS/SINF
+	for name in shoes.Glyphs():
+		if 'inferior' in name:
+			source = name.replace('inferior', '')
+			target = name
+			shoes.AddSubstitution('subs', source, target)
 
 	#LOCL
 	for name in shoes.Glyphs():
@@ -160,6 +166,13 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		if name.endswith('.sups'):
 			if unicodedata.category(unichr(int(f.glyphs[name.split('.')[0]].unicode, 16))) == 'Ll':
 				shoes.AddGlyphsToClass('@ordn_source', name.split('.')[0])
+				shoes.AddGlyphsToClass('@ordn_target', name)
+		elif name.endswith('.sups.caps'):
+			if unicodedata.category(unichr(int(f.glyphs[name.split('.')[0]].unicode, 16)).upper()) == 'Lu':
+				
+				lowercaseGlyphName = name.split('.')[0]
+				uppercaseGlyphName = f.glyphs[f.glyphs[lowercaseGlyphName].string.upper()].name
+				shoes.AddGlyphsToClass('@ordn_source', uppercaseGlyphName)
 				shoes.AddGlyphsToClass('@ordn_target', name)
 	shoes.AddSimpleSubstitutionFeature('smcp', '.caps')
 
@@ -278,29 +291,24 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 	if shoes.HasClasses('@uppercaseLetters'):
 		shoes.AddSinglePositioning('cpsp', '@uppercaseLetters', (5, 0, 10, 0))
 
-	if False:	
-		# c2sc
-		for g in shoes.GlyphsInGroup('.sc'):
-			# remove .sc
-			lowercase = shoes.SourceGlyphFromTarget(g)
-			if f.glyphs():
-				lowercaseglyph = f.glyphs[lowercase]
-	#			if lowercaseglyph.unicode:
-				if Unicode(lowercaseglyph):
-	#				lowercaseUC = FP.Unicode.Unicode(FP.Dec2HexUnicode(lowercaseglyph.unicode))
-					lowercaseUC = FP.Unicode.Unicode(Unicode(lowercaseglyph))
-					# lowercase has uppercase mapping
-					if lowercaseUC.othercase_hex_unicode:
-						uppercaseUC = FP.Unicode.Unicode(lowercaseUC.othercase_hex_unicode)
-						uppercaseglyph = f.glyphs[f.FindGlyph(Uni(uppercaseUC.hex_unicode))]
-						# source glyph not yet present (avoid duplicates with longs and idotaccent)
-						if not shoes.ClassHasGlyphs('@c2sc_source', uppercaseglyph.name):
-							shoes.AddGlyphsToClass('@c2sc_source', uppercaseglyph.name)
-							shoes.AddGlyphsToClass('@c2sc_target', g)
-		if shoes.HasClasses(('@c2sc_source', '@c2sc_target')):
-			shoes.AddSubstitution('c2sc', "@c2sc_source", '@c2sc_target')
-	
-		
+	# c2sc
+	for name in shoes.Glyphs():
+		if name.endswith('.sc') and not 'longs' in name:
+			lowercaseGlyphName = name.split('.')[0]
+			if f.glyphs[lowercaseGlyphName] and f.glyphs[lowercaseGlyphName].unicode and unicodedata.category(unichr(int(f.glyphs[lowercaseGlyphName].unicode, 16))) == 'Ll':
+				uppercaseGlyphName = f.glyphs[f.glyphs[lowercaseGlyphName].string.upper()].name
+				if shoes.HasGlyphs([uppercaseGlyphName, name]):
+					shoes.AddGlyphsToClass('@c2sc_source', uppercaseGlyphName)
+					shoes.AddGlyphsToClass('@c2sc_target', name)
+
+	if shoes.HasClasses(('@c2sc_source', '@c2sc_target')):
+		shoes.AddSubstitution('c2sc', "@c2sc_source", '@c2sc_target')
+
+	# SMCP
+	if shoes.HasClasses(('@lnum_source', '@lnum_target')):
+		shoes.AddSubstitution('smcp', "@lnum_source", '@lnum_target')
+		shoes.AddSubstitution('c2sc', "@lnum_source", '@lnum_target')
+
 	
 	# Duplicate Features
 	for source, target in duplicateFeatures:
@@ -308,7 +316,7 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		features.insert(features.index(source) + 1, target)
 		shoes.DuplicateFeature(source, target)
 
-		if OTfeatures.has_key(source):
+		if target.startswith('ss') and OTfeatures.has_key(source):
 			shoes.SetStylisticSetName(target, OTfeatures[source])
 
 	
