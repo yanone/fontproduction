@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import os, urllib
+import os, urllib, copy
 from GlyphsApp import *
 from AppKit import NSDate
 
@@ -15,23 +15,35 @@ ttfHintingPref = 'de.yanone.YNFPExport.exportTTFHinting'
 releaseDev = 'de.yanone.YNFPExport.releaseDev'
 releaseProd = 'de.yanone.YNFPExport.releaseProd'
 
+import ynFP4
+reload(ynFP4)
 import ynFP4.features
 reload(ynFP4.features)
+import ynFP4.hinting
+reload(ynFP4.hinting)
 
 devServer = 'http://192.168.56.101/yanone/'
 prodServer = 'https://yanone.de'
 upload = []
+hinting = []
 APIkey = {
 	'dev': 'BzU4zFKdXxi6mQ9MI7XP',
 	'prod': '',
 }
 
-def export(font):
+folder = '/Users/yanone/Schriften/Font Produktion/Fonts'
+hintingFolder = '/Users/yanone/Public/Hinting Test'
+
+def export(f):
+
+	font = f.copy()
+	font = f
+
+	if Glyphs.defaults[ttfHintingPref]:
+		font.save()
 
 #	Glyphs.clearLog()
 
-	folder = '/Users/yanone/Schriften/Font Produktion/Fonts'
-	hintingFolder = '/Users/yanone/Schriften/Font Produktion/Hinting Test/fonts'
 
 	# General stuff
 	font.customParameters['vendorID'] = 'YN'
@@ -52,7 +64,7 @@ def export(font):
 
 	# Set missing Unicodes to Private Use Area
 	if Glyphs.defaults[ttfHintingPref]:
-		pass
+		font = ynFP4.hinting.prepareForTrueTypeHintingTest(font)
 
 
 
@@ -90,9 +102,11 @@ def export(font):
 
 			if Glyphs.defaults[ttfHintingPref]:
 
-				path = os.path.join(hintingFolder, font.familyName.replace(' ', '') + '-' + instance.name.replace(' ', '') + '.ttf')
-				instance.generate('TTF', path)
+				path = os.path.join(hintingFolder, 'fonts', font.familyName.replace(' ', '') + '-' + instance.name.replace(' ', '') + '.ttf')
+				instance.generate('TTF', path, AutoHint = False)
 				count += 1
+
+				hinting.append(path)
 
 	if upload:
 		for destination, path, familyName, fontName in upload:
@@ -107,5 +121,13 @@ def export(font):
 			})
 			print 'Uploaded %s' % os.path.basename(path), r
 
+	# Hinting HTML
+	if hinting:
+		ynFP4.hinting.makeHintingTestPage(font, hinting, os.path.join(hintingFolder, 'hinting.html'))
+
+	if Glyphs.defaults[ttfHintingPref]:
+		path = font.filepath
+		font.close()
+		Glyphs.open(path)
 
 	return True, '%s Fonts exportiert.' % count

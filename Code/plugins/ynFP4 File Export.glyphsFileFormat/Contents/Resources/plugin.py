@@ -17,6 +17,7 @@
 
 
 from GlyphsApp.plugins import *
+import cProfile
 
 
 # Preference key names
@@ -74,14 +75,25 @@ class YNFPExport(FileFormatPlugin):
 	@objc.IBAction
 	def setExportOTF_(self, sender):
 		Glyphs.defaults[otfPref] = bool(sender.intValue())
+		if bool(sender.intValue()):
+			Glyphs.defaults[ttfHintingPref] = False
+			self.ttfHintingCheckBox.setState_(Glyphs.defaults[ttfHintingPref])
 
 	@objc.IBAction
 	def setExportTTF_(self, sender):
 		Glyphs.defaults[ttfPref] = bool(sender.intValue())
+		if bool(sender.intValue()):
+			Glyphs.defaults[ttfHintingPref] = False
+			self.ttfHintingCheckBox.setState_(Glyphs.defaults[ttfHintingPref])
 
 	@objc.IBAction
 	def setExportTTFHinting_(self, sender):
 		Glyphs.defaults[ttfHintingPref] = bool(sender.intValue())
+		if bool(sender.intValue()):
+			Glyphs.defaults[otfPref] = False
+			self.otfCheckBox.setState_(Glyphs.defaults[otfPref])
+			Glyphs.defaults[ttfPref] = False
+			self.ttfCheckBox.setState_(Glyphs.defaults[ttfPref])
 
 	@objc.IBAction
 	def setExportReleaseDev_(self, sender):
@@ -93,7 +105,9 @@ class YNFPExport(FileFormatPlugin):
 
 	def export(self, font):
 		reload(ynExport)
-		return ynExport.export(font)
+		returnValue = None
+		cProfile.runctx('returnValue = ynExport.export(font)', globals(), locals())
+		return True, 'Export successful'
 	
 	def __file__(self):
 		"""Please leave this method unchanged"""
