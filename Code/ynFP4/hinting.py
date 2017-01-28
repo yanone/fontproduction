@@ -8,14 +8,10 @@ from ynlib.fonts.fonttoolsstuff import Font
 def prepareForTrueTypeHintingTest(font):
 
 
-
 	for i, glyph in enumerate(font.copy().glyphs):
 		if not glyph.unicode:
 			u = hex(int('F0000', 16) + i).split('0x')[1]
 			font.glyphs[glyph.name].unicode = u
-#			font.glyphs.storeProductionName = True
-#			font.glyphs.productionName = 'uni%s' % u.upper()
-
 	return font
 
 
@@ -29,10 +25,15 @@ def addGlyphs(html, groupName, unicodes):
 	unicodesHtml = ''
 	for u in unicodes:
 		unicodesHtml += '&#%s;' % int(u, 16)
-
 	html += unicodesHtml
+	html += '</div>\n'
 
-	html += '</div>'
+	html += '<div id="%s" class="waterfall autohinted">' % groupName
+	unicodesHtml = ''
+	for u in unicodes:
+		unicodesHtml += '&#%s;' % int(u, 16)
+	html += unicodesHtml
+	html += '</div>\n'
 
 	return html
 
@@ -55,14 +56,16 @@ def makeHintingTestPage(glyphsFont, fontpaths, htmlpath):
 <style>'''
 
 	for font in fonts:
-		html += '@font-face { font-family: "%s"; src: url("fonts/%s.ttf"); format(TrueType); }' % (font.postScriptName, font.postScriptName)
+		html += '@font-face { font-family: "%s"; src: url("fonts/%s.ttf"); format(TrueType); }\n' % (font.postScriptName, font.postScriptName)
+		html += '@font-face { font-family: "%s"; src: url("fonts/%s.ttf"); format(TrueType); }\n' % (font.postScriptName + '-Autohinted', font.postScriptName + '.autohinted')
 
-	html += '.waterfall { font-family: "%s"; }'	% fonts[0].postScriptName
+	html += '.waterfall { font-family: "%s"; font-size: 12px; line-height: 15.6px; }'	% fonts[0].postScriptName
+	html += '.waterfall.autohinted { font-family: "%s-Autohinted"; }'	% fonts[0].postScriptName
 
 	html += '''</style>
 <script type="text/javascript">
 
-fontSize = 10;
+fontSize = 12;
 
 document.addEventListener('keydown', function(event) {
     console.log(event.keyCode);
@@ -112,10 +115,10 @@ function show(name) {
 <body>
 <div id="header" class="clear">
 	<div id="fontSize" class="floatleft selector">
-		10px
+		12px
 	</div>
 	<div id="fonts" class="floatleft">
-		<select onclick="$('.waterfall').css('font-family', $(this).val());">'''
+		<select onclick="$('.waterfall').css('font-family', $(this).val()); $('.waterfall.autohinted').css('font-family', $(this).val() + '-Autohinted');">'''
 	
 	for font in fonts:
 		html += '<option value="%s">%s</option>' % (font.postScriptName, font.postScriptName)

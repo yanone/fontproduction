@@ -36,13 +36,12 @@ hintingFolder = '/Users/yanone/Public/Hinting Test'
 
 def export(f):
 
+
 	font = f.copy()
-	font = f
 
-	if Glyphs.defaults[ttfHintingPref]:
-		font.save()
+	font.disableUpdateInterface()
 
-#	Glyphs.clearLog()
+	Glyphs.clearLog()
 
 
 	# General stuff
@@ -66,12 +65,15 @@ def export(f):
 	if Glyphs.defaults[ttfHintingPref]:
 		font = ynFP4.hinting.prepareForTrueTypeHintingTest(font)
 
-
+#	if Glyphs.defaults[ttfHintingPref]:
+#		masters = font.masters
+#		masters = [masters[1], masters[0], masters[2]]
+#		font.masters = masters	
 
 	count = 0
 	for instance in font.instances:
 
-
+		instance.setFont_(font)
 
 		if instance.active:
 			
@@ -104,6 +106,7 @@ def export(f):
 
 				path = os.path.join(hintingFolder, 'fonts', font.familyName.replace(' ', '') + '-' + instance.name.replace(' ', '') + '.ttf')
 				instance.generate('TTF', path, AutoHint = False)
+				instance.generate('TTF', path.replace('.ttf', '.autohinted.ttf'), AutoHint = True)
 				count += 1
 
 				hinting.append(path)
@@ -125,9 +128,6 @@ def export(f):
 	if hinting:
 		ynFP4.hinting.makeHintingTestPage(font, hinting, os.path.join(hintingFolder, 'hinting.html'))
 
-	if Glyphs.defaults[ttfHintingPref]:
-		path = font.filepath
-		font.close()
-		Glyphs.open(path)
+	#font.enableUpdateInterface()
 
 	return True, '%s Fonts exportiert.' % count
