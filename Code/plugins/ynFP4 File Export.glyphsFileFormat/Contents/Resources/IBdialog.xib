@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="YNFPExport">
             <connections>
                 <outlet property="dialog" destination="1" id="MPO-4r-saU"/>
+                <outlet property="makePDFsCheckBox" destination="6bg-Wo-WmX" id="oIa-SY-BdZ"/>
                 <outlet property="otfCheckBox" destination="071-yI-GZH" id="9Sz-7a-iYU"/>
                 <outlet property="releaseDevCheckBox" destination="fBz-5w-v7D" id="oW7-Vr-giw"/>
                 <outlet property="releaseProdCheckBox" destination="912-s4-w6n" id="yDi-Mo-aMC"/>
@@ -20,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="430" height="149"/>
             <subviews>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="071-yI-GZH">
-                    <rect key="frame" x="18" y="113" width="84" height="18"/>
+                    <rect key="frame" x="18" y="91" width="84" height="18"/>
                     <buttonCell key="cell" type="check" title="OpenType" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="C7D-yc-mHu">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -30,7 +31,7 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ll1-17-Hli">
-                    <rect key="frame" x="18" y="93" width="78" height="18"/>
+                    <rect key="frame" x="18" y="71" width="78" height="18"/>
                     <buttonCell key="cell" type="check" title="TrueType" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="RP6-G3-zPu">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -40,7 +41,7 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P0E-UG-p1c">
-                    <rect key="frame" x="18" y="73" width="155" height="18"/>
+                    <rect key="frame" x="18" y="51" width="155" height="18"/>
                     <buttonCell key="cell" type="check" title="TrueType Hinting Test" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="F7b-ki-GEm">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
@@ -50,8 +51,8 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fBz-5w-v7D">
-                    <rect key="frame" x="196" y="113" width="216" height="18"/>
-                    <buttonCell key="cell" type="check" title="Release to development server" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bUt-eN-YiC">
+                    <rect key="frame" x="196" y="91" width="216" height="18"/>
+                    <buttonCell key="cell" type="check" title="to development server" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bUt-eN-YiC">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -60,13 +61,47 @@
                     </connections>
                 </button>
                 <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="912-s4-w6n">
-                    <rect key="frame" x="196" y="93" width="216" height="18"/>
-                    <buttonCell key="cell" type="check" title="Release to production server" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gUQ-b5-yzi">
+                    <rect key="frame" x="196" y="71" width="216" height="18"/>
+                    <buttonCell key="cell" type="check" title="to production server" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gUQ-b5-yzi">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
                         <action selector="setExportReleaseProd:" target="-2" id="YX0-lE-10C"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NbM-Td-BEh">
+                    <rect key="frame" x="18" y="115" width="54" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Formats" id="Yt7-M4-UF6">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jKK-yT-r4w">
+                    <rect key="frame" x="196" y="115" width="52" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Release" id="9RQ-0P-yCC">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qfd-sB-pJy">
+                    <rect key="frame" x="196" y="35" width="42" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Extras" id="gEi-hw-bWb">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bg-Wo-WmX">
+                    <rect key="frame" x="196" y="11" width="216" height="18"/>
+                    <buttonCell key="cell" type="check" title="Font PDFs" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Wec-c4-GqQ">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="setMakePDFs:" target="-2" id="cYM-lw-mgf"/>
                     </connections>
                 </button>
             </subviews>

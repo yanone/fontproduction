@@ -25,6 +25,7 @@ import cProfile
 otfPref = 'de.yanone.YNFPExport.exportOTF'
 ttfPref = 'de.yanone.YNFPExport.exportTTF'
 ttfHintingPref = 'de.yanone.YNFPExport.exportTTFHinting'
+makePDFs = 'de.yanone.YNFPExport.makePDFs'
 releaseDev = 'de.yanone.YNFPExport.releaseDev'
 releaseProd = 'de.yanone.YNFPExport.releaseProd'
 
@@ -37,10 +38,11 @@ class YNFPExport(FileFormatPlugin):
 	# The NSView object from the User Interface. Keep this here!
 	dialog = objc.IBOutlet()
 	
-	# Example variables. You may delete them
+	# Example variables.
 	otfCheckBox = objc.IBOutlet()
 	ttfCheckBox = objc.IBOutlet()
 	ttfHintingCheckBox = objc.IBOutlet()
+	makePDFsCheckBox = objc.IBOutlet()
 	releaseDevCheckBox = objc.IBOutlet()
 	releaseProdCheckBox = objc.IBOutlet()
 	
@@ -60,6 +62,8 @@ class YNFPExport(FileFormatPlugin):
 			Glyphs.defaults[ttfPref] = False
 		if Glyphs.defaults[ttfHintingPref] == None:
 			Glyphs.defaults[ttfHintingPref] = False
+		if Glyphs.defaults[makePDFs] == None:
+			Glyphs.defaults[makePDFs] = False
 		if Glyphs.defaults[releaseDev] == None:
 			Glyphs.defaults[releaseDev] = False
 		if Glyphs.defaults[releaseProd] == None:
@@ -69,6 +73,7 @@ class YNFPExport(FileFormatPlugin):
 		self.otfCheckBox.setState_(Glyphs.defaults[otfPref])
 		self.ttfCheckBox.setState_(Glyphs.defaults[ttfPref])
 		self.ttfHintingCheckBox.setState_(Glyphs.defaults[ttfHintingPref])
+		self.makePDFsCheckBox.setState_(Glyphs.defaults[makePDFs])
 		self.releaseDevCheckBox.setState_(Glyphs.defaults[releaseDev])
 		self.releaseProdCheckBox.setState_(Glyphs.defaults[releaseProd])
 
@@ -90,24 +95,80 @@ class YNFPExport(FileFormatPlugin):
 	def setExportTTFHinting_(self, sender):
 		Glyphs.defaults[ttfHintingPref] = bool(sender.intValue())
 		if bool(sender.intValue()):
+
+			# Turn off release
+			Glyphs.defaults[releaseDev] = False
+			self.releaseDevCheckBox.setState_(Glyphs.defaults[releaseDev])
+			Glyphs.defaults[releaseProd] = False
+			self.releaseProdCheckBox.setState_(Glyphs.defaults[releaseProd])
+
+			# Turn off TTF and OTF
 			Glyphs.defaults[otfPref] = False
 			self.otfCheckBox.setState_(Glyphs.defaults[otfPref])
 			Glyphs.defaults[ttfPref] = False
 			self.ttfCheckBox.setState_(Glyphs.defaults[ttfPref])
 
+			# Turn off PDFs
+			Glyphs.defaults[makePDFs] = False
+			self.makePDFsCheckBox.setState_(Glyphs.defaults[makePDFs])
+
+	@objc.IBAction
+	def setMakePDFs_(self, sender):
+		Glyphs.defaults[makePDFs] = bool(sender.intValue())
+
 	@objc.IBAction
 	def setExportReleaseDev_(self, sender):
 		Glyphs.defaults[releaseDev] = bool(sender.intValue())
+
+		if bool(sender.intValue()):
+
+			# Turn off PROD
+			Glyphs.defaults[releaseProd] = False
+			self.releaseProdCheckBox.setState_(Glyphs.defaults[releaseProd])
+
+			# Turn on TTF and OTF
+			Glyphs.defaults[otfPref] = True
+			Glyphs.defaults[ttfPref] = True
+			self.otfCheckBox.setState_(Glyphs.defaults[otfPref])
+			self.ttfCheckBox.setState_(Glyphs.defaults[ttfPref])
+
+			# Turn off TTF hinting test
+			Glyphs.defaults[ttfHintingPref] = False
+			self.ttfHintingCheckBox.setState_(Glyphs.defaults[ttfHintingPref])
+
+			# Turn on PDFs
+			Glyphs.defaults[makePDFs] = True
+			self.makePDFsCheckBox.setState_(Glyphs.defaults[makePDFs])
 
 	@objc.IBAction
 	def setExportReleaseProd_(self, sender):
 		Glyphs.defaults[releaseProd] = bool(sender.intValue())
 
+		if bool(sender.intValue()):
+
+			# Turn off DEV
+			Glyphs.defaults[releaseDev] = False
+			self.releaseDevCheckBox.setState_(Glyphs.defaults[releaseDev])
+
+			# Turn on TTF and OTF
+			Glyphs.defaults[otfPref] = True
+			Glyphs.defaults[ttfPref] = True
+			self.otfCheckBox.setState_(Glyphs.defaults[otfPref])
+			self.ttfCheckBox.setState_(Glyphs.defaults[ttfPref])
+
+			# Turn off TTF hinting test
+			Glyphs.defaults[ttfHintingPref] = False
+			self.ttfHintingCheckBox.setState_(Glyphs.defaults[ttfHintingPref])
+
+			# Turn on PDFs
+			Glyphs.defaults[makePDFs] = True
+			self.makePDFsCheckBox.setState_(Glyphs.defaults[makePDFs])
+
 	def export(self, font):
 		reload(ynExport)
-		returnValue = None
-		cProfile.runctx('returnValue = ynExport.export(font)', globals(), locals())
-		return True, 'Export successful'
+		success, message = ynExport.export(font)
+		#cProfile.runctx('success, message = ynExport.export(font)', globals(), locals())
+		return success, message
 	
 	def __file__(self):
 		"""Please leave this method unchanged"""

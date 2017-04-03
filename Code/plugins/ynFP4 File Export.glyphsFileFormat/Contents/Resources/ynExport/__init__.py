@@ -8,10 +8,12 @@ import ynlib.web
 reload(ynlib.web)
 
 from ynlib.web import GetHTTP, PostHTTP, PostFiles
+from ynlib.system import Execute
 
 otfPref = 'de.yanone.YNFPExport.exportOTF'
 ttfPref = 'de.yanone.YNFPExport.exportTTF'
 ttfHintingPref = 'de.yanone.YNFPExport.exportTTFHinting'
+makePDFs = 'de.yanone.YNFPExport.makePDFs'
 releaseDev = 'de.yanone.YNFPExport.releaseDev'
 releaseProd = 'de.yanone.YNFPExport.releaseProd'
 
@@ -78,7 +80,7 @@ def export(f):
 		if instance.active:
 			
 
-
+			# OTF
 
 			if Glyphs.defaults[otfPref]:
 
@@ -91,6 +93,25 @@ def export(f):
 				if Glyphs.defaults[releaseProd]:
 					upload.append(['prod', path, font.familyName, instance.name])
 
+				# PDFs
+
+				if Glyphs.defaults[makePDFs]:
+					if os.path.exists(path + '.pdf'):
+						os.remove(path + '.pdf')
+					python = Execute('which python')
+					call = "%s /Users/yanone/Schriften/fontproduction.git/Code/Font\ PDFs/makeFontPDF.py %s %s" % (python, path.replace(' ', '\ '), (path + '.pdf').replace(' ', '\ '))
+					Execute(call)
+					if os.path.exists(path + '.pdf'):
+						if Glyphs.defaults[releaseDev]:
+							upload.append(['dev', path + '.pdf', font.familyName, instance.name])
+						if Glyphs.defaults[releaseProd]:
+							upload.append(['prod', path + '.pdf', font.familyName, instance.name])
+					else:
+						return False, 'Problems creating PDF for %s' % (os.path.basename(path))
+
+
+			# TTF
+
 			if Glyphs.defaults[ttfPref]:
 
 				path = os.path.join(folder, font.familyName.replace(' ', '') + '-' + instance.name.replace(' ', '') + '.ttf')
@@ -101,6 +122,22 @@ def export(f):
 					upload.append(['dev', path, font.familyName, instance.name])
 				if Glyphs.defaults[releaseProd]:
 					upload.append(['prod', path, font.familyName, instance.name])
+
+				# PDFs
+
+				if Glyphs.defaults[makePDFs]:
+					if os.path.exists(path + '.pdf'):
+						os.remove(path + '.pdf')
+					python = Execute('which python')
+					call = '%s "/Users/yanone/Schriften/fontproduction.git/Code/Font PDFs/makeFontPDF.py" "%s" "%s"' % (python, path, path + '.pdf')
+					Execute(call)
+					if os.path.exists(path + '.pdf'):
+						if Glyphs.defaults[releaseDev]:
+							upload.append(['dev', path + '.pdf', font.familyName, instance.name])
+						if Glyphs.defaults[releaseProd]:
+							upload.append(['prod', path + '.pdf', font.familyName, instance.name])
+					else:
+						return False, 'Problems creating PDF for %s' % (os.path.basename(path))
 
 			if Glyphs.defaults[ttfHintingPref]:
 

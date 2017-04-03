@@ -53,7 +53,7 @@ def makePDF(fontPath, pdfPath):
 	import json
 	
 	startTime = time.time()
-	languageSupport = json.loads(GetHTTP('http://192.168.56.101/yanone/?page=calculateLanguagesForUnicodes&unicodes=%s' % ','.join(map(str, ftFont.unicodes()))))
+	languageSupport = json.loads(GetHTTP('http://192.168.56.101/yanone/?page=calculateLanguagesForUnicodes&APIkey=BzU4zFKdXxi6mQ9MI7XP&unicodes=%s' % ','.join(map(str, ftFont.unicodes()))))
 #	print 'http time: %ss' % (time.time() - startTime)
 #	print languageSupport
 
@@ -76,7 +76,7 @@ def makePDF(fontPath, pdfPath):
 
 	canvas.Generate(DrawbotPDF(pdfPath))
 
-	call = 'gs -o "%s" -sDEVICE=pdfwrite -c "%s [ /PageMode /UseOutlines /View [/Fit] /PageLayout /SinglePage /DOCVIEW pdfmark"  -f "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), (' '.join(["[ /Title (%s) /Page %s /OUT pdfmark" % (x[1], x[0]) for x in pageTitles])), pdfPath)
+	call = '/opt/local/bin/gs -o "%s" -sDEVICE=pdfwrite -c "%s [ /PageMode /UseOutlines /View [/Fit] /PageLayout /SinglePage /DOCVIEW pdfmark" -f "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), (' '.join(["[ /Title (%s) /Page %s /OUT pdfmark" % (x[1], x[0]) for x in pageTitles])), pdfPath)
 	Execute(call)
 	Execute('rm "%s"' % (pdfPath))
 	Execute('mv "%s" "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), pdfPath))
@@ -92,7 +92,7 @@ def titlePage(canvas, ftFont, pdfFont):
 	canvas.Rect(-2, -2, 214, 297+4, fillcolor = Color(CMYK=[0, 0, 0, 85]))
 
 	pageTitle(canvas, black, black, rose)
-	pageTitles.append([canvas.PageNumber(), 'Title page'])
+	pageTitles.append([canvas.PageNumber(), 'Title Page'])
 
 
 
@@ -127,8 +127,8 @@ def languagesPage(canvas, languageSupport):
 	canvas.NewPage()
 
 
-	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Language support')
-	pageTitles.append([canvas.PageNumber(), 'Language support'])
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Language Support')
+	pageTitles.append([canvas.PageNumber(), 'Language Support'])
 
 	canvas.TextArea(regular, text = 'This font supports the below listed languages.\nIf your desired language is missing from the list, get in touch and we’ll see what we can do.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 2*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
 
@@ -143,8 +143,8 @@ def languagesPage(canvas, languageSupport):
 def codepagesPage(canvas, ftFont):
 	canvas.NewPage()
 
-	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Codepage support')
-	pageTitles.append([canvas.PageNumber(), 'Codepage support'])
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Codepage Support')
+	pageTitles.append([canvas.PageNumber(), 'Codepage Support'])
 
 	canvas.TextArea(regular, text = 'This font supports the below listed codepages.\nIf your desired codepage is missing from the list, get in touch and we’ll see what we can do.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 2*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
 
@@ -177,8 +177,8 @@ def featuresPage(canvas, ftFont, pdfFont):
 
 	canvas.NewPage()
 
-	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'OpenType layout features')
-	pageTitles.append([canvas.PageNumber(), 'OpenType layout features'])
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'OpenType Layout Features')
+	pageTitles.append([canvas.PageNumber(), 'OpenType Layout Features'])
 
 	coreTextSupportedFeatures = ['c2pc', 'c2sc', 'calt', 'case', 'cpsp', 'cswh', 'dlig', 'frac', 'liga', 'lnum', 'onum', 'ordn', 'pnum', 'rlig', 'sinf', 'smcp', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10', 'ss11', 'ss12', 'ss13', 'ss14', 'ss15', 'ss16', 'ss17', 'ss18', 'ss19', 'ss20', 'subs', 'sups', 'swsh', 'titl', 'tnum']
 	overwriteCoreTextSupportedFeatures = ['locl', 'zero', 'hist']
@@ -332,7 +332,7 @@ def featuresPage(canvas, ftFont, pdfFont):
 
 			continueOnNextPage(canvas)
 			canvas.NewPage()
-			pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'OpenType layout features (continued)')
+			pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'OpenType Layout Features (continued)')
 			pageTitles.append([canvas.PageNumber(), '...continued'])
 			y = TEXTTOP
 
@@ -348,8 +348,8 @@ def continueOnNextPage(canvas):
 def specimenPage(canvas, ftFont, pdfFont):
 	canvas.NewPage()
 
-	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Type specimen')
-	pageTitles.append([canvas.PageNumber(), 'Type specimen'])
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Type Specimen')
+	pageTitles.append([canvas.PageNumber(), 'Type Specimen'])
 
 
 
@@ -370,8 +370,8 @@ def specimenPage(canvas, ftFont, pdfFont):
 
 	canvas.NewPage()
 
-	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'All encoded glyphs')
-	pageTitles.append([canvas.PageNumber(), 'All encoded glyphs'])
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'All Encoded Glyphs')
+	pageTitles.append([canvas.PageNumber(), 'All Encoded Glyphs'])
 
 
 	text = u''
@@ -426,8 +426,8 @@ def specimenPage(canvas, ftFont, pdfFont):
 def leadingPage(canvas, ftFont, pdfFont, languageSupport):
 	canvas.NewPage()
 
-	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Minimum leading (line height)')
-	pageTitles.append([canvas.PageNumber(), 'Minimum leading'])
+	pageTitle(canvas, Color(CMYK=[0, 0, 0, 80]), rose, grayBackground, headline = 'Minimum Leading (Line Height)')
+	pageTitles.append([canvas.PageNumber(), 'Minimum Leading'])
 
 	canvas.TextArea(regular, text = 'As a typesetter you’re responsible for setting not just the font size, but also the leading (line height) of a text. When the leading is too tight, letters of adjacent lines might collide. You can prevent this by setting the leading to a certain percentage of the font size as a minimum.\nHowever, since different languages contain letters with different sizes, this minimum setting is not identical across languages or font designs. Below you’ll find an accurately calculated list of languages and the respective minimum leading for each language for this particular font.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 1.7*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
 
@@ -524,7 +524,8 @@ def centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, y, areaWidth, te
 
 		textWidthInUnits += ftFont.glyph(ord(s)).width
 
-	# subtract sirebearings
+	# subtract sidebearings
+#	print ftFont.glyphs()
 	LSB = ftFont.glyph(ord(text[0])).bounds()[0]
 	RSB = ftFont.glyph(ord(text[-1])).width - ftFont.glyph(text[-1]).bounds()[2]
 	textWidthInUnits -= LSB + RSB
