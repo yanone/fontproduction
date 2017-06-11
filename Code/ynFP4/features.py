@@ -131,8 +131,8 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 	#LOCL
 	for name in shoes.Glyphs():
-		if '.locl_' in name:
-			featureName, script, language = name.split('.')[1].split('_')
+		if 'locl_' in name.split('.')[-1]:
+			featureName, script, language = name.split('.')[-1].split('_')
 			shoes.AddSubstitution('locl', name.split('.')[0], name, script, language)
 
 
