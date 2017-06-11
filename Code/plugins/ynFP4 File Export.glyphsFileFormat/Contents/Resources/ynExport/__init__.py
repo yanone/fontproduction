@@ -23,6 +23,8 @@ import ynFP4.features
 reload(ynFP4.features)
 import ynFP4.hinting
 reload(ynFP4.hinting)
+import ynFP4.checksum
+reload(ynFP4.checksum)
 
 devServer = 'http://192.168.56.101/yanone/'
 prodServer = 'https://yanone.de'
@@ -36,12 +38,10 @@ APIkey = {
 folder = '/Users/yanone/Schriften/Font Produktion/Fonts'
 hintingFolder = '/Users/yanone/Public/Hinting Test'
 
-def export(f):
+def export(font):
 
-
-	font = f.copy()
-
-	font.disableUpdateInterface()
+	font = copy.copy(font)
+#	font.disableUpdateInterface()
 
 	Glyphs.clearLog()
 
@@ -79,66 +79,44 @@ def export(f):
 
 		if instance.active:
 			
+			for typeString, pref in (
+					('OTF', otfPref),
+					('TTF', ttfPref),
+					):
+				if Glyphs.defaults[pref]:
 
-			# OTF
-
-			if Glyphs.defaults[otfPref]:
-
-				path = os.path.join(folder, font.familyName.replace(' ', '') + '-' + instance.name.replace(' ', '') + '.otf')
-				instance.generate('OTF', path)
-				count += 1
-
-				if Glyphs.defaults[releaseDev]:
-					upload.append(['dev', path, font.familyName, instance.name])
-				if Glyphs.defaults[releaseProd]:
-					upload.append(['prod', path, font.familyName, instance.name])
-
-				# PDFs
-
-				if Glyphs.defaults[makePDFs]:
-					if os.path.exists(path + '.pdf'):
-						os.remove(path + '.pdf')
-					python = Execute('which python')
-					call = "%s /Users/yanone/Schriften/fontproduction.git/Code/Font\ PDFs/makeFontPDF.py %s %s" % (python, path.replace(' ', '\ '), (path + '.pdf').replace(' ', '\ '))
-					Execute(call)
-					if os.path.exists(path + '.pdf'):
-						if Glyphs.defaults[releaseDev]:
-							upload.append(['dev', path + '.pdf', font.familyName, instance.name])
-						if Glyphs.defaults[releaseProd]:
-							upload.append(['prod', path + '.pdf', font.familyName, instance.name])
+					path = os.path.join(folder, font.familyName.replace(' ', '') + '-' + instance.name.replace(' ', '') + '.' + typeString.lower())
+					success = instance.generate(typeString)
+					if success == True:
+						print 'Generated %s' % path
+						ynFP4.checksum.makeCheckSum(path, additionalValues = {'originalGenerator': 'Glyphs %s/%s' % (Glyphs.versionString, Glyphs.buildNumber)})
+						count += 1
 					else:
-						return False, 'Problems creating PDF for %s' % (os.path.basename(path))
+						print success
+
+					if Glyphs.defaults[releaseDev]:
+						upload.append(['dev', path, font.familyName, instance.name])
+					if Glyphs.defaults[releaseProd]:
+						upload.append(['prod', path, font.familyName, instance.name])
+
+					# PDFs
+
+					if Glyphs.defaults[makePDFs]:
+						if os.path.exists(path + '.pdf'):
+							os.remove(path + '.pdf')
+						python = Execute('which python')
+						call = "%s /Users/yanone/Schriften/fontproduction.git/Code/Font\ PDFs/makeFontPDF.py %s %s" % (python, path.replace(' ', '\ '), (path + '.pdf').replace(' ', '\ '))
+						Execute(call)
+						if os.path.exists(path + '.pdf'):
+							if Glyphs.defaults[releaseDev]:
+								upload.append(['dev', path + '.pdf', font.familyName, instance.name])
+							if Glyphs.defaults[releaseProd]:
+								upload.append(['prod', path + '.pdf', font.familyName, instance.name])
+						else:
+							return False, 'Problems creating PDF for %s' % (os.path.basename(path))
 
 
-			# TTF
-
-			if Glyphs.defaults[ttfPref]:
-
-				path = os.path.join(folder, font.familyName.replace(' ', '') + '-' + instance.name.replace(' ', '') + '.ttf')
-				instance.generate('TTF', path)
-				count += 1
-
-				if Glyphs.defaults[releaseDev]:
-					upload.append(['dev', path, font.familyName, instance.name])
-				if Glyphs.defaults[releaseProd]:
-					upload.append(['prod', path, font.familyName, instance.name])
-
-				# PDFs
-
-				if Glyphs.defaults[makePDFs]:
-					if os.path.exists(path + '.pdf'):
-						os.remove(path + '.pdf')
-					python = Execute('which python')
-					call = '%s "/Users/yanone/Schriften/fontproduction.git/Code/Font PDFs/makeFontPDF.py" "%s" "%s"' % (python, path, path + '.pdf')
-					Execute(call)
-					if os.path.exists(path + '.pdf'):
-						if Glyphs.defaults[releaseDev]:
-							upload.append(['dev', path + '.pdf', font.familyName, instance.name])
-						if Glyphs.defaults[releaseProd]:
-							upload.append(['prod', path + '.pdf', font.familyName, instance.name])
-					else:
-						return False, 'Problems creating PDF for %s' % (os.path.basename(path))
-
+			# TTF Hinting
 			if Glyphs.defaults[ttfHintingPref]:
 
 				path = os.path.join(hintingFolder, 'fonts', font.familyName.replace(' ', '') + '-' + instance.name.replace(' ', '') + '.ttf')
@@ -165,6 +143,6 @@ def export(f):
 	if hinting:
 		ynFP4.hinting.makeHintingTestPage(font, hinting, os.path.join(hintingFolder, 'hinting.html'))
 
-	#font.enableUpdateInterface()
+#	font.enableUpdateInterface()
 
 	return True, '%s Fonts exportiert.' % count
