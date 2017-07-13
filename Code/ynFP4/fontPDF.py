@@ -1,10 +1,16 @@
 # -*- coding: utf-8 -*-
 
 import sys, time, colorsys, random, cProfile, unicodedata
+
+import ynlib.fonts.fonttoolsstuff
+reload(ynlib.fonts.fonttoolsstuff)
+
 from ynlib.fonts.fonttoolsstuff import Font as FontToolsFont
 from ynlib.colors import Color
 from ynlib.system import Execute
 from ynglib import *
+import ynglib.generators.DrawbotPDF
+reload(ynglib.generators.DrawbotPDF)
 from ynglib.generators.DrawbotPDF import PDF as DrawbotPDF
 #from ynglib.generators.reportlabPDF import PDF as reportlabPDF
 from ynglib.fonts import OpenTypeFont
@@ -317,8 +323,36 @@ def featuresPage(canvas, ftFont, pdfFont):
 				targetText = 'ff tt'
 
 			if feature == 'zero':
-				sourceText = '10'
-				targetText = '10'
+				sourceText = 'w00t'
+				targetText = 'w00t'
+
+			if feature == 'ss16':
+				sourceFeaturesOn = ['smcp']
+				targetFeaturesOn.append('smcp')
+				sourceText = 'Gruß'
+				targetText = 'Gruß'
+
+			if feature == 'ss17':
+				lookups = ftFont.lookupsPerFeatureScriptAndLanguage('ss17')
+				for lookup in lookups:
+					if lookup.Format == 2:
+						i = 0
+						for key in lookup.mapping.keys():
+							if i <= maxCount and hasattr(ftFont.glyph(key), 'unicode'):
+								sourceText += unichr(ftFont.glyph(key).unicode)
+								targetText += unichr(ftFont.glyph(key).unicode)
+								i += 1
+
+			if feature == 'calt':
+				lookups = ftFont.lookupsPerFeatureScriptAndLanguage('calt')
+				for lookup in lookups:
+					if lookup.Format == 2:
+						i = 0
+						for key in lookup.mapping.keys():
+							if i <= maxCount and hasattr(ftFont.glyph(key), 'unicode'):
+								sourceText += unichr(ftFont.glyph(key).unicode)
+								targetText += unichr(ftFont.glyph(key).unicode)
+								i += 1
 
 			canvas.TextArea(pdfFont, text = sourceText, fontsize = 24, x = 90, y = y, width = 50, height = 20, align = 'center', fillcolor = black, features = sourceFeaturesOn, featuresOff = sourceFeaturesOff)
 			canvas.TextArea(regular, text = u'→',       fontsize = 20, x = 140, y = y + .8, width = 10, height = 10, align = 'center', fillcolor = rose)
