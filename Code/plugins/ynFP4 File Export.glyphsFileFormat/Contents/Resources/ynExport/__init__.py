@@ -25,6 +25,8 @@ import ynFP4.hinting
 reload(ynFP4.hinting)
 import ynFP4.checksum
 reload(ynFP4.checksum)
+import ynFP4.fontPDF
+reload(ynFP4.fontPDF)
 
 devServer = 'http://192.168.56.101/yanone/'
 prodServer = 'https://yanone.de'
@@ -104,9 +106,10 @@ def export(font):
 					if Glyphs.defaults[makePDFs]:
 						if os.path.exists(path + '.pdf'):
 							os.remove(path + '.pdf')
-						python = Execute('which python')
-						call = "%s /Users/yanone/Schriften/fontproduction.git/Code/Font\ PDFs/makeFontPDF.py %s %s" % (python, path.replace(' ', '\ '), (path + '.pdf').replace(' ', '\ '))
-						print Execute(call)
+
+
+						ynFP4.fontPDF.makePDF(path.replace('\ ', ' '), (path + '.pdf').replace('\ ', ' '))
+
 						if os.path.exists(path + '.pdf'):
 							if Glyphs.defaults[releaseDev]:
 								upload.append(['dev', path + '.pdf', font.familyName, instance.name])
