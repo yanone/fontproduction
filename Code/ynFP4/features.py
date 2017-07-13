@@ -14,17 +14,14 @@ from ynlib.fonts.opentypenames import OTfeatures
 
 def makeFeatures(font):
 
-	reload(ynFP4.features)
 	import dancingshoes.helpers
-	reload(dancingshoes.helpers)
 
 	import copy
-	from ynFP4.features import MakeDancingShoes
 	from dancingshoes.helpers import GlyphNamesFromGlyphsFont
 
 	print 'Dancing with my new shoes...'
 
-	shoes = MakeDancingShoes(font, GlyphNamesFromGlyphsFont(font))
+	shoes = MakeDancingShoes(font, GlyphNamesFromGlyphsFont(font), stylisticsetnames = ynFP4.stylisticSetNames)
 
 	# Apply code
 	from dancingshoes.helpers import AssignFeatureCodeToGlyphsFont
@@ -83,12 +80,12 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 	# UppercaseLetters
 	for g in f.glyphs:
-		if g.unicode and unicodedata.category == 'Lu':
+		if g.unicode and unicodedata.category(g.string) == 'Lu':
 			shoes.AddGlyphsToClass('@uppercaseLetters', g.name)
 
 	# LowercaseLetters
 	for g in f.glyphs:
-		if g.unicode and unicodedata.category == 'Ll':
+		if g.unicode and unicodedata.category(g.string) == 'Ll':
 			shoes.AddGlyphsToClass('@lowercaseLetters', g.name)
 
 	# Numbers
@@ -154,6 +151,11 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		shoes.AddSubstitution('frac', 'slash', 'fraction')
 		shoes.AddSubstitution('frac', "[@fractionslashes @dnom_target] @numr_target'", '@dnom_target')
 	
+	# ß im Versalsatz
+	if shoes.HasGlyphs(['Germandbls', 'germandbls']):
+		shoes.AddSubstitution('calt', "@uppercaseLetters germandbls' @uppercaseLetters", 'Germandbls')
+
+
 	# ORDN
 	if shoes.HasGlyphs(['a', 'a.sups', 'o', 'o.sups', "zero","one","two","three","four","five","six","seven","eight","nine"]):
 #		shoes.AddGlyphsToClass('@ordn_source', 'a')
@@ -297,6 +299,11 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 			lowercaseGlyphName = name.split('.')[0]
 			if f.glyphs[lowercaseGlyphName] and f.glyphs[lowercaseGlyphName].unicode and unicodedata.category(unichr(int(f.glyphs[lowercaseGlyphName].unicode, 16))) == 'Ll':
 				uppercaseGlyphName = f.glyphs[f.glyphs[lowercaseGlyphName].string.upper()].name
+
+				# special case
+				if lowercaseGlyphName == 'germandbls':
+					uppercaseGlyphName = 'Germandbls'
+
 				if shoes.HasGlyphs([uppercaseGlyphName, name]):
 					shoes.AddGlyphsToClass('@c2sc_source', uppercaseGlyphName)
 					shoes.AddGlyphsToClass('@c2sc_target', name)

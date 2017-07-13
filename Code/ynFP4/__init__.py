@@ -7,6 +7,15 @@ UIReadyTop = 1040
 UIReadyBottom = -260
 
 
+stylisticSetNames = {
+	'ss16': 'Capital Form of Small Caps German Eszett',
+	'ss17': 'Height-Restricted Glyphs for UI Use',
+	'ss18': 'Historical Forms',
+	'ss19': 'Slashed Zero',
+	'ss20': 'Stylistic Alternates',
+}
+
+
 def GSFont_UIReady(self):
 	feature = UIReadySizeFeature
 	top = UIReadyTop
