@@ -153,7 +153,7 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 	
 	# ß im Versalsatz
 	if shoes.HasGlyphs(['Germandbls', 'germandbls']):
-		shoes.AddSubstitution('calt', "@uppercaseLetters germandbls' @uppercaseLetters", 'Germandbls')
+		shoes.AddSubstitution('calt', "@uppercaseLetters germandbls'", 'Germandbls')
 
 
 	# ORDN
