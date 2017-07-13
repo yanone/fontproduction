@@ -106,7 +106,7 @@ def export(font):
 							os.remove(path + '.pdf')
 						python = Execute('which python')
 						call = "%s /Users/yanone/Schriften/fontproduction.git/Code/Font\ PDFs/makeFontPDF.py %s %s" % (python, path.replace(' ', '\ '), (path + '.pdf').replace(' ', '\ '))
-						Execute(call)
+						print Execute(call)
 						if os.path.exists(path + '.pdf'):
 							if Glyphs.defaults[releaseDev]:
 								upload.append(['dev', path + '.pdf', font.familyName, instance.name])

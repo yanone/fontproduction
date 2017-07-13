@@ -214,6 +214,9 @@ def featuresPage(canvas, ftFont, pdfFont):
 			
 			# Description
 			description = []
+
+			if ftFont.stylisticSetName(feature):
+				description.append(ftFont.stylisticSetName(feature))
 			if OTfeatureDescriptions.has_key(feature):
 				description.append(OTfeatureDescriptions[feature])
 			if feature in OTfeaturesOnByDefault:
@@ -656,7 +659,8 @@ def pageTitle(canvas, textcolor, logocolor, backgroundColor, headline = None):
 
 #cProfile.runctx("makePDF(sys.argv[1], sys.argv[2])", locals(), globals())
 
-makePDF(sys.argv[1], sys.argv[2])
+if __name__ == "__main__":
+	makePDF(sys.argv[1], sys.argv[2])
 
 #makePDF('/Users/yanone/Schriften/Font Produktion/Fonts/NonameSans-Regular.otf', '/Users/yanone/Desktop/NonameSans-Regular.pdf')
 
