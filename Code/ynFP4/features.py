@@ -8,16 +8,13 @@ reload(dancingshoes.helpers)
 import ynFP4
 reload(ynFP4)
 from dancingshoes import DancingShoes
-from dancingshoes.helpers import GlyphNamesFromFontLabFont, GlyphNamesFromRoboFabFont, SubstitutionsFromCSV
 from ynlib.fonts.opentypenames import OTfeatures
 
+from dancingshoes.helpers import GlyphNamesFromGlyphsFont, SubstitutionsFromCSV
 
 def makeFeatures(font):
 
-	import dancingshoes.helpers
-
 	import copy
-	from dancingshoes.helpers import GlyphNamesFromGlyphsFont
 
 	print 'Dancing with my new shoes...'
 
@@ -70,7 +67,7 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 	
 	
 	# Initialize DancingShoes object, hand over glyph names and default features
-	shoes = DancingShoes(GlyphNamesFromFontLabFont(f), features)
+	shoes = DancingShoes(glyphnames, features)
 
 	# Set stylistic set names
 	if stylisticsetnames:
@@ -90,6 +87,14 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 	# Numbers
 	shoes.AddGlyphsToClass('@numbers', ("zero","one","two","three","four","five","six","seven","eight","nine"))
+
+
+	# Various classes from Glyphs
+	for g in f.glyphs:
+		if g.userData:
+			if g.userData['OTclass']:
+				for OTclass in g.userData['OTclass']:
+					shoes.AddGlyphsToClass('@' + OTclass, g.name)
 
 
 	
@@ -316,7 +321,95 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		shoes.AddSubstitution('smcp', "@lnum_source", '@lnum_target')
 		shoes.AddSubstitution('c2sc', "@lnum_source", '@lnum_target')
 
+	# ARABIC
 	
+#	if shoes.HasGroups('.arab'):
+#		shoes.AddEndingToBothClasses('arab', '.arab')
+#		shoes.AddSubstitution('locl', "@arab_source", '@arab_target', 'arab', '', 'RightToLeft')
+		
+	
+	# SCRIPT MAGIC
+
+	automaticCaltConnection = []
+
+	for glyph in shoes.Glyphs():
+		if '.conn-' in glyph:
+			bareGlyphName, ending = glyph.split('.conn-')
+			ending = '.conn-' + ending
+			connectionName, position = ending.split('-')[1:]
+
+			if not connectionName in automaticCaltConnection:
+				automaticCaltConnection.append(connectionName)
+
+			if shoes.HasGlyphs([bareGlyphName, glyph]):
+				shoes.AddGlyphsToClass('@conn_%s_%s_source' % (connectionName, position), bareGlyphName)
+				shoes.AddGlyphsToClass('@conn_%s_%s_target' % (connectionName, position), glyph)
+
+	for connectionName in automaticCaltConnection:
+		shoes.AddSubstitution('calt', "@conn_%s_first_source' @conn_%s_second_source" % (connectionName, connectionName), '@conn_%s_first_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, 'glyphNameBasedConnections')
+		shoes.AddSubstitution('calt', "@conn_%s_first_target @conn_%s_second_source'" % (connectionName, connectionName), '@conn_%s_second_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, 'glyphNameBasedConnections')
+
+
+	if shoes.HasGroups(['.lohi', '.hi']):
+
+		if shoes.HasGroups(['.hilo']):
+			for glyph in shoes.Glyphs():
+				if '.hilo' in glyph:
+					if shoes.HasGlyphs([glyph, glyph.replace('.lohi', '')]):
+						shoes.AddGlyphsToClass('@arabmedihilo_source', glyph.replace('.hilo', ''))
+						shoes.AddGlyphsToClass('@arabmedihilo_target', glyph)
+			shoes.AddSubstitution('calt', "@arabmedilohi_source' @arabmedihilo_source", '@arabmedilohi_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+			shoes.AddSubstitution('calt', "@arabmedilohi_target @arabmedihilo_source'", '@arabmedihilo_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+
+
+		for glyph in shoes.Glyphs():
+			if '.lohi' in glyph:
+				if shoes.HasGlyphs([glyph, glyph.replace('.lohi', '')]):
+					shoes.AddGlyphsToClass('@arabmedilohi_source', glyph.replace('.lohi', ''))
+					shoes.AddGlyphsToClass('@arabmedilohi_target', glyph)
+			if '.hi' in glyph:
+				if shoes.HasGlyphs([glyph, glyph.replace('.hi', '')]):
+					shoes.AddGlyphsToClass('@arabfinahi_source', glyph.replace('.hi', ''))
+					shoes.AddGlyphsToClass('@arabfinahi_target', glyph)
+		shoes.AddSubstitution('calt', "@arabmedilohi_source' @arabfinahi_source", '@arabmedilohi_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+		shoes.AddSubstitution('calt', "@arabmedilohi_target @arabfinahi_source'", '@arabfinahi_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+
+	
+
+		# if shoes.HasGroups(['.lohi', '.hihi']):
+		# 	for glyph in shoes.Glyphs():
+		# 		if '.init.hihi' in glyph:
+		# 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '.lohi')]):
+		# 				shoes.AddGlyphsToClass('@arabmedihihi_source', glyph.replace('.hihi', '.lohi'))
+		# 				shoes.AddGlyphsToClass('@arabmedihihi_target', glyph)
+		# 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '')]):
+		# 				shoes.AddGlyphsToClass('@arabmedihihi_source', glyph.replace('.hihi', ''))
+		# 				shoes.AddGlyphsToClass('@arabmedihihi_target', glyph)
+		# 	for glyph in shoes.Glyphs():
+		# 		if '.fina.hihi' in glyph:
+		# 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '.hi')]):
+		# 				shoes.AddGlyphsToClass('@arabfinahihi_source', glyph.replace('.hihi', '.hi'))
+		# 				shoes.AddGlyphsToClass('@arabfinahihi_target', glyph)
+		# 			if shoes.HasGlyphs([glyph, glyph.replace('.fina.hihi', '.fina')]):
+		# 				shoes.AddGlyphsToClass('@arabfinahihi_source', glyph.replace('.fina.hihi', '.fina'))
+		# 				shoes.AddGlyphsToClass('@arabfinahihi_target', glyph)
+		# 	shoes.AddSubstitution('calt', "@arabmedihihi_source' @arabfinahihi_source", '@arabmedihihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
+		# 	shoes.AddSubstitution('calt', "@arabmedihihi_target @arabfinahihi_source'", '@arabfinahihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
+
+
+	# HIGH TEETH
+	if shoes.HasGroups(['.hitooth']) and shoes.HasClasses(('@seen_init', '@beh_fina')):
+
+		for glyph in shoes.Glyphs():
+			if '.hitooth' in glyph:
+				if shoes.HasGlyphs([glyph, glyph.replace('.hitooth', '')]):
+					shoes.AddGlyphsToClass('@hitooth_source', glyph.replace('.hitooth', ''))
+					shoes.AddGlyphsToClass('@hitooth_target', glyph)
+
+
+
+
+
 	# Duplicate Features
 	for source, target in duplicateFeatures:
 		features.remove(target)
