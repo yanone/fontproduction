@@ -1,5 +1,5 @@
 
-featureOrder = ['aalt', 'ccmp', 'locl', 'subs', 'sinf', 'sups', 'numr', 'dnom', 'frac', 'ordn', 'lnum', 'pnum', 'tnum', 'onum', 'calt', 'hist', 'c2sc', 'smcp', 'case', 'isol', 'init', 'medi', 'fina', 'rlig', 'dlig', 'mkmk', 'liga', 'mgrk', 'zero', 'swsh', 'salt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10', 'ss11', 'ss12', 'ss13', 'ss14', 'ss15', 'ss16', 'ss18', 'ss19', 'ss20', 'ornm', 'ss17', 'cpsp', 'kern']
+featureOrder = ['aalt', 'ccmp', 'locl', 'subs', 'sinf', 'sups', 'numr', 'dnom', 'frac', 'ordn', 'lnum', 'pnum', 'tnum', 'onum', 'calt', 'hist', 'c2sc', 'smcp', 'case', 'isol', 'init', 'medi', 'fina', 'rlig', 'dlig', 'mkmk', 'liga', 'mgrk', 'zero', 'swsh', 'salt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09', 'ss10', 'ss11', 'ss12', 'ss13', 'ss14', 'ss15', 'ss18', 'ss19', 'ss20', 'ornm', 'ss16', 'ss17', 'cpsp', 'kern']
 caseGlyphs = ["periodcentered", "bullet", "colon", "emdash", "endash", "hyphen", "guillemetleft", "guillemetright", "guilsinglleft", "guilsinglright", "plus", "minus", "multiply", "divide", "equal", "greater", "less", "backslash", "slash", "braceleft", "braceright", "bracketleft", "bracketright", "parenleft", "parenright", "dotmath", "notequal", "greaterequal", "lessequal", "plusminus", "approxequal", "asciitilde", "numbersign", "questiondown", "exclamdown", ]
 
 UIReadySizeFeature = 'ss17'
@@ -8,8 +8,9 @@ UIReadyBottom = -260
 
 
 stylisticSetNames = {
-	'ss16': 'Capital Form of Small Caps German Eszett',
-	'ss17': 'Height-Restricted Glyphs for UI Use',
+	'ss15': 'Capital Form of Small Caps German Eszett',
+	'ss16': 'Height-Restricted Glyphs for UI Use',
+	'ss17': 'Height-Restricted Glyphs for UI Use, Level 2',
 	'ss18': 'Historical Forms',
 	'ss19': 'Slashed Zero',
 	'ss20': 'Stylistic Alternates',
