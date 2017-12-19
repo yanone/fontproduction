@@ -25,13 +25,13 @@ def makeFeatures(font):
 	AssignFeatureCodeToGlyphsFont(font, shoes)
 
 	# Glyphs' features
-	onum = font.features['onum']
+	# onum = font.features['onum']
 	font.updateFeatures()
 	features = copy.copy(font.features)
 	features.sort(key=lambda x: ynFP4.featureOrder.index(x.name))
 	font.features = features
-	if not onum:
-		del(font.features['onum'])
+	# if not onum:
+	# 	del(font.features['onum'])
 
 	if shoes.Warnings():
 		print shoes.Warnings()
@@ -64,6 +64,8 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 	if not features:		
 		features = ynFP4.featureOrder
+
+	print features
 	
 	
 	# Initialize DancingShoes object, hand over glyph names and default features
@@ -420,5 +422,9 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 			shoes.SetStylisticSetName(target, OTfeatures[source])
 
 	
+	# Custom font code
+	exec(f.note)
+
+
 	return shoes
 	
