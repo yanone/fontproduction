@@ -28,7 +28,7 @@ reload(ynFP4.checksum)
 import ynFP4.fontPDF
 reload(ynFP4.fontPDF)
 
-devServer = 'http://192.168.56.101/yanone/'
+devServer = 'http://192.168.56.102/yanone/'
 prodServer = 'https://yanone.de'
 upload = []
 hinting = []
@@ -37,7 +37,7 @@ APIkey = {
 	'prod': '',
 }
 
-folder = '/Users/yanone/Schriften/Font Produktion/Fonts'
+folder = '/Users/yanone/Schriften/Fonts'
 hintingFolder = '/Users/yanone/Public/Hinting Test'
 
 def export(font):
@@ -46,6 +46,7 @@ def export(font):
 #	font.disableUpdateInterface()
 
 	Glyphs.clearLog()
+	Glyphs.showMacroWindow()
 
 
 	# General stuff
@@ -109,6 +110,7 @@ def export(font):
 
 
 						ynFP4.fontPDF.makePDF(path.replace('\ ', ' '), (path + '.pdf').replace('\ ', ' '))
+
 
 						if os.path.exists(path + '.pdf'):
 							if Glyphs.defaults[releaseDev]:

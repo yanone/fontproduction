@@ -28,7 +28,7 @@ rose = Color(RGB=[255, 105, 125])
 grayBackground = Color(CMYK=[0, 0, 0, 10])
 green = Color(hex='97BF0D')
 
-regularPath = '/Users/yanone/Schriften/Font Produktion/Fonts/NonameSans-Regular.otf'
+regularPath = '/Users/yanone/Schriften/Fonts/NonameSans-Regular.otf'
 regular = OpenTypeFont(regularPath)
 
 PAGEMARGIN = 20
@@ -59,7 +59,7 @@ def makePDF(fontPath, pdfPath):
 	import json
 	
 	startTime = time.time()
-	languageSupport = json.loads(GetHTTP('http://192.168.56.101/yanone/?page=calculateLanguagesForUnicodes&APIkey=BzU4zFKdXxi6mQ9MI7XP&unicodes=%s' % ','.join(map(str, ftFont.unicodes()))))
+	languageSupport = json.loads(GetHTTP('http://192.168.56.102/yanone/?page=calculateLanguagesForUnicodes&APIkey=BzU4zFKdXxi6mQ9MI7XP&unicodes=%s' % ','.join(map(str, ftFont.unicodes()))))
 #	print 'http time: %ss' % (time.time() - startTime)
 #	print languageSupport
 
@@ -82,7 +82,7 @@ def makePDF(fontPath, pdfPath):
 
 	canvas.Generate(DrawbotPDF(pdfPath))
 
-	call = '/opt/local/bin/gs -o "%s" -sDEVICE=pdfwrite -c "%s [ /PageMode /UseOutlines /View [/Fit] /PageLayout /SinglePage /DOCVIEW pdfmark" -f "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), (' '.join(["[ /Title (%s) /Page %s /OUT pdfmark" % (x[1], x[0]) for x in pageTitles])), pdfPath)
+	call = '/usr/local/bin/gs -o "%s" -sDEVICE=pdfwrite -c "%s [ /PageMode /UseOutlines /View [/Fit] /PageLayout /SinglePage /DOCVIEW pdfmark" -f "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), (' '.join(["[ /Title (%s) /Page %s /OUT pdfmark" % (x[1], x[0]) for x in pageTitles])), pdfPath)
 	Execute(call)
 	Execute('rm "%s"' % (pdfPath))
 	Execute('mv "%s" "%s"' % (pdfPath.replace('.pdf', '_temp.pdf'), pdfPath))

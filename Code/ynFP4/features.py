@@ -336,20 +336,38 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 	for glyph in shoes.Glyphs():
 		if '.conn-' in glyph:
-			bareGlyphName, ending = glyph.split('.conn-')
-			ending = '.conn-' + ending
-			connectionName, position = ending.split('-')[1:]
+			
+			parts = glyph.split('.')
 
-			if not connectionName in automaticCaltConnection:
-				automaticCaltConnection.append(connectionName)
+#			print parts
 
-			if shoes.HasGlyphs([bareGlyphName, glyph]):
-				shoes.AddGlyphsToClass('@conn_%s_%s_source' % (connectionName, position), bareGlyphName)
-				shoes.AddGlyphsToClass('@conn_%s_%s_target' % (connectionName, position), glyph)
+			if 'conn-' in parts[-1]:
 
-	for connectionName in automaticCaltConnection:
-		shoes.AddSubstitution('calt', "@conn_%s_first_source' @conn_%s_second_source" % (connectionName, connectionName), '@conn_%s_first_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, 'glyphNameBasedConnections')
-		shoes.AddSubstitution('calt', "@conn_%s_first_target @conn_%s_second_source'" % (connectionName, connectionName), '@conn_%s_second_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, 'glyphNameBasedConnections')
+				#bareGlyphName, ending = parts[-1].split('conn-')
+				bareGlyphName = '.'.join(parts[:-1])
+				ending = parts[-1].split('conn-')[-1]
+				ending = '.conn-' + ending
+				connectionName, position = ending.split('-')[1:]
+
+				if '_' in connectionName:
+					listItem = (connectionName, 'glyphNameBasedConnections_%s' % connectionName.split('_')[-1])
+				else:
+					listItem = (connectionName, 'glyphNameBasedConnections')
+
+
+				if not listItem in automaticCaltConnection:
+					automaticCaltConnection.append(listItem)
+
+
+
+				if shoes.HasGlyphs([bareGlyphName, glyph]):
+					shoes.AddGlyphsToClass('@conn_%s_%s_source' % (connectionName, position), bareGlyphName)
+					shoes.AddGlyphsToClass('@conn_%s_%s_target' % (connectionName, position), glyph)
+
+
+	for connectionName, lookupName in sorted(automaticCaltConnection):
+		shoes.AddSubstitution('calt', "@conn_%s_first_source' @conn_%s_second_source" % (connectionName, connectionName), '@conn_%s_first_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, lookupName)
+		shoes.AddSubstitution('calt', "@conn_%s_first_target @conn_%s_second_source'" % (connectionName, connectionName), '@conn_%s_second_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, lookupName)
 
 
 	if shoes.HasGroups(['.lohi', '.hi']):
