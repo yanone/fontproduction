@@ -1,104 +1,104 @@
-# feature;# source;# target;# script;# language;# lookup;# lookupflag;# comment
-;;;;;;;
-# Ligatures;;;;;;;
-;;;;;;;
-;;;;;;;
-liga;f i;fi;;;;;
-liga;f l;fl;;;;;
-;;;;;;;
-# Subscript;;;;;;;
-#sinf;zero;uni2080;;;;;
-#sinf;one;uni2081;;;;;
-#sinf;two;uni2082;;;;;
-#sinf;three;uni2083;;;;;
-#sinf;four;uni2084;;;;;
-#sinf;five;uni2085;;;;;
-#sinf;six;uni2086;;;;;
-#sinf;seven;uni2087;;;;;
-#sinf;eight;uni2088;;;;;
-#sinf;nine;uni2089;;;;;
-;;;;;;;
-subs;a;ainferior;;;;;
-subs;e;einferior;;;;;
-subs;o;oinferior;;;;;
-subs;schwa;schwainferior;;;;;
-subs;x;xinferior;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-#subs;zero;uni2080;;;;;
-#subs;one;uni2081;;;;;
-#subs;two;uni2082;;;;;
-#subs;three;uni2083;;;;;
-#subs;four;uni2084;;;;;
-#subs;five;uni2085;;;;;
-#subs;six;uni2086;;;;;
-#subs;seven;uni2087;;;;;
-#subs;eight;uni2088;;;;;
-#subs;nine;uni2089;;;;;
-;;;;;;;
-# Superscript;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-#sups;zero;uni2070;;;;;
-#sups;one;onesuperior;;;;;
-#sups;two;twosuperior;;;;;
-#sups;three;threesuperior;;;;;
-#sups;four;uni2074;;;;;
-#sups;five;uni2075;;;;;
-#sups;six;uni2076;;;;;
-#sups;seven;uni2077;;;;;
-#sups;eight;uni2078;;;;;
-#sups;nine;uni2079;;;;;
-;;;;;;;
-# Fraction;;;;;;;
-numr;slash;fraction;;;;;
-;;;;;;;
-# Localized forms;;;;;;;
-locl;l periodcentered;ldot;latn;CAT;;;
-locl;L periodcentered;Ldot;latn;CAT;;;
-locl;i j;ij;latn;NLD;;;Dutch ij
-locl;I J;IJ;latn;NLD;;;Dutch IJ
-locl;acute j;jacute;latn;NLD;;;Dutch jacute
-locl;j acute;jacute;latn;NLD;;;Dutch jacute
-locl;acute J;Jacute;latn;NLD;;;Dutch jacute
-locl;J acute;Jacute;latn;NLD;;;Dutch jacute
-locl;iacute j';jacute;latn;NLD;;;Dutch jacute
-locl;Iacute J';Jacute;latn;NLD;;;Dutch Jacute
-locl;iacute jacute;ijacute;latn;NLD;;;Dutch ij
-locl;Iacute Jacute;IJacute;latn;NLD;;;Dutch IJ
-locl;i;idotaccent;latn;KAZ;;;Turkish version of the 'i'
-locl;i;idotaccent;latn;TAT;;;Turkish version of the 'i'
-locl;i;idotaccent;latn;TRK;;;Turkish version of the 'i'
-locl;i;idotaccent;latn;CRT;;;Turkish version of the 'i'
-locl;i;idotaccent;latn;AZE;;;Turkish version of the 'i'
-;;;;;;;
-locl;L periodcentered;Ldot.latn_CAT;latn;CAT;;;
-locl;l periodcentered;ldot.latn_CAT;latn;CAT;;;
-locl;scedilla;scommaaccent;latn;MOL;;;
-locl;Scedilla;Scommaaccent;latn;MOL;;;
-locl;tcedilla;tcommaaccent;latn;MOL;;;
-locl;Tcedilla;Tcommaaccent;latn;MOL;;;
-locl;scedilla;scommaaccent;latn;ROM;;;
-locl;Scedilla;Scommaaccent;latn;ROM;;;
-locl;tcedilla;tcommaaccent;latn;ROM;;;
-locl;Tcedilla;Tcommaaccent;latn;ROM;;;
-;;;;;;;
-;;;;;;;
-# Historic;;;;;;;
-hist;s;longs;;;;;
-;;;;;;;
-# Mathematical greek;;;;;;;
-mgrk;Pi;product;;;;;
-mgrk;Sigma;summation;;;;;
-;;;;;;;
-tnum;space;uni2007;;;;;
+# feature,# source,# target,# script,# language,# lookup,# lookupflag,# comment
+,,,,,,,
+# Ligatures,,,,,,,
+,,,,,,,
+,,,,,,,
+liga,f i,fi,,,,,
+liga,f l,fl,,,,,
+,,,,,,,
+# Subscript,,,,,,,
+#sinf,zero,uni2080,,,,,
+#sinf,one,uni2081,,,,,
+#sinf,two,uni2082,,,,,
+#sinf,three,uni2083,,,,,
+#sinf,four,uni2084,,,,,
+#sinf,five,uni2085,,,,,
+#sinf,six,uni2086,,,,,
+#sinf,seven,uni2087,,,,,
+#sinf,eight,uni2088,,,,,
+#sinf,nine,uni2089,,,,,
+,,,,,,,
+subs,a,ainferior,,,,,
+subs,e,einferior,,,,,
+subs,o,oinferior,,,,,
+subs,schwa,schwainferior,,,,,
+subs,x,xinferior,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+#subs,zero,uni2080,,,,,
+#subs,one,uni2081,,,,,
+#subs,two,uni2082,,,,,
+#subs,three,uni2083,,,,,
+#subs,four,uni2084,,,,,
+#subs,five,uni2085,,,,,
+#subs,six,uni2086,,,,,
+#subs,seven,uni2087,,,,,
+#subs,eight,uni2088,,,,,
+#subs,nine,uni2089,,,,,
+,,,,,,,
+# Superscript,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+#sups,zero,uni2070,,,,,
+#sups,one,onesuperior,,,,,
+#sups,two,twosuperior,,,,,
+#sups,three,threesuperior,,,,,
+#sups,four,uni2074,,,,,
+#sups,five,uni2075,,,,,
+#sups,six,uni2076,,,,,
+#sups,seven,uni2077,,,,,
+#sups,eight,uni2078,,,,,
+#sups,nine,uni2079,,,,,
+,,,,,,,
+# Fraction,,,,,,,
+numr,slash,fraction,,,,,
+,,,,,,,
+# Localized forms,,,,,,,
+locl,l periodcentered,ldot,latn,CAT,,,
+locl,L periodcentered,Ldot,latn,CAT,,,
+locl,i j,ij,latn,NLD,,,Dutch ij
+locl,I J,IJ,latn,NLD,,,Dutch IJ
+locl,acute j,jacute,latn,NLD,,,Dutch jacute
+locl,j acute,jacute,latn,NLD,,,Dutch jacute
+locl,acute J,Jacute,latn,NLD,,,Dutch jacute
+locl,J acute,Jacute,latn,NLD,,,Dutch jacute
+locl,iacute j',jacute,latn,NLD,,,Dutch jacute
+locl,Iacute J',Jacute,latn,NLD,,,Dutch Jacute
+locl,iacute jacute,ijacute,latn,NLD,,,Dutch ij
+locl,Iacute Jacute,IJacute,latn,NLD,,,Dutch IJ
+locl,i,idotaccent,latn,KAZ,,,Turkish version of the 'i'
+locl,i,idotaccent,latn,TAT,,,Turkish version of the 'i'
+locl,i,idotaccent,latn,TRK,,,Turkish version of the 'i'
+locl,i,idotaccent,latn,CRT,,,Turkish version of the 'i'
+locl,i,idotaccent,latn,AZE,,,Turkish version of the 'i'
+,,,,,,,
+locl,L periodcentered,Ldot.latn_CAT,latn,CAT,,,
+locl,l periodcentered,ldot.latn_CAT,latn,CAT,,,
+locl,scedilla,scommaaccent,latn,MOL,,,
+locl,Scedilla,Scommaaccent,latn,MOL,,,
+locl,tcedilla,tcommaaccent,latn,MOL,,,
+locl,Tcedilla,Tcommaaccent,latn,MOL,,,
+locl,scedilla,scommaaccent,latn,ROM,,,
+locl,Scedilla,Scommaaccent,latn,ROM,,,
+locl,tcedilla,tcommaaccent,latn,ROM,,,
+locl,Tcedilla,Tcommaaccent,latn,ROM,,,
+,,,,,,,
+,,,,,,,
+# Historic,,,,,,,
+hist,s,longs,,,,,
+,,,,,,,
+# Mathematical greek,,,,,,,
+mgrk,Pi,product,,,,,
+mgrk,Sigma,summation,,,,,
+,,,,,,,
+tnum,space,uni2007,,,,,

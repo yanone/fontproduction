@@ -142,12 +142,18 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 	#DLIG
 	for name in shoes.Glyphs():
-		if '_' in name:
-			if not '.' in name or name.split('.')[1] == 'dlig':
-				names = name.split('.')[0].split('_')
-				if shoes.HasGlyphs(names):
-					shoes.AddSubstitution('dlig', ' '.join(names), name)
+		if '.dlig' in name:
+			names = name[:-5].split('_')
+			if shoes.HasGlyphs(names):
+				shoes.AddSubstitution('dlig', ' '.join(names), name)
 				
+	#LIGA
+	for name in shoes.Glyphs():
+		if '.liga' in name:
+			names = name[:-5].split('_')
+			if shoes.HasGlyphs(names):
+				shoes.AddSubstitution('liga', ' '.join(names), name)
+
 	# Fraction feature
 	if shoes.HasGroups(['.numr', '.dnom']) and shoes.HasGlyphs(['fraction']):
 		shoes.AddSimpleSubstitutionFeature('numr', '.numr')
@@ -425,7 +431,36 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 				if shoes.HasGlyphs([glyph, glyph.replace('.hitooth', '')]):
 					shoes.AddGlyphsToClass('@hitooth_source', glyph.replace('.hitooth', ''))
 					shoes.AddGlyphsToClass('@hitooth_target', glyph)
+		shoes.AddSubstitution('calt', "@seen_init @hitooth_source'", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
+	# dot collisions
+	if shoes.HasClasses(['@wideTop']):
+		for glyph in shoes.GlyphsInClass('@wideTop'):
+			if shoes.HasGlyphs([glyph, glyph.replace('.wide', '')]):
+				shoes.AddGlyphsToClass('@wideTop_source', glyph.replace('.wide', ''))
+				shoes.AddGlyphsToClass('@wideTop_target', glyph)
+		shoes.AddSubstitution('calt', "@wideTop_source' @wideTop_source", '@wideTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+	if shoes.HasClasses(['@wideBottom']):
+		for glyph in shoes.GlyphsInClass('@wideBottom'):
+			if shoes.HasGlyphs([glyph, glyph.replace('.wide', '')]):
+				shoes.AddGlyphsToClass('@wideBottom_source', glyph.replace('.wide', ''))
+				shoes.AddGlyphsToClass('@wideBottom_target', glyph)
+		shoes.AddSubstitution('calt', "@wideBottom_source' @wideBottom_source", '@wideBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+
+		if shoes.HasClasses(['@wideBottomTrigger']):
+			shoes.AddSubstitution('calt', "@wideBottom_source' @wideBottomTrigger", '@wideBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+
+		if shoes.HasClasses(['@wideTopTrigger']):
+			shoes.AddSubstitution('calt', "@wideTop_source' @wideTopTrigger", '@wideTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+
+
+	# YEH BARREE
+	if shoes.HasClasses(['@yehBarreeShortTrigger', '@yehBarreeAlt']):
+		for glyph in shoes.GlyphsInClass('@yehBarreeAlt'):
+			if shoes.HasGlyphs([glyph, glyph.replace('.alt', '')]):
+				shoes.AddGlyphsToClass('@yehBarreeAlt_source', glyph.replace('.alt', ''))
+				shoes.AddGlyphsToClass('@yehBarreeAlt_target', glyph)
+		shoes.AddSubstitution('calt', "@yehBarreeShortTrigger @yehBarreeAlt_source'", '@yehBarreeAlt_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
 
 
