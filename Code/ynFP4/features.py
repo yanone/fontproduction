@@ -106,7 +106,7 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		('salt', '.salt'),
 		('sups', '.sups'),
 		('subs', '.subs'),
-		('swsh', '.swash'),
+		('swsh', '.swsh'),
 		('zero', '.zero'),
 		)
 	for feature, ending in directsubstitutions:
@@ -400,6 +400,17 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		shoes.AddSubstitution('calt', "@arabmedilohi_source' @arabfinahi_source", '@arabmedilohi_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 		shoes.AddSubstitution('calt', "@arabmedilohi_target @arabfinahi_source'", '@arabfinahi_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
+
+	# Additional swashes
+	if shoes.HasGroups(['.swsh']):
+
+		for glyph in shoes.Glyphs():
+			if '.swsh' in glyph:
+				if shoes.HasGlyphs([glyph.replace('.swsh', '.hitooth')]):
+					shoes.AddSubstitution('swsh', glyph.replace('.swsh', '.hitooth'), glyph, 'arab', '', 'RightToLeft,IgnoreMarks')
+				if shoes.HasGlyphs([glyph.replace('.swsh', '.dotCollision')]):
+					shoes.AddSubstitution('swsh', glyph.replace('.swsh', '.dotCollision'), glyph, 'arab', '', 'RightToLeft,IgnoreMarks')
+
 	
 
 		# if shoes.HasGroups(['.lohi', '.hihi']):
@@ -434,24 +445,24 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		shoes.AddSubstitution('calt', "@seen_init @hitooth_source'", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
 	# dot collisions
-	if shoes.HasClasses(['@wideTop']):
-		for glyph in shoes.GlyphsInClass('@wideTop'):
-			if shoes.HasGlyphs([glyph, glyph.replace('.wide', '')]):
-				shoes.AddGlyphsToClass('@wideTop_source', glyph.replace('.wide', ''))
-				shoes.AddGlyphsToClass('@wideTop_target', glyph)
-		shoes.AddSubstitution('calt', "@wideTop_source' @wideTop_source", '@wideTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
-	if shoes.HasClasses(['@wideBottom']):
-		for glyph in shoes.GlyphsInClass('@wideBottom'):
-			if shoes.HasGlyphs([glyph, glyph.replace('.wide', '')]):
-				shoes.AddGlyphsToClass('@wideBottom_source', glyph.replace('.wide', ''))
-				shoes.AddGlyphsToClass('@wideBottom_target', glyph)
-		shoes.AddSubstitution('calt', "@wideBottom_source' @wideBottom_source", '@wideBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+	if shoes.HasClasses(['@dotCollisionTop']):
+		for glyph in shoes.GlyphsInClass('@dotCollisionTop'):
+			if shoes.HasGlyphs([glyph, glyph.replace('.dotCollision', '')]):
+				shoes.AddGlyphsToClass('@dotCollisionTop_source', glyph.replace('.dotCollision', ''))
+				shoes.AddGlyphsToClass('@dotCollisionTop_target', glyph)
+		shoes.AddSubstitution('calt', "@dotCollisionTop_source' @dotCollisionTop_source", '@dotCollisionTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+	if shoes.HasClasses(['@dotCollisionBottom']):
+		for glyph in shoes.GlyphsInClass('@dotCollisionBottom'):
+			if shoes.HasGlyphs([glyph, glyph.replace('.dotCollision', '')]):
+				shoes.AddGlyphsToClass('@dotCollisionBottom_source', glyph.replace('.dotCollision', ''))
+				shoes.AddGlyphsToClass('@dotCollisionBottom_target', glyph)
+		shoes.AddSubstitution('calt', "@dotCollisionBottom_source' @dotCollisionBottom_source", '@dotCollisionBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
-		if shoes.HasClasses(['@wideBottomTrigger']):
-			shoes.AddSubstitution('calt', "@wideBottom_source' @wideBottomTrigger", '@wideBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+		if shoes.HasClasses(['@dotCollisionBottomTrigger']):
+			shoes.AddSubstitution('calt', "@dotCollisionBottom_source' @dotCollisionBottomTrigger", '@dotCollisionBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
-		if shoes.HasClasses(['@wideTopTrigger']):
-			shoes.AddSubstitution('calt', "@wideTop_source' @wideTopTrigger", '@wideTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+		if shoes.HasClasses(['@dotCollisionTopTrigger']):
+			shoes.AddSubstitution('calt', "@dotCollisionTop_source' @dotCollisionTopTrigger", '@dotCollisionTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
 
 	# YEH BARREE
