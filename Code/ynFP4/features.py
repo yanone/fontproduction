@@ -434,15 +434,6 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		# 	shoes.AddSubstitution('calt', "@arabmedihihi_target @arabfinahihi_source'", '@arabfinahihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
 
 
-	# HIGH TEETH
-	if shoes.HasGroups(['.hitooth']) and shoes.HasClasses(('@seen_init', '@beh_fina')):
-
-		for glyph in shoes.Glyphs():
-			if '.hitooth' in glyph:
-				if shoes.HasGlyphs([glyph, glyph.replace('.hitooth', '')]):
-					shoes.AddGlyphsToClass('@hitooth_source', glyph.replace('.hitooth', ''))
-					shoes.AddGlyphsToClass('@hitooth_target', glyph)
-		shoes.AddSubstitution('calt', "@seen_init @hitooth_source'", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
 	# dot collisions
 	if shoes.HasClasses(['@dotCollisionTop']):
@@ -463,6 +454,16 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 		if shoes.HasClasses(['@dotCollisionTopTrigger']):
 			shoes.AddSubstitution('calt', "@dotCollisionTop_source' @dotCollisionTopTrigger", '@dotCollisionTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+
+	# HIGH TEETH
+	if shoes.HasGroups(['.hitooth']) and shoes.HasClasses(('@seen_init', '@beh_fina')):
+
+		for glyph in shoes.Glyphs():
+			if '.hitooth' in glyph:
+				if shoes.HasGlyphs([glyph, glyph.replace('.hitooth', '')]):
+					shoes.AddGlyphsToClass('@hitooth_source', glyph.replace('.hitooth', ''))
+					shoes.AddGlyphsToClass('@hitooth_target', glyph)
+		shoes.AddSubstitution('calt', "@seen_init @hitooth_source'", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'dotCollision')
 
 
 	# YEH BARREE
