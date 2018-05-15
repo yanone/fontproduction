@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import unicodedata, os, string
+import dancingshoes
+reload(dancingshoes)
 import dancingshoes.helpers
 reload(dancingshoes.helpers)
 
@@ -65,7 +67,7 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 	if not features:		
 		features = ynFP4.featureOrder
 
-	print features
+#	print features
 	
 	
 	# Initialize DancingShoes object, hand over glyph names and default features
@@ -474,6 +476,14 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 				shoes.AddGlyphsToClass('@yehBarreeAlt_target', glyph)
 		shoes.AddSubstitution('calt', "@yehBarreeShortTrigger @yehBarreeAlt_source'", '@yehBarreeAlt_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
+	# TOP MARKS and SHORT GLYPHS
+	if shoes.HasGroups('.short') and shoes.HasClasses('@topMarks'):
+		for glyph in shoes.Glyphs():
+			if '.short' in glyph:
+				if shoes.HasGlyphs([glyph, glyph.replace('.short', '')]):
+					shoes.AddGlyphsToClass('@shortGlyphs_source', glyph.replace('.short', ''))
+					shoes.AddGlyphsToClass('@shortGlyphs_target', glyph)
+		shoes.AddSubstitution('calt', "@shortGlyphs_source' @topMarks", '@shortGlyphs_target', 'arab', '', 'RightToLeft')
 
 
 
