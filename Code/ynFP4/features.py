@@ -341,41 +341,95 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 	# SCRIPT MAGIC
 
 	automaticCaltConnection = []
+	doubleCaltConnections = []
+	doubleCaltGlyphs = []
 
 	for glyph in shoes.Glyphs():
 		if '.conn-' in glyph:
 			
+
+			baseGlyphName = None
+			double = None
 			parts = glyph.split('.')
 
-#			print parts
+			# Gather how many same-named parts there are
+			names = {}
+			for part in parts:
+				if 'conn-' in part:
+					name = part.split('-')[1]
+					if not name in names:
+						names[name] = 1
+					else:
+						names[name] += 1
 
-			if 'conn-' in parts[-1]:
+			for name in names:
+				if names[name] > 1:
+					double = name
 
-				#bareGlyphName, ending = parts[-1].split('conn-')
-				bareGlyphName = '.'.join(parts[:-1])
-				ending = parts[-1].split('conn-')[-1]
-				ending = '.conn-' + ending
-				connectionName, position = ending.split('-')[1:]
+			# We have double
+			if double:
+				print 'glyph %s has two name parts of same group: %s' % (glyph, double)
 
-				if '_' in connectionName:
-					listItem = (connectionName, 'glyphNameBasedConnections_%s' % connectionName.split('_')[-1])
-				else:
+
+			# Go through name parts
+			for i, part in enumerate(parts):
+
+				if 'conn-' in part:
+
+					#bareGlyphName, ending = parts[-1].split('conn-')
+					bareGlyphName = '.'.join(parts[:i])
+					if not baseGlyphName:
+						baseGlyphName = bareGlyphName
+					glyph = '.'.join(parts[:i+1])
+
+					ending = part.split('conn-')[-1]
+					ending = '.conn-' + ending
+					connectionName, position = ending.split('-')[1:]
+
+					if '_' in connectionName:
+						lookupName = 'glyphNameBasedConnections_%s' % connectionName.split('_')[-1]
+					else:
+						lookupName = 'glyphNameBasedConnections'
+
 					listItem = (connectionName, 'glyphNameBasedConnections')
 
-
-				if not listItem in automaticCaltConnection:
-					automaticCaltConnection.append(listItem)
-
+					if not listItem in automaticCaltConnection:
+						automaticCaltConnection.append(listItem)
 
 
-				if shoes.HasGlyphs([bareGlyphName, glyph]):
-					shoes.AddGlyphsToClass('@conn_%s_%s_source' % (connectionName, position), bareGlyphName)
-					shoes.AddGlyphsToClass('@conn_%s_%s_target' % (connectionName, position), glyph)
+
+					if shoes.HasGlyphs([bareGlyphName, glyph]):
+						shoes.AddGlyphsToClass('@conn_%s_%s_source' % (connectionName, position), bareGlyphName)
+						shoes.AddGlyphsToClass('@conn_%s_%s_target' % (connectionName, position), glyph)
+
+					if double:
+
+						className = '@conn_%s_trigger' % (connectionName)
+						for g in (glyph, baseGlyphName, bareGlyphName):
+							if not shoes.HasClasses(className) or not g in shoes.GlyphsInClass(className):
+								shoes.AddGlyphsToClass(className, g)
 
 
-	for connectionName, lookupName in sorted(automaticCaltConnection):
-		shoes.AddSubstitution('calt', "@conn_%s_first_source' @conn_%s_second_source" % (connectionName, connectionName), '@conn_%s_first_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, lookupName)
-		shoes.AddSubstitution('calt', "@conn_%s_first_target @conn_%s_second_source'" % (connectionName, connectionName), '@conn_%s_second_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, lookupName)
+						listItem = ['calt', "@conn_%s_trigger @conn_%s_2_source'" % (connectionName, connectionName), '@conn_%s_2_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, '%s_%s_2' % (lookupName, connectionName)]
+						if not listItem in doubleCaltConnections:
+							doubleCaltConnections.append(listItem)
+
+
+	for i, values in enumerate(sorted(automaticCaltConnection)):
+		connectionName, lookupName = values
+		shoes.AddSubstitution('calt', "@conn_%s_1_source' @conn_%s_2_source" % (connectionName, connectionName), '@conn_%s_1_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, '%s_%s' % (lookupName, connectionName))
+		shoes.AddSubstitution('calt', "@conn_%s_1_target @conn_%s_2_source'" % (connectionName, connectionName), '@conn_%s_2_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, '%s_%s' % (lookupName, connectionName))
+
+		for g in shoes.GlyphsInClass('@conn_%s_1_target' % connectionName):
+			shoes.AddGlyphsToClass('@conn_%s_trigger' % (connectionName), g)
+
+
+
+	for line in doubleCaltConnections:
+		shoes.AddSubstitution(*line)
+
+#		shoes.AddSubstitution('calt', "@conn_%s_2_target @conn_%s_2_source'" % (connectionName, connectionName), '@conn_%s_2_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, '%s_%s' % (lookupName, i))
+
 
 
 	if shoes.HasGroups(['.lohi', '.hi']):
@@ -410,8 +464,8 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 			if '.swsh' in glyph:
 				if shoes.HasGlyphs([glyph.replace('.swsh', '.hitooth')]):
 					shoes.AddSubstitution('swsh', glyph.replace('.swsh', '.hitooth'), glyph, 'arab', '', 'RightToLeft,IgnoreMarks')
-				if shoes.HasGlyphs([glyph.replace('.swsh', '.dotCollision')]):
-					shoes.AddSubstitution('swsh', glyph.replace('.swsh', '.dotCollision'), glyph, 'arab', '', 'RightToLeft,IgnoreMarks')
+				if shoes.HasGlyphs([glyph.replace('.swsh', '.dotColl')]):
+					shoes.AddSubstitution('swsh', glyph.replace('.swsh', '.dotColl'), glyph, 'arab', '', 'RightToLeft,IgnoreMarks')
 
 	
 
@@ -440,22 +494,22 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 	# dot collisions
 	if shoes.HasClasses(['@dotCollisionTop']):
 		for glyph in shoes.GlyphsInClass('@dotCollisionTop'):
-			if shoes.HasGlyphs([glyph, glyph.replace('.dotCollision', '')]):
-				shoes.AddGlyphsToClass('@dotCollisionTop_source', glyph.replace('.dotCollision', ''))
-				shoes.AddGlyphsToClass('@dotCollisionTop_target', glyph)
-		shoes.AddSubstitution('calt', "@dotCollisionTop_source' @dotCollisionTop_source", '@dotCollisionTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+			if shoes.HasGlyphs([glyph, glyph.replace('.dotColl', '')]):
+				shoes.AddGlyphsToClass('@dotCollTop_source', glyph.replace('.dotColl', ''))
+				shoes.AddGlyphsToClass('@dotCollTop_target', glyph)
+		shoes.AddSubstitution('calt', "@dotCollTop_source' @dotCollTop_source", '@dotCollTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 	if shoes.HasClasses(['@dotCollisionBottom']):
 		for glyph in shoes.GlyphsInClass('@dotCollisionBottom'):
-			if shoes.HasGlyphs([glyph, glyph.replace('.dotCollision', '')]):
-				shoes.AddGlyphsToClass('@dotCollisionBottom_source', glyph.replace('.dotCollision', ''))
-				shoes.AddGlyphsToClass('@dotCollisionBottom_target', glyph)
-		shoes.AddSubstitution('calt', "@dotCollisionBottom_source' @dotCollisionBottom_source", '@dotCollisionBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+			if shoes.HasGlyphs([glyph, glyph.replace('.dotColl', '')]):
+				shoes.AddGlyphsToClass('@dotCollBottom_source', glyph.replace('.dotColl', ''))
+				shoes.AddGlyphsToClass('@dotCollBottom_target', glyph)
+		shoes.AddSubstitution('calt', "@dotCollBottom_source' @dotCollBottom_source", '@dotCollBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
-		if shoes.HasClasses(['@dotCollisionBottomTrigger']):
-			shoes.AddSubstitution('calt', "@dotCollisionBottom_source' @dotCollisionBottomTrigger", '@dotCollisionBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+		if shoes.HasClasses(['@dotCollBottomTrigger']):
+			shoes.AddSubstitution('calt', "@dotCollBottom_source' @dotCollBottomTrigger", '@dotCollBottom_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
-		if shoes.HasClasses(['@dotCollisionTopTrigger']):
-			shoes.AddSubstitution('calt', "@dotCollisionTop_source' @dotCollisionTopTrigger", '@dotCollisionTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
+		if shoes.HasClasses(['@dotCollTopTrigger']):
+			shoes.AddSubstitution('calt', "@dotCollTop_source' @dotCollTopTrigger", '@dotCollTop_target', 'arab', '', 'RightToLeft,IgnoreMarks')
 
 	# HIGH TEETH
 	if shoes.HasGroups(['.hitooth']) and shoes.HasClasses(('@seen_init', '@beh_fina')):
@@ -465,7 +519,7 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 				if shoes.HasGlyphs([glyph, glyph.replace('.hitooth', '')]):
 					shoes.AddGlyphsToClass('@hitooth_source', glyph.replace('.hitooth', ''))
 					shoes.AddGlyphsToClass('@hitooth_target', glyph)
-		shoes.AddSubstitution('calt', "@seen_init @hitooth_source'", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'dotCollision')
+		shoes.AddSubstitution('calt', "@seen_init @hitooth_source'", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'dotColl')
 
 
 	# YEH BARREE
@@ -498,7 +552,8 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 	
 	# Custom font code
-	exec(f.note)
+	if f.note:
+		exec(f.note)
 
 
 	return shoes
