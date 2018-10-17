@@ -312,14 +312,30 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 	for name in shoes.Glyphs():
 		if name.endswith('.sc') and not 'longs' in name:
 			lowercaseGlyphName = name.split('.')[0]
-			if f.glyphs[lowercaseGlyphName] and f.glyphs[lowercaseGlyphName].unicode and unicodedata.category(unichr(int(f.glyphs[lowercaseGlyphName].unicode, 16))) == 'Ll':
-				uppercaseGlyphName = f.glyphs[f.glyphs[lowercaseGlyphName].string.upper()].name
+
+			specialCase = ['idotaccent']
+
+			if f.glyphs[lowercaseGlyphName] and f.glyphs[lowercaseGlyphName].unicode and unicodedata.category(unichr(int(f.glyphs[lowercaseGlyphName].unicode, 16))) == 'Ll' or lowercaseGlyphName in specialCase:
 
 				# special case
 				if lowercaseGlyphName == 'germandbls':
 					uppercaseGlyphName = 'Germandbls'
 
-				if shoes.HasGlyphs([uppercaseGlyphName, name]):
+				elif lowercaseGlyphName == 'idotaccent':
+					uppercaseGlyphName = 'Idotaccent'
+
+				else:
+					uppercaseGlyphName = f.glyphs[f.glyphs[lowercaseGlyphName].string.upper()].name
+
+
+				if lowercaseGlyphName.startswith('i'):
+					print name, lowercaseGlyphName, uppercaseGlyphName
+
+				# # special case
+				# if lowercaseGlyphName == 'idotaccent':
+				# 	uppercaseGlyphName = 'Idotaccent'
+
+				if shoes.HasGlyphs([uppercaseGlyphName, name]) and not uppercaseGlyphName in shoes.GlyphsInClass('@c2sc_source'):
 					shoes.AddGlyphsToClass('@c2sc_source', uppercaseGlyphName)
 					shoes.AddGlyphsToClass('@c2sc_target', name)
 
