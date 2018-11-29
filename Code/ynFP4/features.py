@@ -127,7 +127,6 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 			shoes.AddSubstitution(feature, source, target, script, language, lookupflag, comment, lookup)
 
 
-
 	#SUBS/SINF
 	for name in shoes.Glyphs():
 		if 'inferior' in name:
@@ -143,8 +142,11 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 
 		elif 'locl' in name.split('.')[-1]:
 			script = 'latn'
+			source = name.split('.')[0]
+			if f.glyphs[source]:
+				script = f.glyphs[source].script.replace('cyrillic', 'cyrl').replace('greek', 'grek')
 			language = name.split('.')[-1][4:]
-			shoes.AddSubstitution('locl', name.split('.')[0], name, script, language)
+			shoes.AddSubstitution('locl', source, name, script, language)
 
 
 
@@ -334,8 +336,8 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 					uppercaseGlyphName = f.glyphs[f.glyphs[lowercaseGlyphName].string.upper()].name
 
 
-				if lowercaseGlyphName.startswith('i'):
-					print name, lowercaseGlyphName, uppercaseGlyphName
+				# if lowercaseGlyphName.startswith('i'):
+				# 	print name, lowercaseGlyphName, uppercaseGlyphName
 
 				# # special case
 				# if lowercaseGlyphName == 'idotaccent':
