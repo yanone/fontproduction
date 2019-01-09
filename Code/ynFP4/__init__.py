@@ -3,8 +3,8 @@ featureOrder = ['aalt', 'ccmp', 'locl', 'subs', 'sinf', 'sups', 'numr', 'dnom', 
 caseGlyphs = ["periodcentered", "bullet", "colon", "emdash", "endash", "hyphen", "guillemetleft", "guillemetright", "guilsinglleft", "guilsinglright", "plus", "minus", "multiply", "divide", "equal", "greater", "less", "backslash", "slash", "braceleft", "braceright", "bracketleft", "bracketright", "parenleft", "parenright", "dotmath", "notequal", "greaterequal", "lessequal", "plusminus", "approxequal", "asciitilde", "numbersign", "questiondown", "exclamdown", ]
 
 UIReadySizeFeature = 'ss17'
-UIReadyTop = 1040
-UIReadyBottom = -260
+UIReadyTop = 1010
+UIReadyBottom = -390
 
 
 stylisticSetNames = {
