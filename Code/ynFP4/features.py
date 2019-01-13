@@ -164,6 +164,21 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 			if shoes.HasGlyphs(names):
 				shoes.AddSubstitution('liga', ' '.join(names), name)
 
+	for g in f.glyphs:
+		l = g.layers[0]
+		if l.components and l.components[0].userData['ligatureFeature']:
+
+			feature = l.components[0].userData['ligatureFeature']
+			sources = []
+			for c in l.components:
+				if c.userData['ligatureSource']:
+					sources.append(c.userData['ligatureSource'])
+
+			if sources:
+				shoes.AddSubstitution(feature, "%s" % ' '.join(sources), g.name, l.components[0].userData['ligatureScript'], l.components[0].userData['ligatureLanguage'], l.components[0].userData['ligatureLookupflag'])
+
+
+
 	# Fraction feature
 	if shoes.HasGroups(['.numr', '.dnom']) and shoes.HasGlyphs(['fraction']):
 		shoes.AddSimpleSubstitutionFeature('numr', '.numr')
