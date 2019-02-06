@@ -550,7 +550,7 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 					shoes.AddGlyphsToClass('@hitooth_target', glyph)
 
 		shoes.AddSubstitution('calt', "@hitooth_source' [@seen_medifina]", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'hitooth0')
-		shoes.AddSubstitution('calt', "[@hitooth_source @beh_init @seen_initmedi @sad_initmedi] @hitooth_source' [@hitooth_source @seen_medifina @beh_fina]", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'hitooth1')
+		shoes.AddSubstitution('calt', "[@hitooth_source @beh_init @seen_initmedi @sad_initmedi @hitooth_trigger] @hitooth_source' [@hitooth_source @seen_medifina @beh_fina]", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'hitooth1')
 		shoes.AddSubstitution('calt', "@hitooth_target @hitooth_source @hitooth_target'", '@hitooth_source', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'hitooth2')
 		shoes.AddSubstitution('calt', "@hitooth_source @hitooth_source @hitooth_source'", '@hitooth_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'hitooth3')
 		shoes.AddSubstitution('calt', "@hitooth_target @hitooth_target'", '@hitooth_source', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'hitooth4')
