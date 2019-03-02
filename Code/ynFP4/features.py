@@ -361,13 +361,25 @@ def MakeDancingShoes(f, glyphnames, features = None, stylisticsetnames = None, d
 		shoes.AddSubstitution('smcp', "@lnum_source", '@lnum_target')
 		shoes.AddSubstitution('c2sc', "@lnum_source", '@lnum_target')
 
-	# ARABIC
 	
-#	if shoes.HasGroups('.arab'):
-#		shoes.AddEndingToBothClasses('arab', '.arab')
-#		shoes.AddSubstitution('locl', "@arab_source", '@arab_target', 'arab', '', 'RightToLeft')
-		
-	
+	# CALT
+
+	for className in shoes.UsedClasses():
+		if '.trigger' in className:
+			classBaseName = className[1:].split('.trigger')[0]
+			for glyph1 in shoes.Glyphs():
+				if '.' + classBaseName + '-trigger' in glyph1:
+					glyphBaseName = glyph1.replace('.' + classBaseName + '-trigger', '')
+
+					shoes.AddSubstitution('calt', "%s %s'" % (className, glyphBaseName), glyph1, lookup = 'trigger_1')
+
+					for glyph2 in shoes.GlyphsInClass(className):
+						print("sub %s' %s by %s;" % (glyph2, glyph1, glyph2 + '.' + classBaseName + '-trigger'))
+						shoes.AddSubstitution('calt', "%s' %s" % (glyph2, glyph1), glyph2 + '.' + classBaseName + '-trigger', lookup = 'trigger_2')
+						shoes.AddSubstitution('calt', "%s %s'" % (glyph1, glyph2), glyph2 + '.' + classBaseName + '-trigger', lookup = 'trigger_2')
+
+
+
 	# SCRIPT MAGIC
 
 	automaticCaltConnection = []
