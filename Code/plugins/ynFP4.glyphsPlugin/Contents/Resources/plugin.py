@@ -9,5 +9,15 @@ if not path in sys.path:
 	sys.path.insert(0, path)
 
 import ynFP4
-reload(ynFP4) 
 print 'ynFP4 loaded.'
+
+
+###
+
+
+path = '/usr/local/lib/python3.7/site-packages/git.pth'
+paths = open(path, 'r').readlines()
+for path in paths:
+	if not path in sys.path:
+		sys.path.insert(0, path)
+		print('loaded', path)
