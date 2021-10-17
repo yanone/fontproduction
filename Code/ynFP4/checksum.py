@@ -5,7 +5,7 @@ import ynlib.fonts.fonttoolsstuff
 
 # Settings
 aesKey = 'K82KMH9ZsxuZh7ejc7xhGxAS'
-identifier = u'Font integrity checksum, do not remove: '
+identifier = 'Font integrity checksum, do not remove: '
 nameID = 32137
 
 def removeChecksums(identifier, f):
@@ -40,7 +40,7 @@ def makeCheckSum(filepath, additionalValues = {}):
 	}
 
 	# Overwrite
-	for key in additionalValues.keys():
+	for key in list(additionalValues.keys()):
 		d[key] = additionalValues[key]
 
 	string = identifier + base64.standard_b64encode(encryptData(aesKey, json.dumps(d)))
@@ -65,7 +65,7 @@ def checkChecksum(filepath):
 		return False, 'Checksum is missing from file.'
 
 	# Decode
-	encoded = unicode(f.TTFont.get('name').getName(nameID, 1, 0, 0)).split(identifier)[-1]
+	encoded = str(f.TTFont.get('name').getName(nameID, 1, 0, 0)).split(identifier)[-1]
 	try:
 		decoded = base64.standard_b64decode(encoded)
 		d = json.loads(decryptData(aesKey, decoded))
@@ -73,11 +73,11 @@ def checkChecksum(filepath):
 		return False, 'Decryption of checksum failed.'
 
 	# Format
-	if not d.has_key('checksumVersion'):
+	if 'checksumVersion' not in d:
 		errors.append('Checksum format unknown.')
 
 	# Creator
-	if not d.has_key('creator') or d['creator'] != 'Yanone':
+	if 'creator' not in d or d['creator'] != 'Yanone':
 		errors.append('This font is not from Yanone.')
 
 	# Remove + re-open
@@ -89,7 +89,7 @@ def checkChecksum(filepath):
 	tableChecksums = f.tableChecksums()
 	if not set(tableChecksums.keys()) == set(d['tableChecksums'].keys()):
 		errors.append('Mismatch in stored table checksums.')
-	for tableName in d['tableChecksums'].keys():
+	for tableName in list(d['tableChecksums'].keys()):
 		if tableChecksums[tableName] != d['tableChecksums'][tableName]:
 			errors.append('Table checksum mismatch for %s table.' % tableName)
 

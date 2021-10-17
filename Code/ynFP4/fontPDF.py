@@ -3,14 +3,15 @@
 import sys, time, colorsys, random, cProfile, unicodedata
 
 import ynlib.fonts.fonttoolsstuff
-reload(ynlib.fonts.fonttoolsstuff)
+import importlib
+importlib.reload(ynlib.fonts.fonttoolsstuff)
 
 from ynlib.fonts.fonttoolsstuff import Font as FontToolsFont
 from ynlib.colors import Color
 from ynlib.system import Execute
 from ynglib import *
 import ynglib.generators.DrawbotPDF
-reload(ynglib.generators.DrawbotPDF)
+importlib.reload(ynglib.generators.DrawbotPDF)
 from ynglib.generators.DrawbotPDF import PDF as DrawbotPDF
 #from ynglib.generators.reportlabPDF import PDF as reportlabPDF
 from ynglib.fonts import OpenTypeFont
@@ -35,10 +36,10 @@ PAGEMARGIN = 20
 TEXTTOP = 60
 TEXTSIZE = 10
 
-SPECIMENTEXT1 = u'''“¡ÆABCDEFGHIJKLMNOØŒPÞQRSẞTUVWXYZ!”
+SPECIMENTEXT1 = '''“¡ÆABCDEFGHIJKLMNOØŒPÞQRSẞTUVWXYZ!”
 »¿æabcdefghijklmnoøœpþqrsßtuvwxyz?«
 (0123)[456]{789} $€₺₹£¥ @&¶%§℮№'''
-SPECIMENTEXT2 = u'''Four furious friends fought for the phone. Auf des Fleischhauers Schild war der Abstand zwischen „Käse“ und „und“ und „und“ und „Wurst“ zu klein geraten. Tři sta třicet tři stříbrných křepelek přeletělo přes tři sta třicet tři stříbrných střech. Keksijä keksi keksin, keksin keksittyään keksijä keksi keksin keksityksi keksinnöksi.'''
+SPECIMENTEXT2 = '''Four furious friends fought for the phone. Auf des Fleischhauers Schild war der Abstand zwischen „Käse“ und „und“ und „und“ und „Wurst“ zu klein geraten. Tři sta třicet tři stříbrných křepelek přeletělo přes tři sta třicet tři stříbrných střech. Keksijä keksi keksin, keksin keksittyään keksijä keksi keksin keksityksi keksinnöksi.'''
 
 pageTitles = []
 
@@ -109,9 +110,9 @@ def titlePage(canvas, ftFont, pdfFont):
 	centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 186, 210 - 40, 'hag', verticalCenter = 'middle')
 
 	if ftFont.path.endswith('.otf'):
-		text = u'For the OpenType/CFF font:\n%s' % os.path.basename(ftFont.path)
+		text = 'For the OpenType/CFF font:\n%s' % os.path.basename(ftFont.path)
 	else:
-		text = u'For the TrueType font\n%s' % os.path.basename(ftFont.path)
+		text = 'For the TrueType font\n%s' % os.path.basename(ftFont.path)
 
 	canvas.TextArea(regular, text = text, fontsize = 16, lineheight = 19.2, x = 20, y = 261, width = 210, height = 50, fillcolor = white)
 
@@ -139,7 +140,7 @@ def languagesPage(canvas, languageSupport):
 	canvas.TextArea(regular, text = 'This font supports the below listed languages.\nIf your desired language is missing from the list, get in touch and we’ll see what we can do.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 2*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
 
 	text = ''
-	for script in languageSupport.keys():
+	for script in list(languageSupport.keys()):
 		text += script + ' Script:\n'
 		text += ', '.join([x[0] for x in languageSupport[script]]) + '\n\n'
 
@@ -215,7 +216,7 @@ def featuresPage(canvas, ftFont, pdfFont):
 			canvas.TextArea(regular, text = featureName, fontsize = 12, x = PAGEMARGIN, y = y + 2, width = 210 - 2*PAGEMARGIN, height = 30, align = 'left', fillcolor = black)
 
 			if feature in OTfeaturesOnByDefault:
-				canvas.TextArea(regular, text = u'✓', fontsize = 16, x = PAGEMARGIN - 8, y = y+2, width = 210 - 2*PAGEMARGIN, height = 30, align = 'left', fillcolor = green)
+				canvas.TextArea(regular, text = '✓', fontsize = 16, x = PAGEMARGIN - 8, y = y+2, width = 210 - 2*PAGEMARGIN, height = 30, align = 'left', fillcolor = green)
 
 			
 			# Description
@@ -223,7 +224,7 @@ def featuresPage(canvas, ftFont, pdfFont):
 
 			if ftFont.stylisticSetName(feature):
 				description.append(ftFont.stylisticSetName(feature))
-			if OTfeatureDescriptions.has_key(feature):
+			if feature in OTfeatureDescriptions:
 				description.append(OTfeatureDescriptions[feature])
 			if feature in OTfeaturesOnByDefault:
 				description.append('Normally this feature should be active by default.')
@@ -248,22 +249,22 @@ def featuresPage(canvas, ftFont, pdfFont):
 					for lookup in lookups:
 						if lookup.Format == 1:
 							for i, key in enumerate(lookup.mapping.keys()):
-								if i <= maxCount and ftFont.glyph(key).unicode and ftFont.glyph(lookup.mapping[key]).unicode:
-									sourceText += unichr(ftFont.glyph(key).unicode)
-									targetText += unichr(ftFont.glyph(key).unicode)
+								if i <= maxCount and ftFont.glyph(key).str and ftFont.glyph(lookup.mapping[key]).str:
+									sourceText += chr(ftFont.glyph(key).str)
+									targetText += chr(ftFont.glyph(key).str)
 
 			if feature == 'hist':
 				lookups = ftFont.lookupsPerFeatureScriptAndLanguage('hist')
 				for lookup in lookups:
 					if lookup.Format == 1:
 						for i, key in enumerate(lookup.mapping.keys()):
-							if i <= maxCount and ftFont.glyph(key).unicode and ftFont.glyph(lookup.mapping[key]).unicode:
-								sourceText += unichr(ftFont.glyph(key).unicode)
-								targetText += unichr(ftFont.glyph(key).unicode)
+							if i <= maxCount and ftFont.glyph(key).str and ftFont.glyph(lookup.mapping[key]).str:
+								sourceText += chr(ftFont.glyph(key).str)
+								targetText += chr(ftFont.glyph(key).str)
 
 			if feature == 'case':
-				sourceText = u'–(A:B)'
-				targetText = u'–(A:B)'
+				sourceText = '–(A:B)'
+				targetText = '–(A:B)'
 
 			if feature == 'frac':
 				sourceText = '3 99/166'
@@ -337,10 +338,10 @@ def featuresPage(canvas, ftFont, pdfFont):
 				for lookup in lookups:
 					if lookup.Format == 2:
 						i = 0
-						for key in lookup.mapping.keys():
+						for key in list(lookup.mapping.keys()):
 							if i <= maxCount and hasattr(ftFont.glyph(key), 'unicode'):
-								sourceText += unichr(ftFont.glyph(key).unicode)
-								targetText += unichr(ftFont.glyph(key).unicode)
+								sourceText += chr(ftFont.glyph(key).str)
+								targetText += chr(ftFont.glyph(key).str)
 								i += 1
 
 			if feature == 'calt':
@@ -348,14 +349,14 @@ def featuresPage(canvas, ftFont, pdfFont):
 				for lookup in lookups:
 					if lookup.Format == 2:
 						i = 0
-						for key in lookup.mapping.keys():
+						for key in list(lookup.mapping.keys()):
 							if i <= maxCount and hasattr(ftFont.glyph(key), 'unicode'):
-								sourceText += unichr(ftFont.glyph(key).unicode)
-								targetText += unichr(ftFont.glyph(key).unicode)
+								sourceText += chr(ftFont.glyph(key).str)
+								targetText += chr(ftFont.glyph(key).str)
 								i += 1
 
 			canvas.TextArea(pdfFont, text = sourceText, fontsize = 24, x = 90, y = y, width = 50, height = 20, align = 'center', fillcolor = black, features = sourceFeaturesOn, featuresOff = sourceFeaturesOff)
-			canvas.TextArea(regular, text = u'→',       fontsize = 20, x = 140, y = y + .8, width = 10, height = 10, align = 'center', fillcolor = rose)
+			canvas.TextArea(regular, text = '→',       fontsize = 20, x = 140, y = y + .8, width = 10, height = 10, align = 'center', fillcolor = rose)
 			canvas.TextArea(pdfFont, text = targetText, fontsize = 24, x = 150, y = y, width = 50, height = 20, align = 'center', fillcolor = black, language = language, features = targetFeaturesOn, featuresOff = targetFeaturesOff)
 
 
@@ -379,7 +380,7 @@ def featuresPage(canvas, ftFont, pdfFont):
 
 
 def continueOnNextPage(canvas):
-	canvas.TextArea(regular, text = u'continued on next page\n↓', fontsize = 14, x = 0, y = 274, width = 210, height = 20, align = 'center', fillcolor = rose)
+	canvas.TextArea(regular, text = 'continued on next page\n↓', fontsize = 14, x = 0, y = 274, width = 210, height = 20, align = 'center', fillcolor = rose)
 
 
 def specimenPage(canvas, ftFont, pdfFont):
@@ -411,7 +412,7 @@ def specimenPage(canvas, ftFont, pdfFont):
 	pageTitles.append([canvas.PageNumber(), 'All Encoded Glyphs'])
 
 
-	text = u''
+	text = ''
 	t = []
 
 #	for u in sorted(unicodes):
@@ -433,20 +434,20 @@ def specimenPage(canvas, ftFont, pdfFont):
 		for u in sorted(unicodes):
 
 			if type(cat) == str:
-				if unicodedata.category(unichr(u)).startswith(cat):
-					text += unichr(u)
+				if unicodedata.category(chr(u)).startswith(cat):
+					text += chr(u)
 					unicodesPrinted.append(u)
 
 			elif type(cat) == list or type(cat) == tuple:
-				if unicodedata.category(unichr(u)) in cat:
-					text += unichr(u)
+				if unicodedata.category(chr(u)) in cat:
+					text += chr(u)
 					unicodesPrinted.append(u)
 
 		text += '\n'
 
 	for u in sorted(unicodes):
-		if not u in unicodesPrinted and not unicodedata.category(unichr(u)) in exclude_t:
-			text += unichr(u)
+		if not u in unicodesPrinted and not unicodedata.category(chr(u)) in exclude_t:
+			text += chr(u)
 
 
 	canvas.TextArea(regular, text = 'This page contains all glyphs of the font that have an assigned Unicode. There are more glyphs in the font that will only show as the result of applied OpenType layout features, such as Small Capitals, different numeral sets etc.\nPlease refer the »OpenType features« page for further information.', fontsize = 10, lineheight = 12, x = PAGEMARGIN, y = TEXTTOP, width = 170, height = 50, align = 'left', fillcolor = black)
@@ -469,8 +470,8 @@ def leadingPage(canvas, ftFont, pdfFont, languageSupport):
 	canvas.TextArea(regular, text = 'As a typesetter you’re responsible for setting not just the font size, but also the leading (line height) of a text. When the leading is too tight, letters of adjacent lines might collide. You can prevent this by setting the leading to a certain percentage of the font size as a minimum.\nHowever, since different languages contain letters with different sizes, this minimum setting is not identical across languages or font designs. Below you’ll find an accurately calculated list of languages and the respective minimum leading for each language for this particular font.', fontsize = TEXTSIZE, x = PAGEMARGIN, y = TEXTTOP, width = 210 - 1.7*PAGEMARGIN, height = 50, align = 'left', fillcolor = black)
 
 
-	highest, lowest, lineGap, textSize = centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 104, 210 - 4*PAGEMARGIN, u'Ärger mitten', mode = 'leading', verticalCenter = 'top', lineColor = grayBackground)
-	highest, lowest, lineGap, textSize = centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 104 + lowest - highest, 210 - 4*PAGEMARGIN, u'in Österreich', mode = 'leading', verticalCenter = 'top', lineColor = grayBackground, highest = highest, lowest = lowest, lineGap = lineGap, textSize = textSize)
+	highest, lowest, lineGap, textSize = centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 104, 210 - 4*PAGEMARGIN, 'Ärger mitten', mode = 'leading', verticalCenter = 'top', lineColor = grayBackground)
+	highest, lowest, lineGap, textSize = centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, 104 + lowest - highest, 210 - 4*PAGEMARGIN, 'in Österreich', mode = 'leading', verticalCenter = 'top', lineColor = grayBackground, highest = highest, lowest = lowest, lineGap = lineGap, textSize = textSize)
 
 	leadingPerLanguage = leadingPerLanguages(ftFont, languageSupport)
 
@@ -481,7 +482,7 @@ def leadingPage(canvas, ftFont, pdfFont, languageSupport):
 			break
 
 
-	text = u'''The minimum leading is calculated by the ratio of the highest/lowest points for each language (b for bounding box) with the fonts’ standard line height of 1000 upm units (em).
+	text = '''The minimum leading is calculated by the ratio of the highest/lowest points for each language (b for bounding box) with the fonts’ standard line height of 1000 upm units (em).
 In the above example for the German language, the ratio is b/em = %s%%. That’s the minimum leading for lines to not collide for sure. So set your leading to at least %s%% of the font size. For 20pt font size that’s %spt leading.
 Please bear in mind that these are technical specifications for minium leading and in no way represent aesthetically pleasing values. You’re the typesetter after all.
 
@@ -492,7 +493,7 @@ These are the minimum leading values per language:
 #	text += unicode(leadingPerLanguages(ftFont, languageSupport))
 
 
-	for script in leadingPerLanguage.keys():
+	for script in list(leadingPerLanguage.keys()):
 		text += script + ' Script:\n'
 		text += ', '.join(['%s (%s%%)' % (x[0], x[1]) for x in leadingPerLanguage[script]]) + '\n\n'
 
@@ -525,7 +526,7 @@ def leadingPerLanguages(ftFont, supports):
 
 	_list = {}
 
-	for scriptName in supports.keys():
+	for scriptName in list(supports.keys()):
 
 		_list[scriptName] = []
 
@@ -549,7 +550,7 @@ def logotype(canvas, textcolor, logocolor):
 
 def logo(canvas, logocolor, x = 20, y = 29.5):
 	canvas.Ellipse(x + .452, y - 12.1, 12.1, 12.1, fillcolor = white)
-	canvas.Text(regular, text = u'', fontsize = 52, x = x, y = y, align = 'left', fillcolor = logocolor)
+	canvas.Text(regular, text = '', fontsize = 52, x = x, y = y, align = 'left', fillcolor = logocolor)
 
 
 def centeredTypeSampleWithMetricsLines(canvas, ftFont, pdfFont, y, areaWidth, text, maxHeight = None, mode = 'title', verticalCenter = 'top', lineColor = None, highest = None, lowest = None, lineGap = 0, textSize = None, textColor = None, strokeWidth = None):

@@ -32,7 +32,7 @@ def GSFont_UIReady(self):
 	# Step 2: Check for duplicates of oversize glyphs
 	duplicates = []
 	for glyph in oversize:
-		if self.glyphs.has_key(glyph.name + '.' + feature):
+		if glyph.name + '.' + feature in self.glyphs:
 			glyph = self.glyphs[glyph.name + '.' + feature]
 
 			allLayersInBounds = True

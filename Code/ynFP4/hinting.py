@@ -9,9 +9,9 @@ def prepareForTrueTypeHintingTest(font):
 
 
 	for i, glyph in enumerate(font.copy().glyphs):
-		if not glyph.unicode:
+		if not glyph.str:
 			u = hex(int('F0000', 16) + i).split('0x')[1]
-			font.glyphs[glyph.name].unicode = u
+			font.glyphs[glyph.name].str = u
 	return font
 
 
@@ -146,33 +146,33 @@ function show(name) {
 	usedUnicodes = []
 	unicodes = []
 	for glyph in glyphsFont.glyphs:
-		if glyph.layers[0].paths and not glyph.layers[0].components and glyph.unicode and glyph.category and glyph.category.startswith('L'):
-			unicodes.append(glyph.unicode)
-			usedUnicodes.append(glyph.unicode)
+		if glyph.layers[0].paths and not glyph.layers[0].components and glyph.str and glyph.category and glyph.category.startswith('L'):
+			unicodes.append(glyph.str)
+			usedUnicodes.append(glyph.str)
 	html = addGlyphs(html, 'base', unicodes)
 
 	# Base glyphs
 	unicodes = []
 	for glyph in glyphsFont.glyphs:
-		if glyph.layers[0].components and glyph.unicode and glyph.category and glyph.category.startswith('L'):
-			unicodes.append(glyph.unicode)
-			usedUnicodes.append(glyph.unicode)
+		if glyph.layers[0].components and glyph.str and glyph.category and glyph.category.startswith('L'):
+			unicodes.append(glyph.str)
+			usedUnicodes.append(glyph.str)
 	html = addGlyphs(html, 'components', unicodes)
 
 	# Numbers glyphs
 	unicodes = []
 	for glyph in glyphsFont.glyphs:
-		if glyph.unicode and glyph.category and glyph.category == 'Number':
-			unicodes.append(glyph.unicode)
-			usedUnicodes.append(glyph.unicode)
+		if glyph.str and glyph.category and glyph.category == 'Number':
+			unicodes.append(glyph.str)
+			usedUnicodes.append(glyph.str)
 	html = addGlyphs(html, 'numbers', unicodes)
 
 	# Rest
 	unicodes = []
 	for glyph in glyphsFont.glyphs:
-		if glyph.unicode and not glyph.unicode in usedUnicodes:
-			unicodes.append(glyph.unicode)
-			usedUnicodes.append(glyph.unicode)
+		if glyph.str and not glyph.str in usedUnicodes:
+			unicodes.append(glyph.str)
+			usedUnicodes.append(glyph.str)
 	html = addGlyphs(html, 'rest', unicodes)
 
 	html += '''

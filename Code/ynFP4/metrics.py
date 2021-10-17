@@ -32,8 +32,8 @@ def HighestPointOfGlyph(l):
 def SetUnderline(f):
 
 	hotglyph = None
-	if f.glyphs.has_key('underline.comp'): hotglyph = 'underline.comp'
-	elif f.glyphs.has_key('underscore'): hotglyph = 'underscore'
+	if 'underline.comp' in f.glyphs: hotglyph = 'underline.comp'
+	elif 'underscore' in f.glyphs: hotglyph = 'underscore'
 
 	if hotglyph:
 		l = f.glyphs[hotglyph].layers[0]
@@ -45,8 +45,8 @@ def SetUnderline(f):
 def SetStrikeout(f):
 	
 	hotglyph = None
-	if f.glyphs.has_key('strikeout.comp'): hotglyph = 'strikeout.comp'
-	elif f.glyphs.has_key('endash'): hotglyph = 'endash'
+	if 'strikeout.comp' in f.glyphs: hotglyph = 'strikeout.comp'
+	elif 'endash' in f.glyphs: hotglyph = 'endash'
 
 	if hotglyph:
 		l = f.glyphs[hotglyph].layers[0]
