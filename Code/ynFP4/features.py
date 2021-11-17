@@ -4,6 +4,7 @@
 import unicodedata, os, string
 import dancingshoes
 import importlib
+import GlyphsApp
 
 importlib.reload(dancingshoes)
 import dancingshoes.helpers
@@ -17,6 +18,16 @@ from dancingshoes import DancingShoes
 from ynlib.fonts.opentypenames import OTfeatures
 
 from dancingshoes.helpers import GlyphNamesFromGlyphsFont, SubstitutionsFromCSV
+
+
+def baseGlyphWithAnchor(glyph, anchorName):
+    components = list(glyph.layers[0].components)
+    if glyph.layers[0].anchors[anchorName]:
+        return glyph.name
+    for component in components:
+        base = baseGlyphWithAnchor(component.component, anchorName)
+        if base:
+            return base
 
 
 def makeFeatures(font):
@@ -71,8 +82,6 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
     if not features:
         features = ynFP4.featureOrder
 
-    # 	print features
-
     # Initialize DancingShoes object, hand over glyph names and default features
     shoes = DancingShoes(glyphnames, features)
 
@@ -108,13 +117,6 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         ),
     )
 
-    # Various classes from Glyphs
-    for g in f.glyphs:
-        if g.userData:
-            if g.userData["OTclass"]:
-                for OTclass in g.userData["OTclass"]:
-                    shoes.AddGlyphsToClass("@" + OTclass, g.name)
-
     # Add direct substitutions
     directsubstitutions = (
         ("smcp", ".sc"),
@@ -126,6 +128,14 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
     )
     for feature, ending in directsubstitutions:
         shoes.AddSimpleSubstitutionFeature(feature, ending)
+    shoes.AddSimpleSubstitutionFeature("smcp", ".caps")
+
+    # Various classes from Glyphs
+    for g in f.glyphs:
+        if g.userData:
+            if g.userData["OTclass"]:
+                for OTclass in g.userData["OTclass"]:
+                    shoes.AddGlyphsToClass("@" + OTclass, g.name)
 
     # Add
     for i in range(20):
@@ -246,7 +256,6 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
                 uppercaseGlyphName = f.glyphs[f.glyphs[lowercaseGlyphName].string.upper()].name
                 shoes.AddGlyphsToClass("@ordn_source", uppercaseGlyphName)
                 shoes.AddGlyphsToClass("@ordn_target", name)
-    shoes.AddSimpleSubstitutionFeature("smcp", ".caps")
 
     # ZIFFERN
 
@@ -348,13 +357,34 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         if shoes.HasClasses(("@tnum_source", "@tnum_target")):
             shoes.AddSubstitution("tnum", "@tnum_source", "@tnum_target")
 
+    # case for Polytonic Greek
+    for glyph in f.glyphs:
+        if (
+            glyph.script == "greek"
+            and glyph.category == "Letter"
+            and glyph.case == GlyphsApp.GSUppercase
+            and len(glyph.layers[0].components) == 2
+            and baseGlyphWithAnchor(glyph, "_tonos")
+        ):
+            shoes.AddSubstitution("case", glyph.name, glyph.layers[0].components[0].componentName)
+            shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName)
+
+    # smcp for Polytonic Greek
+    for glyph in f.glyphs:
+        if (
+            glyph.script == "greek"
+            and glyph.category == "Letter"
+            and glyph.case == GlyphsApp.GSLowercase
+            and len(glyph.layers[0].components) == 2
+            and baseGlyphWithAnchor(glyph, "_tonos")
+        ):
+            shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".sc")
+
     # case
     shoes.AddSimpleSubstitutionFeature("case", ".case")
     if shoes.HasClasses(("@lnum_source", "@lnum_target")):
         shoes.AddSubstitution("case", "@lnum_source", "@lnum_target")
     shoes.AddSimpleSubstitutionFeature("case", ".caps")
-
-    # Polytonic Greek
 
     # cpsp Capital Spacing
     if shoes.HasClasses("@uppercaseLetters"):
