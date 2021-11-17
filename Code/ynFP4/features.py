@@ -25,9 +25,7 @@ def makeFeatures(font):
 
     print("Dancing with my new shoes...")
 
-    shoes = MakeDancingShoes(
-        font, GlyphNamesFromGlyphsFont(font), stylisticsetnames=ynFP4.stylisticSetNames
-    )
+    shoes = MakeDancingShoes(font, GlyphNamesFromGlyphsFont(font), stylisticsetnames=ynFP4.stylisticSetNames)
 
     # Apply code
     from dancingshoes.helpers import AssignFeatureCodeToGlyphsFont
@@ -60,9 +58,7 @@ def Unicode(g):
 # Dancing Shoes
 
 
-def MakeDancingShoes(
-    f, glyphnames, features=None, stylisticsetnames=None, defaultfigures="osf"
-):
+def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defaultfigures="osf"):
 
     # Feature Duplication
     duplicateFeatures = [
@@ -133,9 +129,7 @@ def MakeDancingShoes(
 
     # Add
     for i in range(20):
-        shoes.AddSimpleSubstitutionFeature(
-            "ss" + str(i).zfill(2), ".ss" + str(i).zfill(2)
-        )
+        shoes.AddSimpleSubstitutionFeature("ss" + str(i).zfill(2), ".ss" + str(i).zfill(2))
 
     # Simple Substitutions from CSV file
     csvfiles = [
@@ -152,9 +146,7 @@ def MakeDancingShoes(
             lookupflag,
             comment,
         ) in SubstitutionsFromCSV(csvfile):
-            shoes.AddSubstitution(
-                feature, source, target, script, language, lookupflag, comment, lookup
-            )
+            shoes.AddSubstitution(feature, source, target, script, language, lookupflag, comment, lookup)
 
     # SUBS/SINF
     for name in shoes.Glyphs():
@@ -173,11 +165,7 @@ def MakeDancingShoes(
             script = "latn"
             source = name.split(".")[0]
             if f.glyphs[source]:
-                script = (
-                    f.glyphs[source]
-                    .script.replace("cyrillic", "cyrl")
-                    .replace("greek", "grek")
-                )
+                script = f.glyphs[source].script.replace("cyrillic", "cyrl").replace("greek", "grek")
             language = name.split(".")[-1][4:]
             shoes.AddSubstitution("locl", source, name, script, language)
 
@@ -215,9 +203,7 @@ def MakeDancingShoes(
         shoes.AddGlyphsToClass("fractionslashes", ["slash", "fraction"])
         shoes.AddSubstitution("frac", "@numr_source", "@numr_target")
         shoes.AddSubstitution("frac", "slash", "fraction")
-        shoes.AddSubstitution(
-            "frac", "[@fractionslashes @dnom_target] @numr_target'", "@dnom_target"
-        )
+        shoes.AddSubstitution("frac", "[@fractionslashes @dnom_target] @numr_target'", "@dnom_target")
 
     # ß im Versalsatz
     if shoes.HasGlyphs(["Germandbls", "germandbls"]):
@@ -246,30 +232,18 @@ def MakeDancingShoes(
         # 		shoes.AddGlyphsToClass('@ordn_target', 'ordfeminine')
         # 		shoes.AddGlyphsToClass('@ordn_source', 'o')
         # 		shoes.AddGlyphsToClass('@ordn_target', 'ordmasculine')
-        shoes.AddSubstitution(
-            "ordn", "[@numbers @ordn_target] @ordn_source'", "@ordn_target"
-        )
+        shoes.AddSubstitution("ordn", "[@numbers @ordn_target] @ordn_source'", "@ordn_target")
 
     for name in shoes.Glyphs():
         if name.endswith(".sups"):
-            if (
-                unicodedata.category(chr(int(f.glyphs[name.split(".")[0]].unicode, 16)))
-                == "Ll"
-            ):
+            if unicodedata.category(chr(int(f.glyphs[name.split(".")[0]].unicode, 16))) == "Ll":
                 shoes.AddGlyphsToClass("@ordn_source", name.split(".")[0])
                 shoes.AddGlyphsToClass("@ordn_target", name)
         elif name.endswith(".sups.caps"):
-            if (
-                unicodedata.category(
-                    chr(int(f.glyphs[name.split(".")[0]].unicode, 16)).upper()
-                )
-                == "Lu"
-            ):
+            if unicodedata.category(chr(int(f.glyphs[name.split(".")[0]].unicode, 16)).upper()) == "Lu":
 
                 lowercaseGlyphName = name.split(".")[0]
-                uppercaseGlyphName = f.glyphs[
-                    f.glyphs[lowercaseGlyphName].string.upper()
-                ].name
+                uppercaseGlyphName = f.glyphs[f.glyphs[lowercaseGlyphName].string.upper()].name
                 shoes.AddGlyphsToClass("@ordn_source", uppercaseGlyphName)
                 shoes.AddGlyphsToClass("@ordn_target", name)
     shoes.AddSimpleSubstitutionFeature("smcp", ".caps")
@@ -380,6 +354,8 @@ def MakeDancingShoes(
         shoes.AddSubstitution("case", "@lnum_source", "@lnum_target")
     shoes.AddSimpleSubstitutionFeature("case", ".caps")
 
+    # Polytonic Greek
+
     # cpsp Capital Spacing
     if shoes.HasClasses("@uppercaseLetters"):
         shoes.AddSinglePositioning("cpsp", "@uppercaseLetters", (5, 0, 10, 0))
@@ -394,10 +370,7 @@ def MakeDancingShoes(
             if (
                 f.glyphs[lowercaseGlyphName]
                 and f.glyphs[lowercaseGlyphName].string
-                and unicodedata.category(
-                    chr(int(f.glyphs[lowercaseGlyphName].unicode, 16))
-                )
-                == "Ll"
+                and unicodedata.category(chr(int(f.glyphs[lowercaseGlyphName].unicode, 16))) == "Ll"
                 # or lowercaseGlyphName in specialCase
             ):
 
@@ -531,10 +504,7 @@ def MakeDancingShoes(
                     connectionName, position = ending.split("-")[1:]
 
                     if "_" in connectionName:
-                        lookupName = (
-                            "glyphNameBasedConnections_%s"
-                            % connectionName.split("_")[-1]
-                        )
+                        lookupName = "glyphNameBasedConnections_%s" % connectionName.split("_")[-1]
                     else:
                         lookupName = "glyphNameBasedConnections"
 
@@ -548,23 +518,18 @@ def MakeDancingShoes(
                             "@conn_%s_%s_source" % (connectionName, position),
                             bareGlyphName,
                         )
-                        shoes.AddGlyphsToClass(
-                            "@conn_%s_%s_target" % (connectionName, position), glyph
-                        )
+                        shoes.AddGlyphsToClass("@conn_%s_%s_target" % (connectionName, position), glyph)
 
                     if double:
 
                         className = "@conn_%s_trigger" % (connectionName)
                         for g in (glyph, baseGlyphName, bareGlyphName):
-                            if not shoes.HasClasses(
-                                className
-                            ) or not g in shoes.GlyphsInClass(className):
+                            if not shoes.HasClasses(className) or not g in shoes.GlyphsInClass(className):
                                 shoes.AddGlyphsToClass(className, g)
 
                         listItem = [
                             "calt",
-                            "@conn_%s_trigger @conn_%s_2_source'"
-                            % (connectionName, connectionName),
+                            "@conn_%s_trigger @conn_%s_2_source'" % (connectionName, connectionName),
                             "@conn_%s_2_target" % connectionName,
                             "arab",
                             "",
@@ -612,9 +577,7 @@ def MakeDancingShoes(
             for glyph in shoes.Glyphs():
                 if ".hilo" in glyph:
                     if shoes.HasGlyphs([glyph, glyph.replace(".lohi", "")]):
-                        shoes.AddGlyphsToClass(
-                            "@arabmedihilo_source", glyph.replace(".hilo", "")
-                        )
+                        shoes.AddGlyphsToClass("@arabmedihilo_source", glyph.replace(".hilo", ""))
                         shoes.AddGlyphsToClass("@arabmedihilo_target", glyph)
             shoes.AddSubstitution(
                 "calt",
@@ -636,15 +599,11 @@ def MakeDancingShoes(
         for glyph in shoes.Glyphs():
             if ".lohi" in glyph:
                 if shoes.HasGlyphs([glyph, glyph.replace(".lohi", "")]):
-                    shoes.AddGlyphsToClass(
-                        "@arabmedilohi_source", glyph.replace(".lohi", "")
-                    )
+                    shoes.AddGlyphsToClass("@arabmedilohi_source", glyph.replace(".lohi", ""))
                     shoes.AddGlyphsToClass("@arabmedilohi_target", glyph)
             if ".hi" in glyph:
                 if shoes.HasGlyphs([glyph, glyph.replace(".hi", "")]):
-                    shoes.AddGlyphsToClass(
-                        "@arabfinahi_source", glyph.replace(".hi", "")
-                    )
+                    shoes.AddGlyphsToClass("@arabfinahi_source", glyph.replace(".hi", ""))
                     shoes.AddGlyphsToClass("@arabfinahi_target", glyph)
         shoes.AddSubstitution(
             "calt",
@@ -711,9 +670,7 @@ def MakeDancingShoes(
     if shoes.HasClasses(["@dotCollisionTop"]):
         for glyph in shoes.GlyphsInClass("@dotCollisionTop"):
             if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
-                shoes.AddGlyphsToClass(
-                    "@dotCollTop_source", glyph.replace(".dotColl", "")
-                )
+                shoes.AddGlyphsToClass("@dotCollTop_source", glyph.replace(".dotColl", ""))
                 shoes.AddGlyphsToClass("@dotCollTop_target", glyph)
         shoes.AddSubstitution(
             "calt",
@@ -726,9 +683,7 @@ def MakeDancingShoes(
     if shoes.HasClasses(["@dotCollisionBottom"]):
         for glyph in shoes.GlyphsInClass("@dotCollisionBottom"):
             if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
-                shoes.AddGlyphsToClass(
-                    "@dotCollBottom_source", glyph.replace(".dotColl", "")
-                )
+                shoes.AddGlyphsToClass("@dotCollBottom_source", glyph.replace(".dotColl", ""))
                 shoes.AddGlyphsToClass("@dotCollBottom_target", glyph)
         shoes.AddSubstitution(
             "calt",
@@ -764,9 +719,7 @@ def MakeDancingShoes(
         for glyph in shoes.Glyphs():
             if ".hitooth" in glyph:
                 if shoes.HasGlyphs([glyph, glyph.replace(".hitooth", "")]):
-                    shoes.AddGlyphsToClass(
-                        "@hitooth_source", glyph.replace(".hitooth", "")
-                    )
+                    shoes.AddGlyphsToClass("@hitooth_source", glyph.replace(".hitooth", ""))
                     shoes.AddGlyphsToClass("@hitooth_target", glyph)
 
         shoes.AddSubstitution(
@@ -781,7 +734,8 @@ def MakeDancingShoes(
         )
         shoes.AddSubstitution(
             "calt",
-            "[@hitooth_source @beh_init @seen_initmedi @sad_initmedi @hitooth_trigger] @hitooth_source' [@hitooth_source @seen_medifina @beh_fina]",
+            "[@hitooth_source @beh_init @seen_initmedi @sad_initmedi @hitooth_trigger] @hitooth_source'"
+            " [@hitooth_source @seen_medifina @beh_fina]",
             "@hitooth_target",
             "arab",
             "",
@@ -824,9 +778,7 @@ def MakeDancingShoes(
     if shoes.HasClasses(["@yehBarreeShortTrigger", "@yehBarreeAlt"]):
         for glyph in shoes.GlyphsInClass("@yehBarreeAlt"):
             if shoes.HasGlyphs([glyph, glyph.replace(".alt", "")]):
-                shoes.AddGlyphsToClass(
-                    "@yehBarreeAlt_source", glyph.replace(".alt", "")
-                )
+                shoes.AddGlyphsToClass("@yehBarreeAlt_source", glyph.replace(".alt", ""))
                 shoes.AddGlyphsToClass("@yehBarreeAlt_target", glyph)
         shoes.AddSubstitution(
             "calt",
@@ -842,9 +794,7 @@ def MakeDancingShoes(
         for glyph in shoes.Glyphs():
             if ".short" in glyph:
                 if shoes.HasGlyphs([glyph, glyph.replace(".short", "")]):
-                    shoes.AddGlyphsToClass(
-                        "@shortGlyphs_source", glyph.replace(".short", "")
-                    )
+                    shoes.AddGlyphsToClass("@shortGlyphs_source", glyph.replace(".short", ""))
                     shoes.AddGlyphsToClass("@shortGlyphs_target", glyph)
         shoes.AddSubstitution(
             "calt",
