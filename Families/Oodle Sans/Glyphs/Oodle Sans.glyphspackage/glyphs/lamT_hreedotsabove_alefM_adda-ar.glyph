@@ -1,0 +1,66 @@
+{
+glyphname = "lamThreedotsabove_alefMadda-ar";
+kernLeft = lam_alef.isol;
+kernRight = lam_alef;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "lam_alef-ar.shortBoth";
+},
+{
+anchor = top_2;
+pos = (-27,257);
+ref = "madda-ar";
+},
+{
+anchor = top_1;
+pos = (220,185);
+ref = "threedotsupabove-ar";
+}
+);
+width = 635;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "lam_alef-ar.shortBoth";
+},
+{
+anchor = top_2;
+pos = (-22,230);
+ref = "madda-ar";
+},
+{
+anchor = top_1;
+pos = (295,147);
+ref = "threedotsupabove-ar";
+}
+);
+width = 548;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "lam_alef-ar.shortBoth";
+},
+{
+anchor = top_2;
+pos = (0,280);
+ref = "madda-ar";
+},
+{
+anchor = top_1;
+pos = (218,141);
+ref = "threedotsupabove-ar";
+}
+);
+width = 582;
+}
+);
+metricLeft = "lamBar_alef-ar";
+metricRight = "alefMadda-ar";
+}

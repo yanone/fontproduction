@@ -1,0 +1,45 @@
+{
+glyphname = "ghain-ar.fina";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "ain-ar.fina";
+},
+{
+pos = (277,102);
+ref = "dotabove-ar";
+}
+);
+width = 691;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "ain-ar.fina";
+},
+{
+pos = (188,-159);
+ref = "dotabove-ar";
+}
+);
+width = 496;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "ain-ar.fina";
+},
+{
+pos = (216,-62);
+ref = "dotabove-ar";
+}
+);
+width = 557;
+}
+);
+unicode = 65230;
+}

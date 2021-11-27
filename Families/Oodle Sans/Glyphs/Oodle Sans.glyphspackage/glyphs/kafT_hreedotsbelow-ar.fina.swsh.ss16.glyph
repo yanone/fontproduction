@@ -1,0 +1,45 @@
+{
+glyphname = "kafThreedotsbelow-ar.fina.swsh.ss16";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "kaf-ar.fina.swsh";
+},
+{
+pos = (416,-32);
+ref = "threedotsdownbelow-ar";
+scale = (0.9,0.9);
+}
+);
+width = 1402;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "kaf-ar.fina.swsh";
+},
+{
+pos = (513,13);
+ref = "threedotsdownbelow-ar";
+}
+);
+width = 1471;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "kaf-ar.fina.swsh";
+},
+{
+pos = (486,-1);
+ref = "threedotsdownbelow-ar";
+}
+);
+width = 1544;
+}
+);
+}

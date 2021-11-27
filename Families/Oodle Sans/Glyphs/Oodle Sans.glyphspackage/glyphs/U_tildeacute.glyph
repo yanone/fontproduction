@@ -1,0 +1,75 @@
+{
+glyphname = Utildeacute;
+kernLeft = U;
+kernRight = U;
+layers = (
+{
+background = {
+shapes = (
+{
+ref = Utilde;
+},
+{
+pos = (18,147);
+ref = acute.uc;
+},
+{
+ref = Uacute;
+}
+);
+};
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = Utilde;
+},
+{
+pos = (212,397);
+ref = acute;
+}
+);
+width = 678;
+},
+{
+background = {
+shapes = (
+{
+ref = Utilde;
+},
+{
+pos = (10,220);
+ref = acute.uc;
+},
+{
+ref = Uacute;
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = Utilde;
+},
+{
+pos = (192,446);
+ref = acute;
+}
+);
+width = 701;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = Utilde;
+},
+{
+pos = (267,382);
+ref = acute;
+}
+);
+width = 678;
+}
+);
+unicode = 7800;
+}

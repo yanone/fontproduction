@@ -1,0 +1,93 @@
+{
+glyphname = Adotmacron.ss16;
+kernLeft = A;
+kernRight = A;
+layers = (
+{
+background = {
+shapes = (
+{
+ref = Adotaccent;
+},
+{
+pos = (-25,147);
+ref = macron.uc;
+}
+);
+};
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+alignment = -1;
+ref = A;
+},
+{
+alignment = -1;
+pos = (235,180);
+ref = dotaccentcomb;
+},
+{
+alignment = -1;
+pos = (122,342);
+ref = macron;
+}
+);
+width = 667;
+},
+{
+background = {
+shapes = (
+{
+ref = Adotaccent;
+},
+{
+pos = (6,180);
+ref = macron.uc;
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+alignment = -1;
+ref = A;
+},
+{
+alignment = -1;
+pos = (247,357);
+ref = dotaccentcomb;
+scale = (0.6633,0.6633);
+},
+{
+alignment = -1;
+pos = (123,420);
+ref = macron;
+scale = (1,0.8413);
+}
+);
+width = 732;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+alignment = -1;
+ref = A;
+},
+{
+alignment = -1;
+pos = (283,232);
+ref = dotaccentcomb;
+},
+{
+alignment = -1;
+pos = (165,377);
+ref = macron;
+}
+);
+width = 672;
+}
+);
+metricLeft = A;
+metricRight = A;
+}

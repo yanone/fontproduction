@@ -1,0 +1,57 @@
+{
+glyphname = Upsilondasia;
+kernRight = Y;
+layers = (
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+alignment = -1;
+pos = (133,0);
+ref = Upsilon;
+},
+{
+alignment = -1;
+pos = (0,100);
+ref = dasia;
+}
+);
+width = 788;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+alignment = -1;
+pos = (242,0);
+ref = Upsilon;
+},
+{
+alignment = -1;
+pos = (0,100);
+ref = dasia;
+}
+);
+width = 899;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+alignment = -1;
+pos = (281,0);
+ref = Upsilon;
+},
+{
+alignment = -1;
+pos = (0,80);
+ref = dasia;
+}
+);
+width = 967;
+}
+);
+metricLeft = dasia;
+metricRight = Upsilon;
+unicode = 8025;
+}

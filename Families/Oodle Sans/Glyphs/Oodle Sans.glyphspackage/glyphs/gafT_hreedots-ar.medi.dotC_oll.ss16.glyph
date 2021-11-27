@@ -1,0 +1,52 @@
+{
+glyphname = "gafThreedots-ar.medi.dotColl.ss16";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "gaf-ar.medi.dotColl.ui";
+},
+{
+pos = (72,542);
+ref = "threedotsupabove-ar";
+scale = (0.56,0.56);
+}
+);
+width = 557;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "gaf-ar.medi.dotColl.ui";
+},
+{
+pos = (-48,223);
+ref = "threedotsupabove-ar";
+}
+);
+width = 490;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "gaf-ar.medi.dotColl.ui";
+},
+{
+pos = (-4,401);
+ref = "threedotsupabove-ar";
+scale = (0.76,0.76);
+}
+);
+width = 518;
+}
+);
+userData = {
+OTclass = (
+dotCollisionTopTrigger,
+dotCollisionTop
+);
+};
+}

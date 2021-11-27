@@ -1,0 +1,68 @@
+{
+glyphname = "cyrl-middlehook";
+layers = (
+{
+anchors = (
+{
+name = _bottom;
+pos = (55,0);
+}
+);
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+closed = 1;
+nodes = (
+(50,3,l),
+(51,-100,l),
+(58,-100,l),
+(59,3,l)
+);
+}
+);
+width = 109;
+},
+{
+anchors = (
+{
+name = _bottom;
+pos = (96,0);
+}
+);
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+closed = 1;
+nodes = (
+(50,61,l),
+(58,-100,l),
+(137,-100,l),
+(144,61,l)
+);
+}
+);
+width = 194;
+},
+{
+anchors = (
+{
+name = _bottom;
+pos = (163,0);
+}
+);
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+closed = 1;
+nodes = (
+(50,154,l),
+(79,-100,l),
+(251,-100,l),
+(279,154,l)
+);
+}
+);
+width = 329;
+}
+);
+}

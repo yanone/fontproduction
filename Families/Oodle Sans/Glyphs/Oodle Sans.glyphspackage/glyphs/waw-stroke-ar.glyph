@@ -1,0 +1,68 @@
+{
+glyphname = "waw-stroke-ar";
+layers = (
+{
+anchors = (
+{
+name = _stroke;
+pos = (229,-69);
+}
+);
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+closed = 1;
+nodes = (
+(50,-72,l),
+(228,-72,l),
+(231,-65,l),
+(50,-65,l)
+);
+}
+);
+width = 281;
+},
+{
+anchors = (
+{
+name = _stroke;
+pos = (208,-62);
+}
+);
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+closed = 1;
+nodes = (
+(50,-94,l),
+(223,-94,l),
+(281,-31,l),
+(50,-31,l)
+);
+}
+);
+width = 331;
+},
+{
+anchors = (
+{
+name = _stroke;
+pos = (212,-62);
+}
+);
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+closed = 1;
+nodes = (
+(10,-78,l),
+(223,-78,l),
+(281,-45,l),
+(10,-45,l)
+);
+}
+);
+width = 331;
+}
+);
+}

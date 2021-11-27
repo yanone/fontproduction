@@ -1,0 +1,45 @@
+{
+glyphname = "kadescender-cy.sc";
+kernRight = K.sc;
+layers = (
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "ka-cy.sc";
+},
+{
+pos = (466,0);
+ref = "cyrl-hook.case";
+}
+);
+width = 592;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "ka-cy.sc";
+},
+{
+pos = (475,0);
+ref = "cyrl-hook.case";
+}
+);
+width = 623;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "ka-cy.sc";
+},
+{
+pos = (408,0);
+ref = "cyrl-hook.case";
+}
+);
+width = 693;
+}
+);
+}

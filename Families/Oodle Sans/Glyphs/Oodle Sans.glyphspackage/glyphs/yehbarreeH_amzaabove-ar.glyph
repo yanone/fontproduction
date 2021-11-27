@@ -1,0 +1,47 @@
+{
+glyphname = "yehbarreeHamzaabove-ar";
+kernLeft = yehbarree;
+kernRight = yehbarree;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "yehbarree-ar";
+},
+{
+pos = (39,264);
+ref = "hamzaabove-ar";
+}
+);
+width = 821;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "yehbarree-ar";
+},
+{
+pos = (57,-31);
+ref = "hamzaabove-ar";
+}
+);
+width = 593;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "yehbarree-ar";
+},
+{
+pos = (51,94);
+ref = "hamzaabove-ar";
+}
+);
+width = 703;
+}
+);
+unicode = 1747;
+}

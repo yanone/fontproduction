@@ -1,0 +1,45 @@
+{
+glyphname = rhodasia;
+layers = (
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = rho;
+},
+{
+pos = (198,100);
+ref = dasia;
+}
+);
+width = 521;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = rho;
+},
+{
+pos = (150,100);
+ref = dasia;
+}
+);
+width = 536;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = rho;
+},
+{
+pos = (167,100);
+ref = dasia;
+}
+);
+width = 577;
+}
+);
+unicode = 8165;
+}

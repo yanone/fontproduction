@@ -1,0 +1,63 @@
+{
+glyphname = odotaccentmacron.sc;
+kernLeft = O.sc;
+kernRight = O.sc;
+layers = (
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = o.sc;
+},
+{
+pos = (209,60);
+ref = dotaccentcomb;
+},
+{
+pos = (97,-358);
+ref = macron;
+}
+);
+width = 632;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+alignment = -1;
+ref = o.sc;
+},
+{
+alignment = -1;
+pos = (149,87);
+ref = dotaccentcomb;
+scale = (0.95,0.95);
+},
+{
+alignment = -1;
+pos = (69,343);
+ref = macron;
+scale = (1,0.95);
+}
+);
+width = 605;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = o.sc;
+},
+{
+pos = (246,60);
+ref = dotaccentcomb;
+},
+{
+pos = (127,-365);
+ref = macron;
+}
+);
+width = 620;
+}
+);
+}

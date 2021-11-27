@@ -1,0 +1,45 @@
+{
+glyphname = "noonTwodotsbelow-ar.fina.conn-mf-2.swsh";
+kernLeft = noon;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "noon-ar.fina.conn-mf-2.swsh";
+},
+{
+pos = (564,-233);
+ref = "twodotshorizontalbelow-ar";
+}
+);
+width = 1535;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "noon-ar.fina.conn-mf-2.swsh";
+},
+{
+pos = (703,-83);
+ref = "twodotshorizontalbelow-ar";
+}
+);
+width = 1541;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "noon-ar.fina.conn-mf-2.swsh";
+},
+{
+pos = (689,-134);
+ref = "twodotshorizontalbelow-ar";
+}
+);
+width = 1594;
+}
+);
+}

@@ -1,0 +1,46 @@
+{
+glyphname = "e-ar.fina.ss16";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "alefMaksura-ar.fina.ui";
+},
+{
+pos = (194,-116);
+ref = "twodotsverticalbelow-ar";
+scale = (0.73,0.73);
+}
+);
+width = 785;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "alefMaksura-ar.fina.ui";
+},
+{
+pos = (235,-95);
+ref = "twodotsverticalbelow-ar";
+}
+);
+width = 691;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "alefMaksura-ar.fina.ui";
+},
+{
+pos = (198,-87);
+ref = "twodotsverticalbelow-ar";
+scale = (0.92,0.92);
+}
+);
+width = 729;
+}
+);
+}

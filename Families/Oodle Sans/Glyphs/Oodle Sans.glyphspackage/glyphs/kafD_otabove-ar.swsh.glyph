@@ -1,0 +1,45 @@
+{
+glyphname = "kafDotabove-ar.swsh";
+kernRight = lam.init;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "kaf-ar.swsh";
+},
+{
+pos = (676,244);
+ref = "dotabove-ar";
+}
+);
+width = 1378;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "kaf-ar.swsh";
+},
+{
+pos = (734,118);
+ref = "dotabove-ar";
+}
+);
+width = 1420;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "kaf-ar.swsh";
+},
+{
+pos = (758,128);
+ref = "dotabove-ar";
+}
+);
+width = 1499;
+}
+);
+}

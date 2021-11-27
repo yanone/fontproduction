@@ -1,0 +1,56 @@
+{
+color = 0;
+glyphname = omegapsiliperispomeni.sc;
+layers = (
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+alignment = -1;
+pos = (223,0);
+ref = omega.sc;
+},
+{
+alignment = -1;
+pos = (0,-72);
+ref = psiliperispomeni;
+}
+);
+width = 845;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+alignment = -1;
+pos = (146,0);
+ref = omega.sc;
+},
+{
+alignment = -1;
+pos = (0,-60);
+ref = psiliperispomeni;
+}
+);
+width = 812;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+alignment = -1;
+pos = (251,0);
+ref = omega.sc;
+},
+{
+alignment = -1;
+pos = (0,-50);
+ref = psiliperispomeni;
+}
+);
+width = 858;
+}
+);
+metricLeft = psiliperispomeni;
+metricRight = omega.sc;
+}

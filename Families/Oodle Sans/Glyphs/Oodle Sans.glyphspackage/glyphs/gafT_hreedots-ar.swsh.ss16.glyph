@@ -1,0 +1,47 @@
+{
+glyphname = "gafThreedots-ar.swsh.ss16";
+kernRight = "kaf-init";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "gaf-ar.swsh.ui";
+},
+{
+pos = (353,524);
+ref = "threedotsupabove-ar";
+scale = (0.58,0.58);
+}
+);
+width = 1862;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "gaf-ar.swsh.ui";
+},
+{
+pos = (363,167);
+ref = "threedotsupabove-ar";
+}
+);
+width = 1640;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "gaf-ar.swsh.ui";
+},
+{
+pos = (398,248);
+ref = "threedotsupabove-ar";
+scale = (0.95,0.95);
+}
+);
+width = 1825;
+}
+);
+}

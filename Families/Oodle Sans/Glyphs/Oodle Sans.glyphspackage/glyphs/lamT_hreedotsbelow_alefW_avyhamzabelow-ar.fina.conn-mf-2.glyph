@@ -1,0 +1,65 @@
+{
+glyphname = "lamThreedotsbelow_alefWavyhamzabelow-ar.fina.conn-mf-2";
+kernLeft = lam_alef.fina;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "lam_alef-ar.fina.conn-mf-2";
+},
+{
+anchor = bottom_2;
+pos = (-28,-32);
+ref = "wavyHamzaBelow-ar";
+},
+{
+anchor = bottom_1;
+pos = (224,-31);
+ref = "threedotsdownbelow-ar";
+}
+);
+width = 643;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "lam_alef-ar.fina.conn-mf-2";
+},
+{
+anchor = bottom_2;
+pos = (-59,-56);
+ref = "wavyHamzaBelow-ar";
+},
+{
+anchor = bottom_1;
+pos = (244,3);
+ref = "threedotsdownbelow-ar";
+}
+);
+width = 514;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "lam_alef-ar.fina.conn-mf-2";
+},
+{
+anchor = bottom_2;
+pos = (-44,-56);
+ref = "wavyHamzaBelow-ar";
+},
+{
+anchor = bottom_1;
+pos = (233,3);
+ref = "threedotsdownbelow-ar";
+}
+);
+width = 582;
+}
+);
+metricLeft = "lamBar_alef-ar";
+metricRight = "lamBar_alef-ar";
+}

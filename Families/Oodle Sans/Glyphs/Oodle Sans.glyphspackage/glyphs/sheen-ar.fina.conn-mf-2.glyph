@@ -1,0 +1,44 @@
+{
+glyphname = "sheen-ar.fina.conn-mf-2";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "seen-ar.fina.conn-mf-2";
+},
+{
+pos = (614,-18);
+ref = "threedotsupabove-ar";
+}
+);
+width = 1287;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "seen-ar.fina.conn-mf-2";
+},
+{
+pos = (594,-180);
+ref = "threedotsupabove-ar";
+}
+);
+width = 1076;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "seen-ar.fina.conn-mf-2";
+},
+{
+pos = (564,-139);
+ref = "threedotsupabove-ar";
+}
+);
+width = 1159;
+}
+);
+}

@@ -1,0 +1,46 @@
+{
+glyphname = "ainThreedotsdownabove-ar.init.ss16";
+kernRight = ain.init;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "ain-ar.init";
+},
+{
+pos = (26,171);
+ref = "threedotsdownabove-ar";
+scale = (0.93,0.93);
+}
+);
+width = 564;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "ain-ar.init";
+},
+{
+pos = (88,-112);
+ref = "threedotsdownabove-ar";
+}
+);
+width = 442;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "ain-ar.init";
+},
+{
+pos = (33,-27);
+ref = "threedotsdownabove-ar";
+}
+);
+width = 482;
+}
+);
+}

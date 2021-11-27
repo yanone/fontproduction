@@ -1,0 +1,57 @@
+{
+glyphname = Omegadasiaoxia;
+kernRight = O;
+layers = (
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+alignment = -1;
+pos = (208,0);
+ref = Omega;
+},
+{
+alignment = -1;
+pos = (0,78);
+ref = dasiaoxia;
+}
+);
+width = 960;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+alignment = -1;
+pos = (292,0);
+ref = Omega;
+},
+{
+alignment = -1;
+pos = (0,100);
+ref = dasiaoxia;
+}
+);
+width = 1068;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+alignment = -1;
+pos = (391,0);
+ref = Omega;
+},
+{
+alignment = -1;
+pos = (0,100);
+ref = dasiaoxia;
+}
+);
+width = 1143;
+}
+);
+metricLeft = dasiaoxia;
+metricRight = Omega;
+unicode = 8045;
+}

@@ -1,0 +1,46 @@
+{
+glyphname = "rehRing-ar.fina";
+kernLeft = reh;
+kernRight = reh;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "reh-ar.fina";
+},
+{
+pos = (157,-644);
+ref = "ring-ar";
+}
+);
+width = 476;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "reh-ar.fina";
+},
+{
+pos = (133,-630);
+ref = "ring-ar";
+}
+);
+width = 413;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "reh-ar.fina";
+},
+{
+pos = (131,-598);
+ref = "ring-ar";
+}
+);
+width = 418;
+}
+);
+}

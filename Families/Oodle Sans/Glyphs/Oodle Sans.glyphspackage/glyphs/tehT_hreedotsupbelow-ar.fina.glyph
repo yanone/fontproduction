@@ -1,0 +1,62 @@
+{
+glyphname = "tehThreedotsupbelow-ar.fina";
+kernLeft = bowl;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "behDotless-ar.fina";
+},
+{
+pos = (229,-78);
+ref = "twodotshorizontalabove-ar";
+},
+{
+pos = (177,-23);
+ref = "threedotsupbelow-ar";
+}
+);
+width = 951;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "behDotless-ar.fina";
+},
+{
+pos = (234,-176);
+ref = "twodotshorizontalabove-ar";
+},
+{
+pos = (229,-1);
+ref = "threedotsupbelow-ar";
+}
+);
+width = 835;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "behDotless-ar.fina";
+},
+{
+pos = (220,-176);
+ref = "twodotshorizontalabove-ar";
+},
+{
+pos = (221,-1);
+ref = "threedotsupbelow-ar";
+}
+);
+width = 877;
+}
+);
+userData = {
+OTclass = (
+beh_fina
+);
+};
+}

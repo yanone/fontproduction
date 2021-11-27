@@ -1,0 +1,96 @@
+{
+glyphname = dasiaperispomeni;
+layers = (
+{
+anchors = (
+{
+name = _tonos;
+pos = (253,700);
+},
+{
+name = _top;
+pos = (180,368);
+},
+{
+name = top;
+pos = (180,905);
+}
+);
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+alignment = -1;
+pos = (110,0);
+ref = dasia;
+},
+{
+alignment = -1;
+pos = (-21,172);
+ref = perispomeni;
+}
+);
+width = 360;
+},
+{
+anchors = (
+{
+name = _tonos;
+pos = (246,700);
+},
+{
+name = _top;
+pos = (145,380);
+},
+{
+name = top;
+pos = (145,937);
+}
+);
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+alignment = -1;
+pos = (16,0);
+ref = dasia;
+},
+{
+alignment = -1;
+pos = (-110,170);
+ref = perispomeni;
+}
+);
+width = 340;
+},
+{
+anchors = (
+{
+name = _tonos;
+pos = (253,700);
+},
+{
+name = _top;
+pos = (136,370);
+},
+{
+name = top;
+pos = (136,990);
+}
+);
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+alignment = -1;
+ref = dasia;
+},
+{
+alignment = -1;
+pos = (-144,190);
+ref = perispomeni;
+}
+);
+width = 376;
+}
+);
+metricRight = "=50";
+unicode = 8159;
+}

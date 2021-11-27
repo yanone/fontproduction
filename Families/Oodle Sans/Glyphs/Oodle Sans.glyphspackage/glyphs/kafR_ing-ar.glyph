@@ -1,0 +1,46 @@
+{
+glyphname = "kafRing-ar";
+kernRight = kaf.init;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "keheh-ar";
+},
+{
+pos = (638,51);
+ref = "ring-ar.kaf";
+}
+);
+width = 959;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "keheh-ar";
+},
+{
+pos = (512,122);
+ref = "ring-ar.kaf";
+}
+);
+width = 848;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "keheh-ar";
+},
+{
+pos = (564,80);
+ref = "ring-ar.kaf";
+}
+);
+width = 917;
+}
+);
+unicode = 1707;
+}

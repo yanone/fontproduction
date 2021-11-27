@@ -1,0 +1,47 @@
+{
+glyphname = "lamThreedotsabove-ar.init.conn-hah-1.ss16";
+kernRight = lam.init;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "lam-ar.init.short.conn-hah-1";
+},
+{
+pos = (-107,299);
+ref = "threedotsupabove-ar";
+scale = (0.85,0.85);
+}
+);
+width = 388;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "lam-ar.init.short.conn-hah-1";
+},
+{
+pos = (-50,153);
+ref = "threedotsupabove-ar";
+}
+);
+width = 406;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "lam-ar.init.short.conn-hah-1";
+},
+{
+pos = (29,227);
+ref = "threedotsupabove-ar";
+scale = (0.84,0.84);
+}
+);
+width = 485;
+}
+);
+}

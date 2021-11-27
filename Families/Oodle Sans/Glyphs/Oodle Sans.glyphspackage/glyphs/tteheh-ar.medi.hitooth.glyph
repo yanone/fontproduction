@@ -1,0 +1,44 @@
+{
+glyphname = "tteheh-ar.medi.hitooth";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "behDotless-ar.medi.hitooth";
+},
+{
+pos = (20,66);
+ref = "twodotsverticalabove-ar";
+}
+);
+width = 376;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "behDotless-ar.medi.hitooth";
+},
+{
+pos = (77,-130);
+ref = "twodotsverticalabove-ar";
+}
+);
+width = 285;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "behDotless-ar.medi.hitooth";
+},
+{
+pos = (44,-68);
+ref = "twodotsverticalabove-ar";
+}
+);
+width = 305;
+}
+);
+}

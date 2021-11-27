@@ -1,0 +1,60 @@
+{
+color = 0;
+glyphname = "seven-persian.dnom.urdu";
+layers = (
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+closed = 1;
+nodes = (
+(41,62,l),
+(52,0,l),
+(264,0,l),
+(264,69,l),
+(118,69,l),
+(224,347,l),
+(150,347,l)
+);
+}
+);
+width = 306;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+closed = 1;
+nodes = (
+(52,7,l),
+(54,0,l),
+(262,0,l),
+(262,6,l),
+(59,6,l),
+(188,347,l),
+(181,347,l)
+);
+}
+);
+width = 304;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+closed = 1;
+nodes = (
+(31,108,l),
+(41,0,l),
+(265,0,l),
+(265,121,l),
+(167,121,l),
+(248,347,l),
+(118,347,l)
+);
+}
+);
+width = 298;
+}
+);
+}

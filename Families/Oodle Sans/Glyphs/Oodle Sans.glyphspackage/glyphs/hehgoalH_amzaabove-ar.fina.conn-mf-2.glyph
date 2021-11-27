@@ -1,0 +1,45 @@
+{
+glyphname = "hehgoalHamzaabove-ar.fina.conn-mf-2";
+kernLeft = tehMarbutagoal;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "hehgoal-ar.fina.conn-mf-2";
+},
+{
+pos = (189,303);
+ref = "hamzaabove-ar";
+}
+);
+width = 611;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "hehgoal-ar.fina.conn-mf-2";
+},
+{
+pos = (64,56);
+ref = "hamzaabove-ar";
+}
+);
+width = 428;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "hehgoal-ar.fina.conn-mf-2";
+},
+{
+pos = (78,146);
+ref = "hamzaabove-ar";
+}
+);
+width = 505;
+}
+);
+}

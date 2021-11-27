@@ -1,0 +1,68 @@
+{
+glyphname = "_part.yehTail-stroke-ar.comp";
+layers = (
+{
+anchors = (
+{
+name = "#entry";
+pos = (133,157);
+}
+);
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+closed = 1;
+nodes = (
+(133,157,l),
+(30,156,l),
+(30,151,l),
+(133,150,l)
+);
+}
+);
+width = 133;
+},
+{
+anchors = (
+{
+name = "#entry";
+pos = (133,157);
+}
+);
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+closed = 1;
+nodes = (
+(133,157,l),
+(30,150,l),
+(30,86,l),
+(133,76,l)
+);
+}
+);
+width = 183;
+},
+{
+anchors = (
+{
+name = "#entry";
+pos = (133,267);
+}
+);
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+closed = 1;
+nodes = (
+(133,267,l),
+(30,257,l),
+(30,114,l),
+(133,100,l)
+);
+}
+);
+width = 133;
+}
+);
+}

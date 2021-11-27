@@ -1,0 +1,47 @@
+{
+glyphname = Omegaprosgegrammeni;
+kernRight = O;
+layers = (
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = Omega;
+},
+{
+pos = (752,0);
+ref = iota;
+}
+);
+width = 965;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = Omega;
+},
+{
+pos = (776,0);
+ref = iota;
+}
+);
+width = 1026;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = Omega;
+},
+{
+pos = (752,0);
+ref = iota;
+}
+);
+width = 1040;
+}
+);
+metricLeft = iota;
+unicode = 8188;
+}

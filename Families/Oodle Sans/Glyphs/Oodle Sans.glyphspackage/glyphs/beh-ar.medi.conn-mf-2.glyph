@@ -1,0 +1,54 @@
+{
+glyphname = "beh-ar.medi.conn-mf-2";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+alignment = -1;
+ref = "behDotless-ar.medi.conn-mf-2";
+},
+{
+alignment = -1;
+pos = (67,-36);
+ref = "dotbelow-ar";
+}
+);
+width = 326;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "behDotless-ar.medi.conn-mf-2";
+},
+{
+anchor = bottom_onedot;
+pos = (28,-1);
+ref = "dotbelow-ar";
+}
+);
+width = 264;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "behDotless-ar.medi.conn-mf-2";
+},
+{
+anchor = bottom_onedot;
+pos = (39,-1);
+ref = "dotbelow-ar";
+}
+);
+width = 305;
+}
+);
+userData = {
+OTclass = (
+yehBarreeShortTrigger,
+hitooth_trigger
+);
+};
+}

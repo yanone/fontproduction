@@ -1,0 +1,64 @@
+{
+glyphname = "yehVabove-ar.medi.conn-m-1";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "behDotless-ar.medi.conn-m-1";
+},
+{
+anchor = top;
+pos = (-151,258);
+ref = "vabove-ar";
+},
+{
+pos = (-211,-90);
+ref = "twodotshorizontalbelow-ar";
+}
+);
+width = 237;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "behDotless-ar.medi.conn-m-1";
+},
+{
+anchor = top;
+pos = (-70,49);
+ref = "vabove-ar";
+},
+{
+pos = (19,-11);
+ref = "twodotshorizontalbelow-ar";
+}
+);
+width = 310;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "behDotless-ar.medi.conn-m-1";
+},
+{
+anchor = top;
+pos = (-31,149);
+ref = "vabove-ar";
+},
+{
+pos = (1,-21);
+ref = "twodotshorizontalbelow-ar";
+}
+);
+width = 384;
+}
+);
+userData = {
+OTclass = (
+dotCollisionBottomTrigger
+);
+};
+}

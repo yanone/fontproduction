@@ -1,0 +1,63 @@
+{
+glyphname = "sheenDotbelow-ar.medi";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "seen-ar.medi";
+},
+{
+pos = (204,-18);
+ref = "threedotsupabove-ar";
+},
+{
+pos = (329,-36);
+ref = "dotbelow-ar";
+}
+);
+width = 872;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "seen-ar.medi";
+},
+{
+pos = (220,-168);
+ref = "threedotsupabove-ar";
+},
+{
+pos = (251,-1);
+ref = "dotbelow-ar";
+}
+);
+width = 731;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "seen-ar.medi";
+},
+{
+pos = (193,-139);
+ref = "threedotsupabove-ar";
+},
+{
+pos = (286,-1);
+ref = "dotbelow-ar";
+}
+);
+width = 793;
+}
+);
+userData = {
+OTclass = (
+seen_init,
+seen_medifina,
+seen_initmedi
+);
+};
+}
