@@ -119,7 +119,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
 
     # Add direct substitutions
     directsubstitutions = (
-        ("smcp", ".sc"),
+        # ("smcp", ".sc"),
         ("salt", ".salt"),
         ("sups", ".sups"),
         ("subs", ".subs"),
@@ -357,6 +357,8 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         if shoes.HasClasses(("@tnum_source", "@tnum_target")):
             shoes.AddSubstitution("tnum", "@tnum_source", "@tnum_target")
 
+    # https://forum.glyphsapp.com/t/auto-feature-suggestion-for-greek/4054
+
     # case for Polytonic Greek
     for glyph in f.glyphs:
         if (
@@ -366,12 +368,18 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             and len(glyph.layers[0].components) == 2
             and baseGlyphWithAnchor(glyph, "_tonos")
         ):
-            shoes.AddSubstitution("case", glyph.name, glyph.layers[0].components[0].componentName)
-            shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName)
+            if f.glyphs[glyph.layers[0].components[0].componentName + ".case"]:
+                shoes.AddSubstitution("case", glyph.name, glyph.layers[0].components[0].componentName + ".case")
+                shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".case")
+            else:
+                shoes.AddSubstitution("case", glyph.name, glyph.layers[0].components[0].componentName)
+                shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName)
 
-    # smcp for Polytonic Greek
+    # smcp (custom for for Polytonic Greek)
     for glyph in f.glyphs:
-        if (
+        if ".sc" in glyph.name and glyph.script != "greek":
+            shoes.AddSubstitution("smcp", glyph.name.replace(".sc", ""), glyph.name)
+        elif (
             glyph.script == "greek"
             and glyph.category == "Letter"
             and glyph.case == GlyphsApp.GSLowercase
@@ -379,6 +387,8 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             and baseGlyphWithAnchor(glyph, "_tonos")
         ):
             shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".sc")
+        elif glyph.script == "greek" and glyph.category == "Letter" and glyph.case == GlyphsApp.GSLowercase:
+            shoes.AddSubstitution("smcp", glyph.name, glyph.name + ".sc")
 
     # case
     shoes.AddSimpleSubstitutionFeature("case", ".case")
@@ -438,6 +448,80 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
                 ):
                     shoes.AddGlyphsToClass("@c2sc_source", uppercaseGlyphName)
                     shoes.AddGlyphsToClass("@c2sc_target", name)
+
+    # c2sc (custom for for Polytonic Greek)
+    for glyph in f.glyphs:
+        if (
+            glyph.script == "greek"
+            and glyph.category == "Letter"
+            and glyph.case == GlyphsApp.GSUppercase
+            and len(glyph.layers[0].components) == 2
+            and baseGlyphWithAnchor(glyph, "_tonos")
+        ):
+            glyphName = glyph.layers[0].components[0].componentName
+            lowercaseGlyphName = glyphName[0].lower() + glyphName[1:]
+
+            if shoes.HasGlyphs(
+                [glyph.name, lowercaseGlyphName + ".sc"]
+            ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
+                shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            # if f.glyphs[lowercaseGlyphName]:
+            #     # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            #     if not glyph.name in shoes.GlyphsInClass("@c2sc_source"):
+            #         shoes.AddGlyphsToClass("@c2sc_source", glyph.name)
+            #         shoes.AddGlyphsToClass("@c2sc_target", lowercaseGlyphName + ".sc")
+
+        # KaySymbol -> kaiSymbol
+        if glyph.script == "greek" and glyph.category == "Letter" and glyph.case == GlyphsApp.GSUppercase:
+            glyphName = glyph.name
+            lowercaseGlyphName = glyphName[0].lower() + glyphName[1:]
+
+            if shoes.HasGlyphs(
+                [glyph.name, lowercaseGlyphName + ".sc"]
+            ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
+                shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            # if f.glyphs[lowercaseGlyphName]:
+            #     shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            # if not glyph.name in shoes.GlyphsInClass("@c2sc_source"):
+            #     shoes.AddGlyphsToClass("@c2sc_source", glyph.name)
+            #     shoes.AddGlyphsToClass("@c2sc_target", lowercaseGlyphName + ".sc")
+
+        # KaySymbol -> kaiSymbol.sc
+        if glyph.script == "greek" and glyph.category == "Letter" and glyph.case == GlyphsApp.GSUppercase:
+            glyphName = glyph.name
+            lowercaseGlyphName = glyphName[0].lower() + glyphName[1:]
+
+            if shoes.HasGlyphs(
+                [glyph.name, lowercaseGlyphName + ".sc"]
+            ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
+                shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            # if f.glyphs[lowercaseGlyphName]:
+            #     shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            #     # if not glyph.name in shoes.GlyphsInClass("@c2sc_source"):
+            #     #     shoes.AddGlyphsToClass("@c2sc_source", glyph.name)
+            #     #     shoes.AddGlyphsToClass("@c2sc_target", lowercaseGlyphName + ".sc")
+
+        # Alphaprosgegrammeni -> alphaypogegrammeni.sc
+        if (
+            glyph.script == "greek"
+            and glyph.category == "Letter"
+            and glyph.case == GlyphsApp.GSUppercase
+            and len(glyph.layers[0].components) == 2
+        ):
+            glyphName = glyph.layers[0].components[0].componentName
+            lowercaseGlyphName = glyphName[0].lower() + glyphName[1:]
+            lowercaseGlyphName = lowercaseGlyphName.replace("prosge", "ypoge")
+
+            if shoes.HasGlyphs(
+                [glyph.name, lowercaseGlyphName + ".sc"]
+            ) and not uppercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
+                shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            # # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            # if f.glyphs[lowercaseGlyphName]:
+            #     shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+            #     if not glyph.name in shoes.GlyphsInClass("@c2sc_source"):
+            #         shoes.AddGlyphsToClass("@c2sc_source", glyph.name)
+            #         shoes.AddGlyphsToClass("@c2sc_target", lowercaseGlyphName + ".sc")
 
     if shoes.HasClasses(("@c2sc_source", "@c2sc_target")):
         shoes.AddSubstitution("c2sc", "@c2sc_source", "@c2sc_target")
