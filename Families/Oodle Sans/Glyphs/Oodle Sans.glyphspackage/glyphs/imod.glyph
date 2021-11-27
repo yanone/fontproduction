@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = imod;
 kernLeft = supsletters;
 kernRight = supsletters;

@@ -1,5 +1,7 @@
 {
+color = 4;
 glyphname = Upsilonmacron;
+kernLeft = Y;
 kernRight = Y;
 layers = (
 {

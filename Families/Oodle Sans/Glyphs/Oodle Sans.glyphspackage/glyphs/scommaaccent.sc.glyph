@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = scommaaccent.sc;
 kernLeft = S.sc;
 kernRight = S.sc;

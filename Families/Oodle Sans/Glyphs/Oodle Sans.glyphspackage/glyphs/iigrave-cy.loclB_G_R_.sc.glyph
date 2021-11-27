@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "iigrave-cy.loclBGR.sc";
 kernLeft = H.sc;
 layers = (

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "seenThreedotsbelow-ar.init.lohi";
 kernRight = bowl;
 layers = (

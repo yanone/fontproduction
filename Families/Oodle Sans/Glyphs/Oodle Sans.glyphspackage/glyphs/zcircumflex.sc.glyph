@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = zcircumflex.sc;
 kernLeft = Z.sc;
 kernRight = Z.sc;

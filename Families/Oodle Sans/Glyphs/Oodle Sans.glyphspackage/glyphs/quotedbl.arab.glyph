@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 3;
 glyphname = quotedbl.arab;
 kernLeft = quote.arab;
 kernRight = quote.arab;

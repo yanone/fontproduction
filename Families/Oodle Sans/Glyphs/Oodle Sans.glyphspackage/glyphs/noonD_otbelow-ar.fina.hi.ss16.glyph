@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "noonDotbelow-ar.fina.hi.ss16";
 kernLeft = noon;
 kernRight = noon;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ngoeh-ar.init.dotColl";
 kernRight = kaf.init;
 layers = (

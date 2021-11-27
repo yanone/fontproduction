@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "kehehThreedotsabove-ar";
 kernRight = kaf.init;
 layers = (

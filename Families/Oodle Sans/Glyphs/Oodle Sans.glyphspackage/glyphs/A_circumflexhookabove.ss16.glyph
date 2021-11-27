@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Acircumflexhookabove.ss16;
 kernLeft = A;
 kernRight = A;

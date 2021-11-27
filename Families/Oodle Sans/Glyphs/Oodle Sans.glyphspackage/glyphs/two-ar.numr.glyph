@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "two-ar.numr";
 kernRight = "two-ar.numr";
 layers = (

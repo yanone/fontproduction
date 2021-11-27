@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = acaron.sc;
 kernLeft = A.sc;
 kernRight = A.sc;

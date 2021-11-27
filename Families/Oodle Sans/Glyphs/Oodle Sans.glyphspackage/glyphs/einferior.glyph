@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = einferior;
 kernLeft = infletters;
 kernRight = infletters;

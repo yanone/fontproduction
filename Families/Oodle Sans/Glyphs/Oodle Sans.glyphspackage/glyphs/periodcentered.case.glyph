@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = periodcentered.case;
 kernLeft = hyphen.lf;
 kernRight = hyphen.lf;

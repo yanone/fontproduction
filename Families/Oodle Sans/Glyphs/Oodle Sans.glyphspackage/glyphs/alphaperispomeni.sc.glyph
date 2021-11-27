@@ -1,5 +1,7 @@
 {
+color = 4;
 glyphname = alphaperispomeni.sc;
+kernLeft = A.sc;
 kernRight = A.sc;
 layers = (
 {

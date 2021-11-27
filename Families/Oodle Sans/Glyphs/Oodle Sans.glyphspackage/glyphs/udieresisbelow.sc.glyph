@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = udieresisbelow.sc;
 kernLeft = U.sc;
 kernRight = U.sc;

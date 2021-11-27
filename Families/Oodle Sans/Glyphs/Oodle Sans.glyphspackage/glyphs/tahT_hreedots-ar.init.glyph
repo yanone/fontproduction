@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "tahThreedots-ar.init";
 kernRight = round;
 layers = (

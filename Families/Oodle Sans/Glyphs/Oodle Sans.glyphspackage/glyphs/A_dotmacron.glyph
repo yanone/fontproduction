@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Adotmacron;
 kernLeft = A;
 kernRight = A;

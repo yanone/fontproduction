@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "te-cy.loclBGR.sc";
 kernLeft = T.sc;
 kernRight = T.sc;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Zstroke;
 kernLeft = Z;
 kernRight = Z;

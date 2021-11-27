@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "two-persian";
 kernLeft = "two-ar";
 kernRight = "two-ar";

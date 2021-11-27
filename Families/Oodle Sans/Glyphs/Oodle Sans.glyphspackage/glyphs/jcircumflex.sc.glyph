@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = jcircumflex.sc;
 kernLeft = J.sc;
 kernRight = J.sc;

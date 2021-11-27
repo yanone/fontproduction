@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "tteh-ar.fina";
 kernLeft = bowl;
 layers = (

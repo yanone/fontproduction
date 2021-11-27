@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ereversed-cy";
 kernRight = o;
 layers = (

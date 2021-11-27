@@ -1,6 +1,6 @@
 {
 category = Letter;
-color = 0;
+color = 4;
 glyphname = "seenThreedotsbelowthreedots-ar.init.lohi.ss16";
 kernRight = bowl;
 layers = (

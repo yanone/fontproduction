@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "qafDotabove-ar.init.conn-yeh-1";
 kernRight = feh.init;
 layers = (

@@ -1,5 +1,7 @@
 {
+color = 4;
 glyphname = alphavrachy.sc;
+kernLeft = A.sc;
 kernRight = A.sc;
 layers = (
 {

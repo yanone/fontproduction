@@ -1,5 +1,5 @@
 {
-.appVersion = "3091";
+.appVersion = "3103";
 .formatVersion = 3;
 axes = (
 {
@@ -658,6 +658,774 @@ noonTahabove-ar.init
 noonTahabove-ar.init.ss16
 noonVabove-ar.init";
 name = beh_init;
+},
+{
+code = "Iacute
+Igrave
+Ihookabove
+Itilde
+A
+Aacute
+Abreve
+Abreveacute
+Abrevedotbelow
+Abrevegrave
+Abrevehookabove
+Abrevetilde
+Acaron
+Acircumflex
+Acircumflexacute
+Acircumflexdotbelow
+Acircumflexgrave
+Acircumflexhookabove
+Acircumflextilde
+Adblgrave
+Adieresis
+Adieresismacron
+Adotaccent
+Adotbelow
+Adotmacron
+Agrave
+Ahookabove
+Ainvertedbreve
+Amacron
+Aogonek
+Aring
+Aringacute
+Aringbelow
+Atilde
+AE
+B
+Bdotaccent
+Bdotbelow
+Blinebelow
+C
+Cacute
+Ccaron
+Ccedilla
+Ccedillaacute
+Ccircumflex
+Cdotaccent
+D
+Eth
+Dcaron
+Dcedilla
+Dcircumflexbelow
+Dcroat
+Ddotaccent
+Ddotbelow
+Dlinebelow
+E
+Eacute
+Ebreve
+Ecaron
+Ecedilla
+Ecedillabreve
+Ecircumflex
+Ecircumflexacute
+Ecircumflexbelow
+Ecircumflexdotbelow
+Ecircumflexgrave
+Ecircumflexhookabove
+Ecircumflextilde
+Edblgrave
+Edieresis
+Edotaccent
+Edotbelow
+Egrave
+Ehookabove
+Einvertedbreve
+Emacron
+Emacronacute
+Emacrongrave
+Eogonek
+Etilde
+Etildebelow
+Schwa
+F
+Fdotaccent
+G
+Gacute
+Gbreve
+Gcaron
+Gcircumflex
+Gcommaaccent
+Gdotaccent
+Gmacron
+H
+Hbar
+Hbrevebelow
+Hcedilla
+Hcircumflex
+Hdieresis
+Hdotaccent
+Hdotbelow
+I
+Idotless
+Ibreve
+Icaron
+Icircumflex
+Idblgrave
+Idieresis
+Idieresisacute
+Idotbelow
+Iinvertedbreve
+IJ
+Imacron
+Iogonek
+Itildebelow
+J
+Jcircumflex
+K
+Kacute
+Kcaron
+Kcommaaccent
+Kdotbelow
+Klinebelow
+L
+Lacute
+Lcaron
+Lcircumflexbelow
+Lcommaaccent
+Ldot
+Ldotbelow
+Ldotbelowmacron
+Llinebelow
+Lslash
+M
+Macute
+Mdotaccent
+Mdotbelow
+N
+Nacute
+Ncaron
+Ncircumflexbelow
+Ncommaaccent
+Ndotaccent
+Ndotbelow
+Ngrave
+Nlinebelow
+Ntilde
+Eng
+O
+Oacute
+Obreve
+Ocaron
+Ocircumflex
+Ocircumflexacute
+Ocircumflexdotbelow
+Ocircumflexgrave
+Ocircumflexhookabove
+Ocircumflextilde
+Odblgrave
+Odieresis
+Odieresismacron
+Odotaccent
+Odotaccentmacron
+Odotbelow
+Ograve
+Ohookabove
+Ohorn
+Ohornacute
+Ohorndotbelow
+Ohorngrave
+Ohornhookabove
+Ohorntilde
+Ohungarumlaut
+Oinvertedbreve
+Omacron
+Omacronacute
+Omacrongrave
+Oogonek
+Oogonekmacron
+Oslash
+Oslashacute
+Otilde
+Otildeacute
+Otildedieresis
+Otildemacron
+OE
+P
+Pacute
+Pdotaccent
+Thorn
+Q
+R
+Racute
+Rcaron
+Rcommaaccent
+Rdblgrave
+Rdotaccent
+Rdotbelow
+Rdotbelowmacron
+Rinvertedbreve
+Rlinebelow
+S
+Sacute
+Sacutedotaccent
+Scaron
+Scarondotaccent
+Scedilla
+Scircumflex
+Scommaaccent
+Sdotaccent
+Sdotbelow
+Sdotbelowdotaccent
+Germandbls
+T
+Tbar
+Tcaron
+Tcedilla
+Tcircumflexbelow
+Tcommaaccent
+Tdotaccent
+Tdotbelow
+Tlinebelow
+U
+Uacute
+Ubreve
+Ucaron
+Ucircumflex
+Ucircumflexbelow
+Udblgrave
+Udieresis
+Udieresisacute
+Udieresisbelow
+Udieresiscaron
+Udieresisgrave
+Udieresismacron
+Udotbelow
+Ugrave
+Uhookabove
+Uhorn
+Uhornacute
+Uhorndotbelow
+Uhorngrave
+Uhornhookabove
+Uhorntilde
+Uhungarumlaut
+Uinvertedbreve
+Umacron
+Umacrondieresis
+Uogonek
+Uring
+Utilde
+Utildeacute
+Utildebelow
+V
+Vdotbelow
+Vtilde
+W
+Wacute
+Wcircumflex
+Wdieresis
+Wdotaccent
+Wdotbelow
+Wgrave
+X
+Xdieresis
+Xdotaccent
+Y
+Yacute
+Ycircumflex
+Ydieresis
+Ydotaccent
+Ydotbelow
+Ygrave
+Yhookabove
+Ymacron
+Ytilde
+Z
+Zacute
+Zcaron
+Zcircumflex
+Zdotaccent
+Zdotbelow
+Zlinebelow
+Zstroke
+A-cy
+Be-cy
+Ve-cy
+Ge-cy
+Gje-cy
+Gheupturn-cy
+Ghestroke-cy
+De-cy
+Ie-cy
+Iegrave-cy
+Io-cy
+Zhe-cy
+Ze-cy
+Ii-cy
+Iishort-cy
+Iigrave-cy
+Ka-cy
+Kje-cy
+El-cy
+Em-cy
+En-cy
+O-cy
+Pe-cy
+Er-cy
+Es-cy
+Te-cy
+U-cy
+Ushort-cy
+Ef-cy
+Ha-cy
+Che-cy
+Tse-cy
+Sha-cy
+Shcha-cy
+Dzhe-cy
+Softsign-cy
+Yeru-cy
+Hardsign-cy
+Lje-cy
+Nje-cy
+Dze-cy
+E-cy
+Ereversed-cy
+I-cy
+Yi-cy
+Je-cy
+Tshe-cy
+Iu-cy
+Ia-cy
+Dje-cy
+Yat-cy
+Fita-cy
+Izhitsa-cy
+Zhedescender-cy
+Kadescender-cy
+Endescender-cy
+Ustraight-cy
+Ustraightstroke-cy
+Hadescender-cy
+Chedescender-cy
+Shha-cy
+Palochka-cy
+Schwa-cy
+Imacron-cy
+Obarred-cy
+Umacron-cy
+Alpha
+Beta
+Gamma
+Delta
+Epsilon
+Zeta
+Eta
+Theta
+Iota
+Kappa
+Lambda
+Mu
+Nu
+Xi
+Omicron
+Pi
+Rho
+Sigma
+Tau
+Upsilon
+Phi
+Chi
+Psi
+Omega
+Iotadieresis
+Upsilondieresis
+Alphavrachy
+Alphamacron
+Iotavrachy
+Iotamacron
+Upsilonvrachy
+Upsilonmacron";
+name = c2sc_source;
+},
+{
+code = "iacute.locl_latn_VIT.sc
+igrave.locl_latn_VIT.sc
+ihookabove.locl_latn_VIT.sc
+itilde.locl_latn_VIT.sc
+a.sc
+aacute.sc
+abreve.sc
+abreveacute.sc
+abrevedotbelow.sc
+abrevegrave.sc
+abrevehookabove.sc
+abrevetilde.sc
+acaron.sc
+acircumflex.sc
+acircumflexacute.sc
+acircumflexdotbelow.sc
+acircumflexgrave.sc
+acircumflexhookabove.sc
+acircumflextilde.sc
+adblgrave.sc
+adieresis.sc
+adieresismacron.sc
+adotaccent.sc
+adotbelow.sc
+adotmacron.sc
+agrave.sc
+ahookabove.sc
+ainvertedbreve.sc
+amacron.sc
+aogonek.sc
+aring.sc
+aringacute.sc
+aringbelow.sc
+atilde.sc
+ae.sc
+b.sc
+bdotaccent.sc
+bdotbelow.sc
+blinebelow.sc
+c.sc
+cacute.sc
+ccaron.sc
+ccedilla.sc
+ccedillaacute.sc
+ccircumflex.sc
+cdotaccent.sc
+d.sc
+eth.sc
+dcaron.sc
+dcedilla.sc
+dcircumflexbelow.sc
+dcroat.sc
+ddotaccent.sc
+ddotbelow.sc
+dlinebelow.sc
+e.sc
+eacute.sc
+ebreve.sc
+ecaron.sc
+ecedilla.sc
+ecedillabreve.sc
+ecircumflex.sc
+ecircumflexacute.sc
+ecircumflexbelow.sc
+ecircumflexdotbelow.sc
+ecircumflexgrave.sc
+ecircumflexhookabove.sc
+ecircumflextilde.sc
+edblgrave.sc
+edieresis.sc
+edotaccent.sc
+edotbelow.sc
+egrave.sc
+ehookabove.sc
+einvertedbreve.sc
+emacron.sc
+emacronacute.sc
+emacrongrave.sc
+eogonek.sc
+etilde.sc
+etildebelow.sc
+schwa.sc
+f.sc
+fdotaccent.sc
+g.sc
+gacute.sc
+gbreve.sc
+gcaron.sc
+gcircumflex.sc
+gcommaaccent.sc
+gdotaccent.sc
+gmacron.sc
+h.sc
+hbar.sc
+hbrevebelow.sc
+hcedilla.sc
+hcircumflex.sc
+hdieresis.sc
+hdotaccent.sc
+hdotbelow.sc
+i.sc
+idotless.sc
+ibreve.sc
+icaron.sc
+icircumflex.sc
+idblgrave.sc
+idieresis.sc
+idieresisacute.sc
+idotbelow.sc
+iinvertedbreve.sc
+ij.sc
+imacron.sc
+iogonek.sc
+itildebelow.sc
+j.sc
+jcircumflex.sc
+k.sc
+kacute.sc
+kcaron.sc
+kcommaaccent.sc
+kdotbelow.sc
+klinebelow.sc
+l.sc
+lacute.sc
+lcaron.sc
+lcircumflexbelow.sc
+lcommaaccent.sc
+ldot.sc
+ldotbelow.sc
+ldotbelowmacron.sc
+llinebelow.sc
+lslash.sc
+m.sc
+macute.sc
+mdotaccent.sc
+mdotbelow.sc
+n.sc
+nacute.sc
+ncaron.sc
+ncircumflexbelow.sc
+ncommaaccent.sc
+ndotaccent.sc
+ndotbelow.sc
+ngrave.sc
+nlinebelow.sc
+ntilde.sc
+eng.sc
+o.sc
+oacute.sc
+obreve.sc
+ocaron.sc
+ocircumflex.sc
+ocircumflexacute.sc
+ocircumflexdotbelow.sc
+ocircumflexgrave.sc
+ocircumflexhookabove.sc
+ocircumflextilde.sc
+odblgrave.sc
+odieresis.sc
+odieresismacron.sc
+odotaccent.sc
+odotaccentmacron.sc
+odotbelow.sc
+ograve.sc
+ohookabove.sc
+ohorn.sc
+ohornacute.sc
+ohorndotbelow.sc
+ohorngrave.sc
+ohornhookabove.sc
+ohorntilde.sc
+ohungarumlaut.sc
+oinvertedbreve.sc
+omacron.sc
+omacronacute.sc
+omacrongrave.sc
+oogonek.sc
+oogonekmacron.sc
+oslash.sc
+oslashacute.sc
+otilde.sc
+otildeacute.sc
+otildedieresis.sc
+otildemacron.sc
+oe.sc
+p.sc
+pacute.sc
+pdotaccent.sc
+thorn.sc
+q.sc
+r.sc
+racute.sc
+rcaron.sc
+rcommaaccent.sc
+rdblgrave.sc
+rdotaccent.sc
+rdotbelow.sc
+rdotbelowmacron.sc
+rinvertedbreve.sc
+rlinebelow.sc
+s.sc
+sacute.sc
+sacutedotaccent.sc
+scaron.sc
+scarondotaccent.sc
+scedilla.sc
+scircumflex.sc
+scommaaccent.sc
+sdotaccent.sc
+sdotbelow.sc
+sdotbelowdotaccent.sc
+germandbls.sc
+t.sc
+tbar.sc
+tcaron.sc
+tcedilla.sc
+tcircumflexbelow.sc
+tcommaaccent.sc
+tdotaccent.sc
+tdotbelow.sc
+tlinebelow.sc
+u.sc
+uacute.sc
+ubreve.sc
+ucaron.sc
+ucircumflex.sc
+ucircumflexbelow.sc
+udblgrave.sc
+udieresis.sc
+udieresisacute.sc
+udieresisbelow.sc
+udieresiscaron.sc
+udieresisgrave.sc
+udieresismacron.sc
+udotbelow.sc
+ugrave.sc
+uhookabove.sc
+uhorn.sc
+uhornacute.sc
+uhorndotbelow.sc
+uhorngrave.sc
+uhornhookabove.sc
+uhorntilde.sc
+uhungarumlaut.sc
+uinvertedbreve.sc
+umacron.sc
+umacrondieresis.sc
+uogonek.sc
+uring.sc
+utilde.sc
+utildeacute.sc
+utildebelow.sc
+v.sc
+vdotbelow.sc
+vtilde.sc
+w.sc
+wacute.sc
+wcircumflex.sc
+wdieresis.sc
+wdotaccent.sc
+wdotbelow.sc
+wgrave.sc
+x.sc
+xdieresis.sc
+xdotaccent.sc
+y.sc
+yacute.sc
+ycircumflex.sc
+ydieresis.sc
+ydotaccent.sc
+ydotbelow.sc
+ygrave.sc
+yhookabove.sc
+ymacron.sc
+ytilde.sc
+z.sc
+zacute.sc
+zcaron.sc
+zcircumflex.sc
+zdotaccent.sc
+zdotbelow.sc
+zlinebelow.sc
+zstroke.sc
+a-cy.sc
+be-cy.loclSRB.sc
+ve-cy.loclBGR.sc
+ge-cy.loclBGR.sc
+gje-cy.sc
+gheupturn-cy.sc
+ghestroke-cy.sc
+de-cy.loclBGR.sc
+ie-cy.sc
+iegrave-cy.sc
+io-cy.sc
+zhe-cy.loclBGR.sc
+ze-cy.loclBGR.sc
+ii-cy.loclBGR.sc
+iishort-cy.loclBGR.sc
+iigrave-cy.loclBGR.sc
+ka-cy.loclBGR.sc
+kje-cy.sc
+el-cy.loclBGR.sc
+em-cy.sc
+en-cy.sc
+o-cy.sc
+pe-cy.loclBGR.sc
+er-cy.sc
+es-cy.sc
+te-cy.loclBGR.sc
+u-cy.sc
+ushort-cy.sc
+ef-cy.sc
+ha-cy.sc
+che-cy.sc
+tse-cy.loclBGR.sc
+sha-cy.loclBGR.sc
+shcha-cy.loclBGR.sc
+dzhe-cy.sc
+softsign-cy.loclBGR.sc
+yeru-cy.sc
+hardsign-cy.loclBGR.sc
+lje-cy.sc
+nje-cy.sc
+dze-cy.sc
+e-cy.sc
+ereversed-cy.sc
+i-cy.sc
+yi-cy.i-cy-trigger.sc
+je-cy.sc
+tshe-cy.sc
+iu-cy.loclBGR.sc
+ia-cy.sc
+dje-cy.sc
+yat-cy.comp.sc
+fita-cy.sc
+izhitsa-cy.sc
+zhedescender-cy.sc
+kadescender-cy.sc
+endescender-cy.sc
+ustraight-cy.sc
+ustraightstroke-cy.sc
+hadescender-cy.sc
+chedescender-cy.sc
+shha-cy.sc
+palochka-cy.sc
+schwa-cy.sc
+imacron-cy.sc
+obarred-cy.sc
+umacron-cy.sc
+alpha.sc
+beta.sc
+gamma.sc
+delta.sc
+epsilon.sc
+zeta.sc
+eta.sc
+theta.sc
+iota.sc
+kappa.sc
+lambda.sc
+mu.sc
+nu.sc
+xi.sc
+omicron.sc
+pi.sc
+rho.sc
+sigma.sc
+tau.sc
+upsilon.sc
+phi.sc
+chi.sc
+psi.sc
+omega.sc
+iotadieresis.sc
+upsilondieresis.sc
+alphavrachy.sc
+alphamacron.sc
+iotavrachy.sc
+iotamacron.sc
+upsilonvrachy.sc
+upsilonmacron.sc";
+name = c2sc_target;
 },
 {
 code = "Alphaprosgegrammeni
@@ -10073,6 +10841,252 @@ tag = ss18;
 {
 code = "# Small Capitals From Capitals
 
+    sub Alpha by alpha.sc; 
+    sub Alpha by alpha.sc; 
+    sub Beta by beta.sc; 
+    sub Beta by beta.sc; 
+    sub Gamma by gamma.sc; 
+    sub Gamma by gamma.sc; 
+    sub Delta by delta.sc; 
+    sub Delta by delta.sc; 
+    sub Epsilon by epsilon.sc; 
+    sub Epsilon by epsilon.sc; 
+    sub Zeta by zeta.sc; 
+    sub Zeta by zeta.sc; 
+    sub Eta by eta.sc; 
+    sub Eta by eta.sc; 
+    sub Theta by theta.sc; 
+    sub Theta by theta.sc; 
+    sub Theta by o.sc; 
+    sub Iota by iota.sc; 
+    sub Iota by iota.sc; 
+    sub Kappa by kappa.sc; 
+    sub Kappa by kappa.sc; 
+    sub Lambda by lambda.sc; 
+    sub Lambda by lambda.sc; 
+    sub Mu by mu.sc; 
+    sub Mu by mu.sc; 
+    sub Nu by nu.sc; 
+    sub Nu by nu.sc; 
+    sub Xi by xi.sc; 
+    sub Xi by xi.sc; 
+    sub Omicron by omicron.sc; 
+    sub Omicron by omicron.sc; 
+    sub Pi by pi.sc; 
+    sub Pi by pi.sc; 
+    sub Rho by rho.sc; 
+    sub Rho by rho.sc; 
+    sub Sigma by sigma.sc; 
+    sub Sigma by sigma.sc; 
+    sub Tau by tau.sc; 
+    sub Tau by tau.sc; 
+    sub Upsilon by upsilon.sc; 
+    sub Upsilon by upsilon.sc; 
+    sub Phi by phi.sc; 
+    sub Phi by phi.sc; 
+    sub Chi by chi.sc; 
+    sub Chi by chi.sc; 
+    sub Psi by psi.sc; 
+    sub Psi by psi.sc; 
+    sub Omega by omega.sc; 
+    sub Omega by omega.sc; 
+    sub Alphatonos by alpha.sc; 
+    sub Alphatonos by alpha.sc; 
+    sub Epsilontonos by epsilon.sc; 
+    sub Epsilontonos by epsilon.sc; 
+    sub Etatonos by eta.sc; 
+    sub Etatonos by eta.sc; 
+    sub Iotatonos by iota.sc; 
+    sub Iotatonos by iota.sc; 
+    sub Omicrontonos by omicron.sc; 
+    sub Omicrontonos by omicron.sc; 
+    sub Upsilontonos by upsilon.sc; 
+    sub Upsilontonos by upsilon.sc; 
+    sub Omegatonos by omega.sc; 
+    sub Omegatonos by omega.sc; 
+    sub Iotadieresis by iotadieresis.sc; 
+    sub Iotadieresis by iotadieresis.sc; 
+    sub Iotadieresis by iota.sc; 
+    sub Upsilondieresis by upsilondieresis.sc; 
+    sub Upsilondieresis by upsilondieresis.sc; 
+    sub Upsilondieresis by upsilon.sc; 
+    sub KaiSymbol by kaiSymbol.sc; 
+    sub KaiSymbol by kaiSymbol.sc; 
+    sub Alphapsili by alpha.sc; 
+    sub Alphapsili by alpha.sc; 
+    sub Alphadasia by alpha.sc; 
+    sub Alphadasia by alpha.sc; 
+    sub Alphapsilivaria by alpha.sc; 
+    sub Alphapsilivaria by alpha.sc; 
+    sub Alphadasiavaria by alpha.sc; 
+    sub Alphadasiavaria by alpha.sc; 
+    sub Alphapsilioxia by alpha.sc; 
+    sub Alphapsilioxia by alpha.sc; 
+    sub Alphadasiaoxia by alpha.sc; 
+    sub Alphadasiaoxia by alpha.sc; 
+    sub Alphapsiliperispomeni by alpha.sc; 
+    sub Alphapsiliperispomeni by alpha.sc; 
+    sub Alphadasiaperispomeni by alpha.sc; 
+    sub Alphadasiaperispomeni by alpha.sc; 
+    sub Alphavaria by alpha.sc; 
+    sub Alphavaria by alpha.sc; 
+    sub Alphaoxia by alpha.sc; 
+    sub Alphaoxia by alpha.sc; 
+    sub Alphavrachy by alphavrachy.sc; 
+    sub Alphavrachy by alphavrachy.sc; 
+    sub Alphavrachy by alpha.sc; 
+    sub Alphamacron by alphamacron.sc; 
+    sub Alphamacron by alphamacron.sc; 
+    sub Alphamacron by alpha.sc; 
+    sub Alphaprosgegrammeni by alpha.sc; 
+    sub Alphaprosgegrammeni.case by alpha.sc; 
+    sub Alphapsiliprosgegrammeni by alphaypogegrammeni.sc; 
+    sub Alphadasiaprosgegrammeni by alphaypogegrammeni.sc; 
+    sub Alphapsilivariaprosgegrammeni by alphaypogegrammeni.sc; 
+    sub Alphadasiavariaprosgegrammeni by alphaypogegrammeni.sc; 
+    sub Alphapsilioxiaprosgegrammeni by alphaypogegrammeni.sc; 
+    sub Alphadasiaoxiaprosgegrammeni by alphaypogegrammeni.sc; 
+    sub Alphapsiliperispomeniprosgegrammeni by alphaypogegrammeni.sc; 
+    sub Alphadasiaperispomeniprosgegrammeni by alphaypogegrammeni.sc; 
+    sub Epsilonpsili by epsilon.sc; 
+    sub Epsilonpsili by epsilon.sc; 
+    sub Epsilondasia by epsilon.sc; 
+    sub Epsilondasia by epsilon.sc; 
+    sub Epsilonpsilivaria by epsilon.sc; 
+    sub Epsilonpsilivaria by epsilon.sc; 
+    sub Epsilondasiavaria by epsilon.sc; 
+    sub Epsilondasiavaria by epsilon.sc; 
+    sub Epsilonpsilioxia by epsilon.sc; 
+    sub Epsilonpsilioxia by epsilon.sc; 
+    sub Epsilondasiaoxia by epsilon.sc; 
+    sub Epsilondasiaoxia by epsilon.sc; 
+    sub Epsilonvaria by epsilon.sc; 
+    sub Epsilonvaria by epsilon.sc; 
+    sub Epsilonoxia by epsilon.sc; 
+    sub Epsilonoxia by epsilon.sc; 
+    sub Etapsili by eta.sc; 
+    sub Etapsili by eta.sc; 
+    sub Etadasia by eta.sc; 
+    sub Etadasia by eta.sc; 
+    sub Etapsilivaria by eta.sc; 
+    sub Etapsilivaria by eta.sc; 
+    sub Etadasiavaria by eta.sc; 
+    sub Etadasiavaria by eta.sc; 
+    sub Etapsilioxia by eta.sc; 
+    sub Etapsilioxia by eta.sc; 
+    sub Etadasiaoxia by eta.sc; 
+    sub Etadasiaoxia by eta.sc; 
+    sub Etapsiliperispomeni by eta.sc; 
+    sub Etapsiliperispomeni by eta.sc; 
+    sub Etadasiaperispomeni by eta.sc; 
+    sub Etadasiaperispomeni by eta.sc; 
+    sub Etavaria by eta.sc; 
+    sub Etavaria by eta.sc; 
+    sub Etaoxia by eta.sc; 
+    sub Etaoxia by eta.sc; 
+    sub Etaprosgegrammeni by h.sc; 
+    sub Etaprosgegrammeni.case by h.sc; 
+    sub Etapsiliprosgegrammeni by etaypogegrammeni.sc; 
+    sub Etadasiaprosgegrammeni by etaypogegrammeni.sc; 
+    sub Etapsilivariaprosgegrammeni by etaypogegrammeni.sc; 
+    sub Etadasiavariaprosgegrammeni by etaypogegrammeni.sc; 
+    sub Etapsilioxiaprosgegrammeni by etaypogegrammeni.sc; 
+    sub Etadasiaoxiaprosgegrammeni by etaypogegrammeni.sc; 
+    sub Etapsiliperispomeniprosgegrammeni by etaypogegrammeni.sc; 
+    sub Etadasiaperispomeniprosgegrammeni by etaypogegrammeni.sc; 
+    sub Iotapsili by iota.sc; 
+    sub Iotapsili by iota.sc; 
+    sub Iotadasia by iota.sc; 
+    sub Iotadasia by iota.sc; 
+    sub Iotapsilivaria by iota.sc; 
+    sub Iotapsilivaria by iota.sc; 
+    sub Iotadasiavaria by iota.sc; 
+    sub Iotadasiavaria by iota.sc; 
+    sub Iotapsilioxia by iota.sc; 
+    sub Iotapsilioxia by iota.sc; 
+    sub Iotadasiaoxia by iota.sc; 
+    sub Iotadasiaoxia by iota.sc; 
+    sub Iotapsiliperispomeni by iota.sc; 
+    sub Iotapsiliperispomeni by iota.sc; 
+    sub Iotadasiaperispomeni by iota.sc; 
+    sub Iotadasiaperispomeni by iota.sc; 
+    sub Iotavaria by iota.sc; 
+    sub Iotavaria by iota.sc; 
+    sub Iotaoxia by iota.sc; 
+    sub Iotaoxia by iota.sc; 
+    sub Iotavrachy by iotavrachy.sc; 
+    sub Iotavrachy by iotavrachy.sc; 
+    sub Iotavrachy by iota.sc; 
+    sub Iotamacron by iotamacron.sc; 
+    sub Iotamacron by iotamacron.sc; 
+    sub Iotamacron by iota.sc; 
+    sub Omicronpsili by omicron.sc; 
+    sub Omicronpsili by omicron.sc; 
+    sub Omicrondasia by omicron.sc; 
+    sub Omicrondasia by omicron.sc; 
+    sub Omicronpsilivaria by omicron.sc; 
+    sub Omicronpsilivaria by omicron.sc; 
+    sub Omicrondasiavaria by omicron.sc; 
+    sub Omicrondasiavaria by omicron.sc; 
+    sub Omicronpsilioxia by omicron.sc; 
+    sub Omicronpsilioxia by omicron.sc; 
+    sub Omicrondasiaoxia by omicron.sc; 
+    sub Omicrondasiaoxia by omicron.sc; 
+    sub Omicronvaria by omicron.sc; 
+    sub Omicronvaria by omicron.sc; 
+    sub Omicronoxia by omicron.sc; 
+    sub Omicronoxia by omicron.sc; 
+    sub Rhodasia by rho.sc; 
+    sub Rhodasia by rho.sc; 
+    sub Upsilondasia by upsilon.sc; 
+    sub Upsilondasia by upsilon.sc; 
+    sub Upsilondasiavaria by upsilon.sc; 
+    sub Upsilondasiavaria by upsilon.sc; 
+    sub Upsilondasiaoxia by upsilon.sc; 
+    sub Upsilondasiaoxia by upsilon.sc; 
+    sub Upsilondasiaperispomeni by upsilon.sc; 
+    sub Upsilondasiaperispomeni by upsilon.sc; 
+    sub Upsilonvaria by upsilon.sc; 
+    sub Upsilonvaria by upsilon.sc; 
+    sub Upsilonoxia by upsilon.sc; 
+    sub Upsilonoxia by upsilon.sc; 
+    sub Upsilonvrachy by upsilonvrachy.sc; 
+    sub Upsilonvrachy by upsilonvrachy.sc; 
+    sub Upsilonvrachy by upsilon.sc; 
+    sub Upsilonmacron by upsilonmacron.sc; 
+    sub Upsilonmacron by upsilonmacron.sc; 
+    sub Upsilonmacron by upsilon.sc; 
+    sub Omegapsili by omega.sc; 
+    sub Omegapsili by omega.sc; 
+    sub Omegadasia by omega.sc; 
+    sub Omegadasia by omega.sc; 
+    sub Omegapsilivaria by omega.sc; 
+    sub Omegapsilivaria by omega.sc; 
+    sub Omegadasiavaria by omega.sc; 
+    sub Omegadasiavaria by omega.sc; 
+    sub Omegapsilioxia by omega.sc; 
+    sub Omegapsilioxia by omega.sc; 
+    sub Omegadasiaoxia by omega.sc; 
+    sub Omegadasiaoxia by omega.sc; 
+    sub Omegapsiliperispomeni by omega.sc; 
+    sub Omegapsiliperispomeni by omega.sc; 
+    sub Omegadasiaperispomeni by omega.sc; 
+    sub Omegadasiaperispomeni by omega.sc; 
+    sub Omegavaria by omega.sc; 
+    sub Omegavaria by omega.sc; 
+    sub Omegaoxia by omega.sc; 
+    sub Omegaoxia by omega.sc; 
+    sub Omegaprosgegrammeni by omega.sc; 
+    sub Omegaprosgegrammeni.case by omega.sc; 
+    sub Omegapsiliprosgegrammeni by omegaypogegrammeni.sc; 
+    sub Omegadasiaprosgegrammeni by omegaypogegrammeni.sc; 
+    sub Omegapsilivariaprosgegrammeni by omegaypogegrammeni.sc; 
+    sub Omegadasiavariaprosgegrammeni by omegaypogegrammeni.sc; 
+    sub Omegapsilioxiaprosgegrammeni by omegaypogegrammeni.sc; 
+    sub Omegadasiaoxiaprosgegrammeni by omegaypogegrammeni.sc; 
+    sub Omegapsiliperispomeniprosgegrammeni by omegaypogegrammeni.sc; 
+    sub Omegadasiaperispomeniprosgegrammeni by omegaypogegrammeni.sc; 
+    sub @c2sc_source by @c2sc_target; 
     sub @lnum_source by @lnum_target; ";
 tag = c2sc;
 },
@@ -10097,14 +11111,14 @@ code = "# Small Capitals
     sub Alphadasiaperispomeni by Alpha; 
     sub Alphavaria by Alpha; 
     sub Alphaoxia by Alpha; 
-    sub Alphapsiliprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphadasiaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphapsilivariaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphadasiavariaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphapsilioxiaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphadasiaoxiaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphapsiliperispomeniprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphadasiaperispomeniprosgegrammeni by Alphaprosgegrammeni; 
+    sub Alphapsiliprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphadasiaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphapsilivariaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphadasiavariaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphapsilioxiaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphadasiaoxiaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphapsiliperispomeniprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphadasiaperispomeniprosgegrammeni by Alphaprosgegrammeni.case; 
     sub Epsilonpsili by Epsilon; 
     sub Epsilondasia by Epsilon; 
     sub Epsilonpsilivaria by Epsilon; 
@@ -10123,14 +11137,14 @@ code = "# Small Capitals
     sub Etadasiaperispomeni by Eta; 
     sub Etavaria by Eta; 
     sub Etaoxia by Eta; 
-    sub Etapsiliprosgegrammeni by Etaprosgegrammeni; 
-    sub Etadasiaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etapsilivariaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etadasiavariaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etapsilioxiaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etadasiaoxiaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etapsiliperispomeniprosgegrammeni by Etaprosgegrammeni; 
-    sub Etadasiaperispomeniprosgegrammeni by Etaprosgegrammeni; 
+    sub Etapsiliprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etadasiaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etapsilivariaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etadasiavariaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etapsilioxiaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etadasiaoxiaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etapsiliperispomeniprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etadasiaperispomeniprosgegrammeni by Etaprosgegrammeni.case; 
     sub Iotapsili by Iota; 
     sub Iotadasia by Iota; 
     sub Iotapsilivaria by Iota; 
@@ -10166,14 +11180,14 @@ code = "# Small Capitals
     sub Omegadasiaperispomeni by Omega; 
     sub Omegavaria by Omega; 
     sub Omegaoxia by Omega; 
-    sub Omegapsiliprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegadasiaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegapsilivariaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegadasiavariaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegapsilioxiaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegadasiaoxiaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegapsiliperispomeniprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegadasiaperispomeniprosgegrammeni by Omegaprosgegrammeni; 
+    sub Omegapsiliprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegadasiaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegapsilivariaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegadasiavariaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegapsilioxiaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegadasiaoxiaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegapsiliperispomeniprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegadasiaperispomeniprosgegrammeni by Omegaprosgegrammeni.case; 
     sub iacute.locl_latn_VIT by iacute.locl_latn_VIT.sc; 
     sub igrave.locl_latn_VIT by igrave.locl_latn_VIT.sc; 
     sub ihookabove.locl_latn_VIT by ihookabove.locl_latn_VIT.sc; 
@@ -10749,14 +11763,14 @@ code = "# Case-Sensitive Forms
     sub Alphadasiaperispomeni by Alpha; 
     sub Alphavaria by Alpha; 
     sub Alphaoxia by Alpha; 
-    sub Alphapsiliprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphadasiaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphapsilivariaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphadasiavariaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphapsilioxiaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphadasiaoxiaprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphapsiliperispomeniprosgegrammeni by Alphaprosgegrammeni; 
-    sub Alphadasiaperispomeniprosgegrammeni by Alphaprosgegrammeni; 
+    sub Alphapsiliprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphadasiaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphapsilivariaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphadasiavariaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphapsilioxiaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphadasiaoxiaprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphapsiliperispomeniprosgegrammeni by Alphaprosgegrammeni.case; 
+    sub Alphadasiaperispomeniprosgegrammeni by Alphaprosgegrammeni.case; 
     sub Epsilonpsili by Epsilon; 
     sub Epsilondasia by Epsilon; 
     sub Epsilonpsilivaria by Epsilon; 
@@ -10775,14 +11789,14 @@ code = "# Case-Sensitive Forms
     sub Etadasiaperispomeni by Eta; 
     sub Etavaria by Eta; 
     sub Etaoxia by Eta; 
-    sub Etapsiliprosgegrammeni by Etaprosgegrammeni; 
-    sub Etadasiaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etapsilivariaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etadasiavariaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etapsilioxiaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etadasiaoxiaprosgegrammeni by Etaprosgegrammeni; 
-    sub Etapsiliperispomeniprosgegrammeni by Etaprosgegrammeni; 
-    sub Etadasiaperispomeniprosgegrammeni by Etaprosgegrammeni; 
+    sub Etapsiliprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etadasiaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etapsilivariaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etadasiavariaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etapsilioxiaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etadasiaoxiaprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etapsiliperispomeniprosgegrammeni by Etaprosgegrammeni.case; 
+    sub Etadasiaperispomeniprosgegrammeni by Etaprosgegrammeni.case; 
     sub Iotapsili by Iota; 
     sub Iotadasia by Iota; 
     sub Iotapsilivaria by Iota; 
@@ -10818,14 +11832,14 @@ code = "# Case-Sensitive Forms
     sub Omegadasiaperispomeni by Omega; 
     sub Omegavaria by Omega; 
     sub Omegaoxia by Omega; 
-    sub Omegapsiliprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegadasiaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegapsilivariaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegadasiavariaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegapsilioxiaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegadasiaoxiaprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegapsiliperispomeniprosgegrammeni by Omegaprosgegrammeni; 
-    sub Omegadasiaperispomeniprosgegrammeni by Omegaprosgegrammeni; 
+    sub Omegapsiliprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegadasiaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegapsilivariaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegadasiavariaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegapsilioxiaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegadasiaoxiaprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegapsiliperispomeniprosgegrammeni by Omegaprosgegrammeni.case; 
+    sub Omegadasiaperispomeniprosgegrammeni by Omegaprosgegrammeni.case; 
     sub @case_source by @case_target; 
     sub @lnum_source by @lnum_target; 
     sub @case_source by @case_target; ";

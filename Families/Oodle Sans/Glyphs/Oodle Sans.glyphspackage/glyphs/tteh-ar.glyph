@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "tteh-ar";
 kernLeft = bowl;
 kernRight = bowl;

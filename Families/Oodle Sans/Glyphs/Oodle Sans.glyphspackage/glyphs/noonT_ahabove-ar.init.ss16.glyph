@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "noonTahabove-ar.init.ss16";
 kernRight = bowl.init;
 layers = (

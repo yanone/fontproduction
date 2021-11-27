@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Lcircumflexbelow;
 kernLeft = H;
 kernRight = L;

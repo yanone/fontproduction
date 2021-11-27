@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Ehookabove.ss16;
 kernLeft = H;
 kernRight = E;

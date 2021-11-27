@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Edblgrave.ss16;
 kernLeft = H;
 kernRight = E;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = eight.lf;
 kernLeft = eight.lf;
 kernRight = eight.lf;

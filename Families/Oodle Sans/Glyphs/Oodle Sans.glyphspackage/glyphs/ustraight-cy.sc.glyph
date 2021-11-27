@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ustraight-cy.sc";
 kernLeft = Y.sc;
 kernRight = Y.sc;

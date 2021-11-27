@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Ngrave;
 kernLeft = H;
 kernRight = H;

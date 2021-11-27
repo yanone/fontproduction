@@ -1,6 +1,6 @@
 {
 category = Letter;
-color = 0;
+color = 3;
 glyphname = "seenThreedotsbelowthreedots-ar.init.conn-m-1.ss16";
 kernRight = bowl;
 layers = (

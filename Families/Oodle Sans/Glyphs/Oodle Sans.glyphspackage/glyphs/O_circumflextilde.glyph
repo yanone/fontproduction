@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Ocircumflextilde;
 kernLeft = O;
 kernRight = O;

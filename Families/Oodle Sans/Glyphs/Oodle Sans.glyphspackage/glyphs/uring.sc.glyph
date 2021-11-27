@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = uring.sc;
 kernLeft = U.sc;
 kernRight = U.sc;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ucaron;
 kernLeft = u;
 kernRight = u;

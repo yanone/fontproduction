@@ -1,5 +1,7 @@
 {
+color = 4;
 glyphname = upsilondialytikaoxia.sc;
+kernLeft = Y.sc;
 kernRight = Y.sc;
 layers = (
 {

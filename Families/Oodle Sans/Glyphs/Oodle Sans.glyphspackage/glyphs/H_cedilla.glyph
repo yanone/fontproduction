@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Hcedilla;
 kernLeft = H;
 kernRight = H;

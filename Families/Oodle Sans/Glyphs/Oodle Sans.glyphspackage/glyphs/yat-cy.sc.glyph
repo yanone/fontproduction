@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "yat-cy.sc";
 kernRight = "softsign-cy.sc";
 layers = (

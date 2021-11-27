@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ghainDotbelow-ar.init";
 kernRight = ain.init;
 layers = (

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "kafThreedotsbelow-ar.init.dotColl";
 kernRight = kaf.init;
 layers = (

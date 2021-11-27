@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = tdieresis.sc;
 kernLeft = t.sc;
 kernRight = t.sc;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "lamDotabove-ar.init";
 kernRight = lam.init;
 layers = (

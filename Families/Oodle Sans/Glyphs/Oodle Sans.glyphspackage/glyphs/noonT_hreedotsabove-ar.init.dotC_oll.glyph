@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "noonThreedotsabove-ar.init.dotColl";
 kernRight = bowl.twoDotsTop;
 layers = (

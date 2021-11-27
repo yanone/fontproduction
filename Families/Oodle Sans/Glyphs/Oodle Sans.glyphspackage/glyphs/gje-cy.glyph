@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "gje-cy";
 kernLeft = m;
 kernRight = "ge-cy";

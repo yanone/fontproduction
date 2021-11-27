@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "wawring-ar";
 kernLeft = waw;
 kernRight = waw;

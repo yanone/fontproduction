@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = odotaccentmacron;
 kernLeft = o;
 kernRight = o;

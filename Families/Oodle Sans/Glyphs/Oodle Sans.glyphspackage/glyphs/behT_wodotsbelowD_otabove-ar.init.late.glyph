@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 4;
 glyphname = "behTwodotsbelowDotabove-ar.init.late";
 kernRight = bowl.twoDotsBelow;
 layers = (

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = rdotbelowmacron;
 kernLeft = m;
 kernRight = r;

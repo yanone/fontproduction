@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "el-cy.loclBGR.sc";
 kernLeft = A.sc;
 kernRight = A.sc;

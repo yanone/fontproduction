@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = oogonekmacron;
 kernLeft = o;
 kernRight = o;

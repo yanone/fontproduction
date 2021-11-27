@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ycircumflex.sc;
 kernLeft = Y.sc;
 kernRight = Y.sc;

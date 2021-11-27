@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ve-cy.sc";
 kernLeft = H.sc;
 kernRight = B.sc;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "behVinvertedbelow-ar";
 kernLeft = bowl;
 kernRight = bowl;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = udieresisbelow;
 kernLeft = u;
 kernRight = u;

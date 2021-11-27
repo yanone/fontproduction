@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "rehRing-ar.fina";
 kernLeft = reh;
 kernRight = reh;

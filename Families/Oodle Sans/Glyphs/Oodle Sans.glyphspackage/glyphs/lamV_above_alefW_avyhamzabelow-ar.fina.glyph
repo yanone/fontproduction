@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "lamVabove_alefWavyhamzabelow-ar.fina";
 kernLeft = lam_alef.fina;
 layers = (

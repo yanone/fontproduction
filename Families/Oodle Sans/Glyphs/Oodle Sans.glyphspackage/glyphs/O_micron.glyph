@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Omicron;
 kernLeft = O;
 kernRight = O;

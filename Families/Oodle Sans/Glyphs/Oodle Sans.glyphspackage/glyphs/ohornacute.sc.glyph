@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ohornacute.sc;
 kernLeft = O.sc;
 kernRight = Ohorn.sc;

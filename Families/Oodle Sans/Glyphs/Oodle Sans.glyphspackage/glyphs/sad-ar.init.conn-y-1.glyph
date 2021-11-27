@@ -1,4 +1,5 @@
 {
+color = 10;
 glyphname = "sad-ar.init.conn-y-1";
 kernRight = round;
 layers = (

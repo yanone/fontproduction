@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ainTwodotshorizontalabove-ar.medi.conn-mf-2";
 kernLeft = "ain-ar.medi";
 kernRight = "ain-ar.medi";

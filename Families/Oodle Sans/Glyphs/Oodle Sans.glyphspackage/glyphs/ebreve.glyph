@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ebreve;
 kernLeft = o;
 kernRight = e;

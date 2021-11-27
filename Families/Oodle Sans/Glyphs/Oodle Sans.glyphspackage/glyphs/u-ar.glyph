@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "u-ar";
 kernLeft = waw;
 kernRight = waw;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "iigrave-cy.loclBGR";
 kernLeft = u;
 kernRight = u;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = nmod.caps;
 kernLeft = supsletters;
 kernRight = supsletters;

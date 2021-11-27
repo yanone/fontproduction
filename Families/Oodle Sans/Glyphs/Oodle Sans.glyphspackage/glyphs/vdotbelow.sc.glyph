@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = vdotbelow.sc;
 kernLeft = V.sc;
 kernRight = V.sc;

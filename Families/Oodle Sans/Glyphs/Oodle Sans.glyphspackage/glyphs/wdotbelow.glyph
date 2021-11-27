@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = wdotbelow;
 kernLeft = v;
 kernRight = v;

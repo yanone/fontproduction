@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = napostrophe.sc;
 kernLeft = m.sc;
 kernRight = m.sc;

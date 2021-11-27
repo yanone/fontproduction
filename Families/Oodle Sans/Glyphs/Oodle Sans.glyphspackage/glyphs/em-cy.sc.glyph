@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "em-cy.sc";
 kernLeft = M.sc;
 kernRight = M.sc;

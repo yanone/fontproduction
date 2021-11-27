@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ncircumflexbelow;
 kernLeft = m;
 kernRight = m;

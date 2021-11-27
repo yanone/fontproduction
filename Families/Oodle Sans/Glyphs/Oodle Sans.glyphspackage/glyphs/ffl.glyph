@@ -1,6 +1,6 @@
 {
 category = Letter;
-color = 0;
+color = 4;
 glyphname = ffl;
 layers = (
 {
@@ -14,7 +14,7 @@ pos = (655,0);
 ref = l;
 }
 );
-width = 921;
+width = 911;
 },
 {
 layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";

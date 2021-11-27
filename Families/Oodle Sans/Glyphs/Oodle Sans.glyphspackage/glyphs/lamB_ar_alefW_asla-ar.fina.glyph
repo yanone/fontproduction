@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "lamBar_alefWasla-ar.fina";
 kernLeft = lam_alef.fina;
 layers = (

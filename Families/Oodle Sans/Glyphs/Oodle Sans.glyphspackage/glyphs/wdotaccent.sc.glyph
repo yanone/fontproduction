@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = wdotaccent.sc;
 kernLeft = W.sc;
 kernRight = W.sc;

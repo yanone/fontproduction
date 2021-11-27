@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ldotbelow;
 kernLeft = l;
 kernRight = l;
@@ -62,7 +63,7 @@ pos = (90,0);
 ref = dotbelowcomb;
 }
 );
-width = 266;
+width = 256;
 }
 );
 unicode = 7735;

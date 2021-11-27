@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "seenFourdotsabove-ar.init";
 kernRight = bowl;
 layers = (

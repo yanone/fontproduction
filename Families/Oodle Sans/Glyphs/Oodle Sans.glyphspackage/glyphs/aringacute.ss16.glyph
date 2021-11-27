@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = aringacute.ss16;
 kernLeft = a;
 kernRight = a;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Adblgrave;
 kernLeft = A;
 kernRight = A;

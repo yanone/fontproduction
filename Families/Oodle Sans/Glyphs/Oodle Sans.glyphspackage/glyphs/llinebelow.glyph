@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = llinebelow;
 kernLeft = l;
 kernRight = l;
@@ -61,7 +62,7 @@ ref = l;
 ref = macronbelowcomb.narrow;
 }
 );
-width = 266;
+width = 256;
 }
 );
 unicode = 7739;

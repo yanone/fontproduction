@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ze-cy.loclBGR.sc";
 kernLeft = "ze-cy.sc";
 kernRight = B.sc;

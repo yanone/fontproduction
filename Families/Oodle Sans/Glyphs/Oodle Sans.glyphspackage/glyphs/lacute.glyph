@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = lacute;
 kernLeft = l;
 kernRight = l;
@@ -40,7 +41,7 @@ pos = (29,282);
 ref = acutecomb;
 }
 );
-width = 266;
+width = 256;
 }
 );
 unicode = 314;

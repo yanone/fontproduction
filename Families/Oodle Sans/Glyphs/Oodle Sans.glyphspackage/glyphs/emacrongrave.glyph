@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = emacrongrave;
 kernLeft = o;
 kernRight = e;

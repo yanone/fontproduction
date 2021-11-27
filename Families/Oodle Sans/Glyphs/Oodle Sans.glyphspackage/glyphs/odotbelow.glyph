@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = odotbelow;
 kernLeft = o;
 kernRight = o;

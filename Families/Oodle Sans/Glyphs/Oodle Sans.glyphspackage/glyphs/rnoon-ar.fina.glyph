@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "rnoon-ar.fina";
 kernLeft = noon;
 layers = (

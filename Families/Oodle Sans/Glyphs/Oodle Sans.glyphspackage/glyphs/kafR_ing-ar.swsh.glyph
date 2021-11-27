@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "kafRing-ar.swsh";
 kernRight = "kaf-init";
 layers = (

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "yeh-farsi.init.dotColl";
 kernRight = bowl.twoDotsBelow;
 layers = (

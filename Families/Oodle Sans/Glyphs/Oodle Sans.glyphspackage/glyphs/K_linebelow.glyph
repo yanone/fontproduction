@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Klinebelow;
 kernLeft = H;
 kernRight = K;

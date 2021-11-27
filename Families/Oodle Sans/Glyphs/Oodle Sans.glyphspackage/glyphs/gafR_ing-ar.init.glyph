@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "gafRing-ar.init";
 kernRight = kaf.init;
 layers = (

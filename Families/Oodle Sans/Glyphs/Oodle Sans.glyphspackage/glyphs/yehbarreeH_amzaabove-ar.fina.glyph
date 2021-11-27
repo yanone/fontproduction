@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "yehbarreeHamzaabove-ar.fina";
 kernLeft = yehbarree.fina;
 layers = (

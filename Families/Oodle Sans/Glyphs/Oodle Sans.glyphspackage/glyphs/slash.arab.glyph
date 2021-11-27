@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 4;
 glyphname = slash.arab;
 kernLeft = "slash-ar";
 kernRight = "slash-ar";

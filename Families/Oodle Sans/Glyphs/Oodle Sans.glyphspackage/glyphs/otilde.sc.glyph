@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = otilde.sc;
 kernLeft = O.sc;
 kernRight = O.sc;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "hahTwodotshorizontalabove-ar";
 kernLeft = hah;
 kernRight = hah.isol;

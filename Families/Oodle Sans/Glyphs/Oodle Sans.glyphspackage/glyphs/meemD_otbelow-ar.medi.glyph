@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "meemDotbelow-ar.medi";
 kernRight = meem;
 layers = (

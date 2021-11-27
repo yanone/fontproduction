@@ -1,5 +1,7 @@
 {
+color = 3;
 glyphname = Upsilontonos;
+kernRight = Y;
 layers = (
 {
 layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";

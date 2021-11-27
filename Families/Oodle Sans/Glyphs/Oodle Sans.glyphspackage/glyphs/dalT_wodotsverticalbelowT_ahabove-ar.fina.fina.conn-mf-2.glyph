@@ -1,6 +1,6 @@
 {
 category = Letter;
-color = 0;
+color = 4;
 glyphname = "dalTwodotsverticalbelowTahabove-ar.fina.fina.conn-mf-2";
 kernLeft = dal;
 layers = (

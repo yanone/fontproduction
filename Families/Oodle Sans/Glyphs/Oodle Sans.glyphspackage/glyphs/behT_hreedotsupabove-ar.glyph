@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "behThreedotsupabove-ar";
 kernLeft = bowl;
 kernRight = bowl;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "tteheh-ar.init";
 kernRight = bowl.twoDotsTop;
 layers = (

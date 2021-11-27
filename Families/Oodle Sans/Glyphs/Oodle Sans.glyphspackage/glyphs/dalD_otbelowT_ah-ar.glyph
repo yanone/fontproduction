@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "dalDotbelowTah-ar";
 kernLeft = dal;
 kernRight = dal;

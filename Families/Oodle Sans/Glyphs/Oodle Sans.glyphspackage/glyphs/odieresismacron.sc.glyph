@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = odieresismacron.sc;
 kernLeft = O.sc;
 kernRight = O.sc;

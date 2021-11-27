@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ddotaccent.ss16;
 kernLeft = o;
 kernRight = d;

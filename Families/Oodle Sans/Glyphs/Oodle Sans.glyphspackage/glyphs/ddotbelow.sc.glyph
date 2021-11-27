@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ddotbelow.sc;
 kernLeft = H.sc;
 kernRight = O.sc;

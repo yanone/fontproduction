@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = uhornhookabove.sc;
 kernLeft = U.sc;
 kernRight = Uhorn.sc;

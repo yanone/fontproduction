@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Tcircumflexbelow;
 kernLeft = T;
 kernRight = T;

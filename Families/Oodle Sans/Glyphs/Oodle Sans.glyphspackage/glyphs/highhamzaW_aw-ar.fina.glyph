@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "highhamzaWaw-ar.fina";
 kernLeft = waw;
 layers = (

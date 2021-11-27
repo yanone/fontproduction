@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "alefWavyhamzabelow-ar";
 kernLeft = alef.accentBottom;
 kernRight = alef;

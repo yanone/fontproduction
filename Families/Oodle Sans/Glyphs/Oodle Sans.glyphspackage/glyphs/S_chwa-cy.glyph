@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "Schwa-cy";
 kernLeft = Schwa;
 kernRight = O;

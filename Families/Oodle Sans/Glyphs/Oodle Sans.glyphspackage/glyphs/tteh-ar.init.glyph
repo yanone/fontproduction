@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "tteh-ar.init";
 kernRight = bowl.init;
 layers = (

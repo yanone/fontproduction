@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 4;
 glyphname = "yeh-farsi.init.late";
 kernRight = bowl.twoDotsBelow;
 layers = (

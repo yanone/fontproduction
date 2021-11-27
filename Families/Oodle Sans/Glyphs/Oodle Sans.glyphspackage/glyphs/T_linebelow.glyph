@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Tlinebelow;
 kernLeft = T;
 kernRight = T;

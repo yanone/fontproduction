@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 4;
 glyphname = period.arab;
 kernLeft = period.arab;
 kernRight = period.arab;

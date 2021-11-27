@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "kirghizyu-ar.fina";
 kernLeft = waw;
 layers = (

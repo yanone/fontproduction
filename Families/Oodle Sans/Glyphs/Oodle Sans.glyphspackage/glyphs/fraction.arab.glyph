@@ -1,6 +1,6 @@
 {
 category = Number;
-color = 0;
+color = 4;
 glyphname = fraction.arab;
 kernLeft = fraction;
 kernRight = fraction;

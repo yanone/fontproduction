@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ngrave;
 kernLeft = m;
 kernRight = m;

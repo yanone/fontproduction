@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = umacrondieresis;
 kernLeft = u;
 kernRight = u;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ghainDotbelow-ar";
 kernLeft = ain;
 kernRight = ain;

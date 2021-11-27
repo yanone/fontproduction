@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "chedescender-cy.sc";
 kernLeft = "che-cy.sc";
 layers = (

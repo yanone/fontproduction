@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "nine-ar.numr";
 kernLeft = "nine-ar.numr";
 kernRight = "nine-ar.numr";

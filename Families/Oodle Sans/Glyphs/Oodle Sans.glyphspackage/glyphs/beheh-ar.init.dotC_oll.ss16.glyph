@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "beheh-ar.init.dotColl.ss16";
 kernRight = bowl.twoDotsBelow;
 layers = (

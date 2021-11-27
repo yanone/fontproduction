@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ainThreedotsdownabove-ar.init.ss16";
 kernRight = ain.init;
 layers = (

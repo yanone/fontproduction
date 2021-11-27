@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "fehTwodotsbelow-ar";
 kernRight = feh.init;
 layers = (

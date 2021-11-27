@@ -1,5 +1,7 @@
 {
 glyphname = omega.sc;
+kernLeft = O.sc;
+kernRight = O.sc;
 layers = (
 {
 anchors = (

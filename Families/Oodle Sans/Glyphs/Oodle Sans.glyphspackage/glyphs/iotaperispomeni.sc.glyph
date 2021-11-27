@@ -1,44 +1,45 @@
 {
+color = 4;
 glyphname = iotaperispomeni.sc;
 layers = (
 {
 layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
 shapes = (
 {
-ref = iota;
+ref = iota.sc;
 },
 {
-pos = (-85,0);
+pos = (-88,60);
 ref = perispomeni;
 }
 );
-width = 213;
+width = 208;
 },
 {
 layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
 shapes = (
 {
-ref = iota;
+ref = iota.sc;
 },
 {
-pos = (-92,0);
+pos = (-89,60);
 ref = perispomeni;
 }
 );
-width = 250;
+width = 256;
 },
 {
 layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
 shapes = (
 {
-ref = iota;
+ref = iota.sc;
 },
 {
-pos = (-114,0);
+pos = (-106,62);
 ref = perispomeni;
 }
 );
-width = 288;
+width = 303;
 }
 );
 metricLeft = perispomeni;

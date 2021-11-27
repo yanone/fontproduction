@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "hehVinvertedabove-ar";
 kernRight = heh.init;
 layers = (

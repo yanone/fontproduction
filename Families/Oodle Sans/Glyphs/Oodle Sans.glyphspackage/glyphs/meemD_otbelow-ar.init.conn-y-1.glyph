@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "meemDotbelow-ar.init.conn-y-1";
 kernRight = meem;
 layers = (

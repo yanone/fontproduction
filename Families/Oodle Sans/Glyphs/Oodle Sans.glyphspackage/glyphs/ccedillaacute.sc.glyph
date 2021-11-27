@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ccedillaacute.sc;
 kernLeft = O.sc;
 kernRight = C.sc;

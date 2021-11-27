@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "behVinvertedbelow-ar.init";
 kernRight = bowl.bottomdots.init;
 layers = (

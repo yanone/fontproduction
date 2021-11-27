@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "kafThreedotsbelow-ar.swsh.ss16";
 kernRight = lam.init;
 layers = (

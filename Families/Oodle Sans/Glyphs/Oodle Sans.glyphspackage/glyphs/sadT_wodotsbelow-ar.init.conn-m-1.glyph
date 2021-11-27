@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "sadTwodotsbelow-ar.init.conn-m-1";
 kernRight = round;
 layers = (

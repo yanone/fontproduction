@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = lcircumflexbelow;
 kernLeft = l;
 kernRight = l;
@@ -62,7 +63,7 @@ pos = (-33,0);
 ref = circumflexbelowcomb;
 }
 );
-width = 266;
+width = 256;
 }
 );
 unicode = 7741;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "dadDotbelow-ar.init";
 kernRight = round;
 layers = (

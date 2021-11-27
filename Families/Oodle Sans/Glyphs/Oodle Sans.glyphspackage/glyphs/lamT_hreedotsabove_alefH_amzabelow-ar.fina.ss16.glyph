@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "lamThreedotsabove_alefHamzabelow-ar.fina.ss16";
 kernLeft = lam_alef.fina;
 layers = (

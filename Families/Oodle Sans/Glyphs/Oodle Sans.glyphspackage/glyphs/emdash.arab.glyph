@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 4;
 glyphname = emdash.arab;
 kernLeft = hyphen.arab;
 kernRight = hyphen.arab;

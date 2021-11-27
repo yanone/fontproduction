@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "lamThreedotsbelow-ar.init.conn-hah-1";
 kernRight = lam.init;
 layers = (

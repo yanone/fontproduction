@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = pacute;
 kernLeft = m;
 kernRight = o;

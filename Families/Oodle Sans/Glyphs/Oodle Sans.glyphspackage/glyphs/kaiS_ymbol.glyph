@@ -1,5 +1,6 @@
 {
 glyphname = kaiSymbol;
+kernRight = k;
 layers = (
 {
 anchors = (

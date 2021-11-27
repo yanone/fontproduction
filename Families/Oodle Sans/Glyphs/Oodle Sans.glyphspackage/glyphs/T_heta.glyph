@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Theta;
 kernLeft = O;
 kernRight = O;

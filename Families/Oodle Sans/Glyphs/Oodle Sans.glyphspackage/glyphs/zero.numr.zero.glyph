@@ -1,4 +1,5 @@
 {
+color = 3;
 glyphname = zero.numr.zero;
 kernLeft = zero.numr;
 kernRight = zero.numr;

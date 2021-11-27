@@ -1,4 +1,5 @@
 {
+color = 3;
 glyphname = six.lf;
 kernLeft = six.lf;
 kernRight = six.lf;

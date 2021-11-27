@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = yring.sc;
 kernLeft = y.sc;
 kernRight = y.sc;

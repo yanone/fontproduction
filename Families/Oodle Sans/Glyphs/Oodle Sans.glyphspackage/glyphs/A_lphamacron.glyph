@@ -1,5 +1,7 @@
 {
+color = 4;
 glyphname = Alphamacron;
+kernLeft = A;
 kernRight = A;
 layers = (
 {

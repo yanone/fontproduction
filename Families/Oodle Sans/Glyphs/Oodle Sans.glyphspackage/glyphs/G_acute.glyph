@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Gacute;
 kernLeft = O;
 kernRight = G;

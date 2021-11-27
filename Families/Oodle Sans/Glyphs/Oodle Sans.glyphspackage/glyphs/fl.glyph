@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = fl;
 kernLeft = f;
 kernRight = l;
@@ -132,7 +133,7 @@ pos = (359,0);
 ref = l;
 }
 );
-width = 625;
+width = 615;
 }
 );
 metricLeft = f;

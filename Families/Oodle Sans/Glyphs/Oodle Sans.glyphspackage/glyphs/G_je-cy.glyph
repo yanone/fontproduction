@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "Gje-cy";
 kernRight = Gamma.sc;
 layers = (

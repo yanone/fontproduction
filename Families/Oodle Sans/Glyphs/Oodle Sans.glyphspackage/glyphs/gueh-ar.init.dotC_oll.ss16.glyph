@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "gueh-ar.init.dotColl.ss16";
 kernRight = kaf.init;
 layers = (

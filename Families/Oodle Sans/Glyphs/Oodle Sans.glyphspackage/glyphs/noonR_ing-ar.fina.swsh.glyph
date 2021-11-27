@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "noonRing-ar.fina.swsh";
 kernLeft = noon;
 layers = (

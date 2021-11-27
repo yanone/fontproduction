@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Blinebelow;
 kernLeft = H;
 kernRight = B;

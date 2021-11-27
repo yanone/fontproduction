@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "tehRing-ar.init";
 kernRight = bowl.twoDotsTop;
 layers = (

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = AEmacron;
 kernLeft = AE;
 kernRight = E;

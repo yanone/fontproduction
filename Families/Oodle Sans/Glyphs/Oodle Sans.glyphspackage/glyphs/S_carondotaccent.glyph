@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Scarondotaccent;
 kernLeft = S;
 kernRight = S;

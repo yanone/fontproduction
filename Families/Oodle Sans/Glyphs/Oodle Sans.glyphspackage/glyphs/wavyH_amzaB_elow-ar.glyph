@@ -1,5 +1,6 @@
 {
 category = Mark;
+color = 3;
 glyphname = "wavyHamzaBelow-ar";
 layers = (
 {

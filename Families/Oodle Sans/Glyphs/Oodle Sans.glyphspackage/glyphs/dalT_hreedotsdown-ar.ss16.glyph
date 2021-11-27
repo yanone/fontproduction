@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "dalThreedotsdown-ar.ss16";
 kernLeft = dal;
 kernRight = dal;

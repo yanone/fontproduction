@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = adieresis.sc;
 kernLeft = A.sc;
 kernRight = A.sc;

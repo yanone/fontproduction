@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "behTwodotsbelowDotabove-ar.init.conn-yeh-1";
 kernRight = "bowl-high.init.twoDotsBelow";
 layers = (

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = alpha.sc;
 kernLeft = A.sc;
 kernRight = A.sc;

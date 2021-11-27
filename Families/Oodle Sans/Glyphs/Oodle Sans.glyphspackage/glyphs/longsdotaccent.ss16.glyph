@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = longsdotaccent.ss16;
 kernLeft = longs;
 kernRight = longs;

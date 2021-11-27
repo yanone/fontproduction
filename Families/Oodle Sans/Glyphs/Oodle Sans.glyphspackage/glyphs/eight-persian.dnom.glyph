@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "eight-persian.dnom";
 kernLeft = "eight-ar.dnom";
 kernRight = "eight-ar.dnom";

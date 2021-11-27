@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ng-ar";
 kernRight = lam.init;
 layers = (

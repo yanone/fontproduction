@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "lamThreedotsbelow-ar.ss16";
 kernLeft = lam;
 kernRight = lam;

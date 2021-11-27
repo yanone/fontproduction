@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = omacrongrave.sc;
 kernLeft = O.sc;
 kernRight = O.sc;

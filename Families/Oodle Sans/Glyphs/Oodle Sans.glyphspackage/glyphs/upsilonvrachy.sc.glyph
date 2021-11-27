@@ -1,5 +1,7 @@
 {
+color = 4;
 glyphname = upsilonvrachy.sc;
+kernLeft = Y.sc;
 kernRight = Y.sc;
 layers = (
 {

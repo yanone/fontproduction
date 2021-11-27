@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = acircumflexgrave.sc;
 kernLeft = A.sc;
 kernRight = A.sc;

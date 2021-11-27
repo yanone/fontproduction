@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = hdieresis.ss16;
 kernLeft = h;
 kernRight = m;

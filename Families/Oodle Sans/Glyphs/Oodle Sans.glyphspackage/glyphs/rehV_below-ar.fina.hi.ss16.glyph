@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "rehVbelow-ar.fina.hi.ss16";
 kernLeft = reh;
 kernRight = reh;

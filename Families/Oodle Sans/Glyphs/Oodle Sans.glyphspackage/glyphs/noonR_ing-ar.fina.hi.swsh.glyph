@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "noonRing-ar.fina.hi.swsh";
 kernLeft = noon;
 kernRight = noon;

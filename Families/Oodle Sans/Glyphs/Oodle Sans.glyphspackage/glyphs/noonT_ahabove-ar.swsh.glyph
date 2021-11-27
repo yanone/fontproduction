@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "noonTahabove-ar.swsh";
 kernLeft = noon;
 kernRight = noon;

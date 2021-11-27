@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Rdblgrave;
 kernLeft = H;
 kernRight = R;

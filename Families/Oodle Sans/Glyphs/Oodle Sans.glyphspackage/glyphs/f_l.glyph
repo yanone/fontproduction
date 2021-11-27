@@ -1,5 +1,5 @@
 {
-color = 0;
+color = 4;
 glyphname = f_l;
 kernLeft = f;
 kernRight = l;
@@ -43,7 +43,7 @@ shapes = (
 ref = fl;
 }
 );
-width = 625;
+width = 615;
 }
 );
 }

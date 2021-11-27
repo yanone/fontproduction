@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "peheh-ar.ss16";
 kernRight = feh.init;
 layers = (

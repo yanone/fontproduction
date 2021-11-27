@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "noonVabove-ar.fina.swsh";
 kernLeft = noon;
 layers = (

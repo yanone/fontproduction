@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "asterisk-ar";
 kernLeft = quote.arab;
 kernRight = quote.arab;

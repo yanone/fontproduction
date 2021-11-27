@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = xdieresis;
 kernLeft = x;
 kernRight = x;

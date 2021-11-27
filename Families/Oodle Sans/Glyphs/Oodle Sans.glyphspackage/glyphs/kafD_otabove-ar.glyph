@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "kafDotabove-ar";
 kernRight = lam.init;
 layers = (

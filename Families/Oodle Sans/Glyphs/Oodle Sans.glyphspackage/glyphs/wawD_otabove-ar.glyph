@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "wawDotabove-ar";
 kernLeft = waw;
 kernRight = waw;

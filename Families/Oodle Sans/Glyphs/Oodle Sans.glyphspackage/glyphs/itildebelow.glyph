@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = itildebelow;
 kernLeft = i;
 kernRight = i;

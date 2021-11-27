@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = rinvertedbreve;
 kernLeft = m;
 kernRight = r;

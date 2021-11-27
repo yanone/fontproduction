@@ -1,4 +1,5 @@
 {
+color = 3;
 glyphname = "yeru-cy.sc";
 kernLeft = H.sc;
 layers = (

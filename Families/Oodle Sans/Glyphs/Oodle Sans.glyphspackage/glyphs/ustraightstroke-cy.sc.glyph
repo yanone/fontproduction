@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ustraightstroke-cy.sc";
 kernLeft = Y.sc;
 kernRight = Y.sc;

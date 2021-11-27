@@ -1,5 +1,7 @@
 {
 glyphname = kaiSymbol.sc;
+kernLeft = H.sc;
+kernRight = K.sc;
 layers = (
 {
 background = {

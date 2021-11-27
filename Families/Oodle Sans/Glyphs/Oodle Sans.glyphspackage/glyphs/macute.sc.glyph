@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = macute.sc;
 kernLeft = M.sc;
 kernRight = M.sc;

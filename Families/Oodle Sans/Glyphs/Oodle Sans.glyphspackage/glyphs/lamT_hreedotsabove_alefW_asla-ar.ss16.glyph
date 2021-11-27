@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "lamThreedotsabove_alefWasla-ar.ss16";
 kernLeft = lam_alef.isol;
 kernRight = lam_alef;

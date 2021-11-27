@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = Rcaron;
 kernLeft = H;
 kernRight = R;

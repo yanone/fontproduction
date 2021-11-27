@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "ainThreedots-ar.init.swsh";
 kernRight = ain.init;
 layers = (

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "eight-persian";
 kernLeft = "eight-ar";
 kernRight = "eight-ar";

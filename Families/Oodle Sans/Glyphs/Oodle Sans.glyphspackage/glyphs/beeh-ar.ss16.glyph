@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "beeh-ar.ss16";
 kernLeft = bowl;
 kernRight = bowl;

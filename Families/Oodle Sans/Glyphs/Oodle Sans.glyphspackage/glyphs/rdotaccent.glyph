@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = rdotaccent;
 kernLeft = m;
 kernRight = r;

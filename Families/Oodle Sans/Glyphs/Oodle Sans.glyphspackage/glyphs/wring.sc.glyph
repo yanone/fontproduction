@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = wring.sc;
 kernLeft = v.sc;
 kernRight = v.sc;

@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ecedilla;
 kernLeft = o;
 kernRight = e;

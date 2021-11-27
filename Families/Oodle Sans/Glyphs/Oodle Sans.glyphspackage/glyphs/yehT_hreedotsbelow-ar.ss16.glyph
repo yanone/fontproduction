@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "yehThreedotsbelow-ar.ss16";
 kernLeft = yeh;
 kernRight = yeh;

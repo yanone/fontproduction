@@ -1,4 +1,5 @@
 {
+color = 3;
 glyphname = utildeacute.sc;
 kernLeft = U.sc;
 kernRight = U.sc;

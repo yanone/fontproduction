@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = umacron.sc;
 kernLeft = U.sc;
 kernRight = U.sc;

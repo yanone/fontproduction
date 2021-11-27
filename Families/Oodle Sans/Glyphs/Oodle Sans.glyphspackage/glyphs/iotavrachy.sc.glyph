@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = iotavrachy.sc;
 kernRight = H.sc;
 layers = (

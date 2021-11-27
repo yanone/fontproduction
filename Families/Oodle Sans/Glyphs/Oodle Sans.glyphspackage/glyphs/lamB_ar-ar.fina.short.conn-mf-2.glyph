@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "lamBar-ar.fina.short.conn-mf-2";
 kernLeft = lam;
 kernRight = lam;

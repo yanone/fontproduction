@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = cdotaccent.sc;
 kernLeft = O.sc;
 kernRight = C.sc;

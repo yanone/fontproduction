@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = "yehThreedotsbelow-ar.init";
 kernRight = bowl.twoDotsBelow;
 layers = (

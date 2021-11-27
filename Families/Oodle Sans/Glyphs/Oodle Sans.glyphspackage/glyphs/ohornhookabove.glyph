@@ -1,4 +1,5 @@
 {
+color = 4;
 glyphname = ohornhookabove;
 kernLeft = o;
 kernRight = horn.lc;
