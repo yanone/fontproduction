@@ -10,7 +10,7 @@ shapes = (
 ref = "meem-ar.init";
 },
 {
-pos = (228,-105);
+pos = (228,-85);
 ref = "dotbelow-ar";
 }
 );
@@ -23,11 +23,11 @@ shapes = (
 ref = "meem-ar.init";
 },
 {
-pos = (177,-46);
+pos = (150,-21);
 ref = "dotbelow-ar";
 }
 );
-width = 470;
+width = 443;
 },
 {
 layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
@@ -40,7 +40,7 @@ pos = (189,-16);
 ref = "dotbelow-ar";
 }
 );
-width = 508;
+width = 505;
 }
 );
 }

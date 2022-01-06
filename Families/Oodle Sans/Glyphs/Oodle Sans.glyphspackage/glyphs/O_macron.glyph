@@ -11,7 +11,8 @@ shapes = (
 ref = O;
 },
 {
-pos = (161,-273);
+anchor = top;
+pos = (156,220);
 ref = macroncomb;
 }
 );
@@ -24,7 +25,8 @@ shapes = (
 ref = O;
 },
 {
-pos = (135,-282);
+anchor = top;
+pos = (135,210);
 ref = macroncomb;
 }
 );
@@ -37,7 +39,8 @@ shapes = (
 ref = O;
 },
 {
-pos = (193,-279);
+anchor = top;
+pos = (194,232);
 ref = macroncomb;
 }
 );

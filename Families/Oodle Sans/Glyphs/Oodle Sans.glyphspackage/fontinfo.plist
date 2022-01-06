@@ -1,5 +1,5 @@
 {
-.appVersion = "3103";
+.appVersion = "3109";
 .formatVersion = 3;
 axes = (
 {
@@ -10375,6 +10375,9 @@ code = "# Dancing Shoes 0.1.4 OpenType feature code generator by Yanone, Copyrig
 
 
 languagesystem DFLT dflt; # Default, Default
+languagesystem arab dflt; # Arabic, Default
+languagesystem latn dflt; # Latin, Default
+languagesystem cyrl dflt; # Cyrillic, Default
 languagesystem latn CAT; # Latin, Catalan
 languagesystem latn NLD; # Latin, Dutch
 languagesystem latn KAZ; # Latin, Kazakh
@@ -10387,10 +10390,6 @@ languagesystem latn ROM; # Latin, Romanian
 languagesystem latn VIT; # Latin, Vietnamese
 languagesystem cyrl BGR; # Cyrillic, Bulgarian
 languagesystem cyrl SRB; # Cyrillic, Serbian
-languagesystem arab dflt; # Arabic, Default
-languagesystem arab dflt; # Arabic, Default
-languagesystem latn dflt; # Latin, Default
-languagesystem cyrl dflt; # Cyrillic, Default
 
 
 

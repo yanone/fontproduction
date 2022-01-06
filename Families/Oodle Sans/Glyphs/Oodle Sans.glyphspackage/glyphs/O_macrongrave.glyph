@@ -22,7 +22,7 @@ shapes = (
 ref = Omacron;
 },
 {
-pos = (175,-114);
+pos = (170,379);
 ref = grave;
 }
 );
@@ -46,7 +46,7 @@ shapes = (
 ref = Omacron;
 },
 {
-pos = (123,-102);
+pos = (123,390);
 ref = grave;
 }
 );
@@ -59,7 +59,7 @@ shapes = (
 ref = Omacron;
 },
 {
-pos = (203,-164);
+pos = (204,347);
 ref = grave;
 }
 );
