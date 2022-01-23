@@ -1,0 +1,47 @@
+{
+color = 4;
+glyphname = "qafDotabove-ar.init.conn-yeh-1";
+kernRight = feh.init;
+lastChange = "2022-01-23 19:10:47 +0000";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "fehDotless-ar.init.conn-yeh-1";
+},
+{
+pos = (76,332);
+ref = "dotabove-ar";
+}
+);
+width = 478;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "fehDotless-ar.init.conn-yeh-1";
+},
+{
+pos = (26,145);
+ref = "dotabove-ar";
+}
+);
+width = 331;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "fehDotless-ar.init.conn-yeh-1";
+},
+{
+pos = (120,170);
+ref = "dotabove-ar";
+}
+);
+width = 459;
+}
+);
+}

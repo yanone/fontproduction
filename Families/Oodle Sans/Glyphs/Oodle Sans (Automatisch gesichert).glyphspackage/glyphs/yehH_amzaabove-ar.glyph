@@ -1,0 +1,48 @@
+{
+color = 4;
+glyphname = "yehHamzaabove-ar";
+kernLeft = yeh;
+kernRight = yeh;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "alefMaksura-ar";
+},
+{
+pos = (-17,1);
+ref = "hamzaabove-ar";
+}
+);
+width = 800;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "alefMaksura-ar";
+},
+{
+pos = (-41,-59);
+ref = "hamzaabove-ar";
+}
+);
+width = 672;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "alefMaksura-ar";
+},
+{
+pos = (-36,-69);
+ref = "hamzaabove-ar";
+}
+);
+width = 711;
+}
+);
+unicode = 1574;
+}

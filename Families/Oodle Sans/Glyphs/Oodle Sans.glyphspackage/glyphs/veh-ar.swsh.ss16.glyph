@@ -10,7 +10,7 @@ shapes = (
 ref = "fehDotless-ar.swsh";
 },
 {
-pos = (1190,291);
+pos = (1190,311);
 ref = "threedotsupabove-ar";
 scale = (0.86,0.86);
 }

@@ -1,0 +1,954 @@
+{
+color = 4;
+glyphname = egrave.sups.caps;
+kernLeft = supsletters;
+kernRight = supsletters;
+layers = (
+{
+background = {
+shapes = (
+{
+closed = 1;
+nodes = (
+(107,840,l),
+(51,840,l),
+(51,420,l),
+(107,420,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(83,840,l),
+(82,787,l),
+(307,787,l),
+(307,840,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(83,473,l),
+(82,420,l),
+(313,420,l),
+(313,473,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(83,640,l),
+(82,587,l),
+(295,587,l),
+(295,640,l)
+);
+},
+{
+closed = 1;
+nodes = (
+(166,894,l),
+(224,894,l),
+(153,977,l),
+(82,977,l)
+);
+}
+);
+};
+hints = (
+{
+horizontal = 1;
+options = 4;
+place = (-1, 85);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 80);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -86);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (-1, 85);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 80);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 0);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (1, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (2, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (4, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (6, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (8, -53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (3, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (7, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (5, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (12, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (8, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (20, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (13, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (33, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (22, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (55, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (36, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (91, -89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (151, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (211, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (302, -53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (252, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (352, 53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (504, -53);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (0, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (167, 89);
+type = TTStem;
+},
+{
+horizontal = 1;
+options = 4;
+place = (420, -89);
+type = TTStem;
+}
+);
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = e.sups.caps;
+},
+{
+pos = (61,554);
+ref = grave;
+scale = (0.6,0.6);
+}
+);
+width = 342;
+},
+{
+background = {
+shapes = (
+{
+closed = 1;
+nodes = (
+(59,586,l),
+(62,526,l),
+(266,526,l),
+(271,549,o),
+(274,570,o),
+(274,593,cs),
+(274,674,o),
+(233,723,o),
+(147,723,cs),
+(49,723,o),
+(-3,665,o),
+(-3,566,cs),
+(-3,457,o),
+(59,412,o),
+(161,412,cs),
+(196,412,o),
+(235,417,o),
+(269,431,c),
+(263,511,l),
+(237,505,o),
+(211,501,o),
+(187,501,cs),
+(130,501,o),
+(118,527,o),
+(118,571,cs),
+(118,614,o),
+(122,631,o),
+(142,631,cs),
+(156,631,o),
+(163,622,o),
+(163,599,cs),
+(163,592,o),
+(163,589,o),
+(162,586,c)
+);
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = e.sups.caps;
+},
+{
+pos = (11,547);
+ref = grave;
+scale = (0.6,0.6);
+}
+);
+width = 315;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = e.sups.caps;
+},
+{
+pos = (62,513);
+ref = grave;
+scale = (0.7,0.7);
+}
+);
+width = 344;
+}
+);
+}

@@ -1,0 +1,70 @@
+{
+color = 4;
+glyphname = umacrondieresis;
+kernLeft = u;
+kernRight = u;
+layers = (
+{
+background = {
+shapes = (
+{
+ref = umacron;
+},
+{
+pos = (13,147);
+ref = dieresis.lc;
+}
+);
+};
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = umacron;
+},
+{
+pos = (62,159);
+ref = dieresis;
+}
+);
+width = 538;
+},
+{
+background = {
+shapes = (
+{
+ref = umacron;
+},
+{
+pos = (12,220);
+ref = dieresis.lc;
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = umacron;
+},
+{
+pos = (7,180);
+ref = dieresis;
+}
+);
+width = 578;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = umacron;
+},
+{
+pos = (125,115);
+ref = dieresis;
+}
+);
+width = 526;
+}
+);
+unicode = 7803;
+}

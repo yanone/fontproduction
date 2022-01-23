@@ -28,7 +28,7 @@ pos = (714,-111);
 ref = "twodotshorizontalbelow-ar";
 }
 );
-width = 1385;
+width = 1392;
 },
 {
 layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
@@ -41,7 +41,7 @@ pos = (668,-81);
 ref = "twodotshorizontalbelow-ar";
 }
 );
-width = 1491;
+width = 1493;
 }
 );
 }

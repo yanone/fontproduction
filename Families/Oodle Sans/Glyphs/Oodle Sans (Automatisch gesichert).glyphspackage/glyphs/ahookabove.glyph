@@ -1,0 +1,48 @@
+{
+color = 4;
+glyphname = ahookabove;
+kernLeft = a;
+kernRight = a;
+layers = (
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (65,-10);
+ref = hookabovecomb;
+}
+);
+width = 482;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (36,0);
+ref = hookabovecomb;
+}
+);
+width = 494;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = a;
+},
+{
+pos = (114,2);
+ref = hookabovecomb;
+}
+);
+width = 463;
+}
+);
+unicode = 7843;
+}

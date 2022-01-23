@@ -1,0 +1,93 @@
+{
+glyphname = "gafline-ar";
+layers = (
+{
+anchors = (
+{
+name = _top;
+pos = (186,672);
+},
+{
+name = top;
+pos = (226,869);
+}
+);
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+closed = 1;
+nodes = (
+(59,792,l),
+(50,661,l),
+(434,731,l),
+(450,872,l)
+);
+}
+);
+width = 500;
+},
+{
+anchors = (
+{
+name = _top;
+pos = (253,672);
+},
+{
+name = top;
+pos = (193,767);
+}
+);
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+closed = 1;
+nodes = (
+(53,657,l),
+(50,585,l),
+(396,691,l),
+(404,769,l)
+);
+}
+);
+width = 454;
+},
+{
+anchors = (
+{
+name = _top;
+pos = (329,672);
+},
+{
+name = top;
+pos = (206,737);
+}
+);
+background = {
+shapes = (
+{
+closed = 1;
+nodes = (
+(46,655,l),
+(50,649,l),
+(420,766,l),
+(416,772,l)
+);
+}
+);
+};
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+closed = 1;
+nodes = (
+(50,606,l),
+(50,599,l),
+(420,716,l),
+(420,723,l)
+);
+}
+);
+width = 470;
+}
+);
+}

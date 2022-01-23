@@ -25,7 +25,7 @@ ref = "waw-ar.fina.conn-mf-2";
 },
 {
 anchor = top;
-pos = (46,37);
+pos = (51,57);
 ref = "vabove-ar";
 }
 );

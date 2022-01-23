@@ -1,0 +1,70 @@
+{
+color = 4;
+glyphname = Edblgrave;
+kernLeft = H;
+kernRight = E;
+layers = (
+{
+background = {
+shapes = (
+{
+ref = E;
+},
+{
+pos = (-12,0);
+ref = dblgravecomb.uc;
+}
+);
+};
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = E;
+},
+{
+pos = (14,220);
+ref = dblgravecomb;
+}
+);
+width = 585;
+},
+{
+background = {
+shapes = (
+{
+ref = E;
+},
+{
+pos = (-16,0);
+ref = dblgravecomb.uc;
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = E;
+},
+{
+pos = (-59,210);
+ref = dblgravecomb;
+}
+);
+width = 537;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = E;
+},
+{
+pos = (100,232);
+ref = dblgravecomb;
+}
+);
+width = 602;
+}
+);
+unicode = 516;
+}

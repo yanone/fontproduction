@@ -1,0 +1,46 @@
+{
+color = 4;
+glyphname = "qaf-ar.swsh";
+lastChange = "2022-01-23 19:07:08 +0000";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "qafDotless-ar.swsh";
+},
+{
+pos = (1193,46);
+ref = "twodotshorizontalabove-ar";
+}
+);
+width = 1728;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "qafDotless-ar.swsh";
+},
+{
+pos = (1273,-158);
+ref = "twodotshorizontalabove-ar";
+}
+);
+width = 1619;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "qafDotless-ar.swsh";
+},
+{
+pos = (1238,-86);
+ref = "twodotshorizontalabove-ar";
+}
+);
+width = 1680;
+}
+);
+}

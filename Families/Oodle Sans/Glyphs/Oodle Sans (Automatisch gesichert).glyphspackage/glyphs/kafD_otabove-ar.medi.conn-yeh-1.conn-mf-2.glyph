@@ -1,0 +1,50 @@
+{
+color = 4;
+glyphname = "kafDotabove-ar.medi.conn-yeh-1.conn-mf-2";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "kaf-ar.medi.conn-yeh-1.conn-mf-2";
+},
+{
+pos = (67,293);
+ref = "dotabove-ar";
+}
+);
+width = 526;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "kaf-ar.medi.conn-yeh-1.conn-mf-2";
+},
+{
+pos = (277,216);
+ref = "dotabove-ar";
+}
+);
+width = 544;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "kaf-ar.medi.conn-yeh-1.conn-mf-2";
+},
+{
+pos = (225,216);
+ref = "dotabove-ar";
+}
+);
+width = 545;
+}
+);
+userData = {
+OTclass = (
+dotCollisionTopTrigger
+);
+};
+}

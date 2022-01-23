@@ -1,0 +1,48 @@
+{
+color = 4;
+glyphname = "noonTahabove-ar";
+kernLeft = noon;
+kernRight = noon;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "noon-ar";
+},
+{
+pos = (192,450);
+ref = "tahabove-ar";
+}
+);
+width = 705;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "noon-ar";
+},
+{
+pos = (132,207);
+ref = "tahabove-ar";
+}
+);
+width = 579;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "noon-ar";
+},
+{
+pos = (156,328);
+ref = "tahabove-ar";
+}
+);
+width = 626;
+}
+);
+unicode = 1896;
+}

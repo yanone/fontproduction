@@ -10,7 +10,7 @@ shapes = (
 ref = "fehDotless-ar.init.conn-yeh-1";
 },
 {
-pos = (-65,284);
+pos = (-65,304);
 ref = "fourdotsabove-ar";
 }
 );

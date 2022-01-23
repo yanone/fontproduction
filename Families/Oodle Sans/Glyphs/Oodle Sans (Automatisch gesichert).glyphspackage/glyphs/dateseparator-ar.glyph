@@ -1,0 +1,66 @@
+{
+glyphname = "dateseparator-ar";
+kernLeft = "slash-ar";
+kernRight = "slash-ar";
+layers = (
+{
+background = {
+shapes = (
+{
+closed = 1;
+nodes = (
+(296,712,l),
+(36,-74,l),
+(132,-74,l),
+(392,712,l)
+);
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+closed = 1;
+nodes = (
+(290,700,l),
+(30,-60,l),
+(253,-60,l),
+(513,700,l)
+);
+}
+);
+width = 543;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+closed = 1;
+nodes = (
+(300,707,l),
+(40,-63,l),
+(48,-63,l),
+(308,707,l)
+);
+}
+);
+width = 355;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+closed = 1;
+nodes = (
+(296,712,l),
+(36,-74,l),
+(132,-74,l),
+(392,712,l)
+);
+}
+);
+width = 428;
+}
+);
+unicode = 1549;
+}

@@ -1,0 +1,70 @@
+{
+color = 4;
+glyphname = Xdieresis;
+kernLeft = X;
+kernRight = X;
+layers = (
+{
+background = {
+shapes = (
+{
+ref = X;
+},
+{
+pos = (-60,0);
+ref = dieresis.uc;
+}
+);
+};
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = X;
+},
+{
+pos = (122,220);
+ref = dieresis;
+}
+);
+width = 659;
+},
+{
+background = {
+shapes = (
+{
+ref = X;
+},
+{
+pos = (-3,0);
+ref = dieresis.uc;
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = X;
+},
+{
+pos = (83,210);
+ref = dieresis;
+}
+);
+width = 697;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = X;
+},
+{
+pos = (161,232);
+ref = dieresis;
+}
+);
+width = 617;
+}
+);
+unicode = 7820;
+}

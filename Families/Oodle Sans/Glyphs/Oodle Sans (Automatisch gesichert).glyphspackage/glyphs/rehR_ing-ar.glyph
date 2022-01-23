@@ -1,0 +1,48 @@
+{
+color = 4;
+glyphname = "rehRing-ar";
+kernLeft = reh;
+kernRight = reh;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "reh-ar";
+},
+{
+pos = (157,-644);
+ref = "ring-ar";
+}
+);
+width = 469;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "reh-ar";
+},
+{
+pos = (133,-630);
+ref = "ring-ar";
+}
+);
+width = 348;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "reh-ar";
+},
+{
+pos = (131,-598);
+ref = "ring-ar";
+}
+);
+width = 377;
+}
+);
+unicode = 1683;
+}

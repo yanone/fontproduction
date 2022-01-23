@@ -1,0 +1,47 @@
+{
+color = 4;
+glyphname = "meemDotbelow-ar";
+kernRight = meem;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "meem-ar";
+},
+{
+pos = (334,-65);
+ref = "dotbelow-ar";
+}
+);
+width = 641;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "meem-ar";
+},
+{
+pos = (157,-16);
+ref = "dotbelow-ar";
+}
+);
+width = 439;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "meem-ar";
+},
+{
+pos = (212,-16);
+ref = "dotbelow-ar";
+}
+);
+width = 520;
+}
+);
+unicode = 1894;
+}

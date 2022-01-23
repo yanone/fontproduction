@@ -1,0 +1,47 @@
+{
+color = 4;
+glyphname = "ngoeh-ar.ss16";
+kernRight = kaf.init;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "gaf-ar.ui";
+},
+{
+pos = (376,413);
+ref = "twodotshorizontalabove-ar";
+scale = (0.83,0.83);
+}
+);
+width = 959;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "gaf-ar.ui";
+},
+{
+pos = (322,223);
+ref = "twodotshorizontalabove-ar";
+}
+);
+width = 848;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "gaf-ar.ui";
+},
+{
+pos = (325,283);
+ref = "twodotshorizontalabove-ar";
+}
+);
+width = 912;
+}
+);
+}

@@ -1,0 +1,86 @@
+{
+glyphname = "alefabove-ar";
+layers = (
+{
+anchors = (
+{
+name = _top;
+pos = (78,345);
+},
+{
+name = top;
+pos = (78,525);
+}
+);
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+closed = 1;
+nodes = (
+(116,509,l),
+(40,497,l),
+(40,354,l),
+(116,366,l)
+);
+}
+);
+width = 156;
+},
+{
+anchors = (
+{
+name = _top;
+pos = (78,345);
+},
+{
+name = top;
+pos = (78,525);
+}
+);
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+closed = 1;
+nodes = (
+(82,509,l),
+(75,507,l),
+(75,364,l),
+(82,366,l)
+);
+}
+);
+width = 156;
+},
+{
+anchors = (
+{
+name = _top;
+pos = (78,345);
+},
+{
+name = top;
+pos = (78,525);
+}
+);
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+closed = 1;
+nodes = (
+(102,509,l),
+(54,501,l),
+(54,358,l),
+(102,366,l)
+);
+}
+);
+width = 156;
+}
+);
+unicode = 1648;
+userData = {
+OTclass = (
+topMarks
+);
+};
+}

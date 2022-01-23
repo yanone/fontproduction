@@ -1,0 +1,66 @@
+{
+color = 4;
+glyphname = "wasla-ar.below";
+layers = (
+{
+anchors = (
+{
+name = _bottom;
+pos = (170,490);
+},
+{
+name = bottom;
+pos = (170,270);
+}
+);
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+alignment = 1;
+ref = "wasla-ar";
+}
+);
+width = 314;
+},
+{
+anchors = (
+{
+name = _bottom;
+pos = (170,454);
+},
+{
+name = bottom;
+pos = (170,234);
+}
+);
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+alignment = 1;
+ref = "wasla-ar";
+}
+);
+width = 314;
+},
+{
+anchors = (
+{
+name = _bottom;
+pos = (170,480);
+},
+{
+name = bottom;
+pos = (170,260);
+}
+);
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+alignment = 1;
+ref = "wasla-ar";
+}
+);
+width = 314;
+}
+);
+}

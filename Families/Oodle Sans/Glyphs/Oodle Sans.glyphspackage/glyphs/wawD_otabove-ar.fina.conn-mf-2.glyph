@@ -23,7 +23,7 @@ shapes = (
 ref = "waw-ar.fina.conn-mf-2";
 },
 {
-pos = (102,-178);
+pos = (107,-158);
 ref = "dotabove-ar";
 }
 );

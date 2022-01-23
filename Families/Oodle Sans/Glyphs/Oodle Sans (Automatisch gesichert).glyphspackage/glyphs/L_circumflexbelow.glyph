@@ -1,0 +1,70 @@
+{
+color = 4;
+glyphname = Lcircumflexbelow;
+kernLeft = H;
+kernRight = L;
+layers = (
+{
+background = {
+shapes = (
+{
+ref = L;
+},
+{
+pos = (9,0);
+ref = circumflexbelowcomb.uc;
+}
+);
+};
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = L;
+},
+{
+pos = (64,0);
+ref = circumflexbelowcomb;
+}
+);
+width = 547;
+},
+{
+background = {
+shapes = (
+{
+ref = L;
+},
+{
+pos = (-7,0);
+ref = circumflexbelowcomb.uc;
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = L;
+},
+{
+pos = (21,0);
+ref = circumflexbelowcomb;
+}
+);
+width = 525;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = L;
+},
+{
+pos = (105,0);
+ref = circumflexbelowcomb;
+}
+);
+width = 539;
+}
+);
+unicode = 7740;
+}

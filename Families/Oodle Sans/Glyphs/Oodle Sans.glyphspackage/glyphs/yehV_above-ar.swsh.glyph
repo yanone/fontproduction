@@ -16,7 +16,7 @@ pos = (636,-170);
 ref = "vabove-ar";
 }
 );
-width = 1650;
+width = 1643;
 },
 {
 layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
@@ -44,7 +44,7 @@ pos = (670,-217);
 ref = "vabove-ar";
 }
 );
-width = 1491;
+width = 1477;
 }
 );
 }

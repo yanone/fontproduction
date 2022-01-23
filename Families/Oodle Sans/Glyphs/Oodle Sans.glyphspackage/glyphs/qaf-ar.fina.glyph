@@ -9,7 +9,7 @@ shapes = (
 ref = "qafDotless-ar.fina";
 },
 {
-pos = (385,37);
+pos = (380,51);
 ref = "twodotshorizontalabove-ar";
 }
 );

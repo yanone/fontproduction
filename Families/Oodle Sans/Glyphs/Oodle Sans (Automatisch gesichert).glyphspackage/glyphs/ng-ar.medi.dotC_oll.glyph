@@ -1,0 +1,51 @@
+{
+color = 4;
+glyphname = "ng-ar.medi.dotColl";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "kaf-ar.medi.dotColl";
+},
+{
+pos = (-43,271);
+ref = "threedotsupabove-ar";
+}
+);
+width = 587;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "kaf-ar.medi.dotColl";
+},
+{
+pos = (134,213);
+ref = "threedotsupabove-ar";
+}
+);
+width = 490;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "kaf-ar.medi.dotColl";
+},
+{
+pos = (46,216);
+ref = "threedotsupabove-ar";
+}
+);
+width = 518;
+}
+);
+userData = {
+OTclass = (
+dotCollisionTopTrigger,
+dotCollisionTop
+);
+};
+}

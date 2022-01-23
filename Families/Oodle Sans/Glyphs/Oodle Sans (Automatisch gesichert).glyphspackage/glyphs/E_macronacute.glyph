@@ -1,0 +1,70 @@
+{
+color = 4;
+glyphname = Emacronacute;
+kernLeft = H;
+kernRight = E;
+layers = (
+{
+background = {
+shapes = (
+{
+ref = Emacron;
+},
+{
+pos = (-12,147);
+ref = acute.uc;
+}
+);
+};
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = Emacron;
+},
+{
+pos = (176,379);
+ref = acute;
+}
+);
+width = 585;
+},
+{
+background = {
+shapes = (
+{
+ref = Emacron;
+},
+{
+pos = (-16,180);
+ref = acute.uc;
+}
+);
+};
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = Emacron;
+},
+{
+pos = (110,390);
+ref = acute;
+}
+);
+width = 537;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = Emacron;
+},
+{
+pos = (247,347);
+ref = acute;
+}
+);
+width = 602;
+}
+);
+unicode = 7702;
+}

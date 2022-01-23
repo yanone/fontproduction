@@ -1,0 +1,62 @@
+{
+color = 4;
+glyphname = "noonTwodotsbelow-ar.medi.conn-y-1";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "behDotless-ar.medi.dotColl.conn-y-1";
+},
+{
+pos = (-49,-35);
+ref = "twodotshorizontalbelow-ar";
+},
+{
+pos = (-26,108);
+ref = "dotabove-ar";
+}
+);
+width = 367;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "behDotless-ar.medi.dotColl.conn-y-1";
+},
+{
+pos = (52,-1);
+ref = "twodotshorizontalbelow-ar";
+},
+{
+pos = (23,-166);
+ref = "dotabove-ar";
+}
+);
+width = 343;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "behDotless-ar.medi.dotColl.conn-y-1";
+},
+{
+pos = (21,-1);
+ref = "twodotshorizontalbelow-ar";
+},
+{
+pos = (27,-64);
+ref = "dotabove-ar";
+}
+);
+width = 394;
+}
+);
+userData = {
+OTclass = (
+dotCollisionBottomTrigger
+);
+};
+}

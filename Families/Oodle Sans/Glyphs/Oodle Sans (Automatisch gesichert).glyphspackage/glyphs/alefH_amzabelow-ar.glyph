@@ -1,0 +1,48 @@
+{
+color = 4;
+glyphname = "alefHamzabelow-ar";
+kernLeft = alef.accentBottom;
+kernRight = alef;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "alef-ar";
+},
+{
+pos = (-9,-25);
+ref = "hamzabelow-ar";
+}
+);
+width = 298;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "alef-ar";
+},
+{
+pos = (-54,-60);
+ref = "hamzabelow-ar";
+}
+);
+width = 208;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "alef-ar";
+},
+{
+pos = (-39,-60);
+ref = "hamzabelow-ar";
+}
+);
+width = 234;
+}
+);
+unicode = 1573;
+}

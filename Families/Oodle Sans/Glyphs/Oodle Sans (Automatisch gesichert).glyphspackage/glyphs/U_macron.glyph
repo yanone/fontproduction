@@ -1,0 +1,48 @@
+{
+color = 4;
+glyphname = Umacron;
+kernLeft = U;
+kernRight = U;
+layers = (
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (117,220);
+ref = macroncomb;
+}
+);
+width = 678;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (114,210);
+ref = macroncomb;
+}
+);
+width = 701;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = U;
+},
+{
+pos = (159,232);
+ref = macroncomb;
+}
+);
+width = 678;
+}
+);
+unicode = 362;
+}

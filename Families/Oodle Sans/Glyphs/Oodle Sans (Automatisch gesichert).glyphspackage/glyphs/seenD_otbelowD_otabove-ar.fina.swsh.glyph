@@ -1,0 +1,62 @@
+{
+color = 4;
+glyphname = "seenDotbelowDotabove-ar.fina.swsh";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "seen-ar.fina.swsh";
+},
+{
+pos = (1612,-36);
+ref = "dotbelow-ar";
+},
+{
+pos = (1586,2);
+ref = "dotabove-ar";
+}
+);
+width = 2118;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "seen-ar.fina.swsh";
+},
+{
+pos = (1418,13);
+ref = "dotbelow-ar";
+},
+{
+pos = (1422,-180);
+ref = "dotabove-ar";
+}
+);
+width = 1895;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "seen-ar.fina.swsh";
+},
+{
+pos = (1468,-1);
+ref = "dotbelow-ar";
+},
+{
+pos = (1474,-139);
+ref = "dotabove-ar";
+}
+);
+width = 1966;
+}
+);
+userData = {
+OTclass = (
+seen_medifina
+);
+};
+}

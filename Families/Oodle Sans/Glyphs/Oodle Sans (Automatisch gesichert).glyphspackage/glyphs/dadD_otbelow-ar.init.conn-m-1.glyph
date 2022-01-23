@@ -1,0 +1,46 @@
+{
+color = 4;
+glyphname = "dadDotbelow-ar.init.conn-m-1";
+kernRight = round;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "dad-ar.init.conn-m-1";
+},
+{
+pos = (271,-86);
+ref = "dotbelow-ar";
+}
+);
+width = 851;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "dad-ar.init.conn-m-1";
+},
+{
+pos = (236,-54);
+ref = "dotbelow-ar";
+}
+);
+width = 747;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "dad-ar.init.conn-m-1";
+},
+{
+pos = (293,-54);
+ref = "dotbelow-ar";
+}
+);
+width = 846;
+}
+);
+}

@@ -9,7 +9,7 @@ shapes = (
 ref = "qafDotless-ar.fina.swsh";
 },
 {
-pos = (1201,49);
+pos = (1201,68);
 ref = "threedotsupabove-ar";
 }
 );

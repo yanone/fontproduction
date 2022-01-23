@@ -23,7 +23,7 @@ shapes = (
 ref = "waw-ar.fina.conn-mf-2";
 },
 {
-pos = (62,-178);
+pos = (67,-158);
 ref = "threedotsupabove-ar";
 }
 );

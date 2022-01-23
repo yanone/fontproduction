@@ -10,7 +10,7 @@ shapes = (
 ref = "fehDotless-ar.init";
 },
 {
-pos = (82,291);
+pos = (82,311);
 ref = "threedotsupabove-ar";
 scale = (0.86,0.86);
 }

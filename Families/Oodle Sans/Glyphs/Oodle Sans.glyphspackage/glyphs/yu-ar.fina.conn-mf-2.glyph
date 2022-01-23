@@ -23,7 +23,7 @@ shapes = (
 ref = "waw-ar.fina.conn-mf-2";
 },
 {
-pos = (119,-31);
+pos = (124,-11);
 ref = "alefabove-ar";
 }
 );

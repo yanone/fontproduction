@@ -1,0 +1,48 @@
+{
+color = 4;
+glyphname = "yat-cy";
+kernRight = "softsign-cy";
+layers = (
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "yat-cy.comp";
+},
+{
+pos = (-32,275);
+ref = strokeshortcomb;
+}
+);
+width = 474;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "yat-cy.comp";
+},
+{
+pos = (-37,273);
+ref = strokeshortcomb;
+}
+);
+width = 483;
+},
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "yat-cy.comp";
+},
+{
+pos = (-63,271);
+ref = strokeshortcomb;
+}
+);
+width = 572;
+}
+);
+metricRight = "softsign-cy";
+unicode = 1123;
+}

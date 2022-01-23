@@ -1,0 +1,51 @@
+{
+color = 4;
+glyphname = "behThreedotsupbelow-ar.medi.conn-y-1.conn-mf-2.ss16";
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "behDotless-ar.medi.dotColl.conn-y-1.conn-mf-2";
+},
+{
+pos = (-52,-23);
+ref = "threedotsupbelow-ar";
+scale = (0.91,0.91);
+}
+);
+width = 356;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "behDotless-ar.medi.dotColl.conn-y-1.conn-mf-2";
+},
+{
+pos = (47,-1);
+ref = "threedotsupbelow-ar";
+}
+);
+width = 332;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "behDotless-ar.medi.dotColl.conn-y-1.conn-mf-2";
+},
+{
+pos = (23,-1);
+ref = "threedotsupbelow-ar";
+}
+);
+width = 384;
+}
+);
+userData = {
+OTclass = (
+dotCollisionBottomTrigger
+);
+};
+}

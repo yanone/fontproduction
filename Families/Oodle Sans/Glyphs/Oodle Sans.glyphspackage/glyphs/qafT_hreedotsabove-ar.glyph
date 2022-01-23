@@ -10,7 +10,7 @@ shapes = (
 ref = "qafDotless-ar";
 },
 {
-pos = (388,49);
+pos = (384,67);
 ref = "threedotsupabove-ar";
 }
 );

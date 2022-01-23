@@ -10,7 +10,7 @@ shapes = (
 ref = "fehDotless-ar.init.conn-yeh-1";
 },
 {
-pos = (-68,280);
+pos = (-68,300);
 ref = "twodotshorizontalabove-ar";
 }
 );

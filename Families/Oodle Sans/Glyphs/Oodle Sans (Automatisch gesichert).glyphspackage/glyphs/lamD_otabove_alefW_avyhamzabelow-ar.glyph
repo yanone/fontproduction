@@ -1,0 +1,64 @@
+{
+color = 4;
+glyphname = "lamDotabove_alefWavyhamzabelow-ar";
+kernLeft = lam_alef.isol;
+kernRight = lam_alef;
+layers = (
+{
+layerId = "BFFFD157-90D3-4B85-B99D-9A2F366F03CA";
+shapes = (
+{
+ref = "lam_alef-ar.shortLam";
+},
+{
+pos = (-42,-32);
+ref = "wavyHamzaBelow-ar";
+},
+{
+anchor = top_1;
+pos = (361,205);
+ref = "dotabove-ar";
+}
+);
+width = 635;
+},
+{
+layerId = "FA91A8E1-7324-47F6-AE85-AED49CFCD01C";
+shapes = (
+{
+ref = "lam_alef-ar.shortLam";
+},
+{
+pos = (-71,-56);
+ref = "wavyHamzaBelow-ar";
+},
+{
+anchor = top_1;
+pos = (335,147);
+ref = "dotabove-ar";
+}
+);
+width = 548;
+},
+{
+layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
+shapes = (
+{
+ref = "lam_alef-ar.shortLam";
+},
+{
+pos = (-62,-56);
+ref = "wavyHamzaBelow-ar";
+},
+{
+anchor = top_1;
+pos = (326,141);
+ref = "dotabove-ar";
+}
+);
+width = 582;
+}
+);
+metricLeft = "lamDotabove-ar";
+metricRight = "lamBar_alef-ar";
+}
