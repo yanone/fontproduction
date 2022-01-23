@@ -32,7 +32,7 @@ pos = (77,60);
 ref = dieresiscomb;
 },
 {
-pos = (68,250);
+pos = (68,288);
 ref = perispomenicomb;
 }
 );

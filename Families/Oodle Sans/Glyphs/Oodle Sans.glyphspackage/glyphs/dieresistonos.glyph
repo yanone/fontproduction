@@ -19,9 +19,11 @@ width = 600;
 layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
 shapes = (
 {
+alignment = -1;
 ref = dieresiscomb;
 },
 {
+alignment = -1;
 pos = (81,190);
 ref = tonos;
 }

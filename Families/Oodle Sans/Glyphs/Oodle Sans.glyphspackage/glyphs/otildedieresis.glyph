@@ -22,7 +22,7 @@ shapes = (
 ref = odieresis;
 },
 {
-pos = (47,190);
+pos = (47,228);
 ref = tilde;
 }
 );

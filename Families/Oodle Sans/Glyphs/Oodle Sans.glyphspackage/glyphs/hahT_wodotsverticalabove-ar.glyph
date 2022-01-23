@@ -12,7 +12,7 @@ ref = "hah-ar";
 },
 {
 anchor = top;
-pos = (94,100);
+pos = (84,100);
 ref = "twodotsverticalabove-ar";
 }
 );
@@ -26,7 +26,7 @@ ref = "hah-ar";
 },
 {
 anchor = top;
-pos = (152,-111);
+pos = (142,-111);
 ref = "twodotsverticalabove-ar";
 }
 );

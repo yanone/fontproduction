@@ -15,7 +15,7 @@ pos = (89,60);
 ref = dieresiscomb;
 },
 {
-pos = (170,250);
+pos = (170,288);
 ref = acutecomb;
 }
 );

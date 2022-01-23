@@ -25,13 +25,16 @@ width = 500;
 layerId = "3E7589AA-8194-470F-8E2F-13C1C581BE24";
 shapes = (
 {
+alignment = -1;
 ref = upsilon.sc;
 },
 {
+alignment = -1;
 pos = (77,60);
 ref = dieresiscomb;
 },
 {
+alignment = -1;
 pos = (77,250);
 ref = gravecomb;
 }

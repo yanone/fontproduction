@@ -10,7 +10,7 @@ shapes = (
 ref = "tcheh-ar.fina";
 },
 {
-pos = (164,128);
+pos = (154,128);
 ref = "dotabove-ar";
 }
 );
@@ -23,7 +23,7 @@ shapes = (
 ref = "tcheh-ar.fina";
 },
 {
-pos = (121,-111);
+pos = (111,-111);
 ref = "dotabove-ar";
 }
 );

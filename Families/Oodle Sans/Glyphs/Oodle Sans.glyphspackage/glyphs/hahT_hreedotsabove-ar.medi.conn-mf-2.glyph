@@ -9,7 +9,7 @@ shapes = (
 ref = "hah-ar.medi.conn-mf-2";
 },
 {
-pos = (-29,83);
+pos = (-39,83);
 ref = "threedotsupabove-ar";
 }
 );
@@ -22,7 +22,7 @@ shapes = (
 ref = "hah-ar.medi.conn-mf-2";
 },
 {
-pos = (31,-166);
+pos = (15,-166);
 ref = "threedotsupabove-ar";
 }
 );

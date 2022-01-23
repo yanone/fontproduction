@@ -10,7 +10,7 @@ shapes = (
 ref = "hehDoachashmee-ar.init";
 },
 {
-pos = (225,360);
+pos = (176,368);
 ref = "vinvertedabove-ar";
 }
 );

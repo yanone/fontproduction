@@ -11,7 +11,7 @@ ref = "hah-ar.fina";
 },
 {
 anchor = top;
-pos = (23,108);
+pos = (13,108);
 ref = "threedotsupabove-ar";
 }
 );
@@ -25,7 +25,7 @@ ref = "hah-ar.fina";
 },
 {
 anchor = top;
-pos = (81,-111);
+pos = (71,-111);
 ref = "threedotsupabove-ar";
 }
 );

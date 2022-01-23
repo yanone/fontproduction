@@ -1,5 +1,5 @@
 {
-.appVersion = "3109";
+.appVersion = "3091";
 .formatVersion = 3;
 axes = (
 {
@@ -1469,14 +1469,17 @@ approxequal
 asciitilde
 tonos
 cyrl-hook
-a.sups
 ainferior
+einferior
+oinferior
+schwainferior
+xinferior
+a.sups
 b.sups
 c.sups
 d.sups
 e.sups
 egrave.sups
-einferior
 g.sups
 h.sups
 i.sups
@@ -1484,14 +1487,11 @@ l.sups
 m.sups
 n.sups
 o.sups
-oinferior
 p.sups
 r.sups
 s.sups
-schwainferior
 t.sups
 u.sups
-xinferior
 imod
 nmod
 ordfeminine
@@ -1540,14 +1540,17 @@ approxequal.case
 asciitilde.case
 tonos.case
 cyrl-hook.case
-a.sups.caps
 ainferior.caps
+einferior.caps
+oinferior.caps
+schwainferior.caps
+xinferior.caps
+a.sups.caps
 b.sups.caps
 c.sups.caps
 d.sups.caps
 e.sups.caps
 egrave.sups.caps
-einferior.caps
 g.sups.caps
 h.sups.caps
 i.sups.caps
@@ -1555,14 +1558,11 @@ l.sups.caps
 m.sups.caps
 n.sups.caps
 o.sups.caps
-oinferior.caps
 p.sups.caps
 r.sups.caps
 s.sups.caps
-schwainferior.caps
 t.sups.caps
 u.sups.caps
-xinferior.caps
 imod.caps
 nmod.caps
 ordfeminine.caps
@@ -7410,14 +7410,17 @@ lamBar_alef-ar.short";
 name = shortGlyphs_target;
 },
 {
-code = "a.sups
-ainferior
+code = "ainferior
+einferior
+oinferior
+schwainferior
+xinferior
+a.sups
 b.sups
 c.sups
 d.sups
 e.sups
 egrave.sups
-einferior
 g.sups
 h.sups
 i.sups
@@ -7425,14 +7428,11 @@ l.sups
 m.sups
 n.sups
 o.sups
-oinferior
 p.sups
 r.sups
 s.sups
-schwainferior
 t.sups
 u.sups
-xinferior
 imod
 nmod
 ordfeminine
@@ -7440,14 +7440,17 @@ ordmasculine";
 name = smcp_source;
 },
 {
-code = "a.sups.caps
-ainferior.caps
+code = "ainferior.caps
+einferior.caps
+oinferior.caps
+schwainferior.caps
+xinferior.caps
+a.sups.caps
 b.sups.caps
 c.sups.caps
 d.sups.caps
 e.sups.caps
 egrave.sups.caps
-einferior.caps
 g.sups.caps
 h.sups.caps
 i.sups.caps
@@ -7455,14 +7458,11 @@ l.sups.caps
 m.sups.caps
 n.sups.caps
 o.sups.caps
-oinferior.caps
 p.sups.caps
 r.sups.caps
 s.sups.caps
-schwainferior.caps
 t.sups.caps
 u.sups.caps
-xinferior.caps
 imod.caps
 nmod.caps
 ordfeminine.caps
@@ -7533,6 +7533,8 @@ hdotaccent
 longsdotaccent
 ihookabove.locl_latn_VIT
 itilde.locl_latn_VIT
+dalTwodotsverticalbelowTahabove-ar.fina.fina.conn-mf-2
+dalTwodotsverticalbelowTahabove-ar.fina
 beh-ar.init.conn-yeh-1
 peh-ar.fina.conn-mf-2
 peh-ar.fina.conn-mf-2.swsh
@@ -8011,8 +8013,6 @@ noonVabove-ar.medi.conn-hehmedi-1.conn-mf-2
 noonVabove-ar.medi.conn-hehmedi-1
 noonVabove-ar.medi.conn-y-1.conn-mf-2
 noonVabove-ar.medi.conn-y-1
-dalTwodotsverticalbelowTahabove-ar.fina.fina.conn-mf-2
-dalTwodotsverticalbelowTahabove-ar.fina
 seenThreedotsbelowthreedots-ar.fina
 seenThreedotsbelowthreedots-ar.init.conn-m-1
 seenThreedotsbelowthreedots-ar.init.conn-y-1
@@ -8120,6 +8120,8 @@ hdotaccent.ss16
 longsdotaccent.ss16
 ihookabove.locl_latn_VIT.ss16
 itilde.locl_latn_VIT.ss16
+dalTwodotsverticalbelowTahabove-ar.fina.fina.conn-mf-2.ss16
+dalTwodotsverticalbelowTahabove-ar.fina.ss16
 beh-ar.init.conn-yeh-1.ss16
 peh-ar.fina.conn-mf-2.ss16
 peh-ar.fina.conn-mf-2.swsh.ss16
@@ -8598,8 +8600,6 @@ noonVabove-ar.medi.conn-hehmedi-1.conn-mf-2.ss16
 noonVabove-ar.medi.conn-hehmedi-1.ss16
 noonVabove-ar.medi.conn-y-1.conn-mf-2.ss16
 noonVabove-ar.medi.conn-y-1.ss16
-dalTwodotsverticalbelowTahabove-ar.fina.fina.conn-mf-2.ss16
-dalTwodotsverticalbelowTahabove-ar.fina.ss16
 seenThreedotsbelowthreedots-ar.fina.ss16
 seenThreedotsbelowthreedots-ar.init.conn-m-1.ss16
 seenThreedotsbelowthreedots-ar.init.conn-y-1.ss16
@@ -9766,6 +9766,7 @@ Eogonek
 Ereversed
 Etilde
 Etildebelow
+Schwa
 F
 Fdotaccent
 G
@@ -9900,7 +9901,6 @@ Sdotaccent
 Sdotbelow
 Sdotbelowdotaccent
 Germandbls
-Schwa
 T
 Tbar
 Tcaron
@@ -10339,12 +10339,12 @@ code = "zero
 zero.lf
 zero.tf
 zero.tosf
-zero.subs
 zero.dnom
 zero.numr
-zero.sups
 zerothird
-onetenth";
+onetenth
+zero.subs
+zero.sups";
 name = zero_source;
 },
 {
@@ -10352,17 +10352,17 @@ code = "zero.zero
 zero.lf.zero
 zero.tf.zero
 zero.tosf.zero
-zero.subs.zero
 zero.dnom.zero
 zero.numr.zero
-zero.sups.zero
 zerothird.zero
-onetenth.zero";
+onetenth.zero
+zero.subs.zero
+zero.sups.zero";
 name = zero_target;
 },
 {
 automatic = 1;
-code = "A Aacute Abreve Abreveacute Abreveacute.ss16 Abrevedotbelow Abrevegrave Abrevegrave.ss16 Abrevehookabove Abrevehookabove.ss16 Abrevetilde Abrevetilde.ss16 Acaron Acircumflex Acircumflexacute Acircumflexacute.ss16 Acircumflexdotbelow Acircumflexgrave Acircumflexgrave.ss16 Acircumflexhookabove Acircumflexhookabove.ss16 Acircumflextilde Acircumflextilde.ss16 Adblgrave Adieresis Adieresismacron Adieresismacron.ss16 Adotaccent Adotbelow Adotmacron Adotmacron.ss16 Agrave Ahookabove Ainvertedbreve Amacron Aogonek Aring Aringacute Aringacute.ss16 Aringbelow Atilde AE AEacute AEmacron B Bdotaccent Bdotbelow Blinebelow Bstroke C Cacute Ccaron Ccedilla Ccedillaacute Ccircumflex Cdotaccent D Eth Dcaron Dcedilla Dcircumflexbelow Dcroat Ddotaccent Ddotbelow Dlinebelow E Eacute Ebreve Ecaron Ecedilla Ecedillabreve Ecircumflex Ecircumflexacute Ecircumflexacute.ss16 Ecircumflexbelow Ecircumflexdotbelow Ecircumflexgrave Ecircumflexgrave.ss16 Ecircumflexhookabove Ecircumflexhookabove.ss16 Ecircumflextilde Ecircumflextilde.ss16 Edblgrave Edblgrave.ss16 Edieresis Edieresis.ss16 Edotaccent Edotaccent.ss16 Edotbelow Edotbelow.ss16 Egrave Egrave.ss16 Ehookabove Ehookabove.ss16 Einvertedbreve Einvertedbreve.ss16 Emacron Emacron.ss16 Emacronacute Emacronacute.ss16 Emacrongrave Emacrongrave.ss16 Eogonek Ereversed Etilde Etildebelow F Fdotaccent G Gacute Gbreve Gcaron Gcircumflex Gcommaaccent Gdotaccent Gmacron H Hbar Hbrevebelow Hcedilla Hcircumflex Hdieresis Hdotaccent Hdotbelow I IJ Iacute Ibreve Icaron Icircumflex Idblgrave Idieresis Idieresisacute Idieresisacute.ss16 Idotaccent Idotbelow Igrave Ihookabove Iinvertedbreve Imacron Iogonek Itilde Itildebelow J Jacute Jcircumflex K Kacute Kcaron Kcommaaccent Kdotbelow Klinebelow L Lacute Lcaron Lcircumflexbelow Lcommaaccent Ldot Ldotbelow Ldotbelowmacron Llinebelow Lslash M Macute Mdotaccent Mdotbelow N Nacute Ncaron Ncircumflexbelow Ncommaaccent Ndotaccent Ndotbelow Ngrave Nlinebelow Ntilde Eng O Oacute Obreve Ocaron Ocircumflex Ocircumflexacute Ocircumflexacute.ss16 Ocircumflexdotbelow Ocircumflexgrave Ocircumflexgrave.ss16 Ocircumflexhookabove Ocircumflexhookabove.ss16 Ocircumflextilde Ocircumflextilde.ss16 Odblgrave Odieresis Odieresismacron Odieresismacron.ss16 Odotaccent Odotaccentmacron Odotaccentmacron.ss16 Odotbelow Ograve Ohookabove Ohorn Ohornacute Ohorndotbelow Ohorngrave Ohornhookabove Ohorntilde Ohungarumlaut Oinvertedbreve Omacron Omacronacute Omacronacute.ss16 Omacrongrave Omacrongrave.ss16 Oogonek Oogonekmacron Oslash Oslashacute Otilde Otildeacute Otildeacute.ss16 Otildedieresis Otildedieresis.ss16 Otildemacron Otildemacron.ss16 OE P Pacute Pdotaccent Thorn Q R Racute Rcaron Rcommaaccent Rdblgrave Rdotaccent Rdotbelow Rdotbelowmacron Rinvertedbreve Rlinebelow S Sacute Sacutedotaccent Sacutedotaccent.ss16 Scaron Scarondotaccent Scarondotaccent.ss16 Scedilla Scircumflex Scommaaccent Sdotaccent Sdotbelow Sdotbelowdotaccent Germandbls Schwa T T.longright Tbar Tcaron Tcedilla Tcircumflexbelow Tcommaaccent Tdotaccent Tdotbelow Tlinebelow U Uacute Ubreve Ucaron Ucircumflex Ucircumflexbelow Udblgrave Udieresis Udieresisacute Udieresisacute.ss16 Udieresisbelow Udieresiscaron Udieresiscaron.ss16 Udieresisgrave Udieresisgrave.ss16 Udieresismacron Udieresismacron.ss16 Udotbelow Ugrave Uhookabove Uhorn Uhornacute Uhorndotbelow Uhorngrave Uhornhookabove Uhorntilde Uhungarumlaut Uinvertedbreve Umacron Umacrondieresis Umacrondieresis.ss16 Uogonek Uring Uring.ss16 Utilde Utildeacute Utildeacute.ss16 Utildebelow V Vdotbelow Vtilde W Wacute Wcircumflex Wdieresis Wdotaccent Wdotbelow Wgrave X Xdieresis Xdotaccent Y Yacute Ycircumflex Ydieresis Ydotaccent Ydotbelow Ygrave Yhookabove Ymacron Ytilde Z Zacute Zcaron Zcircumflex Zdotaccent Zdotbelow Zlinebelow Zstroke T_h.dlig A-cy Be-cy Ve-cy Ge-cy Gje-cy Gheupturn-cy Ghestroke-cy De-cy De-cy.loclBGR Ie-cy Iegrave-cy Io-cy Zhe-cy Zhe-cy.loclBGR Ze-cy Ii-cy Iishort-cy Iigrave-cy Ka-cy Ka-cy.loclBGR Kje-cy El-cy El-cy.loclBGR Em-cy En-cy O-cy Pe-cy Er-cy Es-cy Te-cy U-cy Ushort-cy Ef-cy Ha-cy Che-cy Tse-cy Sha-cy Shcha-cy Dzhe-cy Softsign-cy Yeru-cy Hardsign-cy Lje-cy Nje-cy Dze-cy E-cy Ereversed-cy I-cy Yi-cy Yi-cy.Yi-cy-trigger Je-cy Tshe-cy Iu-cy Ia-cy Dje-cy Yat-cy Fita-cy Izhitsa-cy Zhedescender-cy Kadescender-cy Endescender-cy Ustraight-cy Ustraightstroke-cy Hadescender-cy Chedescender-cy Shha-cy Palochka-cy Schwa-cy Imacron-cy Obarred-cy Umacron-cy Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa Lambda Mu Nu Xi Omicron Pi Rho Sigma Tau Upsilon Phi Chi Psi Omega Alphatonos Epsilontonos Etatonos Iotatonos Omicrontonos Upsilontonos Omegatonos Iotadieresis Upsilondieresis KaiSymbol Alphapsili Alphadasia Alphapsilivaria Alphadasiavaria Alphapsilioxia Alphadasiaoxia Alphapsiliperispomeni Alphadasiaperispomeni Alphavaria Alphaoxia Alphavrachy Alphamacron Alphaprosgegrammeni Alphaprosgegrammeni.case Alphapsiliprosgegrammeni Alphadasiaprosgegrammeni Alphapsilivariaprosgegrammeni Alphadasiavariaprosgegrammeni Alphapsilioxiaprosgegrammeni Alphadasiaoxiaprosgegrammeni Alphapsiliperispomeniprosgegrammeni Alphadasiaperispomeniprosgegrammeni Epsilonpsili Epsilondasia Epsilonpsilivaria Epsilondasiavaria Epsilonpsilioxia Epsilondasiaoxia Epsilonvaria Epsilonoxia Etapsili Etadasia Etapsilivaria Etadasiavaria Etapsilioxia Etadasiaoxia Etapsiliperispomeni Etadasiaperispomeni Etavaria Etaoxia Etaprosgegrammeni Etaprosgegrammeni.case Etapsiliprosgegrammeni Etadasiaprosgegrammeni Etapsilivariaprosgegrammeni Etadasiavariaprosgegrammeni Etapsilioxiaprosgegrammeni Etadasiaoxiaprosgegrammeni Etapsiliperispomeniprosgegrammeni Etadasiaperispomeniprosgegrammeni Iotapsili Iotadasia Iotapsilivaria Iotadasiavaria Iotapsilioxia Iotadasiaoxia Iotapsiliperispomeni Iotadasiaperispomeni Iotavaria Iotaoxia Iotavrachy Iotamacron Omicronpsili Omicrondasia Omicronpsilivaria Omicrondasiavaria Omicronpsilioxia Omicrondasiaoxia Omicronvaria Omicronoxia Rhodasia Upsilondasia Upsilondasiavaria Upsilondasiaoxia Upsilondasiaperispomeni Upsilonvaria Upsilonoxia Upsilonvrachy Upsilonmacron Omegapsili Omegadasia Omegapsilivaria Omegadasiavaria Omegapsilioxia Omegadasiaoxia Omegapsiliperispomeni Omegadasiaperispomeni Omegavaria Omegaoxia Omegaprosgegrammeni Omegaprosgegrammeni.case Omegapsiliprosgegrammeni Omegadasiaprosgegrammeni Omegapsilivariaprosgegrammeni Omegadasiavariaprosgegrammeni Omegapsilioxiaprosgegrammeni Omegadasiaoxiaprosgegrammeni Omegapsiliperispomeniprosgegrammeni Omegadasiaperispomeniprosgegrammeni";
+code = "A Aacute Abreve Abreveacute Abreveacute.ss16 Abrevedotbelow Abrevegrave Abrevegrave.ss16 Abrevehookabove Abrevehookabove.ss16 Abrevetilde Abrevetilde.ss16 Acaron Acircumflex Acircumflexacute Acircumflexacute.ss16 Acircumflexdotbelow Acircumflexgrave Acircumflexgrave.ss16 Acircumflexhookabove Acircumflexhookabove.ss16 Acircumflextilde Acircumflextilde.ss16 Adblgrave Adieresis Adieresismacron Adieresismacron.ss16 Adotaccent Adotbelow Adotmacron Adotmacron.ss16 Agrave Ahookabove Ainvertedbreve Amacron Aogonek Aring Aringacute Aringacute.ss16 Aringbelow Atilde AE AEacute AEmacron B Bdotaccent Bdotbelow Blinebelow Bstroke C Cacute Ccaron Ccedilla Ccedillaacute Ccircumflex Cdotaccent D Eth Dcaron Dcedilla Dcircumflexbelow Dcroat Ddotaccent Ddotbelow Dlinebelow E Eacute Ebreve Ecaron Ecedilla Ecedillabreve Ecircumflex Ecircumflexacute Ecircumflexacute.ss16 Ecircumflexbelow Ecircumflexdotbelow Ecircumflexgrave Ecircumflexgrave.ss16 Ecircumflexhookabove Ecircumflexhookabove.ss16 Ecircumflextilde Ecircumflextilde.ss16 Edblgrave Edblgrave.ss16 Edieresis Edieresis.ss16 Edotaccent Edotaccent.ss16 Edotbelow Edotbelow.ss16 Egrave Egrave.ss16 Ehookabove Ehookabove.ss16 Einvertedbreve Einvertedbreve.ss16 Emacron Emacron.ss16 Emacronacute Emacronacute.ss16 Emacrongrave Emacrongrave.ss16 Eogonek Ereversed Etilde Etildebelow Schwa F Fdotaccent G Gacute Gbreve Gcaron Gcircumflex Gcommaaccent Gdotaccent Gmacron H Hbar Hbrevebelow Hcedilla Hcircumflex Hdieresis Hdotaccent Hdotbelow I IJ Iacute Ibreve Icaron Icircumflex Idblgrave Idieresis Idieresisacute Idieresisacute.ss16 Idotaccent Idotbelow Igrave Ihookabove Iinvertedbreve Imacron Iogonek Itilde Itildebelow J Jacute Jcircumflex K Kacute Kcaron Kcommaaccent Kdotbelow Klinebelow L Lacute Lcaron Lcircumflexbelow Lcommaaccent Ldot Ldotbelow Ldotbelowmacron Llinebelow Lslash M Macute Mdotaccent Mdotbelow N Nacute Ncaron Ncircumflexbelow Ncommaaccent Ndotaccent Ndotbelow Ngrave Nlinebelow Ntilde Eng O Oacute Obreve Ocaron Ocircumflex Ocircumflexacute Ocircumflexacute.ss16 Ocircumflexdotbelow Ocircumflexgrave Ocircumflexgrave.ss16 Ocircumflexhookabove Ocircumflexhookabove.ss16 Ocircumflextilde Ocircumflextilde.ss16 Odblgrave Odieresis Odieresismacron Odieresismacron.ss16 Odotaccent Odotaccentmacron Odotaccentmacron.ss16 Odotbelow Ograve Ohookabove Ohorn Ohornacute Ohorndotbelow Ohorngrave Ohornhookabove Ohorntilde Ohungarumlaut Oinvertedbreve Omacron Omacronacute Omacronacute.ss16 Omacrongrave Omacrongrave.ss16 Oogonek Oogonekmacron Oslash Oslashacute Otilde Otildeacute Otildeacute.ss16 Otildedieresis Otildedieresis.ss16 Otildemacron Otildemacron.ss16 OE P Pacute Pdotaccent Thorn Q R Racute Rcaron Rcommaaccent Rdblgrave Rdotaccent Rdotbelow Rdotbelowmacron Rinvertedbreve Rlinebelow S Sacute Sacutedotaccent Sacutedotaccent.ss16 Scaron Scarondotaccent Scarondotaccent.ss16 Scedilla Scircumflex Scommaaccent Sdotaccent Sdotbelow Sdotbelowdotaccent Germandbls T T.longright Tbar Tcaron Tcedilla Tcircumflexbelow Tcommaaccent Tdotaccent Tdotbelow Tlinebelow U Uacute Ubreve Ucaron Ucircumflex Ucircumflexbelow Udblgrave Udieresis Udieresisacute Udieresisacute.ss16 Udieresisbelow Udieresiscaron Udieresiscaron.ss16 Udieresisgrave Udieresisgrave.ss16 Udieresismacron Udieresismacron.ss16 Udotbelow Ugrave Uhookabove Uhorn Uhornacute Uhorndotbelow Uhorngrave Uhornhookabove Uhorntilde Uhungarumlaut Uinvertedbreve Umacron Umacrondieresis Umacrondieresis.ss16 Uogonek Uring Uring.ss16 Utilde Utildeacute Utildeacute.ss16 Utildebelow V Vdotbelow Vtilde W Wacute Wcircumflex Wdieresis Wdotaccent Wdotbelow Wgrave X Xdieresis Xdotaccent Y Yacute Ycircumflex Ydieresis Ydotaccent Ydotbelow Ygrave Yhookabove Ymacron Ytilde Z Zacute Zcaron Zcircumflex Zdotaccent Zdotbelow Zlinebelow Zstroke T_h.dlig A-cy Be-cy Ve-cy Ge-cy Gje-cy Gheupturn-cy Ghestroke-cy De-cy De-cy.loclBGR Ie-cy Iegrave-cy Io-cy Zhe-cy Zhe-cy.loclBGR Ze-cy Ii-cy Iishort-cy Iigrave-cy Ka-cy Ka-cy.loclBGR Kje-cy El-cy El-cy.loclBGR Em-cy En-cy O-cy Pe-cy Er-cy Es-cy Te-cy U-cy Ushort-cy Ef-cy Ha-cy Che-cy Tse-cy Sha-cy Shcha-cy Dzhe-cy Softsign-cy Yeru-cy Hardsign-cy Lje-cy Nje-cy Dze-cy E-cy Ereversed-cy I-cy Yi-cy Yi-cy.Yi-cy-trigger Je-cy Tshe-cy Iu-cy Ia-cy Dje-cy Yat-cy Fita-cy Izhitsa-cy Zhedescender-cy Kadescender-cy Endescender-cy Ustraight-cy Ustraightstroke-cy Hadescender-cy Chedescender-cy Shha-cy Palochka-cy Schwa-cy Imacron-cy Obarred-cy Umacron-cy Alpha Beta Gamma Delta Epsilon Zeta Eta Theta Iota Kappa Lambda Mu Nu Xi Omicron Pi Rho Sigma Tau Upsilon Phi Chi Psi Omega Alphatonos Epsilontonos Etatonos Iotatonos Omicrontonos Upsilontonos Omegatonos Iotadieresis Upsilondieresis KaiSymbol Alphapsili Alphadasia Alphapsilivaria Alphadasiavaria Alphapsilioxia Alphadasiaoxia Alphapsiliperispomeni Alphadasiaperispomeni Alphavaria Alphaoxia Alphavrachy Alphamacron Alphaprosgegrammeni Alphaprosgegrammeni.case Alphapsiliprosgegrammeni Alphadasiaprosgegrammeni Alphapsilivariaprosgegrammeni Alphadasiavariaprosgegrammeni Alphapsilioxiaprosgegrammeni Alphadasiaoxiaprosgegrammeni Alphapsiliperispomeniprosgegrammeni Alphadasiaperispomeniprosgegrammeni Epsilonpsili Epsilondasia Epsilonpsilivaria Epsilondasiavaria Epsilonpsilioxia Epsilondasiaoxia Epsilonvaria Epsilonoxia Etapsili Etadasia Etapsilivaria Etadasiavaria Etapsilioxia Etadasiaoxia Etapsiliperispomeni Etadasiaperispomeni Etavaria Etaoxia Etaprosgegrammeni Etaprosgegrammeni.case Etapsiliprosgegrammeni Etadasiaprosgegrammeni Etapsilivariaprosgegrammeni Etadasiavariaprosgegrammeni Etapsilioxiaprosgegrammeni Etadasiaoxiaprosgegrammeni Etapsiliperispomeniprosgegrammeni Etadasiaperispomeniprosgegrammeni Iotapsili Iotadasia Iotapsilivaria Iotadasiavaria Iotapsilioxia Iotadasiaoxia Iotapsiliperispomeni Iotadasiaperispomeni Iotavaria Iotaoxia Iotavrachy Iotamacron Omicronpsili Omicrondasia Omicronpsilivaria Omicrondasiavaria Omicronpsilioxia Omicrondasiaoxia Omicronvaria Omicronoxia Rhodasia Upsilondasia Upsilondasiavaria Upsilondasiaoxia Upsilondasiaperispomeni Upsilonvaria Upsilonoxia Upsilonvrachy Upsilonmacron Omegapsili Omegadasia Omegapsilivaria Omegadasiavaria Omegapsilioxia Omegadasiaoxia Omegapsiliperispomeni Omegadasiaperispomeni Omegavaria Omegaoxia Omegaprosgegrammeni Omegaprosgegrammeni.case Omegapsiliprosgegrammeni Omegadasiaprosgegrammeni Omegapsilivariaprosgegrammeni Omegadasiavariaprosgegrammeni Omegapsilioxiaprosgegrammeni Omegadasiaoxiaprosgegrammeni Omegapsiliperispomeniprosgegrammeni Omegadasiaperispomeniprosgegrammeni";
 name = Uppercase;
 }
 );
@@ -10375,7 +10375,6 @@ code = "# Dancing Shoes 0.1.4 OpenType feature code generator by Yanone, Copyrig
 
 
 languagesystem DFLT dflt; # Default, Default
-languagesystem arab dflt; # Arabic, Default
 languagesystem latn dflt; # Latin, Default
 languagesystem cyrl dflt; # Cyrillic, Default
 languagesystem latn CAT; # Latin, Catalan
@@ -10390,6 +10389,8 @@ languagesystem latn ROM; # Latin, Romanian
 languagesystem latn VIT; # Latin, Vietnamese
 languagesystem cyrl BGR; # Cyrillic, Bulgarian
 languagesystem cyrl SRB; # Cyrillic, Serbian
+languagesystem arab dflt; # Arabic, Default
+languagesystem arab dflt; # Arabic, Default
 
 
 
@@ -14070,7 +14071,7 @@ backslash = -10;
 "@MMK_R_W" = -8;
 "@MMK_R_Y" = -10;
 "@MMK_R_Z" = -21;
-"@MMK_R_a" = -30;
+"@MMK_R_a" = -20;
 "@MMK_R_f" = -10;
 "@MMK_R_o" = -20;
 "@MMK_R_s" = -10;
@@ -16787,7 +16788,7 @@ backslash = -20;
 "@MMK_R_X" = -7;
 "@MMK_R_Y" = -10;
 "@MMK_R_Z" = -10;
-"@MMK_R_a" = -30;
+"@MMK_R_a" = -20;
 "@MMK_R_f" = -15;
 "@MMK_R_o" = -20;
 "@MMK_R_s" = -10;
@@ -21530,7 +21531,7 @@ kerningRTL = {
 "@MMK_L_bowl.twoDotsBelow" = -30;
 "@MMK_L_dal" = -10;
 "@MMK_L_kaf.init" = -130;
-"@MMK_L_meem" = -10;
+"@MMK_L_meem" = 0;
 };
 "@MMK_R_lam_alef.fina" = {
 "@MMK_L_meem" = -20;
@@ -21593,7 +21594,7 @@ kerningRTL = {
 "@MMK_L_bowl.twoDotsBelow" = -20;
 "@MMK_L_dal" = -10;
 "@MMK_L_kaf.init" = -130;
-"@MMK_L_meem" = -10;
+"@MMK_L_meem" = 0;
 };
 "@MMK_R_lam_alef.fina" = {
 "@MMK_L_meem" = -20;
@@ -21670,7 +21671,7 @@ period = -60;
 "@MMK_L_bowl.twoDotsTop" = -20;
 "@MMK_L_dal" = -10;
 "@MMK_L_kaf.init" = -120;
-"@MMK_L_meem" = -20;
+"@MMK_L_meem" = 0;
 };
 "@MMK_R_lam_alef.fina" = {
 "@MMK_L_meem" = -30;

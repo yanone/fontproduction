@@ -10,7 +10,7 @@ ref = "hah-ar.medi";
 },
 {
 anchor = top;
-pos = (42,75);
+pos = (32,75);
 ref = "twodotsverticalabove-ar";
 }
 );
@@ -24,7 +24,7 @@ ref = "hah-ar.medi";
 },
 {
 anchor = top;
-pos = (102,-166);
+pos = (86,-166);
 ref = "twodotsverticalabove-ar";
 }
 );
@@ -38,7 +38,7 @@ ref = "hah-ar.medi";
 },
 {
 anchor = top;
-pos = (86,-70);
+pos = (71,-70);
 ref = "twodotsverticalabove-ar";
 }
 );

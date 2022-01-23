@@ -9,7 +9,7 @@ shapes = (
 ref = "hah-ar.medi";
 },
 {
-pos = (58,283);
+pos = (48,283);
 ref = "hamzaabove-ar";
 }
 );
@@ -22,7 +22,7 @@ shapes = (
 ref = "hah-ar.medi";
 },
 {
-pos = (53,54);
+pos = (37,54);
 ref = "hamzaabove-ar";
 }
 );
@@ -35,7 +35,7 @@ shapes = (
 ref = "hah-ar.medi";
 },
 {
-pos = (55,150);
+pos = (40,150);
 ref = "hamzaabove-ar";
 }
 );
