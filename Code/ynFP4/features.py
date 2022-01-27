@@ -780,54 +780,6 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         # 	shoes.AddSubstitution('calt', "@arabmedihihi_source' @arabfinahihi_source", '@arabmedihihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
         # 	shoes.AddSubstitution('calt', "@arabmedihihi_target @arabfinahihi_source'", '@arabfinahihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
 
-    # dot collisions
-    if shoes.HasClasses(["@dotCollisionTop"]):
-        for glyph in shoes.GlyphsInClass("@dotCollisionTop"):
-            if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
-                shoes.AddGlyphsToClass("@dotCollTop_source", glyph.replace(".dotColl", ""))
-                shoes.AddGlyphsToClass("@dotCollTop_target", glyph)
-        shoes.AddSubstitution(
-            "calt",
-            "@dotCollTop_source' @dotCollTop_source",
-            "@dotCollTop_target",
-            "arab",
-            "",
-            "RightToLeft,IgnoreMarks",
-        )
-    if shoes.HasClasses(["@dotCollisionBottom"]):
-        for glyph in shoes.GlyphsInClass("@dotCollisionBottom"):
-            if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
-                shoes.AddGlyphsToClass("@dotCollBottom_source", glyph.replace(".dotColl", ""))
-                shoes.AddGlyphsToClass("@dotCollBottom_target", glyph)
-        shoes.AddSubstitution(
-            "calt",
-            "@dotCollBottom_source' @dotCollBottom_source",
-            "@dotCollBottom_target",
-            "arab",
-            "",
-            "RightToLeft,IgnoreMarks",
-        )
-
-        if shoes.HasClasses(["@dotCollBottomTrigger"]):
-            shoes.AddSubstitution(
-                "calt",
-                "@dotCollBottom_source' @dotCollBottomTrigger",
-                "@dotCollBottom_target",
-                "arab",
-                "",
-                "RightToLeft,IgnoreMarks",
-            )
-
-        if shoes.HasClasses(["@dotCollTopTrigger"]):
-            shoes.AddSubstitution(
-                "calt",
-                "@dotCollTop_source' @dotCollTopTrigger",
-                "@dotCollTop_target",
-                "arab",
-                "",
-                "RightToLeft,IgnoreMarks",
-            )
-
     # HIGH TEETH
     if shoes.HasGroups([".hitooth"]):
         for glyph in shoes.Glyphs():
@@ -888,6 +840,58 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "hitooth4",
         )
 
+    # dot collisions
+    if shoes.HasClasses(["@dotCollisionTop"]):
+        for glyph in shoes.GlyphsInClass("@dotCollisionTop"):
+            if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
+                shoes.AddGlyphsToClass("@dotCollTop_source", glyph.replace(".dotColl", ""))
+                shoes.AddGlyphsToClass("@dotCollTop_target", glyph)
+        shoes.AddSubstitution(
+            "calt",
+            "@dotCollTop_source' @dotCollTop_source",
+            "@dotCollTop_target",
+            "arab",
+            "",
+            "RightToLeft,IgnoreMarks",
+        )
+    if shoes.HasClasses(["@dotCollisionBottom"]):
+        for glyph in shoes.GlyphsInClass("@dotCollisionBottom"):
+            if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
+                shoes.AddGlyphsToClass("@dotCollBottom_source", glyph.replace(".dotColl", ""))
+                shoes.AddGlyphsToClass("@dotCollBottom_target", glyph)
+        shoes.AddSubstitution(
+            "calt",
+            "@dotCollBottom_source' @dotCollBottom_source",
+            "@dotCollBottom_target",
+            "arab",
+            "",
+            "RightToLeft,IgnoreMarks",
+        )
+
+        if shoes.HasClasses(["@dotCollisionBottomTrigger"]):
+            shoes.AddSubstitution(
+                "calt",
+                "@dotCollBottom_source' @dotCollisionBottomTrigger",
+                "@dotCollBottom_target",
+                "arab",
+                "",
+                "RightToLeft,IgnoreMarks",
+                "",
+                "dotcoll",
+            )
+
+        if shoes.HasClasses(["@dotCollisionTopTrigger"]):
+            shoes.AddSubstitution(
+                "calt",
+                "@dotCollTop_source' @dotCollisionTopTrigger",
+                "@dotCollTop_target",
+                "arab",
+                "",
+                "RightToLeft,IgnoreMarks",
+                "",
+                "dotcoll",
+            )
+
     # YEH BARREE
     if shoes.HasClasses(["@yehBarreeShortTrigger", "@yehBarreeAlt"]):
         for glyph in shoes.GlyphsInClass("@yehBarreeAlt"):
@@ -918,6 +922,38 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "",
             "RightToLeft",
         )
+
+    # Meem & Harakat
+    shoes.AddSubstitution(
+        "calt",
+        "meem-ar.medi.conn-m-2.conn-mf-1' @topMarks @conn_mf_2_target",
+        "meem-ar.medi.conn-m-2.conn-mf-1.harakat",
+        "arab",
+        "",
+        "RightToLeft",
+        "",
+        "low_meem_harakat",
+    )
+    shoes.AddSubstitution(
+        "calt",
+        "meem-ar.medi.conn-m-2.conn-mf-1' @topMarks @topMarks @conn_mf_2_target",
+        "meem-ar.medi.conn-m-2.conn-mf-1.harakat",
+        "arab",
+        "",
+        "RightToLeft",
+        "",
+        "low_meem_harakat",
+    )
+    shoes.AddSubstitution(
+        "calt",
+        "meem-ar.medi.conn-m-2.conn-mf-1' @topMarks @topMarks @topMarks @conn_mf_2_target",
+        "meem-ar.medi.conn-m-2.conn-mf-1.harakat",
+        "arab",
+        "",
+        "RightToLeft",
+        "",
+        "low_meem_harakat",
+    )
 
     # Duplicate Features
     for source, target in duplicateFeatures:
