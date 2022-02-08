@@ -376,6 +376,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
                 shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName)
 
     # smcp (custom for for Polytonic Greek)
+    greeklinesadded = []
     for glyph in f.glyphs:
         if ".sc" in glyph.name and glyph.script != "greek":
             shoes.AddSubstitution("smcp", glyph.name.replace(".sc", ""), glyph.name)
@@ -386,9 +387,15 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             and len(glyph.layers[0].components) == 2
             and baseGlyphWithAnchor(glyph, "_tonos")
         ):
-            shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".sc")
+            line = [glyph.name, glyph.layers[0].components[0].componentName + ".sc"]
+            if not line in greeklinesadded:
+                shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".sc")
+                greeklinesadded.append(line)
         elif glyph.script == "greek" and glyph.category == "Letter" and glyph.case == GlyphsApp.GSLowercase:
-            shoes.AddSubstitution("smcp", glyph.name, glyph.name + ".sc")
+            line = [glyph.name, glyph.name + ".sc"]
+            if not line in greeklinesadded:
+                shoes.AddSubstitution("smcp", glyph.name, glyph.name + ".sc")
+                greeklinesadded.append(line)
 
     # case
     shoes.AddSimpleSubstitutionFeature("case", ".case")
@@ -450,6 +457,20 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
                     shoes.AddGlyphsToClass("@c2sc_target", name)
 
     # c2sc (custom for for Polytonic Greek)
+    greeklinesadded = []
+
+    def addGreek(source, target):
+        found = False
+        for substitution in greeklinesadded:
+            if source == substitution[0]:
+                found = True
+                break
+        if not found:
+            substitution = [source, target]
+            if not substitution in greeklinesadded:
+                shoes.AddSubstitution("c2sc", substitution[0], substitution[1])
+                greeklinesadded.append(substitution)
+
     for glyph in f.glyphs:
         if (
             glyph.script == "greek"
@@ -464,7 +485,8 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             if shoes.HasGlyphs(
                 [glyph.name, lowercaseGlyphName + ".sc"]
             ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
-                shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+                addGreek(glyph.name, lowercaseGlyphName + ".sc")
+
             # if f.glyphs[lowercaseGlyphName]:
             #     # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
             #     if not glyph.name in shoes.GlyphsInClass("@c2sc_source"):
@@ -479,7 +501,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             if shoes.HasGlyphs(
                 [glyph.name, lowercaseGlyphName + ".sc"]
             ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
-                shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+                addGreek(glyph.name, lowercaseGlyphName + ".sc")
             # if f.glyphs[lowercaseGlyphName]:
             #     shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
             # if not glyph.name in shoes.GlyphsInClass("@c2sc_source"):
@@ -494,7 +516,8 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             if shoes.HasGlyphs(
                 [glyph.name, lowercaseGlyphName + ".sc"]
             ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
-                shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+                addGreek(glyph.name, lowercaseGlyphName + ".sc")
+                # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
             # if f.glyphs[lowercaseGlyphName]:
             #     shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
             #     # if not glyph.name in shoes.GlyphsInClass("@c2sc_source"):
@@ -515,7 +538,9 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             if shoes.HasGlyphs(
                 [glyph.name, lowercaseGlyphName + ".sc"]
             ) and not uppercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
-                shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
+                print(glyph.name, lowercaseGlyphName)
+                addGreek(glyph.name, lowercaseGlyphName + ".sc")
+                # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
             # # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
             # if f.glyphs[lowercaseGlyphName]:
             #     shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
