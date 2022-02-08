@@ -85,6 +85,12 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
     # Initialize DancingShoes object, hand over glyph names and default features
     shoes = DancingShoes(glyphnames, features)
 
+    # Default figure set
+    if shoes.HasGroups([".osf"]):
+        defaultfigures = "lf"
+    elif shoes.HasGroups([".lf"]):
+        defaultfigures = "osf"
+
     # Set stylistic set names
     if stylisticsetnames:
         for ssname in stylisticsetnames:
