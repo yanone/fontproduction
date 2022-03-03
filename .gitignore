@@ -2,3 +2,5 @@
 *.pyc
 *.svn-base
 .svn
+*.egg*
+__pycache__
