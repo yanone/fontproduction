@@ -773,23 +773,27 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         for glyph in shoes.Glyphs():
             if ".swsh" in glyph:
                 if shoes.HasGlyphs([glyph.replace(".swsh", ".hitooth")]):
-                    shoes.AddSubstitution(
-                        "swsh",
-                        glyph.replace(".swsh", ".hitooth"),
-                        glyph,
-                        "arab",
-                        "",
-                        "RightToLeft,IgnoreMarks",
-                    )
+                    shoes.AddGlyphsToClass("@swsh_source", glyph.replace(".swsh", ".hitooth"))
+                    shoes.AddGlyphsToClass("@swsh_target", glyph)
+                    # shoes.AddSubstitution(
+                    #     "swsh",
+                    #     glyph.replace(".swsh", ".hitooth"),
+                    #     glyph,
+                    #     "arab",
+                    #     "",
+                    #     "RightToLeft,IgnoreMarks",
+                    # )
                 if shoes.HasGlyphs([glyph.replace(".swsh", ".dotColl")]):
-                    shoes.AddSubstitution(
-                        "swsh",
-                        glyph.replace(".swsh", ".dotColl"),
-                        glyph,
-                        "arab",
-                        "",
-                        "RightToLeft,IgnoreMarks",
-                    )
+                    shoes.AddGlyphsToClass("@swsh_source", glyph.replace(".swsh", ".dotColl"))
+                    shoes.AddGlyphsToClass("@swsh_target", glyph)
+                    # shoes.AddSubstitution(
+                    #     "swsh",
+                    #     glyph.replace(".swsh", ".dotColl"),
+                    #     glyph,
+                    #     "arab",
+                    #     "",
+                    #     "RightToLeft,IgnoreMarks",
+                    # )
 
         # if shoes.HasGroups(['.lohi', '.hihi']):
         # 	for glyph in shoes.Glyphs():
