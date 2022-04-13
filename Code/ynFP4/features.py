@@ -544,7 +544,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             if shoes.HasGlyphs(
                 [glyph.name, lowercaseGlyphName + ".sc"]
             ) and not uppercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
-                print(glyph.name, lowercaseGlyphName)
+                # print(glyph.name, lowercaseGlyphName)
                 addGreek(glyph.name, lowercaseGlyphName + ".sc")
                 # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
             # # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
@@ -629,9 +629,9 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
                 if names[name] > 1:
                     double = name
 
-            # We have double
-            if double:
-                print("glyph %s has two name parts of same group: %s" % (glyph, double))
+            # # We have double
+            # if double:
+            #     print("glyph %s has two name parts of same group: %s" % (glyph, double))
 
             # Go through name parts
             for i, part in enumerate(parts):
@@ -1034,6 +1034,37 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
 
         if target.startswith("ss") and source in OTfeatures:
             shoes.SetStylisticSetName(target, OTfeatures[source])
+
+    # CCMP
+    for glyph in f.glyphs:
+        if glyph.category == "Mark" and "_" in glyph.name and not "." in glyph.name:
+            if "-" in glyph.name:
+                glyphName, script = glyph.name.split("-")
+                script = "-" + script
+            else:
+                glyphName = glyph.name
+                script = ""
+
+            shoes.AddSubstitution(
+                "ccmp",
+                " ".join([f"{x}{script}" for x in glyphName.split("_")]),
+                glyph.name,
+                "",
+                "",
+                "0",
+                "",
+                "",
+            )
+            shoes.AddSubstitution(
+                "ccmp",
+                " ".join(reversed([f"{x}{script}" for x in glyphName.split("_")])),
+                glyph.name,
+                "",
+                "",
+                "0",
+                "",
+                "",
+            )
 
     # Custom font code
     if f.note:
