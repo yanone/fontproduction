@@ -73,9 +73,9 @@ class MarkPosFilter(BaseFilter):
         #     print(glyph.anchors)
 
         # Remove _mark_top and _mark_bottom
-        for anchor in glyph.anchors:
-            if "_mark" in anchor.name:
-                glyph.anchors.remove(anchor)
+        # for anchor in glyph.anchors:
+        #     if "_mark" in anchor.name:
+        #         glyph.anchors.remove(anchor)
 
         # Adjust anchors positions
 
