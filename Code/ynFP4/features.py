@@ -390,18 +390,25 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             glyph.script == "greek"
             and glyph.category == "Letter"
             and glyph.case == GlyphsApp.GSLowercase
-            and len(glyph.layers[0].components) == 2
-            and baseGlyphWithAnchor(glyph, "_tonos")
+            and glyph.name in f.glyphs
+            and glyph.name + ".sc" in f.glyphs
         ):
-            line = [glyph.name, glyph.layers[0].components[0].componentName + ".sc"]
-            if not line in greeklinesadded:
-                shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".sc")
-                greeklinesadded.append(line)
-        elif glyph.script == "greek" and glyph.category == "Letter" and glyph.case == GlyphsApp.GSLowercase:
             line = [glyph.name, glyph.name + ".sc"]
-            if not line in greeklinesadded:
+            if line[0] in f.glyphs and line[1] in f.glyphs and not line in greeklinesadded:
                 shoes.AddSubstitution("smcp", glyph.name, glyph.name + ".sc")
                 greeklinesadded.append(line)
+        else:
+            if (
+                glyph.script == "greek"
+                and glyph.category == "Letter"
+                and glyph.case == GlyphsApp.GSLowercase
+                and len(glyph.layers[0].components) == 2
+                and baseGlyphWithAnchor(glyph, "_tonos")
+            ):
+                line = [glyph.name, glyph.layers[0].components[0].componentName + ".sc"]
+                if not line in greeklinesadded:
+                    shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".sc")
+                    greeklinesadded.append(line)
 
     # case
     shoes.AddSimpleSubstitutionFeature("case", ".case")
@@ -767,41 +774,86 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "RightToLeft,IgnoreMarks",
         )
 
-    # Swashes
+    # New way to do swashes: elongations
     for glyph in f.glyphs:
-        if ".swsh" in glyph.name and glyph.category == "Letter":
-            if f.glyphs[glyph.name.replace(".swsh", "")]:
-                shoes.AddGlyphsToClass("@swsh_source", glyph.name.replace(".swsh", ""))
-                shoes.AddGlyphsToClass("@swsh_target", glyph.name)
-        elif ".swsh" in glyph.name:
-            if f.glyphs[glyph.name.replace(".swsh", "")]:
-                shoes.AddGlyphsToClass("@swshtaskeel_source", glyph.name.replace(".swsh", ""))
-                shoes.AddGlyphsToClass("@swshtaskeel_target", glyph.name)
+        if ".er" in glyph.name and glyph.category == "Letter":
+            if f.glyphs[glyph.name.replace(".er", "")]:
+                shoes.AddGlyphsToClass("@swsh_er_source", glyph.name.replace(".er", ""))
+                shoes.AddGlyphsToClass("@swsh_er_target", glyph.name)
+        if ".el" in glyph.name and glyph.category == "Letter":
+            if f.glyphs[glyph.name.replace(".el", "")]:
+                shoes.AddGlyphsToClass("@swsh_el_source", glyph.name.replace(".el", ""))
+                shoes.AddGlyphsToClass("@swsh_el_target", glyph.name)
 
-    if shoes.HasClasses(["@swsh_source", "@swsh_target"]):
+    if shoes.HasClasses(["@swsh_el_source", "@swsh_el_target", "@swsh_er_source", "@swsh_er_target"]):
         shoes.AddSubstitution(
             "swsh",
-            "@swsh_source",
-            "@swsh_target",
+            "@swsh_el_source' @swsh_er_source",
+            "@swsh_el_target",
             "arab",
             "",
             "RightToLeft,IgnoreMarks",
-            # "",
-            # "swsh_tashkeel",
+            "",
+            "swsh_elongations_1",
         )
-
-    # Contextual swashes
-    if shoes.HasClasses(["@swsh_source", "@swsh_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
+        # Turn off consecutive replacements
         shoes.AddSubstitution(
             "swsh",
-            "@swsh_target @swshtaskeel_source'",
-            "@swshtaskeel_target",
+            "@swsh_el_target @swsh_el_target'",
+            "@swsh_el_source",
             "arab",
             "",
-            "RightToLeft",
+            "RightToLeft,IgnoreMarks",
             "",
-            "swsh_tashkeel",
+            "swsh_elongations_2",
         )
+        shoes.AddSubstitution(
+            "swsh",
+            "@swsh_el_target @swsh_er_source'",
+            "@swsh_er_target",
+            "arab",
+            "",
+            "RightToLeft,IgnoreMarks",
+            "",
+            "swsh_elongations_3",
+        )
+
+    # Old way to do swashes
+    # # Swashes
+    # for glyph in f.glyphs:
+    #     if ".swsh" in glyph.name and glyph.category == "Letter":
+    #         if f.glyphs[glyph.name.replace(".swsh", "")]:
+    #             shoes.AddGlyphsToClass("@swsh_source", glyph.name.replace(".swsh", ""))
+    #             shoes.AddGlyphsToClass("@swsh_target", glyph.name)
+    #     elif ".swsh" in glyph.name:
+    #         if f.glyphs[glyph.name.replace(".swsh", "")]:
+    #             shoes.AddGlyphsToClass("@swshtaskeel_source", glyph.name.replace(".swsh", ""))
+    #             shoes.AddGlyphsToClass("@swshtaskeel_target", glyph.name)
+
+    # if shoes.HasClasses(["@swsh_source", "@swsh_target"]):
+    #     shoes.AddSubstitution(
+    #         "swsh",
+    #         "@swsh_source",
+    #         "@swsh_target",
+    #         "arab",
+    #         "",
+    #         "RightToLeft,IgnoreMarks",
+    #         # "",
+    #         # "swsh_tashkeel",
+    #     )
+
+    # # Contextual swashes
+    # if shoes.HasClasses(["@swsh_source", "@swsh_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
+    #     shoes.AddSubstitution(
+    #         "swsh",
+    #         "@swsh_target @swshtaskeel_source'",
+    #         "@swshtaskeel_target",
+    #         "arab",
+    #         "",
+    #         "RightToLeft",
+    #         "",
+    #         "swsh_tashkeel",
+    #     )
 
     # Additional swashes
     if shoes.HasGroups([".swsh"]):
@@ -917,33 +969,33 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
                 shoes.AddGlyphsToClass("@dotCollTop_source", glyph.replace(".dotColl", ""))
                 shoes.AddGlyphsToClass("@dotCollTop_target", glyph)
-        shoes.AddSubstitution(
-            "calt",
-            "@dotCollTop_source' @dotCollTop_source",
-            "@dotCollTop_target",
-            "arab",
-            "",
-            "RightToLeft,IgnoreMarks",
-        )
+        # shoes.AddSubstitution(
+        #     "calt",
+        #     "@dotCollTop_source' @dotCollTop_source",
+        #     "@dotCollTop_target",
+        #     "arab",
+        #     "",
+        #     "RightToLeft,IgnoreMarks",
+        # )
     if shoes.HasClasses(["@dotCollisionBottom"]):
         for glyph in shoes.GlyphsInClass("@dotCollisionBottom"):
             if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
                 shoes.AddGlyphsToClass("@dotCollBottom_source", glyph.replace(".dotColl", ""))
                 shoes.AddGlyphsToClass("@dotCollBottom_target", glyph)
-        shoes.AddSubstitution(
-            "calt",
-            "@dotCollBottom_source' @dotCollBottom_source",
-            "@dotCollBottom_target",
-            "arab",
-            "",
-            "RightToLeft,IgnoreMarks",
-        )
+        # shoes.AddSubstitution(
+        #     "calt",
+        #     "@dotCollBottom_source' @dotCollBottom_source",
+        #     "@dotCollBottom_target",
+        #     "arab",
+        #     "",
+        #     "RightToLeft,IgnoreMarks",
+        # )
 
-        if shoes.HasClasses(["@dotCollisionBottomTrigger"]):
+        if shoes.HasClasses(["@dotCollisionTopTrigger"]):
             shoes.AddSubstitution(
                 "calt",
-                "@dotCollBottom_source' @dotCollisionBottomTrigger",
-                "@dotCollBottom_target",
+                "@dotCollTop_source' @dotCollisionTopTrigger",
+                "@dotCollTop_target",
                 "arab",
                 "",
                 "RightToLeft,IgnoreMarks",
@@ -951,11 +1003,11 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
                 "dotcoll",
             )
 
-        if shoes.HasClasses(["@dotCollisionTopTrigger"]):
+        if shoes.HasClasses(["@dotCollisionBottomTrigger"]):
             shoes.AddSubstitution(
                 "calt",
-                "@dotCollTop_source' @dotCollisionTopTrigger",
-                "@dotCollTop_target",
+                "@dotCollBottom_source' @dotCollisionBottomTrigger",
+                "@dotCollBottom_target",
                 "arab",
                 "",
                 "RightToLeft,IgnoreMarks",
