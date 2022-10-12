@@ -37,7 +37,7 @@ def move_bottom(target, source):
     return False
 
 
-class MarkPosFilter(BaseFilter):
+class TashkeelPositionsFilter(BaseFilter):
 
     _kwargs = {"a": 0}
 
