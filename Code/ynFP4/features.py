@@ -71,6 +71,8 @@ def Unicode(g):
 
 def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defaultfigures="osf"):
 
+    GEXT_feature = "calt"
+
     # Feature Duplication
     duplicateFeatures = [
         ["subs", "sinf"],
@@ -375,8 +377,16 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             and baseGlyphWithAnchor(glyph, "_tonos")
         ):
             if f.glyphs[glyph.layers[0].components[0].componentName + ".case"]:
-                shoes.AddSubstitution("case", glyph.name, glyph.layers[0].components[0].componentName + ".case")
-                shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".case")
+                shoes.AddSubstitution(
+                    "case",
+                    glyph.name,
+                    glyph.layers[0].components[0].componentName + ".case",
+                )
+                shoes.AddSubstitution(
+                    "smcp",
+                    glyph.name,
+                    glyph.layers[0].components[0].componentName + ".case",
+                )
             else:
                 shoes.AddSubstitution("case", glyph.name, glyph.layers[0].components[0].componentName)
                 shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName)
@@ -407,7 +417,11 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             ):
                 line = [glyph.name, glyph.layers[0].components[0].componentName + ".sc"]
                 if not line in greeklinesadded:
-                    shoes.AddSubstitution("smcp", glyph.name, glyph.layers[0].components[0].componentName + ".sc")
+                    shoes.AddSubstitution(
+                        "smcp",
+                        glyph.name,
+                        glyph.layers[0].components[0].componentName + ".sc",
+                    )
                     greeklinesadded.append(line)
 
     # case
@@ -495,9 +509,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             glyphName = glyph.layers[0].components[0].componentName
             lowercaseGlyphName = glyphName[0].lower() + glyphName[1:]
 
-            if shoes.HasGlyphs(
-                [glyph.name, lowercaseGlyphName + ".sc"]
-            ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
+            if shoes.HasGlyphs([glyph.name, lowercaseGlyphName + ".sc"]) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
                 addGreek(glyph.name, lowercaseGlyphName + ".sc")
 
             # if f.glyphs[lowercaseGlyphName]:
@@ -511,9 +523,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             glyphName = glyph.name
             lowercaseGlyphName = glyphName[0].lower() + glyphName[1:]
 
-            if shoes.HasGlyphs(
-                [glyph.name, lowercaseGlyphName + ".sc"]
-            ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
+            if shoes.HasGlyphs([glyph.name, lowercaseGlyphName + ".sc"]) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
                 addGreek(glyph.name, lowercaseGlyphName + ".sc")
             # if f.glyphs[lowercaseGlyphName]:
             #     shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
@@ -526,9 +536,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             glyphName = glyph.name
             lowercaseGlyphName = glyphName[0].lower() + glyphName[1:]
 
-            if shoes.HasGlyphs(
-                [glyph.name, lowercaseGlyphName + ".sc"]
-            ) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
+            if shoes.HasGlyphs([glyph.name, lowercaseGlyphName + ".sc"]) and not lowercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
                 addGreek(glyph.name, lowercaseGlyphName + ".sc")
                 # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
             # if f.glyphs[lowercaseGlyphName]:
@@ -538,19 +546,12 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             #     #     shoes.AddGlyphsToClass("@c2sc_target", lowercaseGlyphName + ".sc")
 
         # Alphaprosgegrammeni -> alphaypogegrammeni.sc
-        if (
-            glyph.script == "greek"
-            and glyph.category == "Letter"
-            and glyph.case == GlyphsApp.GSUppercase
-            and len(glyph.layers[0].components) == 2
-        ):
+        if glyph.script == "greek" and glyph.category == "Letter" and glyph.case == GlyphsApp.GSUppercase and len(glyph.layers[0].components) == 2:
             glyphName = glyph.layers[0].components[0].componentName
             lowercaseGlyphName = glyphName[0].lower() + glyphName[1:]
             lowercaseGlyphName = lowercaseGlyphName.replace("prosge", "ypoge")
 
-            if shoes.HasGlyphs(
-                [glyph.name, lowercaseGlyphName + ".sc"]
-            ) and not uppercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
+            if shoes.HasGlyphs([glyph.name, lowercaseGlyphName + ".sc"]) and not uppercaseGlyphName in shoes.GlyphsInClass("@c2sc_source"):
                 # print(glyph.name, lowercaseGlyphName)
                 addGreek(glyph.name, lowercaseGlyphName + ".sc")
                 # shoes.AddSubstitution("c2sc", glyph.name, lowercaseGlyphName + ".sc")
@@ -614,6 +615,20 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
     automaticCaltConnection = []
     doubleCaltConnections = []
     doubleCaltGlyphs = []
+
+    # Reduce kashidas
+    for i in range(10, 1, -1):
+
+        shoes.AddSubstitution(
+            GEXT_feature,
+            " ".join(["kashida-ar"] * i),
+            "kashida-ar",
+            "arab",
+            "",
+            "RightToLeft,IgnoreMarks",
+            "",
+            "swsh_reduce_kashidas",
+        )
 
     for glyph in shoes.Glyphs():
         if ".conn-" in glyph:
@@ -692,8 +707,21 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
                         if not listItem in doubleCaltConnections:
                             doubleCaltConnections.append(listItem)
 
+    replaceKashidaFor = ["mf"]
+
     for i, values in enumerate(sorted(automaticCaltConnection)):
         connectionName, lookupName = values
+        if connectionName in replaceKashidaFor:
+            shoes.AddSubstitution(
+                "calt",
+                "@conn_%s_1_source kashida-ar' @conn_%s_2_source" % (connectionName, connectionName),
+                "kashida-replacement",
+                "arab",
+                "",
+                "RightToLeft,IgnoreMarks",
+                connectionName,
+                "replace_kashida_for_%s" % (connectionName),
+            )
         shoes.AddSubstitution(
             "calt",
             "@conn_%s_1_source' @conn_%s_2_source" % (connectionName, connectionName),
@@ -720,8 +748,6 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
 
     for line in doubleCaltConnections:
         shoes.AddSubstitution(*line)
-
-    # 		shoes.AddSubstitution('calt', "@conn_%s_2_target @conn_%s_2_source'" % (connectionName, connectionName), '@conn_%s_2_target' % connectionName, 'arab', '', 'RightToLeft,IgnoreMarks', connectionName, '%s_%s' % (lookupName, i))
 
     if shoes.HasGroups([".lohi", ".hi"]):
 
@@ -774,135 +800,6 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "RightToLeft,IgnoreMarks",
         )
 
-    # New way to do swashes: elongations
-    for glyph in f.glyphs:
-        if ".er" in glyph.name and glyph.category == "Letter":
-            if f.glyphs[glyph.name.replace(".er", "")]:
-                shoes.AddGlyphsToClass("@swsh_er_source", glyph.name.replace(".er", ""))
-                shoes.AddGlyphsToClass("@swsh_er_target", glyph.name)
-        if ".el" in glyph.name and glyph.category == "Letter":
-            if f.glyphs[glyph.name.replace(".el", "")]:
-                shoes.AddGlyphsToClass("@swsh_el_source", glyph.name.replace(".el", ""))
-                shoes.AddGlyphsToClass("@swsh_el_target", glyph.name)
-
-    if shoes.HasClasses(["@swsh_el_source", "@swsh_el_target", "@swsh_er_source", "@swsh_er_target"]):
-        shoes.AddSubstitution(
-            "swsh",
-            "@swsh_el_source' @swsh_er_source",
-            "@swsh_el_target",
-            "arab",
-            "",
-            "RightToLeft,IgnoreMarks",
-            "",
-            "swsh_elongations_1",
-        )
-        # Turn off consecutive replacements
-        shoes.AddSubstitution(
-            "swsh",
-            "@swsh_el_target @swsh_el_target'",
-            "@swsh_el_source",
-            "arab",
-            "",
-            "RightToLeft,IgnoreMarks",
-            "",
-            "swsh_elongations_2",
-        )
-        shoes.AddSubstitution(
-            "swsh",
-            "@swsh_el_target @swsh_er_source'",
-            "@swsh_er_target",
-            "arab",
-            "",
-            "RightToLeft,IgnoreMarks",
-            "",
-            "swsh_elongations_3",
-        )
-
-    # Old way to do swashes
-    # # Swashes
-    # for glyph in f.glyphs:
-    #     if ".swsh" in glyph.name and glyph.category == "Letter":
-    #         if f.glyphs[glyph.name.replace(".swsh", "")]:
-    #             shoes.AddGlyphsToClass("@swsh_source", glyph.name.replace(".swsh", ""))
-    #             shoes.AddGlyphsToClass("@swsh_target", glyph.name)
-    #     elif ".swsh" in glyph.name:
-    #         if f.glyphs[glyph.name.replace(".swsh", "")]:
-    #             shoes.AddGlyphsToClass("@swshtaskeel_source", glyph.name.replace(".swsh", ""))
-    #             shoes.AddGlyphsToClass("@swshtaskeel_target", glyph.name)
-
-    # if shoes.HasClasses(["@swsh_source", "@swsh_target"]):
-    #     shoes.AddSubstitution(
-    #         "swsh",
-    #         "@swsh_source",
-    #         "@swsh_target",
-    #         "arab",
-    #         "",
-    #         "RightToLeft,IgnoreMarks",
-    #         # "",
-    #         # "swsh_tashkeel",
-    #     )
-
-    # # Contextual swashes
-    # if shoes.HasClasses(["@swsh_source", "@swsh_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
-    #     shoes.AddSubstitution(
-    #         "swsh",
-    #         "@swsh_target @swshtaskeel_source'",
-    #         "@swshtaskeel_target",
-    #         "arab",
-    #         "",
-    #         "RightToLeft",
-    #         "",
-    #         "swsh_tashkeel",
-    #     )
-
-    # Additional swashes
-    if shoes.HasGroups([".swsh"]):
-
-        for glyph in shoes.Glyphs():
-            if ".swsh" in glyph:
-                if shoes.HasGlyphs([glyph.replace(".swsh", ".hitooth")]):
-                    shoes.AddGlyphsToClass("@swsh_source", glyph.replace(".swsh", ".hitooth"))
-                    shoes.AddGlyphsToClass("@swsh_target", glyph)
-                    # shoes.AddSubstitution(
-                    #     "swsh",
-                    #     glyph.replace(".swsh", ".hitooth"),
-                    #     glyph,
-                    #     "arab",
-                    #     "",
-                    #     "RightToLeft,IgnoreMarks",
-                    # )
-                if shoes.HasGlyphs([glyph.replace(".swsh", ".dotColl")]):
-                    shoes.AddGlyphsToClass("@swsh_source", glyph.replace(".swsh", ".dotColl"))
-                    shoes.AddGlyphsToClass("@swsh_target", glyph)
-                    # shoes.AddSubstitution(
-                    #     "swsh",
-                    #     glyph.replace(".swsh", ".dotColl"),
-                    #     glyph,
-                    #     "arab",
-                    #     "",
-                    #     "RightToLeft,IgnoreMarks",
-                    # )
-
-        # if shoes.HasGroups(['.lohi', '.hihi']):
-        # 	for glyph in shoes.Glyphs():
-        # 		if '.init.hihi' in glyph:
-        # 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '.lohi')]):
-        # 				shoes.AddGlyphsToClass('@arabmedihihi_source', glyph.replace('.hihi', '.lohi'))
-        # 				shoes.AddGlyphsToClass('@arabmedihihi_target', glyph)
-        # 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '')]):
-        # 				shoes.AddGlyphsToClass('@arabmedihihi_source', glyph.replace('.hihi', ''))
-        # 				shoes.AddGlyphsToClass('@arabmedihihi_target', glyph)
-        # 	for glyph in shoes.Glyphs():
-        # 		if '.fina.hihi' in glyph:
-        # 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '.hi')]):
-        # 				shoes.AddGlyphsToClass('@arabfinahihi_source', glyph.replace('.hihi', '.hi'))
-        # 				shoes.AddGlyphsToClass('@arabfinahihi_target', glyph)
-        # 			if shoes.HasGlyphs([glyph, glyph.replace('.fina.hihi', '.fina')]):
-        # 				shoes.AddGlyphsToClass('@arabfinahihi_source', glyph.replace('.fina.hihi', '.fina'))
-        # 				shoes.AddGlyphsToClass('@arabfinahihi_target', glyph)
-        # 	shoes.AddSubstitution('calt', "@arabmedihihi_source' @arabfinahihi_source", '@arabmedihihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
-        # 	shoes.AddSubstitution('calt', "@arabmedihihi_target @arabfinahihi_source'", '@arabfinahihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
-
     # HIGH TEETH
     if shoes.HasGroups([".hitooth"]):
         for glyph in shoes.Glyphs():
@@ -923,8 +820,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         )
         shoes.AddSubstitution(
             "calt",
-            "[@hitooth_source @beh_init @seen_initmedi @sad_initmedi @hitooth_trigger] @hitooth_source'"
-            " [@hitooth_source @seen_medifina @beh_fina]",
+            "[@hitooth_source @beh_init @seen_initmedi @sad_initmedi @hitooth_trigger] @hitooth_source' [@hitooth_source @seen_medifina @beh_fina]",
             "@hitooth_target",
             "arab",
             "",
@@ -962,58 +858,6 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "",
             "hitooth4",
         )
-
-    # dot collisions
-    if shoes.HasClasses(["@dotCollisionTop"]):
-        for glyph in shoes.GlyphsInClass("@dotCollisionTop"):
-            if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
-                shoes.AddGlyphsToClass("@dotCollTop_source", glyph.replace(".dotColl", ""))
-                shoes.AddGlyphsToClass("@dotCollTop_target", glyph)
-        # shoes.AddSubstitution(
-        #     "calt",
-        #     "@dotCollTop_source' @dotCollTop_source",
-        #     "@dotCollTop_target",
-        #     "arab",
-        #     "",
-        #     "RightToLeft,IgnoreMarks",
-        # )
-    if shoes.HasClasses(["@dotCollisionBottom"]):
-        for glyph in shoes.GlyphsInClass("@dotCollisionBottom"):
-            if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
-                shoes.AddGlyphsToClass("@dotCollBottom_source", glyph.replace(".dotColl", ""))
-                shoes.AddGlyphsToClass("@dotCollBottom_target", glyph)
-        # shoes.AddSubstitution(
-        #     "calt",
-        #     "@dotCollBottom_source' @dotCollBottom_source",
-        #     "@dotCollBottom_target",
-        #     "arab",
-        #     "",
-        #     "RightToLeft,IgnoreMarks",
-        # )
-
-        if shoes.HasClasses(["@dotCollisionTopTrigger"]):
-            shoes.AddSubstitution(
-                "calt",
-                "@dotCollTop_source' @dotCollisionTopTrigger",
-                "@dotCollTop_target",
-                "arab",
-                "",
-                "RightToLeft,IgnoreMarks",
-                "",
-                "dotcoll",
-            )
-
-        if shoes.HasClasses(["@dotCollisionBottomTrigger"]):
-            shoes.AddSubstitution(
-                "calt",
-                "@dotCollBottom_source' @dotCollisionBottomTrigger",
-                "@dotCollBottom_target",
-                "arab",
-                "",
-                "RightToLeft,IgnoreMarks",
-                "",
-                "dotcoll",
-            )
 
     # YEH BARREE
     if shoes.HasClasses(["@yehBarreeShortTrigger", "@yehBarreeAlt"]):
@@ -1078,6 +922,341 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         "low_meem_harakat",
     )
 
+    # New way to do swashes: elongations
+    for glyph in f.glyphs:
+        if ".er" in glyph.name and glyph.category == "Letter":
+            if f.glyphs[glyph.name.replace(".er", "")]:
+                shoes.AddGlyphsToClass("@swsh_er_source", glyph.name.replace(".er", ""))
+                shoes.AddGlyphsToClass("@swsh_er_target", glyph.name)
+        if ".el" in glyph.name and glyph.category == "Letter":
+            if f.glyphs[glyph.name.replace(".el", "")]:
+                shoes.AddGlyphsToClass("@swsh_el_source", glyph.name.replace(".el", ""))
+                shoes.AddGlyphsToClass("@swsh_el_target", glyph.name)
+
+    if shoes.HasClasses(["@swsh_el_source", "@swsh_el_target", "@swsh_er_source", "@swsh_er_target"]):
+
+        # Put marks into class
+        for glyph in f.glyphs:
+            if glyph.category == "Mark":
+                shoes.AddGlyphsToClass("@marks", glyph.name)
+
+        # Actual substitutions
+
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_source' kashida-ar @swsh_er_source",
+            "@swsh_el_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_2",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_source' kashida-replacement @swsh_er_source",
+            "@swsh_el_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_2",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_source' @marks kashida-ar @swsh_er_source",
+            "@swsh_el_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_2",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_source' @marks kashida-replacement @swsh_er_source",
+            "@swsh_el_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_2",
+        )
+
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target kashida-ar @swsh_el_target'",
+            "@swsh_el_source",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_3",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target kashida-replacement @swsh_el_target'",
+            "@swsh_el_source",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_3",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target @marks kashida-ar @swsh_el_target'",
+            "@swsh_el_source",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_3",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target @marks kashida-replacement @swsh_el_target'",
+            "@swsh_el_source",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_3",
+        )
+
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target kashida-ar @swsh_er_source'",
+            "@swsh_er_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_4",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target kashida-replacement @swsh_er_source'",
+            "@swsh_er_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_4",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target @marks kashida-ar @swsh_er_source'",
+            "@swsh_er_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_4",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target @marks kashida-replacement @swsh_er_source'",
+            "@swsh_er_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_4",
+        )
+
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target kashida-ar' @swsh_er_target",
+            "NULL",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_1",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target kashida-replacement' @swsh_er_target",
+            "NULL",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_1",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target @marks kashida-ar' @swsh_er_target",
+            "NULL",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_1",
+        )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target @marks kashida-replacement' @swsh_er_target",
+            "NULL",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_elongations_1",
+        )
+
+    # Old way to do swashes
+    # Swashes
+    for glyph in f.glyphs:
+        if ".swsh" in glyph.name and glyph.category == "Letter":
+            # if f.glyphs[glyph.name.replace(".swsh", "")]:
+            #     shoes.AddGlyphsToClass("@swsh_source", glyph.name.replace(".swsh", ""))
+            #     shoes.AddGlyphsToClass("@swsh_target", glyph.name)
+            pass
+        elif ".swsh" in glyph.name:
+            if f.glyphs[glyph.name.replace(".swsh", "")]:
+                shoes.AddGlyphsToClass("@swshtaskeel_source", glyph.name.replace(".swsh", ""))
+                shoes.AddGlyphsToClass("@swshtaskeel_target", glyph.name)
+
+    if shoes.HasClasses(["@swsh_source", "@swsh_target"]):
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_source",
+            "@swsh_target",
+            "arab",
+            "",
+            "RightToLeft,IgnoreMarks",
+            # "",
+            # "swsh_tashkeel",
+        )
+
+    # Contextual swashes
+    if shoes.HasClasses(["@swsh_el_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target @swshtaskeel_source'",
+            "@swshtaskeel_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_tashkeel",
+        )
+
+    # Contextual swashes
+    if shoes.HasClasses(["@swsh_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_target @swshtaskeel_source'",
+            "@swshtaskeel_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_tashkeel",
+        )
+
+    # dot collisions
+    if shoes.HasClasses(["@dotCollisionTop"]):
+        for glyph in shoes.GlyphsInClass("@dotCollisionTop"):
+            if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
+                shoes.AddGlyphsToClass("@dotCollTop_source", glyph.replace(".dotColl", ""))
+                shoes.AddGlyphsToClass("@dotCollTop_target", glyph)
+        # shoes.AddSubstitution(
+        #     "calt",
+        #     "@dotCollTop_source' @dotCollTop_source",
+        #     "@dotCollTop_target",
+        #     "arab",
+        #     "",
+        #     "RightToLeft,IgnoreMarks",
+        # )
+    if shoes.HasClasses(["@dotCollisionBottom"]):
+        for glyph in shoes.GlyphsInClass("@dotCollisionBottom"):
+            if shoes.HasGlyphs([glyph, glyph.replace(".dotColl", "")]):
+                shoes.AddGlyphsToClass("@dotCollBottom_source", glyph.replace(".dotColl", ""))
+                shoes.AddGlyphsToClass("@dotCollBottom_target", glyph)
+        # shoes.AddSubstitution(
+        #     "calt",
+        #     "@dotCollBottom_source' @dotCollBottom_source",
+        #     "@dotCollBottom_target",
+        #     "arab",
+        #     "",
+        #     "RightToLeft,IgnoreMarks",
+        # )
+
+        if shoes.HasClasses(["@dotCollisionTopTrigger"]):
+            shoes.AddSubstitution(
+                "calt",
+                "@dotCollTop_source' @dotCollisionTopTrigger",
+                "@dotCollTop_target",
+                "arab",
+                "",
+                "RightToLeft,IgnoreMarks",
+                "",
+                "dotcoll",
+            )
+
+        if shoes.HasClasses(["@dotCollisionBottomTrigger"]):
+            shoes.AddSubstitution(
+                "calt",
+                "@dotCollBottom_source' @dotCollisionBottomTrigger",
+                "@dotCollBottom_target",
+                "arab",
+                "",
+                "RightToLeft,IgnoreMarks",
+                "",
+                "dotcoll",
+            )
+
+    # Additional swashes
+    if shoes.HasGroups([".swsh"]):
+
+        for glyph in shoes.Glyphs():
+            if ".swsh" in glyph:
+                if shoes.HasGlyphs([glyph.replace(".swsh", ".hitooth")]):
+                    shoes.AddGlyphsToClass("@swsh_source", glyph.replace(".swsh", ".hitooth"))
+                    shoes.AddGlyphsToClass("@swsh_target", glyph)
+                    # shoes.AddSubstitution(
+                    #     "swsh",
+                    #     glyph.replace(".swsh", ".hitooth"),
+                    #     glyph,
+                    #     "arab",
+                    #     "",
+                    #     "RightToLeft,IgnoreMarks",
+                    # )
+                if shoes.HasGlyphs([glyph.replace(".swsh", ".dotColl")]):
+                    shoes.AddGlyphsToClass("@swsh_source", glyph.replace(".swsh", ".dotColl"))
+                    shoes.AddGlyphsToClass("@swsh_target", glyph)
+                    # shoes.AddSubstitution(
+                    #     "swsh",
+                    #     glyph.replace(".swsh", ".dotColl"),
+                    #     glyph,
+                    #     "arab",
+                    #     "",
+                    #     "RightToLeft,IgnoreMarks",
+                    # )
+
+        # if shoes.HasGroups(['.lohi', '.hihi']):
+        # 	for glyph in shoes.Glyphs():
+        # 		if '.init.hihi' in glyph:
+        # 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '.lohi')]):
+        # 				shoes.AddGlyphsToClass('@arabmedihihi_source', glyph.replace('.hihi', '.lohi'))
+        # 				shoes.AddGlyphsToClass('@arabmedihihi_target', glyph)
+        # 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '')]):
+        # 				shoes.AddGlyphsToClass('@arabmedihihi_source', glyph.replace('.hihi', ''))
+        # 				shoes.AddGlyphsToClass('@arabmedihihi_target', glyph)
+        # 	for glyph in shoes.Glyphs():
+        # 		if '.fina.hihi' in glyph:
+        # 			if shoes.HasGlyphs([glyph, glyph.replace('.hihi', '.hi')]):
+        # 				shoes.AddGlyphsToClass('@arabfinahihi_source', glyph.replace('.hihi', '.hi'))
+        # 				shoes.AddGlyphsToClass('@arabfinahihi_target', glyph)
+        # 			if shoes.HasGlyphs([glyph, glyph.replace('.fina.hihi', '.fina')]):
+        # 				shoes.AddGlyphsToClass('@arabfinahihi_source', glyph.replace('.fina.hihi', '.fina'))
+        # 				shoes.AddGlyphsToClass('@arabfinahihi_target', glyph)
+        # 	shoes.AddSubstitution('calt', "@arabmedihihi_source' @arabfinahihi_source", '@arabmedihihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
+        # 	shoes.AddSubstitution('calt', "@arabmedihihi_target @arabfinahihi_source'", '@arabfinahihi_target', 'arab', '', 'RightToLeft,IgnoreMarks', '', 'behyeh')
+
     # Duplicate Features
     for source, target in duplicateFeatures:
         features.remove(target)
@@ -1087,36 +1266,36 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         if target.startswith("ss") and source in OTfeatures:
             shoes.SetStylisticSetName(target, OTfeatures[source])
 
-    # CCMP
-    for glyph in f.glyphs:
-        if glyph.category == "Mark" and "_" in glyph.name and not "." in glyph.name:
-            if "-" in glyph.name:
-                glyphName, script = glyph.name.split("-")
-                script = "-" + script
-            else:
-                glyphName = glyph.name
-                script = ""
+    # # CCMP
+    # for glyph in f.glyphs:
+    #     if glyph.category == "Mark" and "_" in glyph.name and not "." in glyph.name:
+    #         if "-" in glyph.name:
+    #             glyphName, script = glyph.name.split("-")
+    #             script = "-" + script
+    #         else:
+    #             glyphName = glyph.name
+    #             script = ""
 
-            shoes.AddSubstitution(
-                "ccmp",
-                " ".join([f"{x}{script}" for x in glyphName.split("_")]),
-                glyph.name,
-                "",
-                "",
-                "0",
-                "",
-                "",
-            )
-            shoes.AddSubstitution(
-                "ccmp",
-                " ".join(reversed([f"{x}{script}" for x in glyphName.split("_")])),
-                glyph.name,
-                "",
-                "",
-                "0",
-                "",
-                "",
-            )
+    #         shoes.AddSubstitution(
+    #             "ccmp",
+    #             " ".join([f"{x}{script}" for x in glyphName.split("_")]),
+    #             glyph.name,
+    #             "",
+    #             "",
+    #             "0",
+    #             "",
+    #             "",
+    #         )
+    #         shoes.AddSubstitution(
+    #             "ccmp",
+    #             " ".join(reversed([f"{x}{script}" for x in glyphName.split("_")])),
+    #             glyph.name,
+    #             "",
+    #             "",
+    #             "0",
+    #             "",
+    #             "",
+    #         )
 
     # Custom font code
     if f.note:
