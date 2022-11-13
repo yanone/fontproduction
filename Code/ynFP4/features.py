@@ -950,29 +950,8 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "",
             "RightToLeft",
             "",
-            "swsh_elongations_2",
+            "kashida_step1",
         )
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_el_source' @marks [kashida-ar kashida-replacement] @swsh_er_source",
-            "@swsh_el_target",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_elongations_2",
-        )
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_el_source' [kashida-ar kashida-replacement] @marks @swsh_er_source",
-            "@swsh_el_target",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_elongations_2",
-        )
-
         shoes.AddSubstitution(
             GEXT_feature,
             "@swsh_el_target [kashida-ar kashida-replacement] @swsh_el_target'",
@@ -981,29 +960,8 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "",
             "RightToLeft",
             "",
-            "swsh_elongations_3",
+            "kashida_step2",
         )
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_el_target @marks [kashida-ar kashida-replacement] @swsh_el_target'",
-            "@swsh_el_source",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_elongations_3",
-        )
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_el_target [kashida-ar kashida-replacement] @marks @swsh_el_target'",
-            "@swsh_el_source",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_elongations_3",
-        )
-
         shoes.AddSubstitution(
             GEXT_feature,
             "@swsh_el_target [kashida-ar kashida-replacement] @swsh_er_source'",
@@ -1012,59 +970,104 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "",
             "RightToLeft",
             "",
-            "swsh_elongations_4",
+            "kashida_step3",
         )
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_el_target @marks [kashida-ar kashida-replacement] @swsh_er_source'",
-            "@swsh_er_target",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_elongations_4",
-        )
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_el_target [kashida-ar kashida-replacement] @marks @swsh_er_source'",
-            "@swsh_er_target",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_elongations_4",
-        )
-
         shoes.AddSubstitution(
             GEXT_feature,
             "@swsh_el_target [kashida-ar kashida-replacement]' @swsh_er_target",
-            "NULL",
+            "zerowidthjoiner",
             "arab",
             "",
             "RightToLeft",
             "",
-            "swsh_elongations_1",
+            "kashida_step4",
         )
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_el_target @marks [kashida-ar kashida-replacement]' @swsh_er_target",
-            "NULL",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_elongations_1",
-        )
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_el_target [kashida-ar kashida-replacement]' @marks @swsh_er_target",
-            "NULL",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_elongations_1",
-        )
+
+        for marks in ["@marks @marks @marks", "@marks @marks", "@marks"]:
+
+            shoes.AddSubstitution(
+                GEXT_feature,
+                f"@swsh_el_source' {marks} [kashida-ar kashida-replacement] @swsh_er_source",
+                "@swsh_el_target",
+                "arab",
+                "",
+                "RightToLeft",
+                "",
+                "kashida_step1",
+            )
+            shoes.AddSubstitution(
+                GEXT_feature,
+                f"@swsh_el_source' [kashida-ar kashida-replacement] {marks} @swsh_er_source",
+                "@swsh_el_target",
+                "arab",
+                "",
+                "RightToLeft",
+                "",
+                "kashida_step1",
+            )
+
+            shoes.AddSubstitution(
+                GEXT_feature,
+                f"@swsh_el_target {marks} [kashida-ar kashida-replacement] @swsh_el_target'",
+                "@swsh_el_source",
+                "arab",
+                "",
+                "RightToLeft",
+                "",
+                "kashida_step2",
+            )
+            shoes.AddSubstitution(
+                GEXT_feature,
+                f"@swsh_el_target [kashida-ar kashida-replacement] {marks} @swsh_el_target'",
+                "@swsh_el_source",
+                "arab",
+                "",
+                "RightToLeft",
+                "",
+                "kashida_step2",
+            )
+
+            shoes.AddSubstitution(
+                GEXT_feature,
+                f"@swsh_el_target {marks} [kashida-ar kashida-replacement] @swsh_er_source'",
+                "@swsh_er_target",
+                "arab",
+                "",
+                "RightToLeft",
+                "",
+                "kashida_step3",
+            )
+            shoes.AddSubstitution(
+                GEXT_feature,
+                f"@swsh_el_target [kashida-ar kashida-replacement] {marks} @swsh_er_source'",
+                "@swsh_er_target",
+                "arab",
+                "",
+                "RightToLeft",
+                "",
+                "kashida_step3",
+            )
+
+            shoes.AddSubstitution(
+                GEXT_feature,
+                f"@swsh_el_target {marks} [kashida-ar kashida-replacement]' @swsh_er_target",
+                "zerowidthjoiner",
+                "arab",
+                "",
+                "RightToLeft",
+                "",
+                "kashida_step4",
+            )
+            shoes.AddSubstitution(
+                GEXT_feature,
+                f"@swsh_el_target [kashida-ar kashida-replacement]' {marks} @swsh_er_target",
+                "zerowidthjoiner",
+                "arab",
+                "",
+                "RightToLeft",
+                "",
+                "kashida_step4",
+            )
 
     # Old way to do swashes
     # Swashes
@@ -1103,12 +1106,34 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "",
             "swsh_tashkeel",
         )
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_el_target zerowidthjoiner @swshtaskeel_source'",
+            "@swshtaskeel_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_tashkeel",
+        )
 
     # Contextual swashes
     if shoes.HasClasses(["@swsh_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
         shoes.AddSubstitution(
             GEXT_feature,
             "@swsh_target @swshtaskeel_source'",
+            "@swshtaskeel_target",
+            "arab",
+            "",
+            "RightToLeft",
+            "",
+            "swsh_tashkeel",
+        )
+    # Contextual swashes
+    if shoes.HasClasses(["@swsh_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
+        shoes.AddSubstitution(
+            GEXT_feature,
+            "@swsh_target zerowidthjoiner @swshtaskeel_source'",
             "@swshtaskeel_target",
             "arab",
             "",
