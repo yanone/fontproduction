@@ -131,7 +131,7 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         ("salt", ".salt"),
         ("sups", ".sups"),
         ("subs", ".subs"),
-        # ("swsh", ".swsh"),
+        ("swsh", ".swsh"),
         ("zero", ".zero"),
     )
     for feature, ending in directsubstitutions:
@@ -1077,10 +1077,10 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             #     shoes.AddGlyphsToClass("@swsh_source", glyph.name.replace(".swsh", ""))
             #     shoes.AddGlyphsToClass("@swsh_target", glyph.name)
             pass
-        elif ".swsh" in glyph.name:
-            if f.glyphs[glyph.name.replace(".swsh", "")]:
-                shoes.AddGlyphsToClass("@swshtaskeel_source", glyph.name.replace(".swsh", ""))
-                shoes.AddGlyphsToClass("@swshtaskeel_target", glyph.name)
+        elif ".gext" in glyph.name and glyph.category == "Mark":
+            if f.glyphs[glyph.name.replace(".gext", "")]:
+                shoes.AddGlyphsToClass("@gext_tashkeel_source", glyph.name.replace(".gext", ""))
+                shoes.AddGlyphsToClass("@gext_tashkeel_target", glyph.name)
 
     if shoes.HasClasses(["@swsh_source", "@swsh_target"]):
         shoes.AddSubstitution(
@@ -1095,11 +1095,11 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         )
 
     # Contextual swashes
-    if shoes.HasClasses(["@swsh_el_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
+    if shoes.HasClasses(["@swsh_el_target", "@gext_tashkeel_source", "@gext_tashkeel_target"]):
         shoes.AddSubstitution(
             GEXT_feature,
-            "@swsh_el_target @swshtaskeel_source'",
-            "@swshtaskeel_target",
+            "@swsh_el_target @gext_tashkeel_source'",
+            "@gext_tashkeel_target",
             "arab",
             "",
             "RightToLeft",
@@ -1108,8 +1108,8 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         )
         shoes.AddSubstitution(
             GEXT_feature,
-            "@swsh_el_target zerowidthjoiner @swshtaskeel_source'",
-            "@swshtaskeel_target",
+            "@swsh_el_target zerowidthjoiner @gext_tashkeel_source'",
+            "@gext_tashkeel_target",
             "arab",
             "",
             "RightToLeft",
@@ -1118,11 +1118,11 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
         )
 
     # Contextual swashes
-    if shoes.HasClasses(["@swsh_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
+    if shoes.HasClasses(["@swsh_target", "@gext_tashkeel_source", "@gext_tashkeel_target"]):
         shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_target @swshtaskeel_source'",
-            "@swshtaskeel_target",
+            "swsh",
+            "@swsh_target @gext_tashkeel_source'",
+            "@gext_tashkeel_target",
             "arab",
             "",
             "RightToLeft",
@@ -1130,11 +1130,11 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "swsh_tashkeel",
         )
     # Contextual swashes
-    if shoes.HasClasses(["@swsh_target", "@swshtaskeel_source", "@swshtaskeel_target"]):
+    if shoes.HasClasses(["@swsh_target", "@gext_tashkeel_source", "@gext_tashkeel_target"]):
         shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_target zerowidthjoiner @swshtaskeel_source'",
-            "@swshtaskeel_target",
+            "swsh",
+            "@swsh_target zerowidthjoiner @gext_tashkeel_source'",
+            "@gext_tashkeel_target",
             "arab",
             "",
             "RightToLeft",
