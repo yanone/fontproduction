@@ -1082,17 +1082,17 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
                 shoes.AddGlyphsToClass("@gext_tashkeel_source", glyph.name.replace(".gext", ""))
                 shoes.AddGlyphsToClass("@gext_tashkeel_target", glyph.name)
 
-    if shoes.HasClasses(["@swsh_source", "@swsh_target"]):
-        shoes.AddSubstitution(
-            GEXT_feature,
-            "@swsh_source",
-            "@swsh_target",
-            "arab",
-            "",
-            "RightToLeft,IgnoreMarks",
-            # "",
-            # "swsh_tashkeel",
-        )
+    # if shoes.HasClasses(["@swsh_source", "@swsh_target"]):
+    #     shoes.AddSubstitution(
+    #         GEXT_feature,
+    #         "@swsh_source",
+    #         "@swsh_target",
+    #         "arab",
+    #         "",
+    #         "RightToLeft,IgnoreMarks",
+    #         # "",
+    #         # "swsh_tashkeel",
+    #     )
 
     # Contextual swashes
     if shoes.HasClasses(["@swsh_el_target", "@gext_tashkeel_source", "@gext_tashkeel_target"]):
@@ -1129,18 +1129,18 @@ def MakeDancingShoes(f, glyphnames, features=None, stylisticsetnames=None, defau
             "",
             "swsh_tashkeel",
         )
-    # Contextual swashes
-    if shoes.HasClasses(["@swsh_target", "@gext_tashkeel_source", "@gext_tashkeel_target"]):
-        shoes.AddSubstitution(
-            "swsh",
-            "@swsh_target zerowidthjoiner @gext_tashkeel_source'",
-            "@gext_tashkeel_target",
-            "arab",
-            "",
-            "RightToLeft",
-            "",
-            "swsh_tashkeel",
-        )
+    # # Contextual swashes
+    # if shoes.HasClasses(["@swsh_target", "@gext_tashkeel_source", "@gext_tashkeel_target"]):
+    #     shoes.AddSubstitution(
+    #         "swsh",
+    #         "@swsh_target zerowidthjoiner @gext_tashkeel_source'",
+    #         "@gext_tashkeel_target",
+    #         "arab",
+    #         "",
+    #         "RightToLeft",
+    #         "",
+    #         "swsh_tashkeel",
+    #     )
 
     # dot collisions
     if shoes.HasClasses(["@dotCollisionTop"]):
