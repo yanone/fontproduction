@@ -54,8 +54,9 @@ class TashkeelPositionsFilter(BaseFilter):
 
         # Adjust anchors positions
 
-        # for target_anchor_name in _anchors_startswith_name(glyph, "top"):
+        # TOP
         if _find_anchor(glyph, "top") and _find_anchor(glyph, "mark_top"):
+            _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
             _find_anchor(glyph, "top").y = max(
                 _find_anchor(glyph, "top").y, _find_anchor(glyph, "mark_top").y
             )
@@ -67,7 +68,9 @@ class TashkeelPositionsFilter(BaseFilter):
                 _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
             modified = True
 
+        # BOTTOM
         if _find_anchor(glyph, "bottom") and _find_anchor(glyph, "mark_bottom"):
+            _find_anchor(glyph, "bottom").x = _find_anchor(glyph, "mark_bottom").x
             _find_anchor(glyph, "bottom").y = min(
                 _find_anchor(glyph, "bottom").y, _find_anchor(glyph, "mark_bottom").y
             )
