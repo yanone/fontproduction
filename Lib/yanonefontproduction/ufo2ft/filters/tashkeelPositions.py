@@ -41,12 +41,12 @@ class TashkeelPositionsFilter(BaseFilter):
 
     _kwargs = {"a": 0}
 
-    def __call__(self, font, glyphSet=None):
-        if super().__call__(font, glyphSet):
-            modified = self.context.modified
-            if modified:
-                logger.info("Adjusted mark positions: %i" % len(modified))
-            return modified
+    # def __call__(self, font, glyphSet=None):
+    #     if super().__call__(font, glyphSet):
+    #         modified = self.context.modified
+    #         if modified:
+    #             logger.info("Adjusted mark positions: %i" % len(modified))
+    #         return modified
 
     def filter(self, glyph):
 
