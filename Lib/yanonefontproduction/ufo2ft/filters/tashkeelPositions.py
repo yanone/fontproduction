@@ -1,4 +1,5 @@
 import logging
+import copy
 
 from ufo2ft.filters import BaseFilter
 from fontTools.pens.boundsPen import ControlBoundsPen
@@ -12,9 +13,9 @@ def _find_anchor(glyph, name):
             return anchor
 
 
-def get_controlPointBounds(glyph):
+def get_bounds(glyph, glyphset):
     try:
-        pen = ControlBoundsPen(None)
+        pen = ControlBoundsPen(glyphset)
         glyph.draw(pen)
         return pen.bounds
     except Exception:
@@ -48,7 +49,14 @@ class TashkeelPositionsFilter(BaseFilter):
     #             logger.info("Adjusted mark positions: %i" % len(modified))
     #         return modified
 
+    def glyphset(self):
+        if not hasattr(self, "_glyphset"):
+            self._glyphset = self.context.glyphSet
+        return self._glyphset
+
     def filter(self, glyph):
+
+        bounds = get_bounds(glyph, self.glyphset())
 
         modified = False
 
@@ -58,14 +66,22 @@ class TashkeelPositionsFilter(BaseFilter):
         if _find_anchor(glyph, "top") and _find_anchor(glyph, "mark_top"):
             _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
             _find_anchor(glyph, "top").y = max(
-                _find_anchor(glyph, "top").y, _find_anchor(glyph, "mark_top").y
+                _find_anchor(glyph, "top").y,
+                _find_anchor(glyph, "mark_top").y,
             )
+
             if (
                 abs(_find_anchor(glyph, "top").x - _find_anchor(glyph, "mark_top").x)
                 > 100
             ):
                 _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
                 _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
+
+            # Recently added:
+            if bounds:
+                if _find_anchor(glyph, "top").y < bounds[3] + 50:
+                    _find_anchor(glyph, "top").y = bounds[3] + 50
+
             modified = True
 
         # BOTTOM
