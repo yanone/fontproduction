@@ -62,6 +62,18 @@ class TashkeelPositionsFilter(BaseFilter):
 
         # Adjust anchors positions
 
+        # Delete top and bottom anchors if glyph is a ligature
+        # these are left-overs from marks and are not supposed to exist
+        if (
+            "_" in glyph.name
+            and not glyph.name.startswith("_")
+            and len(glyph.components) > 1
+        ):
+            if _find_anchor(glyph, "top"):
+                del glyph.anchors[glyph.anchors.index(_find_anchor(glyph, "top"))]
+            if _find_anchor(glyph, "bottom"):
+                del glyph.anchors[glyph.anchors.index(_find_anchor(glyph, "bottom"))]
+
         # TOP
         if _find_anchor(glyph, "top") and _find_anchor(glyph, "mark_top"):
             _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
