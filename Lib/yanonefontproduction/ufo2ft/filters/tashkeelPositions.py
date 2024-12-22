@@ -77,22 +77,32 @@ class TashkeelPositionsFilter(BaseFilter):
         # TOP
         if _find_anchor(glyph, "top") and _find_anchor(glyph, "mark_top"):
             _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
-            _find_anchor(glyph, "top").y = max(
-                _find_anchor(glyph, "top").y,
-                _find_anchor(glyph, "mark_top").y,
-            )
 
-            if (
-                abs(_find_anchor(glyph, "top").x - _find_anchor(glyph, "mark_top").x)
-                > 100
-            ):
-                _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
+            # Don't reposition top anchors vertically for .el wide masters
+            dont = ".el" in glyph.name and glyph.width > 2000
+            if not dont:
+
+                _find_anchor(glyph, "top").y = max(
+                    _find_anchor(glyph, "top").y,
+                    _find_anchor(glyph, "mark_top").y,
+                )
+
+                if (
+                    abs(
+                        _find_anchor(glyph, "top").x - _find_anchor(glyph, "mark_top").x
+                    )
+                    > 100
+                ):
+                    _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
+                    _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
+
+                # Recently added:
+                if bounds:
+                    if _find_anchor(glyph, "top").y < bounds[3] + 50:
+                        _find_anchor(glyph, "top").y = bounds[3] + 50
+
+            else:
                 _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
-
-            # Recently added:
-            if bounds:
-                if _find_anchor(glyph, "top").y < bounds[3] + 50:
-                    _find_anchor(glyph, "top").y = bounds[3] + 50
 
             modified = True
 
@@ -100,7 +110,8 @@ class TashkeelPositionsFilter(BaseFilter):
         if _find_anchor(glyph, "bottom") and _find_anchor(glyph, "mark_bottom"):
             _find_anchor(glyph, "bottom").x = _find_anchor(glyph, "mark_bottom").x
             _find_anchor(glyph, "bottom").y = min(
-                _find_anchor(glyph, "bottom").y, _find_anchor(glyph, "mark_bottom").y
+                _find_anchor(glyph, "bottom").y,
+                _find_anchor(glyph, "mark_bottom").y,
             )
             modified = True
 
@@ -122,6 +133,7 @@ class TashkeelPositionsFilter(BaseFilter):
                 ).y
                 - 150
             )
+
         # Ligatures
         if glyph.components:
             for i in range(len(glyph.components)):
