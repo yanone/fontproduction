@@ -109,10 +109,16 @@ class TashkeelPositionsFilter(BaseFilter):
         # BOTTOM
         if _find_anchor(glyph, "bottom") and _find_anchor(glyph, "mark_bottom"):
             _find_anchor(glyph, "bottom").x = _find_anchor(glyph, "mark_bottom").x
-            _find_anchor(glyph, "bottom").y = min(
-                _find_anchor(glyph, "bottom").y,
-                _find_anchor(glyph, "mark_bottom").y,
-            )
+
+            if ".swsh" in glyph.name:
+                _find_anchor(glyph, "bottom").y = _find_anchor(glyph, "mark_bottom").y
+            elif not dont:
+                _find_anchor(glyph, "bottom").y = min(
+                    _find_anchor(glyph, "bottom").y,
+                    _find_anchor(glyph, "mark_bottom").y,
+                )
+            else:
+                _find_anchor(glyph, "bottom").y = _find_anchor(glyph, "mark_bottom").y
             modified = True
 
         # Adjust anchor.y where topthreedots acnhor exists.
