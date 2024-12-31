@@ -57,6 +57,7 @@ class TashkeelPositionsFilter(BaseFilter):
     def filter(self, glyph):
 
         bounds = get_bounds(glyph, self.glyphset())
+        dont = (".el" in glyph.name or ".swsh" in glyph.name) and glyph.width > 2000
 
         modified = False
 
@@ -74,35 +75,59 @@ class TashkeelPositionsFilter(BaseFilter):
             if _find_anchor(glyph, "bottom"):
                 del glyph.anchors[glyph.anchors.index(_find_anchor(glyph, "bottom"))]
 
+        swsh = ".swsh" in glyph.name
+        el = ".el" in glyph.name
+        normal = not swsh and not el
+        wide = glyph.width > 2000
+        narrow = glyph.width < 2000
+
         # TOP
         if _find_anchor(glyph, "top") and _find_anchor(glyph, "mark_top"):
             _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
 
-            # Don't reposition top anchors vertically for .el wide masters
-            dont = ".el" in glyph.name and glyph.width > 2000
-            if not dont:
+            apply_margin = bounds and _find_anchor(glyph, "mark_top").y > bounds[3]
 
+            if wide and el:
+                _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
+
+            else:
                 _find_anchor(glyph, "top").y = max(
                     _find_anchor(glyph, "top").y,
                     _find_anchor(glyph, "mark_top").y,
                 )
 
-                if (
-                    abs(
-                        _find_anchor(glyph, "top").x - _find_anchor(glyph, "mark_top").x
-                    )
-                    > 100
-                ):
-                    _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
-                    _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
+            # mark_top is too far from top
+            # make them equal
+            if (
+                abs(_find_anchor(glyph, "top").x - _find_anchor(glyph, "mark_top").x)
+                > 100
+            ):
+                _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
+                _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
 
-                # Recently added:
-                if bounds:
-                    if _find_anchor(glyph, "top").y < bounds[3] + 50:
-                        _find_anchor(glyph, "top").y = bounds[3] + 50
+            # Top margin
+            if bounds:
+                if (normal or swsh or (el and narrow)) and apply_margin:
+
+                    top_margin = 50
+                    if swsh:
+                        top_margin = 150
+
+                    _find_anchor(glyph, "top").y = max(
+                        _find_anchor(glyph, "top").y,
+                        bounds[3] + top_margin,
+                    )
 
             else:
                 _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
+
+            # # Top margin just for SWSH
+            # if bounds and ".swsh" in glyph.name and glyph.width > 2000:
+            #     top_margin = 250
+            #     _find_anchor(glyph, "top").y = max(
+            #         _find_anchor(glyph, "top").y,
+            #         bounds[3] + top_margin,
+            #     )
 
             modified = True
 
@@ -130,7 +155,6 @@ class TashkeelPositionsFilter(BaseFilter):
                 self.context.font[glyph.components[1].baseGlyph], "_topthreedots"
             )
         ):
-            # print(glyph, _find_anchor(glyph, "top").y)
             _find_anchor(glyph, "top").x = _find_anchor(glyph, "topthreedots").x
             _find_anchor(glyph, "top").y += (
                 _find_anchor(self.context.font[glyph.components[1].baseGlyph], "top").y
