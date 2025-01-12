@@ -107,7 +107,7 @@ class TashkeelPositionsFilter(BaseFilter):
 
             # Top margin
             if bounds:
-                if (normal or swsh or (el and narrow)) and apply_margin:
+                if (normal or (el and narrow)) and apply_margin:  # swsh or
 
                     top_margin = 50
                     if swsh:
