@@ -81,6 +81,20 @@ class TashkeelPositionsFilter(BaseFilter):
         wide = glyph.width > 2000
         narrow = glyph.width < 2000
 
+        # SUKOON
+        if _find_anchor(glyph, "mark_top") and _find_anchor(glyph, "top.sukoon"):
+            _find_anchor(glyph, "top.sukoon").y = max(
+                _find_anchor(glyph, "top.sukoon").y,
+                _find_anchor(glyph, "mark_top").y,
+            )
+            modified = True
+        if _find_anchor(glyph, "top") and _find_anchor(glyph, "top.sukoon"):
+            _find_anchor(glyph, "top.sukoon").y = max(
+                _find_anchor(glyph, "top.sukoon").y,
+                _find_anchor(glyph, "top").y,
+            )
+            modified = True
+
         # TOP
         if _find_anchor(glyph, "top") and _find_anchor(glyph, "mark_top"):
             _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
