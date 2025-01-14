@@ -82,82 +82,103 @@ class TashkeelPositionsFilter(BaseFilter):
         narrow = glyph.width < 2000
 
         # SUKOON
-        if _find_anchor(glyph, "mark_top") and _find_anchor(glyph, "top.sukoon"):
-            _find_anchor(glyph, "top.sukoon").y = max(
-                _find_anchor(glyph, "top.sukoon").y,
-                _find_anchor(glyph, "mark_top").y,
-            )
-            modified = True
-        if _find_anchor(glyph, "top") and _find_anchor(glyph, "top.sukoon"):
-            _find_anchor(glyph, "top.sukoon").y = max(
-                _find_anchor(glyph, "top.sukoon").y,
-                _find_anchor(glyph, "top").y,
-            )
-            modified = True
-
-        # TOP
-        if _find_anchor(glyph, "top") and _find_anchor(glyph, "mark_top"):
-            _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
-
-            apply_margin = bounds and _find_anchor(glyph, "mark_top").y > bounds[3]
-
-            if wide and el:
-                _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
-
-            else:
-                _find_anchor(glyph, "top").y = max(
-                    _find_anchor(glyph, "top").y,
+        if not (swsh and wide):
+            if _find_anchor(glyph, "mark_top") and _find_anchor(glyph, "top.sukoon"):
+                _find_anchor(glyph, "top.sukoon").y = max(
+                    _find_anchor(glyph, "top.sukoon").y,
                     _find_anchor(glyph, "mark_top").y,
                 )
+                modified = True
+            if _find_anchor(glyph, "top") and _find_anchor(glyph, "top.sukoon"):
+                _find_anchor(glyph, "top.sukoon").y = max(
+                    _find_anchor(glyph, "top.sukoon").y,
+                    _find_anchor(glyph, "top").y,
+                )
+                modified = True
 
-            # mark_top is too far from top
-            # make them equal
-            if (
-                abs(_find_anchor(glyph, "top").x - _find_anchor(glyph, "mark_top").x)
-                > 100
-            ):
+        # TOP
+        if bounds:
+            if _find_anchor(glyph, "top") and _find_anchor(glyph, "mark_top"):
+
+                top_and_mark_top_wide_apart = (
+                    _find_anchor(glyph, "top").x - _find_anchor(glyph, "mark_top").x
+                    > 500
+                )
+
                 _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
-                _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
 
-            # Top margin
-            if bounds:
-                if (normal or (el and narrow)) and apply_margin:  # swsh or
+                apply_margin = bounds and _find_anchor(glyph, "mark_top").y > bounds[3]
 
-                    top_margin = 50
-                    if swsh:
-                        top_margin = 150
+                # TODO
+                # This doesn't work for teh-ar.fina.swash with top tashkeel
+                if el and wide or swsh and top_and_mark_top_wide_apart:
+                    _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
 
-                    _find_anchor(glyph, "top").y = max(
-                        _find_anchor(glyph, "top").y,
-                        bounds[3] + top_margin,
+                else:
+
+                    if _find_anchor(glyph, "mark_top").y > bounds[3]:
+
+                        _find_anchor(glyph, "top").y = max(
+                            _find_anchor(glyph, "top").y,
+                            _find_anchor(glyph, "mark_top").y,
+                        )
+
+                # mark_top is too far from top
+                # make them equal
+                if (
+                    abs(
+                        _find_anchor(glyph, "top").x - _find_anchor(glyph, "mark_top").x
                     )
+                    > 100
+                ):
+                    _find_anchor(glyph, "top").x = _find_anchor(glyph, "mark_top").x
+                    _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
 
-            else:
-                _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
+                # Top margin
+                if bounds:
+                    if (normal or (el and narrow)) and apply_margin:  # swsh or
 
-            # # Top margin just for SWSH
-            # if bounds and ".swsh" in glyph.name and glyph.width > 2000:
-            #     top_margin = 250
-            #     _find_anchor(glyph, "top").y = max(
-            #         _find_anchor(glyph, "top").y,
-            #         bounds[3] + top_margin,
-            #     )
+                        top_margin = 50
+                        if swsh:
+                            top_margin = 150
 
-            modified = True
+                        _find_anchor(glyph, "top").y = max(
+                            _find_anchor(glyph, "top").y,
+                            bounds[3] + top_margin,
+                        )
+
+                else:
+                    _find_anchor(glyph, "top").y = _find_anchor(glyph, "mark_top").y
+
+                # # Top margin just for SWSH
+                # if bounds and ".swsh" in glyph.name and glyph.width > 2000:
+                #     top_margin = 250
+                #     _find_anchor(glyph, "top").y = max(
+                #         _find_anchor(glyph, "top").y,
+                #         bounds[3] + top_margin,
+                #     )
+
+                modified = True
 
         # BOTTOM
         if _find_anchor(glyph, "bottom") and _find_anchor(glyph, "mark_bottom"):
             _find_anchor(glyph, "bottom").x = _find_anchor(glyph, "mark_bottom").x
 
-            if ".swsh" in glyph.name:
+            if (swsh or el) and wide:
                 _find_anchor(glyph, "bottom").y = _find_anchor(glyph, "mark_bottom").y
-            elif not dont:
+            else:
                 _find_anchor(glyph, "bottom").y = min(
                     _find_anchor(glyph, "bottom").y,
                     _find_anchor(glyph, "mark_bottom").y,
                 )
-            else:
-                _find_anchor(glyph, "bottom").y = _find_anchor(glyph, "mark_bottom").y
+
+            if el and narrow:
+                _find_anchor(glyph, "bottom").y = min(
+                    _find_anchor(glyph, "bottom").y,
+                    _find_anchor(glyph, "mark_bottom").y,
+                    bounds[1] - 100,
+                )
+
             modified = True
 
         # Adjust anchor.y where topthreedots acnhor exists.
@@ -178,30 +199,30 @@ class TashkeelPositionsFilter(BaseFilter):
                 - 150
             )
 
-        # Ligatures
-        if glyph.components:
-            for i in range(len(glyph.components)):
+        # # Ligatures
+        # if glyph.components:
+        #     for i in range(len(glyph.components)):
 
-                if _find_anchor(glyph, f"top_{i+1}") and _find_anchor(
-                    glyph, f"mark_top_{i+1}"
-                ):
-                    _find_anchor(glyph, f"top_{i+1}").x = _find_anchor(
-                        glyph, f"mark_top_{i+1}"
-                    ).x
-                    _find_anchor(glyph, f"top_{i+1}").y = _find_anchor(
-                        glyph, f"mark_top_{i+1}"
-                    ).y
-                    modified = True
+        #         if _find_anchor(glyph, f"top_{i+1}") and _find_anchor(
+        #             glyph, f"mark_top_{i+1}"
+        #         ):
+        #             _find_anchor(glyph, f"top_{i+1}").x = _find_anchor(
+        #                 glyph, f"mark_top_{i+1}"
+        #             ).x
+        #             _find_anchor(glyph, f"top_{i+1}").y = _find_anchor(
+        #                 glyph, f"mark_top_{i+1}"
+        #             ).y
+        #             modified = True
 
-                if _find_anchor(glyph, f"bottom_{i+1}") and _find_anchor(
-                    glyph, f"mark_bottom_{i+1}"
-                ):
-                    _find_anchor(glyph, f"bottom_{i+1}").x = _find_anchor(
-                        glyph, f"mark_bottom_{i+1}"
-                    ).x
-                    _find_anchor(glyph, f"bottom_{i+1}").y = _find_anchor(
-                        glyph, f"mark_bottom_{i+1}"
-                    ).y
-                    modified = True
+        #         if _find_anchor(glyph, f"bottom_{i+1}") and _find_anchor(
+        #             glyph, f"mark_bottom_{i+1}"
+        #         ):
+        #             _find_anchor(glyph, f"bottom_{i+1}").x = _find_anchor(
+        #                 glyph, f"mark_bottom_{i+1}"
+        #             ).x
+        #             _find_anchor(glyph, f"bottom_{i+1}").y = _find_anchor(
+        #                 glyph, f"mark_bottom_{i+1}"
+        #             ).y
+        #             modified = True
 
         return modified
