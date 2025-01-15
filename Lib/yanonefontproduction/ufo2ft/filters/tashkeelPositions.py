@@ -61,6 +61,26 @@ class TashkeelPositionsFilter(BaseFilter):
 
         modified = False
 
+        # Add _top.sukoon anchor for mark ligatures
+        if glyph.components:
+            all_component_have_sukoon_anchor = []
+            for component in glyph.components:
+                if component.baseGlyph in self.context.font:
+                    base = self.context.font[component.baseGlyph]
+                    if _find_anchor(base, "_top.sukoon"):
+                        all_component_have_sukoon_anchor.append(True)
+            if (
+                all_component_have_sukoon_anchor
+                and all(all_component_have_sukoon_anchor)
+                and len(all_component_have_sukoon_anchor) == len(glyph.components)
+                and _find_anchor(glyph, "_top")
+                and not _find_anchor(glyph, "_top.sukoon")
+            ):
+                new_anchor = copy.copy(_find_anchor(glyph, "_top"))
+                new_anchor.name = "_top.sukoon"
+                glyph.anchors.append(new_anchor)
+                modified = True
+
         # Adjust anchors positions
 
         # Delete top and bottom anchors if glyph is a ligature
