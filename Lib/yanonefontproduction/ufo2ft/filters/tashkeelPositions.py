@@ -42,13 +42,6 @@ class TashkeelPositionsFilter(BaseFilter):
 
     _kwargs = {"a": 0}
 
-    # def __call__(self, font, glyphSet=None):
-    #     if super().__call__(font, glyphSet):
-    #         modified = self.context.modified
-    #         if modified:
-    #             logger.info("Adjusted mark positions: %i" % len(modified))
-    #         return modified
-
     def glyphset(self):
         if not hasattr(self, "_glyphset"):
             self._glyphset = self.context.glyphSet
@@ -57,7 +50,6 @@ class TashkeelPositionsFilter(BaseFilter):
     def filter(self, glyph):
 
         bounds = get_bounds(glyph, self.glyphset())
-        dont = (".el" in glyph.name or ".swsh" in glyph.name) and glyph.width > 2000
 
         modified = False
 
