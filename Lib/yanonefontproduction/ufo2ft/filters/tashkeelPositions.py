@@ -7,6 +7,10 @@ from fontTools.pens.boundsPen import ControlBoundsPen
 logger = logging.getLogger(__name__)
 
 
+def interpolate(y1, y2, a):
+    return y1 + (y2 - y1) * a
+
+
 def anchor(glyph, name):
     for anchor in glyph.anchors:
         if anchor.name == name:
@@ -102,7 +106,8 @@ class TashkeelPositionsFilter(BaseFilter):
 
         swsh = ".swsh" in glyph.name
         el = ".el" in glyph.name
-        normal = not swsh and not el
+        er = ".er" in glyph.name
+        normal = not swsh and not el and not er
         wide = glyph.width > 2000
         narrow = glyph.width < 2000
 
@@ -260,6 +265,10 @@ class TashkeelPositionsFilter(BaseFilter):
 
             if (swsh or el) and wide:
                 anchor(glyph, "bottom").y = anchor(glyph, "mark_bottom").y
+            elif er:
+                anchor(glyph, "bottom").y = interpolate(
+                    anchor(glyph, "bottom").y, anchor(glyph, "mark_bottom").y, 0.5
+                )
             else:
                 anchor(glyph, "bottom").y = min(
                     anchor(glyph, "bottom").y,
